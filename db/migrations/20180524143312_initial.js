@@ -10,7 +10,7 @@ exports.up = function(knex, Promise) {
       table.string('top_action');
       table.string('bottom_action');
       table.string('image_url');
-      table.string('card_level');
+      table.integer('card_level');
 
       table.timestamps(true, true);
     }),
@@ -28,6 +28,8 @@ exports.up = function(knex, Promise) {
       table.foreign('card_id').references('cards.id');
       table.integer('deck_id').unsigned();
       table.foreign('deck_id').references('decks.id');
+
+      table.timestamps(true, true);
     })
 
   ])
