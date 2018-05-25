@@ -19,7 +19,11 @@ app.get('/', (request, response) => {
   response.sendStatus(200);
 });
 
-
+app.get('/api/v1/cards', (request, response) => {
+  database('cards').select()
+    .then(cards => response.status(200).json(cards))
+    .catch(error => response.status(500).json(error));
+});
 
 app.listen(app.get('port'), () => {
   // eslint-disable-next-line
