@@ -30,6 +30,42 @@ app.get('/api/v1/cards/:class', (request, response) => {
     .json('Internal server error ' + error));
 })
 
+app.post('/api/v1/decks', (request, response) => {
+
+  const deck = request.body;
+  const deckName = request.body.name; 
+  const cardArray = request.body.cards;
+
+  for (let requiredParameter of ['name', 'cards', ]) {
+    if (!deck[requiredParameter]) {
+      return response.status(422)
+        .send(`You are missing a ${requiredParameter} parameter.`);
+    }
+  }
+
+  if (!cardArray.length) {
+    return response.status(422)
+      .send('You must have at least one card in your deck.');
+  }
+
+  database('decks').insert({ "name": deckName }, 'id')
+  .then(deckId => {
+    cardArray.forEach(card => {
+      database('joins').insert(
+        {
+          deck_id: deckId[0],
+          card_id: card
+        }
+      ).then(id => id)
+    })
+
+    return response.status(200).json(`Successfully added ${deckName} deck to database.`);
+  })
+  .catch(error => {
+    return response.status(500).json('Internal server error' + error )
+  })
+})
+
 
 
 module.exports = {app, database}
