@@ -40,10 +40,14 @@ describe('API Routes', () => {
         response.should.have.status(200)
         response.body.should.be.an('array')
         response.body.length.should.equal(174)
-        response.body[0].should.have.property('name');
         response.body[0].should.have.property('id', 1);
-        response.body[0].should.have.property('url');
-        response.body[0].should.have.property('image');
+        response.body[0].should.have.property('class', 'Brute');
+        response.body[0].should.have.property('name');
+        response.body[0].should.have.property('initiative');
+        response.body[0].should.have.property('top_action');
+        response.body[0].should.have.property('bottom_action');
+        response.body[0].should.have.property('image_url');
+        response.body[0].should.have.property('card_level', 1);
         done()
       })
   })
