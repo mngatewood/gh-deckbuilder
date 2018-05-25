@@ -3,7 +3,7 @@
 module.exports = {
   development: {
     client: 'pg',
-    connection: 'postgres://localhost/gloomhaven',
+    connection: 'postgres://localhost/deckbuilder',
     migrations: {
       directory: './db/migrations'
     },
@@ -12,4 +12,28 @@ module.exports = {
     },
     useNullAsDefault: true
   },
+
+  test: {
+    client: 'pg',
+    connection: 'postgres://localhost/deckbuilder_test',
+    migrations: {
+      directory: './db/migrations'
+    },
+    seeds: {
+      directory: './db/seeds/test'
+    },
+    useNullAsDefault: true
+  },
+
+  production: {
+    client: 'pg',
+    connection: process.env.DATABASE_URL + `?ssl=true`,
+    migrations: {
+      directory: './db/migrations'
+    },
+    seeds: {
+      directory: './db/seeds/prod'
+    },
+    useNullAsDefault: true
+  }
 };

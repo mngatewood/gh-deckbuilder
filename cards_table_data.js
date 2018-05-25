@@ -1,4 +1,4 @@
-export const cardData = [
+module.exports = [
   {
     class: "Brute",
     name: "Sweeping Blow",
