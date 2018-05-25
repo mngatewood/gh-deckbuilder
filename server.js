@@ -87,8 +87,7 @@ app.post('/api/v1/decks', (request, response) => {
         }
       ).then(id => id)
     })
-
-    return response.status(200).json(`Successfully added ${deckName} deck to database.`);
+    return response.status(201).json(`Successfully added ${deckName} deck to database.`);
   })
   .catch(error => {
     return response.status(500).json('Internal server error' + error )
@@ -101,12 +100,12 @@ app.delete('/api/v1/decks/:id', (request, response) => {
   database('joins').where('deck_id', deckId).del()
   .then(deleteCount => {
     if(deleteCount === 0) {
-      return response.status(422).json(`No decks found with id ${deckId}.`)
+      return response.status(404).json(`No decks found with id ${deckId}.`)
     }
     database('decks').where('id', deckId).del()
     .then(deleteCount => {
       if (deleteCount === 0) {
-        return response.status(422).json(`No decks found with id ${deckId}.`)
+        return response.status(404).json(`No decks found with id ${deckId}.`)
       }
       return response.status(200).json(`Successfully removed deck ${deckId} from database.`)
     })
