@@ -7,8 +7,8 @@ exports.up = function(knex, Promise) {
       table.string('class');
       table.string('name');
       table.integer('initiative');
-      table.string('top_action');
-      table.string('bottom_action');
+      table.string('top_action', 500);
+      table.string('bottom_action', 500);
       table.string('image_url');
       table.integer('card_level');
 

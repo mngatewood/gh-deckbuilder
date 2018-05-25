@@ -1,4 +1,4 @@
-export const decksData = [
+module.exports = [
   {
     name: "Brute Deck"
   },
