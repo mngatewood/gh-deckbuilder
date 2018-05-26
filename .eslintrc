@@ -40,5 +40,8 @@
   },
   "globals": {
     "expect": true
+  },
+  "parserOptions": {
+    "sourceType": "module"
   }
 }
