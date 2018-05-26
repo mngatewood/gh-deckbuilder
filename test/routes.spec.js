@@ -27,12 +27,17 @@ describe('client routes', () => {
 })
 
 describe('API Routes', () => {
+  beforeEach(done => {
+  database.migrate.rollback().then(() => {
+      database.migrate.latest().then(() => {
+        return database.seed.run().then(() => {
+          done();
+        });
+      });
+    });
+});
 
-  beforeEach(() => {
-    return database.seed.run()
-  })
-
-  it('should GET all the cards', (done) => {
+  it.skip('should GET all the cards', (done) => {
     chai.request(app)
       .get('/api/v1/cards')
       .end((error, response) => {
@@ -52,5 +57,24 @@ describe('API Routes', () => {
       })
   })
 
-});
+  describe("GET cards by :class", () => {
+    chai.request(app)
+      .get('/api/v1/cards:mindthief')
+      .end((error, response) => {
+        response.should.be.json
+        response.should.have.status(200)
+        response.body.should.be.an('array')
+        response.body.length.should.equal(174)
+        // response.body[0].should.have.property('id', 1);
+        // response.body[0].should.have.property('class', 'Brute');
+        // response.body[0].should.have.property('name');
+        // response.body[0].should.have.property('initiative');
+        // response.body[0].should.have.property('top_action');
+        // response.body[0].should.have.property('bottom_action');
+        // response.body[0].should.have.property('image_url');
+        // response.body[0].should.have.property('card_level', 1);
+        done()
+      })
+  });
 
+});
