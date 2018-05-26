@@ -144,7 +144,8 @@ describe('API Routes', () => {
             done();
           });
     });
-    it.only("should NOT post new deck if required params are missing", (done) => {
+
+    it("should NOT post new deck if required params are missing", (done) => {
       chai.request(app)
           .post('/api/v1/decks')
           .send({
@@ -154,6 +155,21 @@ describe('API Routes', () => {
             response.should.have.status(422);
             response.should.be.json;
             response.body.should.equal('You are missing a name parameter.');
+            done();
+          });
+    });
+
+    it("should NOT post if cardArray does not have length", (done) => {
+      chai.request(app)
+          .post('/api/v1/decks')
+          .send({
+            name: 'Ultra Mega Awesome Tinkerer',
+            cards: []
+          })
+          .end((err, response) => {
+            response.should.have.status(422);
+            response.should.be.json;
+            response.body.should.equal('You must have at least one card in your deck.');
             done();
           });
     });
