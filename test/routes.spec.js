@@ -115,6 +115,7 @@ describe('API Routes', () => {
         .post('/api/v1/decks')
         .send({
           name: 'Ultra Mega Awesome Tinkerer',
+          class: 'Tinkerer',
           cards: [144, 145, 146, 147, 148, 149, 150]
         })
         .end((err, response) => {
@@ -129,6 +130,7 @@ describe('API Routes', () => {
       chai.request(app)
         .post('/api/v1/decks')
         .send({
+          class: 'Tinkerer',
           cards: [144, 145, 146, 147, 148, 149, 150]
         })
         .end((err, response) => {
@@ -144,6 +146,7 @@ describe('API Routes', () => {
         .post('/api/v1/decks')
         .send({
           name: 'Ultra Mega Awesome Tinkerer',
+          class: 'Tinkerer',
           cards: []
         })
         .end((err, response) => {
