@@ -90,7 +90,7 @@ describe('API Routes', () => {
     });
   });
 
-  describe("should GET all decks by id", () => {
+  describe("GET all decks by id", () => {
     it("should GET deck by specified ID", (done) => {
       chai.request(app)
         .get('/api/v1/decks/1')
@@ -117,7 +117,7 @@ describe('API Routes', () => {
         })
     });
 
-    it("should return a 404 if there is no deck by specified ID in joins table", (done) => {
+    it.only("should return a 404 if there is no deck by specified ID in joins table", (done) => {
       chai.request(app)
         .get('/api/v1/decks/3')
         .end((error, response) => {
@@ -126,6 +126,26 @@ describe('API Routes', () => {
           response.body.should.equal('No matching cards found.');
           done();
         })
+    });
+  });
+
+  describe("POST to decks", () => {
+    it("should post new deck if successful", (done) => {
+      chai.request(app)
+          .post('/api/v1/decks')
+          .send({
+            name: 'Ultra Mega Awesome Tinkerer',
+            cards: [144, 145, 146, 147, 148, 149, 150],
+          })
+          .end((err, response) => {
+            console.log(response.body);
+            response.should.have.status(201);
+            response.should.be.json;
+            response.body.should.be.an('object');
+            response.body.should.have.property('id');
+            response.body.id.should.equal(4);
+            done();
+          });
     });
   });
 });

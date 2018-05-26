@@ -29,9 +29,9 @@ exports.seed = (knex, Promise) => database.migrate.rollback()
   // add two records to decks table
   .then(() => {
     return Promise.all([
-      knex('decks').insert({ id: 1, name: 'Brute Deck' }),
-      knex('decks').insert({ id: 2, name: 'Cragheart Deck' }),
-      knex('decks').insert({ id: 3, name: 'Mindthief Deck' }),
+      knex('decks').insert({ name: 'Brute Deck' }),
+      knex('decks').insert({ name: 'Cragheart Deck' }),
+      knex('decks').insert({ name: 'Mindthief Deck' }),
     ]);
   })
 
@@ -40,9 +40,7 @@ exports.seed = (knex, Promise) => database.migrate.rollback()
     const joinsPromises = [];
 
     joinsData.forEach((join) => {
-      if (join.deck_id !== 3) {
         joinsPromises.push(createJoin(knex, join));
-      }
     });
 
     return Promise.all(joinsPromises);
