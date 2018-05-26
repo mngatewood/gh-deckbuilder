@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
-// import { Switch, Route } from 'react-router-dom';
-import {Header} from '../Header/Header'
+import { Switch, Route } from 'react-router-dom';
+import {Header} from '../Header/Header';
+import {Footer} from '../Footer/Footer';
+import {Welcome} from '../Welcome/Welcome';
+import DeckBuilder from '../../containers/DeckBuilder/DeckBuilder';
 import './App.css';
 
 class App extends Component {
@@ -8,7 +11,7 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        {/* <Switch>
+        <Switch>
           <Route
             exact path="/"
             component={Welcome}
@@ -18,7 +21,7 @@ class App extends Component {
             component={DeckBuilder}
           />
           <Route
-            path="/Mindtheif"
+            path="/Mindthief"
             component={DeckBuilder}
           />
           <Route
@@ -37,7 +40,8 @@ class App extends Component {
             path="/Tinkerer"
             component={DeckBuilder}
           />
-        </Switch> */}
+        </Switch>
+        <Footer />
       </div>
     );
   }
