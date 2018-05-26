@@ -70,7 +70,7 @@ app.post('/api/v1/decks', (request, response) => {
   const deckName = request.body.name;
   const cardArray = request.body.cards;
 
-  for (let requiredParameter of ['name', 'cards']) {
+  for (let requiredParameter of ['name', 'cards', 'class']) {
     if (!deck[requiredParameter]) {
       return response.status(422)
         .json(`You are missing a ${requiredParameter} parameter.`);

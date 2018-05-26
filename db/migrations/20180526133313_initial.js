@@ -1,5 +1,5 @@
 
-exports.up = function(knex, Promise) {
+exports.up = function (knex, Promise) {
 
   return Promise.all([
     knex.schema.createTable('cards', (table) => {
@@ -16,10 +16,11 @@ exports.up = function(knex, Promise) {
     }),
 
     knex.schema.createTable('decks', (table) => {
-      table.increments('id').primary()
+      table.increments('id').primary();
       table.string('name');
+      table.string('class')
 
-      table.timestamps(true, true,);
+      table.timestamps(true, true);
     }),
 
     knex.schema.createTable('joins', (table) => {
@@ -33,7 +34,7 @@ exports.up = function(knex, Promise) {
     })
 
   ])
-  
+
 };
 
 exports.down = function (knex, Promise) {
