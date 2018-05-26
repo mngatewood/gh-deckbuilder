@@ -17,7 +17,7 @@
     "build": "react-scripts build",
     "test": "NODE_ENV=test mocha --exit",
     "eject": "react-scripts eject",
-    "eslint": "./node_modules/.bin/eslint --fix ./"
+    "eslint": "./node_modules/.bin/eslint --fix ./*.js ./db/**/*.js ./test/*.js"
   },
   "devDependencies": {
     "chai": "^4.1.2",
