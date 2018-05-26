@@ -68,13 +68,13 @@ app.post('/api/v1/decks', (request, response) => {
   for (let requiredParameter of ['name', 'cards', ]) {
     if (!deck[requiredParameter]) {
       return response.status(422)
-        .send(`You are missing a ${requiredParameter} parameter.`);
+        .json(`You are missing a ${requiredParameter} parameter.`);
     }
   }
 
   if (!cardArray.length) {
     return response.status(422)
-      .send('You must have at least one card in your deck.');
+      .json('You must have at least one card in your deck.');
   }
 
   database('decks').insert({ "name": deckName }, 'id')

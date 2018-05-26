@@ -117,7 +117,7 @@ describe('API Routes', () => {
         })
     });
 
-    it.only("should return a 404 if there is no deck by specified ID in joins table", (done) => {
+    it("should return a 404 if there is no deck by specified ID in joins table", (done) => {
       chai.request(app)
         .get('/api/v1/decks/3')
         .end((error, response) => {
@@ -138,12 +138,22 @@ describe('API Routes', () => {
             cards: [144, 145, 146, 147, 148, 149, 150],
           })
           .end((err, response) => {
-            console.log(response.body);
             response.should.have.status(201);
             response.should.be.json;
-            response.body.should.be.an('object');
-            response.body.should.have.property('id');
-            response.body.id.should.equal(4);
+            response.body.should.equal('Successfully added Ultra Mega Awesome Tinkerer deck to database.');
+            done();
+          });
+    });
+    it.only("should NOT post new deck if required params are missing", (done) => {
+      chai.request(app)
+          .post('/api/v1/decks')
+          .send({
+            cards: [144, 145, 146, 147, 148, 149, 150]
+          })
+          .end((err, response) => {
+            response.should.have.status(422);
+            response.should.be.json;
+            response.body.should.equal('You are missing a name parameter.');
             done();
           });
     });
