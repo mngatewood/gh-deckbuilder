@@ -1564,6 +1564,6 @@ module.exports = [
     bottom_action: "One ally within Range 3 may Recover one lost card belonging to an ally adjacent to them. 2XP, LOSS",
     image_url: "./images/cards/Tinkerer31.png",
     card_level: 9
-  },
+  }
 
-]
+];

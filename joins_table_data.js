@@ -79,4 +79,4 @@ module.exports = [
     card_id: 40,
     deck_id: 2
   }
-]
+];
