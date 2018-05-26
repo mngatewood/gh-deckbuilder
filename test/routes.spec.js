@@ -174,4 +174,41 @@ describe('API Routes', () => {
           });
     });
   });
+
+  describe("DELETE a deck", () => {
+    it("should delete the deck specifed by ID", (done) => {
+      chai.request(app)
+      .del('/api/v1/decks/2')
+      .end((err, response) => {
+        response.should.have.status(200);
+        response.should.be.json;
+        response.body.should.equal('Successfully removed deck 2 from database.');
+        done();
+      });
+    });
+
+    it("should not delete anything if the ID is not a number", (done) => {
+      chai.request(app)
+      .del('/api/v1/decks/bob')
+      .end((err, response) => {
+        response.should.have.status(422);
+        response.should.be.json;
+        response.should.be.an('object');
+        response.body.should.equal('ID is not an integer')
+        done();
+      });
+    });
+
+    it("should not delete anything if deck doesn't exist", (done) => {
+      chai.request(app)
+      .del('/api/v1/decks/55')
+      .end((err, response) => {
+        response.should.have.status(404);
+        response.should.be.json;
+        response.should.be.an('object');
+        response.body.should.equal('No decks found with id 55.')
+        done();
+      });
+    });
+  });
 });

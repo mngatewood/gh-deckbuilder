@@ -111,7 +111,7 @@ app.delete('/api/v1/decks/:id', (request, response) => {
     })
   })
   .catch(error => {
-    return response.status(500).json('Internal server error' + error)
+    return response.status(422).json('ID is not an integer')
   })
 })
 
