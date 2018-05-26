@@ -1,6 +1,6 @@
 const cardsData = require('../../../cards_table_data');
 const joinsData = require('../../../joins_table_data');
-const environment = process.env.NODE_ENV || 'development';
+const environment = process.env.NODE_ENV || 'test'
 const configuration = require('../../../knexfile')[environment];
 const database = require('knex')(configuration);
 
@@ -29,8 +29,9 @@ exports.seed = (knex, Promise) => database.migrate.rollback()
   // add two records to decks table
   .then(() => {
     return Promise.all([
-      knex('decks').insert({ id: 1, name: 'Brute Deck' }),
-      knex('decks').insert({ id: 2, name: 'Cragheart Deck' }),
+      knex('decks').insert({ name: 'Brute Deck' }),
+      knex('decks').insert({ name: 'Cragheart Deck' }),
+      knex('decks').insert({ name: 'Mindthief Deck' }),
     ]);
   })
 
@@ -39,7 +40,7 @@ exports.seed = (knex, Promise) => database.migrate.rollback()
     const joinsPromises = [];
 
     joinsData.forEach((join) => {
-      joinsPromises.push(createJoin(knex, join));
+        joinsPromises.push(createJoin(knex, join));
     });
 
     return Promise.all(joinsPromises);

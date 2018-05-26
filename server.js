@@ -62,19 +62,19 @@ app.get('/api/v1/decks/:id', (request, response) => {
 app.post('/api/v1/decks', (request, response) => {
 
   const deck = request.body;
-  const deckName = request.body.name; 
+  const deckName = request.body.name;
   const cardArray = request.body.cards;
 
   for (let requiredParameter of ['name', 'cards', ]) {
     if (!deck[requiredParameter]) {
       return response.status(422)
-        .send(`You are missing a ${requiredParameter} parameter.`);
+        .json(`You are missing a ${requiredParameter} parameter.`);
     }
   }
 
   if (!cardArray.length) {
     return response.status(422)
-      .send('You must have at least one card in your deck.');
+      .json('You must have at least one card in your deck.');
   }
 
   database('decks').insert({ "name": deckName }, 'id')
@@ -111,7 +111,7 @@ app.delete('/api/v1/decks/:id', (request, response) => {
     })
   })
   .catch(error => {
-    return response.status(500).json('Internal server error' + error)
+    return response.status(422).json('ID is not an integer')
   })
 })
 
