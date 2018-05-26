@@ -77,6 +77,55 @@ describe('API Routes', () => {
           done();
         })
     });
+
+    it("should give a 404 and a 'no matches found message' if there is no specified class", (done) => {
+      chai.request(app)
+        .get('/api/v1/cards/Kittens')
+        .end((error, response) => {
+          response.should.be.json
+          response.should.have.status(404);
+          response.body.should.equal('No matches found')
+          done();
+        })
+    });
   });
 
+  describe("should GET all decks by id", () => {
+    it("should GET deck by specified ID", (done) => {
+      chai.request(app)
+        .get('/api/v1/decks/1')
+        .end((error, response) => {
+          response.should.be.json
+          response.should.have.status(200);
+          response.body.should.be.an('object');
+          response.body.should.have.property('name', 'Brute Deck');
+          response.body.should.have.property('cards');
+          response.body.cards.should.be.an('array');
+          response.body.cards.length.should.equal(10);
+          done();
+        })
+    });
+
+    it("should return a 404 if there is no deck by specified ID", (done) => {
+      chai.request(app)
+        .get('/api/v1/decks/100')
+        .end((error, response) => {
+          response.should.be.json
+          response.should.have.status(404);
+          response.body.should.equal('No matching decks found.');
+          done();
+        })
+    });
+
+    it("should return a 404 if there is no deck by specified ID in joins table", (done) => {
+      chai.request(app)
+        .get('/api/v1/decks/3')
+        .end((error, response) => {
+          response.should.be.json
+          response.should.have.status(404);
+          response.body.should.equal('No matching cards found.');
+          done();
+        })
+    });
+  });
 });
