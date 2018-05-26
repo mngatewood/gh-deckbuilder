@@ -29,9 +29,9 @@ exports.seed = (knex, Promise) => database.migrate.rollback()
   // add two records to decks table
   .then(() => {
     return Promise.all([
-      knex('decks').insert({ name: 'Brute Deck' }),
-      knex('decks').insert({ name: 'Cragheart Deck' }),
-      knex('decks').insert({ name: 'Mindthief Deck' }),
+      knex('decks').insert({ name: 'Brute Deck', class: 'Brute' }),
+      knex('decks').insert({ name: 'Cragheart Deck', class: 'Cragheart' }),
+      knex('decks').insert({ name: 'Mindthief Deck', class: 'Mindthief' }),
     ]);
   })
 
