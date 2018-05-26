@@ -4,16 +4,21 @@ const app = express();
 const environment = process.env.NODE_ENV || 'development';
 const configuration = require('./knexfile')[environment];
 const database = require('knex')(configuration);
+const path = require('path');
 
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 8080);
 
 app.locals.title = 'Gloomhaven Deck-Builder';
 
 app.use(bodyParser.json());
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.listen(app.get('port'), () => {
   console.log(`${app.locals.title} is running on port ${app.get('port')}`); //eslint-disable-line
+});
+
+app.get('/', function (request, response) {
+  response.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 app.get('/api/v1/cards/:class', (request, response) => {
