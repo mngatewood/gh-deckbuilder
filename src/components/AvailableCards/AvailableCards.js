@@ -3,14 +3,11 @@ import { connect } from 'react-redux';
 import './AvailableCards.css';
 import { Card } from '../Card/Card'
 
-export const AvailableCards = ({cards}) => {
+export const AvailableCards = ({ cards }) => {
   let displayCards
-
-  console.log(cards)
 
   if (cards) {
     displayCards = cards.map(card => {
-      console.log(card)
     return <Card
       key={card.id}
       image={card.image_url}
@@ -19,9 +16,9 @@ export const AvailableCards = ({cards}) => {
   }
 
   return (
-    <div class="cards-component" id="available-component">
+    <div className="cards-component" id="available-component">
       <h1>Available Cards</h1>
-      <div class="cards-container">
+      <div className="cards-container">
         {displayCards}
       </div>
     </div>
@@ -29,7 +26,9 @@ export const AvailableCards = ({cards}) => {
 }
 
 export const mapStateToProps = state => ({
-  cards: state.cards
+  cards: state.cards,
+  selectedCards: state.selectedCards,
+  availableCards: state.availableCards
 });
 
 export default connect(mapStateToProps)(AvailableCards);

@@ -1,13 +1,34 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import './SelectedCards.css';
+import { Card } from '../Card/Card'
 
-export const SelectedCards = () => {
+export const SelectedCards = ({ cards }) => {
+  let displayCards
+
+  if(cards) {
+    displayCards = cards.map(card => {
+    return <Card
+      key={card.id}
+      image={card.image_url}
+      name={card.name} />;
+    });
+  }
+
   return (
-    <div class="cards-component">
+    <div className="cards-component" id="selected-component">
       <h1>Selected Cards</h1>
-      <div class="cards-container" id="selected-container">
-        No cards to display yet.
+      <div className="cards-container">
+        {displayCards}
       </div>
     </div>
   );
-};
+}
+
+export const mapStateToProps = state => ({
+  cards: state.cards,
+  selectedCards: state.selectedCards,
+  availableCards: state.availableCards
+});
+
+export default connect(mapStateToProps)(SelectedCards);
