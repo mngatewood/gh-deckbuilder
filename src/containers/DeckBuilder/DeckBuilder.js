@@ -1,38 +1,34 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './DeckBuilder.css';
-import { addCards } from '../../actions';
+import { addCards, addSelectedCards, addAvailableCards } from '../../actions';
 import { AvailableCards } from '../../components/AvailableCards/AvailableCards';
 import { SelectedCards } from '../../components/SelectedCards/SelectedCards';
+import * as api from '../../api/index'
+import * as helper from '../../helpers/index'
 
 export class DeckBuilder extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      deck: 1,
       error: ''
     };
   };
 
   async componentDidMount() {
     try {
+      const { addCards, addSelectedCards, addAvailableCards } = this.props
       const selectedClass = this.props.location.pathname.slice(1);
-      const cards = await this.getCards(selectedClass);
-      this.props.addCards(cards)
-      console.log(this.props.cards)
+      const cards = await api.fetchCards(selectedClass);
+      const selected = await helper.getSelected(this.state.deck, cards);
+      const available = await helper.getAvailable(cards, selected)
+      addCards(cards);
+      addSelectedCards(selected);
+      addAvailableCards(available);
     } catch (error) {
       this.setState({ error });
     }
-  }
-
-  getCards = async (selectedClass) => {
-    const url = `http://localhost:8080/api/v1/cards/${selectedClass}`;
-
-    try {
-      const response = await fetch(url);
-      const cards = await response.json();
-      return cards
-    } catch (error) {
-      throw error("Error getting cards")}
   }
 
   // THIS WILL BE A SMART COMPONENT THAT DISPLAYS THE
@@ -44,8 +40,8 @@ export class DeckBuilder extends Component {
   
   render() {
     return (
-      <div class="deck-builder">     
-        <AvailableCards cards={this.props.cards} />
+      <div className="deck-builder">     
+        <AvailableCards cards={this.props.availableCards} />
         <div id="class-info">
           Class Image
           Card X of X
@@ -54,18 +50,24 @@ export class DeckBuilder extends Component {
           Change Class Button
           Reset Deck Button
         </div>
-        <SelectedCards />
+        <SelectedCards cards={this.props.selectedCards} />
       </div>
     )
   }
 };
 
 export const mapDispatchToProps = dispatch => ({
-  addCards: cards => dispatch(addCards(cards))
+  addCards: cards => dispatch(addCards(cards)),
+  addSelectedCards: selectedCards => 
+    dispatch(addSelectedCards(selectedCards)),
+  addAvailableCards: availableCards => 
+    dispatch(addAvailableCards(availableCards))
 });
 
 export const mapStateToProps = state => ({
-  cards: state.cards
+  cards: state.cards,
+  selectedCards: state.selectedCards,
+  availableCards: state.availableCards
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(DeckBuilder);
