@@ -1,1 +1,16 @@
-/* PLACEHOLDER */
+.cards-component {
+  width: 42%;
+  margin-bottom: 85px;
+}
+
+#available-component {
+}
+
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  padding-top: 5px;
+  height: 100%;
+  overflow: scroll;
+}

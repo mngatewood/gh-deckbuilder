@@ -1,1 +1,11 @@
-/* PLACEHOLDER */
+header {
+  position: absolute;
+  top: 0;
+  height: 100px
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  height: 100px
+}
