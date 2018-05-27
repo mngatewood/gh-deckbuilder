@@ -6,7 +6,7 @@ export const Card = (card) => {
   console.log(this.props)
   
   return (
-    <div class="card">
+    <div className="card">
       <img src={card.image} alt={card.name}/>
     </div>
   )
