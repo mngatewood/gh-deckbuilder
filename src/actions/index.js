@@ -48,3 +48,8 @@ export const removeAvailableCard = (availableCard) => ({
   availableCard
 });
 
+export const addSelectedClass = (selectedClass) => ({
+  type: 'ADD_SELECTED_CLASS',
+  selectedClass
+});
+
