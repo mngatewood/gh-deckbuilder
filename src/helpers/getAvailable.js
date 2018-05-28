@@ -5,7 +5,7 @@ export const getAvailable = (cards, selected) => {
     let available = [...cards]
     selected.forEach(selectedCard => {
       available = available.filter(availableCard => {
-        return availableCard.id !== selectedCard
+        return availableCard.id !== selectedCard.id
       })
     })
     return available
