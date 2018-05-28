@@ -1,1 +1,19 @@
-/* PLACEHOLDER */
+body {
+  background-color: black;
+}
+
+header {
+  position: absolute;
+  top: 0;
+  height: 50px
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  height: 50px
+}
+
+h1 {
+  margin: 5px;
+}

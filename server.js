@@ -12,6 +12,11 @@ app.locals.title = 'Gloomhaven Deck-Builder';
 
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(function (request, response, next) {
+  response.header("Access-Control-Allow-Origin", "*");
+  response.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 
 app.listen(app.get('port'), () => {
   console.log(`${app.locals.title} is running on port ${app.get('port')}`); //eslint-disable-line
@@ -51,6 +56,7 @@ app.get('/api/v1/decks/:id', (request, response) => {
               });
               return response.status(200).json({
                 name: deck[0].name,
+                class: deck[0].class,
                 cards: cardsArray
               });
             } else {
