@@ -18,41 +18,40 @@ section {
   height: 500px;
   width: 14%;
   border: 1px solid white;
-  transition: all .5s;
+  transition: transform .5s;
+  opacity: 1
 }
 
-.class-select-container a:hover {
+.class-select-container:hover > a {
+  opacity: 0.5;
+}
+
+.class-select-container:hover > a:hover {
+  opacity: 1.0;
   transform: scale(1.2)
 }
 
 .class-select-container .brute {
-
   background: url('../../images/classArtwork/brute.jpg') 54% 20% no-repeat;
-
 }
 
 .class-select-container .cragheart {
-
   background: url('../../images/classArtwork/brute.jpg') 54% 20% no-repeat;
 }
 
 .class-select-container .mindthief {
-
   background: url('../../images/classArtwork/brute.jpg') 54% 20% no-repeat;
 }
 
 .class-select-container .scoundrel {
-
   background: url('../../images/classArtwork/brute.jpg') 54% 20% no-repeat;
 }
 
 .class-select-container .spellweaver {
-
   background: url('../../images/classArtwork/brute.jpg') 54% 20% no-repeat;
 }
 
 .class-select-container .tinkerer {
-
   background: url('../../images/classArtwork/brute.jpg') 54% 20% no-repeat;
 }
 

@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 import "./Welcome.css";
 
 export const Welcome = () => {
+
   return (
     <div className="full-page">
     <section className="class-select-container">
