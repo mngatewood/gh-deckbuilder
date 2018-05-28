@@ -1,17 +1,23 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './DeckBuilder.css';
-import { addCards, addSelectedCards, addAvailableCards } from '../../actions';
 import { AvailableCards } from '../../components/AvailableCards/AvailableCards';
 import { SelectedCards } from '../../components/SelectedCards/SelectedCards';
 import * as api from '../../api/index'
 import * as helper from '../../helpers/index'
+import { 
+  addCards, 
+  addSelectedCards, 
+  addAvailableCards, 
+  addSelectedClass 
+  } from '../../actions';
 
 export class DeckBuilder extends Component {
   constructor(props) {
     super(props);
     this.state = {
       deck: 1,
+      selectedClass: '',
       error: ''
     };
   };
@@ -22,7 +28,7 @@ export class DeckBuilder extends Component {
       const selectedClass = this.props.location.pathname.slice(1);
       const cards = await api.fetchCards(selectedClass);
       const selected = await helper.getSelected(this.state.deck, cards);
-      const available = await helper.getAvailable(cards, selected)
+      const available = await helper.getAvailable(cards, selected);
       addCards(cards);
       addSelectedCards(selected);
       addAvailableCards(available);
@@ -60,14 +66,17 @@ export const mapDispatchToProps = dispatch => ({
   addCards: cards => dispatch(addCards(cards)),
   addSelectedCards: selectedCards => 
     dispatch(addSelectedCards(selectedCards)),
-  addAvailableCards: availableCards => 
-    dispatch(addAvailableCards(availableCards))
+  addAvailableCards: availableCards =>
+    dispatch(addAvailableCards(availableCards)),
+  addSelectedClass: selectedClass =>
+    dispatch(addSelectedClass(selectedClass))
 });
 
 export const mapStateToProps = state => ({
   cards: state.cards,
   selectedCards: state.selectedCards,
-  availableCards: state.availableCards
+  availableCards: state.availableCards,
+  selectedClass: state.selectedClass
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(DeckBuilder);
