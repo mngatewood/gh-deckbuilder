@@ -1,3 +1,58 @@
-div {
-  text-align: center
+
+section {
+  display: flex;
+  justify-content: space-evenly;
+  width: 90vw;
+  height: 50%;
+  margin: auto auto;
 }
+
+.full-page {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.class-select-container a {
+  height: 500px;
+  width: 14%;
+  border: 1px solid white;
+  transition: all .5s;
+}
+
+.class-select-container a:hover {
+  transform: scale(1.2)
+}
+
+.class-select-container .brute {
+
+  background: url('../../images/classArtwork/brute.jpg') 54% 20% no-repeat;
+
+}
+
+.class-select-container .cragheart {
+
+  background: url('../../images/classArtwork/brute.jpg') 54% 20% no-repeat;
+}
+
+.class-select-container .mindthief {
+
+  background: url('../../images/classArtwork/brute.jpg') 54% 20% no-repeat;
+}
+
+.class-select-container .scoundrel {
+
+  background: url('../../images/classArtwork/brute.jpg') 54% 20% no-repeat;
+}
+
+.class-select-container .spellweaver {
+
+  background: url('../../images/classArtwork/brute.jpg') 54% 20% no-repeat;
+}
+
+.class-select-container .tinkerer {
+
+  background: url('../../images/classArtwork/brute.jpg') 54% 20% no-repeat;
+}
+

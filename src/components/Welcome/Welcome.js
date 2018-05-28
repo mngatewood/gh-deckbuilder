@@ -1,15 +1,19 @@
-import React from 'react';
-import './Welcome.css';
+import React from "react";
+import { NavLink } from "react-router-dom";
+// import * as img from '../../images/index';
+import "./Welcome.css";
 
 export const Welcome = () => {
   return (
-    <div>
-      <p>Brute</p>
-      <p>Mindthief</p>
-      <p>Cragheart</p>
-      <p>Scoundrel</p>
-      <p>Spellweaver</p>
-      <p>Tinkerer</p>
+    <div className="full-page">
+    <section className="class-select-container">
+      <NavLink to="/Brute" className="brute"></NavLink>
+      <NavLink to="/Cragheart" className="cragheart"></NavLink>
+      <NavLink to="/Mindthief" className="mindthief"></NavLink>
+      <NavLink to="/Scoundrel" className="scoundrel"></NavLink>
+      <NavLink to="/Spellweaver" className="spellweaver"></NavLink>
+      <NavLink to="/Tinkerer" className="tinkerer"></NavLink>
+    </section>
     </div>
   );
 };
