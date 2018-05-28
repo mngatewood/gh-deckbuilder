@@ -1,12 +1,39 @@
 .deck-builder {
   display: flex;
   position: absolute;
-  top: 100px;
-  bottom: 100px;
+  top: 50px;
+  bottom: 50px;
 }
 
 #class-info {
   width: 16%;
   text-align: center;
-  border: 1px solid black;
+  color: white; 
 }
+
+#class-info img {
+  width: 100%;
+}
+
+#class-info button {
+  display: block;
+  margin: 15px auto;
+}
+
+#class-info h2 {
+  margin: 10px 10px 10px 15px;
+}
+
+#class-info h3 {
+  display: inline-block;
+  margin: 10px;
+}
+
+#class-info h4 {
+  margin-bottom: 0;
+}
+
+#class-info button.inline-button {
+  display: inline-block;
+}
+

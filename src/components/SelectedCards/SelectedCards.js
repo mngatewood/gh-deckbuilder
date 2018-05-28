@@ -17,7 +17,7 @@ export const SelectedCards = ({ cards }) => {
 
   return (
     <div className="cards-component" id="selected-component">
-      <h1>Selected Cards</h1>
+      <h2>Selected Cards/Deck Name</h2>
       <div className="cards-container">
         {displayCards}
       </div>

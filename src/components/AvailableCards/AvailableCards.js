@@ -17,7 +17,7 @@ export const AvailableCards = ({ cards }) => {
 
   return (
     <div className="cards-component" id="available-component">
-      <h1>Available Cards</h1>
+      <h2>Available Cards</h2>
       <div className="cards-container">
         {displayCards}
       </div>
