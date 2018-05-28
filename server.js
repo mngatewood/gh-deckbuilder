@@ -56,6 +56,7 @@ app.get('/api/v1/decks/:id', (request, response) => {
               });
               return response.status(200).json({
                 name: deck[0].name,
+                class: deck[0].class,
                 cards: cardsArray
               });
             } else {
