@@ -29,6 +29,8 @@ export class DeckBuilder extends Component {
       const cards = await api.fetchCards(selectedClass);
       const selected = await helper.getSelected(this.state.deck, cards);
       const available = await helper.getAvailable(cards, selected);
+      this.setState({selectedClass})
+      addSelectedClass(selectedClass)
       addCards(cards);
       addSelectedCards(selected);
       addAvailableCards(available);
@@ -49,12 +51,18 @@ export class DeckBuilder extends Component {
       <div className="deck-builder">     
         <AvailableCards cards={this.props.availableCards} />
         <div id="class-info">
-          Class Image
-          Card X of X
-          Change Level
-          Save Deck Button
-          Change Class Button
-          Reset Deck Button
+          <h2>{this.state.selectedClass}</h2>
+          <img src='http://www.cephalofair.com/wp-content/uploads/2015/04/Inox-Brute1-731x1024.jpg'
+            alt="`{this.state.selectedClass} Class`" />
+          <h4>Cards Selected</h4>
+          <p>X of X</p>
+          <h4>Character Level</h4> 
+          <button className="inline-button">-</button>
+          <h3>9</h3>
+          <button className="inline-button">+</button>
+          <button>Save Deck</button>
+          <button>Reset Deck</button>
+          <button>Change Class</button>
         </div>
         <SelectedCards cards={this.props.selectedCards} />
       </div>
