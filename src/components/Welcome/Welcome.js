@@ -8,12 +8,24 @@ export const Welcome = () => {
   return (
     <div className="full-page">
       <section className="class-select-container">
-        <NavLink to="/Brute" className="brute"></NavLink>
-        <NavLink to="/Cragheart" className="cragheart"></NavLink>
-        <NavLink to="/Mindthief" className="mindthief"></NavLink>
-        <NavLink to="/Scoundrel" className="scoundrel"></NavLink>
-        <NavLink to="/Spellweaver" className="spellweaver"></NavLink>
-        <NavLink to="/Tinkerer" className="tinkerer"></NavLink>
+        <NavLink to="/Brute">
+          <div className="brute"></div>
+        </NavLink>
+        <NavLink to="/Cragheart">
+          <div className="cragheart"></div>
+        </NavLink>
+        <NavLink to="/Mindthief">
+          <div className="mindthief"></div>
+        </NavLink>
+        <NavLink to="/Scoundrel">
+          <div className="scoundrel"></div>
+        </NavLink>
+        <NavLink to="/Spellweaver">
+          <div className="spellweaver"></div>
+        </NavLink>
+        <NavLink to="/Tinkerer">
+          <div className="tinkerer"></div>
+        </NavLink>
       </section>
     </div>
   );
