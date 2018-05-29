@@ -18,7 +18,7 @@ section {
 .class-select-container a {
   height: 500px;
   width: 14%;
-  border: 1px solid white;
+  border: 2px solid white;
   overflow: hidden;
 }
 
@@ -39,36 +39,36 @@ section {
 .class-select-container .brute {
   height: 100%;
   width: 100%;
-  background: url('../../images/classArtwork/brute.jpg') 54% 20% no-repeat;
+  background: url('../../images/classArtwork/BruteFullBody.png') 60% 20% no-repeat;
 }
 
 .class-select-container .cragheart {
   height: 100%;
   width: 100%;
-  background: url('../../images/classArtwork/brute.jpg') 54% 20% no-repeat;
+  background: url('../../images/classArtwork/CragheartFullBody.png') 53% 0% no-repeat;
 }
 
 .class-select-container .mindthief {
   height: 100%;
   width: 100%;
-  background: url('../../images/classArtwork/brute.jpg') 54% 20% no-repeat;
+  background: url('../../images/classArtwork/MindthiefFullBody.png') 45% 10% no-repeat;
 }
 
 .class-select-container .scoundrel {
   height: 100%;
   width: 100%;
-  background: url('../../images/classArtwork/brute.jpg') 54% 20% no-repeat;
+  background: url('../../images/classArtwork/ScoundrelFullBody.png') 55% 0% no-repeat;
 }
 
 .class-select-container .spellweaver {
   height: 100%;
   width: 100%;
-  background: url('../../images/classArtwork/brute.jpg') 54% 20% no-repeat;
+  background: url('../../images/classArtwork/SpellweaverFullBody.png') 48% 20% no-repeat;
 }
 
 .class-select-container .tinkerer {
   height: 100%;
   width: 100%;
-  background: url('../../images/classArtwork/brute.jpg') 54% 20% no-repeat;
+  background: url('../../images/classArtwork/TinkererFullBody.png') 60% 0% no-repeat;
 }
 
