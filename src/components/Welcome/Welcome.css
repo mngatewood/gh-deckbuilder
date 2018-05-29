@@ -1,3 +1,74 @@
-div {
-  text-align: center
+
+section {
+  display: flex;
+  justify-content: space-evenly;
+  width: 90vw;
+  height: 50%;
+  margin: auto auto;
 }
+
+.full-page {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.class-select-container a {
+  height: 500px;
+  width: 14%;
+  border: 2px solid white;
+  overflow: hidden;
+}
+
+.class-select-container div {
+  transition: transform .5s;
+  opacity: 1;
+}
+
+.class-select-container:hover div {
+  opacity: 0.5;
+}
+
+.class-select-container:hover div:hover {
+  opacity: 1.0;
+  transform: scale(1.2)
+}
+
+.class-select-container .brute {
+  height: 100%;
+  width: 100%;
+  background: url('../../images/classArtwork/BruteFullBody.png') 60% 20% no-repeat;
+}
+
+.class-select-container .cragheart {
+  height: 100%;
+  width: 100%;
+  background: url('../../images/classArtwork/CragheartFullBody.png') 53% 0% no-repeat;
+}
+
+.class-select-container .mindthief {
+  height: 100%;
+  width: 100%;
+  background: url('../../images/classArtwork/MindthiefFullBody.png') 45% 10% no-repeat;
+}
+
+.class-select-container .scoundrel {
+  height: 100%;
+  width: 100%;
+  background: url('../../images/classArtwork/ScoundrelFullBody.png') 55% 0% no-repeat;
+}
+
+.class-select-container .spellweaver {
+  height: 100%;
+  width: 100%;
+  background: url('../../images/classArtwork/SpellweaverFullBody.png') 48% 20% no-repeat;
+}
+
+.class-select-container .tinkerer {
+  height: 100%;
+  width: 100%;
+  background: url('../../images/classArtwork/TinkererFullBody.png') 60% 0% no-repeat;
+}
+
