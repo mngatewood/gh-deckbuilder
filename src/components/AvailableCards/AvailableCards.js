@@ -34,6 +34,7 @@ export const AvailableCards = ({ cards }) => {
     //addAvailableCard
     //removeSelectedCard
     event.target.appendChild(document.getElementById(data));
+    //enable all drop zones
   }
 
   return (

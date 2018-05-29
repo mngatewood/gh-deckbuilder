@@ -5,6 +5,7 @@ export const Card = (card) => {
 
   const dragstartHandler = (event) => {
     console.log(event.target);
+    //disable parent container drop zone
     event.dataTransfer.setData("text/plain", event.target.id);
     event.dataTransfer.dropEffect = "move";
   }
