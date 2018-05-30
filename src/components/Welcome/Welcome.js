@@ -1,11 +1,14 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-// import * as img from '../../images/index';
 import "./Welcome.css";
 
 export const Welcome = () => {
 
   return (
+    <section className="welcome-section">
+    <div className="class-title-wrapper">
+      <h1 className="class-title-h1">CLASS SELECT</h1>
+    </div>
     <div className="full-page">
       <section className="class-select-container">
         <NavLink to="/Brute">
@@ -28,5 +31,7 @@ export const Welcome = () => {
         </NavLink>
       </section>
     </div>
+    </section>
   );
 };
+
