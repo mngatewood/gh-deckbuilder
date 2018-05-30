@@ -1,5 +1,8 @@
 body {
-  background-color: black;
+  background-image: url('../../images/mirrored_enlarged_2.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  /* background-position: center; */
 }
 
 header {
