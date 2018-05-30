@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router';
 import './DeckBuilder.css';
 import { AvailableCards } from '../../components/AvailableCards/AvailableCards';
 import { SelectedCards } from '../../components/SelectedCards/SelectedCards';
@@ -47,6 +48,7 @@ export class DeckBuilder extends Component {
 
   
   render() {
+    console.log(this.props)
     return (
       <div className="deck-builder">     
         <AvailableCards cards={this.props.availableCards} />
@@ -87,4 +89,4 @@ export const mapStateToProps = state => ({
   selectedClass: state.selectedClass
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(DeckBuilder);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(DeckBuilder));
