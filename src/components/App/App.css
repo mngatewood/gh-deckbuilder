@@ -1,20 +1,25 @@
 body {
-  background-image: url('../../images/mirrored_enlarged_2.png');
-  background-size: cover;
+  background-color: black;
+  background-image: url("../../images/bg-smallglow.png");
+  background-size: 100% 100vh;
   background-repeat: no-repeat;
-  /* background-position: center; */
+  padding: 5% 0;
+  margin: 0;
+  font-family: sans-serif;
 }
 
 header {
   position: absolute;
   top: 0;
-  height: 50px
+  height: 50px;
+  background: none;
 }
 
 footer {
   position: absolute;
   bottom: 0;
-  height: 50px
+  height: 50px;
+  background: none;
 }
 
 h1 {
