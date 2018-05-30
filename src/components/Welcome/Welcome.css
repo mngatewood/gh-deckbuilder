@@ -47,6 +47,10 @@
   opacity: 0.5;
 }
 
+a:hover .class-title-h1 {
+  visibility: visible;
+}
+
 .class-select-container:hover div:hover {
   opacity: 1.0;
   transform: scale(1.2)
@@ -95,9 +99,24 @@
   width: 100vw;
 }
 
-.class-title-h1 {
-  margin: 0;
-  color: white;
-  font-size: 3rem;
+.class-title {
+  position: absolute;
+  top: 10%;
   font-family: 'HighTower';
+  font-size: 3rem;
+  color: white;
+  margin: 0;
+}
+
+.class-title-h1 {
+  visibility: hidden;
+  position: absolute;
+  bottom: 0;
+  width: 12%;
+  text-align: center;
+  font-family: 'HighTower';
+  font-size: 1.5vw;
+  color: white;
+  text-decoration: none;
+  margin: 0;
 }
