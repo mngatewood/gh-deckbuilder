@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import './DeckBuilder.css';
-import { AvailableCards } from '../../components/AvailableCards/AvailableCards';
-import { SelectedCards } from '../../components/SelectedCards/SelectedCards';
+import AvailableCards from '../../components/AvailableCards/AvailableCards';
+import SelectedCards from '../../components/SelectedCards/SelectedCards';
 import * as api from '../../api/index'
 import * as helper from '../../helpers/index'
 import { 
