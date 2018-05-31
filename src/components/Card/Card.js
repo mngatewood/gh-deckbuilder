@@ -4,9 +4,14 @@ import React from 'react';
 export const Card = (card) => {
 
   const dragstartHandler = (event) => {
-    console.log(event.target);
-    //disable parent container drop zone
-    event.dataTransfer.setData("text/plain", event.target.id);
+    const parent = event.target.parentNode.parentNode.id;
+    const id = event.target.id;
+    const data = JSON.stringify({id, parent})
+    setTimeout( () => {
+      document.getElementById(id).style.visibility = "hidden";
+    }, 1)
+    console.log('card #' + id + ' picked up from ' + parent);
+    event.dataTransfer.setData("text/plain", data);
     event.dataTransfer.dropEffect = "move";
   }
 

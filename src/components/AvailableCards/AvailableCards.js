@@ -15,53 +15,63 @@ export class AvailableCards extends Component {
     }
   }
 
-  renderCards = (cards) => {
-    let displayCards
-
-    if (cards) {
-      displayCards = cards.map(card => {
-        return <Card
-          key={card.id}
-          id={card.id}
-          image={card.image_url}
-          name={card.name} />;
-      });
-    }
-    return displayCards
-  }
-
-  dragoverHandler = (event) => {
-    event.preventDefault();
-    //make shit move out of the way
-    event.dataTransfer.dropEffect = "move"
-  }
-
-  dropHandler = (event) => {
-    event.preventDefault();
-    //don't allow to drop on original parent
-    var data = event.dataTransfer.getData("text");
-    console.log(data)
-    //addAvailableCard
-    //removeSelectedCard
-    event.target.appendChild(document.getElementById(data));
-    //enable all drop zones
-  }
-
   render() {
+
+    const { cards, availableCards, selectedCards } = this.props
+
+    const renderCards = (cards) => {
+      let displayCards
+
+      if (cards) {
+        displayCards = cards.map(card => {
+          return <Card
+            key={card.id}
+            id={card.id}
+            image={card.image_url}
+            name={card.name} />;
+        });
+      }
+      return displayCards
+    }
+
+    const getCardById = (id) => {
+      const cardArray = cards.filter((card) => card.id === id);
+      return cardArray[0];
+    }
+    
+    const dragoverHandler = (event) => {
+      event.preventDefault();
+      console.log('ready to drop')
+      //prevent drop to anywhere except two drop zones
+      event.dataTransfer.dropEffect = "move"
+    }
+
+    const dropHandler = (event) => {
+      event.preventDefault();
+      const data = JSON.parse(event.dataTransfer.getData("text"));
+      const id = data.id;
+      const parent = data.parent;
+      if(parent !== "available-component") {
+        const droppedCard = getCardById(parseInt(id));
+        this.props.addAvailableCard(droppedCard);
+        this.props.removeSelectedCard(droppedCard);
+      } 
+      document.getElementById(id).style.visibility = "visible";
+    }
+
     return (
       <div className="cards-component" id="available-component">
         <h2>Available Cards</h2>
         <div className="cards-container" 
-          onDrop={ event => this.dropHandler(event)} 
-          onDragOver={ event => this.dragoverHandler(event)} >
-          {this.renderCards(this.props.cards)}
+          onDrop={ event => dropHandler(event)} 
+          onDragOver={ event => dragoverHandler(event)} >
+          {renderCards(availableCards)}
         </div>
       </div>
     );
   }
 };
 
-//make sure these actions are working!
 export const mapDispatchToProps = dispatch => ({
   addAvailableCard: availableCard =>
     dispatch(addAvailableCard(availableCard)),

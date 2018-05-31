@@ -48,10 +48,9 @@ export class DeckBuilder extends Component {
 
   
   render() {
-    console.log(this.props)
     return (
       <div className="deck-builder">     
-        <AvailableCards cards={this.props.availableCards} />
+        <AvailableCards />
         <div id="class-info">
           <h2>{this.state.selectedClass}</h2>
           <img src='http://www.cephalofair.com/wp-content/uploads/2015/04/Inox-Brute1-731x1024.jpg'
@@ -66,7 +65,7 @@ export class DeckBuilder extends Component {
           <button>Reset Deck</button>
           <button>Change Class</button>
         </div>
-        <SelectedCards cards={this.props.selectedCards} />
+        <SelectedCards />
       </div>
     )
   }

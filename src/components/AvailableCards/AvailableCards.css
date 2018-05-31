@@ -3,6 +3,10 @@
   margin-bottom: 60px;
 }
 
+.cards-component .drag * {
+  pointer-events: none
+}
+
 .cards-component h2 {
   color: white;
   margin: 10px;
