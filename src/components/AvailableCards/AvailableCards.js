@@ -12,7 +12,6 @@ export class AvailableCards extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      something: '',
     }
   }
 
@@ -31,25 +30,24 @@ export class AvailableCards extends Component {
     return displayCards
   }
 
-  // dragoverHandler = (event) => {
-  //   event.preventDefault();
-  //   //make shit move out of the way
-  //   event.dataTransfer.dropEffect = "move"
-  // }
+  dragoverHandler = (event) => {
+    event.preventDefault();
+    //make shit move out of the way
+    event.dataTransfer.dropEffect = "move"
+  }
 
-  // dropHandler = (event) => {
-  //   event.preventDefault();
-  //   //don't allow to drop on original parent
-  //   var data = event.dataTransfer.getData("text");
-  //   console.log(data)
-  //   //addAvailableCard
-  //   //removeSelectedCard
-  //   event.target.appendChild(document.getElementById(data));
-  //   //enable all drop zones
-  // }
+  dropHandler = (event) => {
+    event.preventDefault();
+    //don't allow to drop on original parent
+    var data = event.dataTransfer.getData("text");
+    console.log(data)
+    //addAvailableCard
+    //removeSelectedCard
+    event.target.appendChild(document.getElementById(data));
+    //enable all drop zones
+  }
 
   render() {
-    console.log(this.props)
     return (
       <div className="cards-component" id="available-component">
         <h2>Available Cards</h2>
@@ -63,18 +61,18 @@ export class AvailableCards extends Component {
   }
 };
 
-export const mapStateToProps = state => ({
-  cards: state.cards,
-  selectedCards: state.selectedCards,
-  availableCards: state.availableCards
-});
-
 //make sure these actions are working!
 export const mapDispatchToProps = dispatch => ({
   addAvailableCard: availableCard =>
     dispatch(addAvailableCard(availableCard)),
   removeSelectedCard: selectedCard =>
     dispatch(removeSelectedCard(selectedCard))
+});
+
+export const mapStateToProps = state => ({
+  cards: state.cards,
+  selectedCards: state.selectedCards,
+  availableCards: state.availableCards
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(AvailableCards));
