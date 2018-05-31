@@ -6,9 +6,10 @@
 }
 
 #class-info {
-  width: 16%;
+  width: 220px;
   text-align: center;
-  color: white; 
+  color: white;
+  margin: auto;
 }
 
 #class-info img {
@@ -36,4 +37,3 @@
 #class-info button.inline-button {
   display: inline-block;
 }
-
