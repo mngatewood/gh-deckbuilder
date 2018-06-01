@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import './AvailableCards.css';
-import { Card } from '../Card/Card';
-import * as api from '../../api/index'
-import * as helper from '../../helpers/index'
+// import * as api from '../../api/index'
+import * as helpers from '../../helpers/index'
 import {
   addAvailableCard,
   removeSelectedCard
@@ -19,22 +18,7 @@ export class AvailableCards extends Component {
 
   render() {
 
-    const { cards, availableCards, selectedCards } = this.props
-
-    const renderCards = (cards) => {
-      let displayCards
-
-      if (cards) {
-        displayCards = cards.map(card => {
-          return <Card
-            key={card.id}
-            id={card.id}
-            image={card.image_url}
-            name={card.name} />;
-        });
-      }
-      return displayCards
-    }
+    const { cards, availableCards } = this.props
 
     const getCardById = (id) => {
       const cardArray = cards.filter((card) => card.id === id);
@@ -54,7 +38,7 @@ export class AvailableCards extends Component {
       const id = data.id;
       const parent = data.parent;
       if(parent !== "available-component") {
-        const droppedCard = getCardById(parseInt(id));
+        const droppedCard = getCardById(parseInt(id, 10));
         this.props.addAvailableCard(droppedCard);
         this.props.removeSelectedCard(droppedCard);
       } 
@@ -67,7 +51,7 @@ export class AvailableCards extends Component {
         <div className="cards-container" 
           onDrop={ event => dropHandler(event)} 
           onDragOver={ event => dragoverHandler(event)} >
-          {renderCards(availableCards)}
+          {helpers.renderCards(availableCards)}
         </div>
       </div>
     );

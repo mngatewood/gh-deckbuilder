@@ -2,9 +2,8 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import './SelectedCards.css';
-import { Card } from '../Card/Card';
-import * as api from '../../api/index'
-import * as helper from '../../helpers/index'
+// import * as api from '../../api/index'
+import * as helpers from '../../helpers/index'
 import {
   addSelectedCard,
   removeAvailableCard
@@ -19,25 +18,10 @@ export class SelectedCards extends Component {
 
   render() {
 
-    const { cards, availableCards, selectedCards } = this.props
-
-    const renderCards = (cards) => {
-      let displayCards
-
-      if (cards) {
-        displayCards = cards.map(card => {
-          return <Card
-            key={card.id}
-            id={card.id}
-            image={card.image_url}
-            name={card.name} />;
-        });
-      }
-      return displayCards
-    }
+    const { cards, selectedCards } = this.props
 
     const getCardById = (id) => {
-      const cardArray = cards.filter((card) => card.id == id);
+      const cardArray = cards.filter((card) => card.id === id);
       return cardArray[0];
     }
 
@@ -54,7 +38,7 @@ export class SelectedCards extends Component {
       const id = data.id;
       const parent = data.parent;
       if (parent !== "selected-component") {
-        const droppedCard = getCardById(parseInt(id));
+        const droppedCard = getCardById(parseInt(id, 10));
         this.props.addSelectedCard(droppedCard);
         this.props.removeAvailableCard(droppedCard);
       } 
@@ -67,7 +51,7 @@ export class SelectedCards extends Component {
         <div className="cards-container"
           onDrop={event => dropHandler(event)}
           onDragOver={event => dragoverHandler(event)} >
-          {renderCards(selectedCards)}
+          {helpers.renderCards(selectedCards)}
         </div>
       </div>
     );

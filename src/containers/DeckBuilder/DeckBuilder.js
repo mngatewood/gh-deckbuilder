@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import './DeckBuilder.css';
-import AvailableCards from '../../components/AvailableCards/AvailableCards';
-import SelectedCards from '../../components/SelectedCards/SelectedCards';
+import AvailableCards from '../AvailableCards/AvailableCards';
+import SelectedCards from '../SelectedCards/SelectedCards';
 import * as api from '../../api/index';
-import * as helper from '../../helpers/index';
+import * as helpers from '../../helpers/index';
 import { 
   addCards, 
   addSelectedCards, 
@@ -28,8 +28,8 @@ export class DeckBuilder extends Component {
       const { addCards, addSelectedCards, addAvailableCards } = this.props
       const selectedClass = this.props.location.pathname.slice(1);
       const cards = await api.fetchCards(selectedClass);
-      const selected = await helper.getSelected(this.state.deck, cards);
-      const available = await helper.getAvailable(cards, selected);
+      const selected = await helpers.getSelected(this.state.deck, cards);
+      const available = await helpers.getAvailable(cards, selected);
       this.setState({selectedClass})
       addSelectedClass(selectedClass)
       addCards(cards);
