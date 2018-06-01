@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import './AvailableCards.css';
-import { Card } from '../Card/Card'
+import { Card } from '../Card/Card';
+import * as api from '../../api/index'
+import * as helper from '../../helpers/index'
 import {
   addAvailableCard,
   removeSelectedCard
