@@ -10,15 +10,10 @@ import {
 } from '../../actions';
 
 export class SelectedCards extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-    }
-  }
 
   render() {
 
-    const { cards, selectedCards } = this.props;
+    const { cards, selectedCards, addSelectedCard, removeAvailableCard } = this.props;
 
     const dragoverHandler = (event) => {
       event.preventDefault();
@@ -32,8 +27,8 @@ export class SelectedCards extends Component {
       const parent = data.parent;
       if (parent === "available-component") {
         const droppedCard = helpers.getCardById(parseInt(id, 10), cards);
-        this.props.addSelectedCard(droppedCard);
-        this.props.removeAvailableCard(droppedCard);
+        addSelectedCard(droppedCard);
+        removeAvailableCard(droppedCard);
       } 
     }
 
