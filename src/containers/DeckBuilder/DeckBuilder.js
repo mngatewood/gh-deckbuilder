@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import './DeckBuilder.css';
-import AvailableCards from '../../components/AvailableCards/AvailableCards';
-import SelectedCards from '../../components/SelectedCards/SelectedCards';
-import * as api from '../../api/index'
-import * as helper from '../../helpers/index'
+import AvailableCards from '../AvailableCards/AvailableCards';
+import SelectedCards from '../SelectedCards/SelectedCards';
+import * as api from '../../api/index';
+import * as helpers from '../../helpers/index';
 import { 
   addCards, 
   addSelectedCards, 
@@ -28,8 +28,8 @@ export class DeckBuilder extends Component {
       const { addCards, addSelectedCards, addAvailableCards } = this.props
       const selectedClass = this.props.location.pathname.slice(1);
       const cards = await api.fetchCards(selectedClass);
-      const selected = await helper.getSelected(this.state.deck, cards);
-      const available = await helper.getAvailable(cards, selected);
+      const selected = await helpers.getSelected(this.state.deck, cards);
+      const available = await helpers.getAvailable(cards, selected);
       this.setState({selectedClass})
       addSelectedClass(selectedClass)
       addCards(cards);
@@ -48,10 +48,9 @@ export class DeckBuilder extends Component {
 
   
   render() {
-    console.log(this.props)
     return (
       <div className="deck-builder">     
-        <AvailableCards cards={this.props.availableCards} />
+        <AvailableCards />
         <div id="class-info">
           <h2>{this.state.selectedClass}</h2>
           <img src='http://www.cephalofair.com/wp-content/uploads/2015/04/Inox-Brute1-731x1024.jpg'
@@ -66,7 +65,7 @@ export class DeckBuilder extends Component {
           <button>Reset Deck</button>
           <button>Change Class</button>
         </div>
-        <SelectedCards cards={this.props.selectedCards} />
+        <SelectedCards />
       </div>
     )
   }
