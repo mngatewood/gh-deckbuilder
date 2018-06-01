@@ -156,6 +156,22 @@ describe('API Routes', () => {
           done();
         });
     });
+
+    it("should NOT post new deck if any cards are invalid", (done) => {
+      chai.request(app)
+        .post('/api/v1/decks')
+        .send({
+          name: 'Ultra Mega Awesome Tinkerer',
+          class: 'Tinkerer',
+          cards: ['i do wat i want']
+        })
+        .end((err, response) => {
+          response.should.have.status(422);
+          response.should.be.json;
+          response.body.should.equal('Invalid card.');
+          done();
+        });
+    });
   });
 
   describe("DELETE a deck", () => {
