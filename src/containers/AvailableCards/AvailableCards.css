@@ -1,10 +1,7 @@
 .cards-component {
   width: 42%;
   margin-bottom: 60px;
-}
 
-.cards-component .drag * {
-  pointer-events: none
 }
 
 .cards-component h2 {
@@ -13,13 +10,15 @@
 }
 
 #available-component {
+  margin-left: 60px;
 }
 
 .cards-container {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  height: 100%;
-  overflow: scroll;
-}
+  flex-flow: row wrap;
+  align-items: center;
+  max-width: 550px;
+  height: 90%;
+  overflow-x: auto;
 
+}

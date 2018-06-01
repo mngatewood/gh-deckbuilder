@@ -1,24 +1,39 @@
-.cards-component {
-  width: 42%;
-  margin-bottom: 60px;
-
+.deck-builder {
+  display: flex;
+  position: absolute;
+  top: 50px;
+  bottom: 50px;
 }
 
-.cards-component h2 {
+#class-info {
+  width: 220px;
+  text-align: center;
   color: white;
+  margin: auto;
+}
+
+#class-info img {
+  width: 100%;
+}
+
+#class-info button {
+  display: block;
+  margin: 5px auto;
+}
+
+#class-info h2 {
+  margin: 10px 10px 10px 15px;
+}
+
+#class-info h3 {
+  display: inline-block;
   margin: 10px;
 }
 
-#available-component {
-  margin-left: 60px;
+#class-info h4 {
+  margin-bottom: 0;
 }
 
-.cards-container {
-  display: flex;
-  flex-flow: row wrap;
-  align-items: center;
-  max-width: 550px;
-  height: 90%;
-  overflow-x: auto;
-
+#class-info button.inline-button {
+  display: inline-block;
 }
