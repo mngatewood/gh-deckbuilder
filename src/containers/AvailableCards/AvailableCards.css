@@ -1,7 +1,6 @@
 .cards-component {
   width: 42%;
   margin-bottom: 60px;
-
 }
 
 .cards-component h2 {
@@ -20,5 +19,4 @@
   max-width: 550px;
   height: 90%;
   overflow-x: auto;
-
 }
