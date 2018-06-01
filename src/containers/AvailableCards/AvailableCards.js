@@ -18,13 +18,8 @@ export class AvailableCards extends Component {
 
   render() {
 
-    const { cards, availableCards } = this.props
+    const { cards, availableCards } = this.props;
 
-    const getCardById = (id) => {
-      const cardArray = cards.filter((card) => card.id === id);
-      return cardArray[0];
-    }
-    
     const dragoverHandler = (event) => {
       event.preventDefault();
       console.log('ready to drop')
@@ -37,8 +32,8 @@ export class AvailableCards extends Component {
       const data = JSON.parse(event.dataTransfer.getData("text"));
       const id = data.id;
       const parent = data.parent;
-      if(parent !== "available-component") {
-        const droppedCard = getCardById(parseInt(id, 10));
+      if(parent === "selected-component") {
+        const droppedCard = helpers.getCardById(parseInt(id, 10), cards);
         this.props.addAvailableCard(droppedCard);
         this.props.removeSelectedCard(droppedCard);
       } 

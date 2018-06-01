@@ -18,12 +18,7 @@ export class SelectedCards extends Component {
 
   render() {
 
-    const { cards, selectedCards } = this.props
-
-    const getCardById = (id) => {
-      const cardArray = cards.filter((card) => card.id === id);
-      return cardArray[0];
-    }
+    const { cards, selectedCards } = this.props;
 
     const dragoverHandler = (event) => {
       event.preventDefault();
@@ -37,8 +32,8 @@ export class SelectedCards extends Component {
       const data = JSON.parse(event.dataTransfer.getData("text"));
       const id = data.id;
       const parent = data.parent;
-      if (parent !== "selected-component") {
-        const droppedCard = getCardById(parseInt(id, 10));
+      if (parent === "available-component") {
+        const droppedCard = helpers.getCardById(parseInt(id, 10), cards);
         this.props.addSelectedCard(droppedCard);
         this.props.removeAvailableCard(droppedCard);
       } 
