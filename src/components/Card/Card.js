@@ -10,9 +10,13 @@ export const Card = (card) => {
     setTimeout( () => {
       document.getElementById(id).style.visibility = "hidden";
     }, 1)
-    console.log('card #' + id + ' picked up from ' + parent);
     event.dataTransfer.setData("text/plain", data);
     event.dataTransfer.dropEffect = "move";
+  }
+
+  const dragendHandler = (event) => {
+    const id = event.target.id;
+    document.getElementById(id).style.visibility = "visible";
   }
 
   return (
@@ -20,7 +24,9 @@ export const Card = (card) => {
       id={card.id}
       style={{ backgroundImage: `url(${card.image})`}}
       draggable="true"
-      onDragStart={ (event) => dragstartHandler(event) }>
+      onDragStart={ (event) => dragstartHandler(event) }
+      onDragEnd={ (event) => dragendHandler(event) }
+      >
     </div>
   )
 

@@ -22,8 +22,6 @@ export class AvailableCards extends Component {
 
     const dragoverHandler = (event) => {
       event.preventDefault();
-      console.log('ready to drop')
-      //prevent drop to anywhere except two drop zones
       event.dataTransfer.dropEffect = "move"
     }
 
@@ -37,7 +35,6 @@ export class AvailableCards extends Component {
         this.props.addAvailableCard(droppedCard);
         this.props.removeSelectedCard(droppedCard);
       } 
-      document.getElementById(id).style.visibility = "visible";
     }
 
     return (
