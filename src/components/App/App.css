@@ -1,47 +1,24 @@
-body {
-  background-color: black;
-  background-image: url("../../images/bg-smallglow.png");
-  background-size: 100% 100vh;
-  background-repeat: no-repeat;
-  padding: 5% 0;
-  margin: 0;
-  font-family: sans-serif;
+.cards-component {
+  width: 42%;
+  margin-bottom: 60px;
+
 }
 
-header {
-  position: absolute;
-  top: 0;
-  height: 50px;
-  background: none;
+.cards-component h2 {
+  color: white;
+  margin: 10px;
 }
 
-footer {
-  position: absolute;
-  bottom: 0;
-  height: 50px;
-  background: none;
+#available-component {
+  margin-left: 60px;
 }
 
-h1 {
-  margin: 5px;
-}
+.cards-container {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  max-width: 550px;
+  height: 90%;
+  overflow-x: auto;
 
-/* width */
-::-webkit-scrollbar {
-    width: 2px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-    background: none;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-    background: none;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-    background: #555;
 }
