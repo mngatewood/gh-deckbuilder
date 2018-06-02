@@ -10,7 +10,9 @@ import {
   addCards, 
   addSelectedCards, 
   addAvailableCards, 
-  addSelectedClass 
+  addSelectedClass,
+  increaseCurrentLevel,
+  decreaseCurrentLevel
   } from '../../actions';
 
 export class DeckBuilder extends Component {
@@ -19,6 +21,7 @@ export class DeckBuilder extends Component {
     this.state = {
       deck: 2,
       classImage: require('../../images/classArtwork/pending.png'),
+      level: 1,
       error: ''
     };
   };
@@ -42,16 +45,14 @@ export class DeckBuilder extends Component {
       this.setState({ error });
     }
   }
-
-  // THIS WILL BE A SMART COMPONENT THAT DISPLAYS THE
-  // CLASS IMAGE AND INFORMATION in a middle column.
-  // 
-  // WILL ALSO RENDER 'AVAILABLE CARDS' COMPONENT AND
-  // 'SELECTED CARDS COMPONENT
-
   
   render() {
-    const { selectedClass, cards, selectedCards } = this.props;
+    const { selectedClass, 
+      cards, 
+      selectedCards, 
+      currentLevel,
+      increaseCurrentLevel, 
+      decreaseCurrentLevel } = this.props;
     const numberSelectedCards = selectedCards.length;
     const numberTotalCards = cards.length;
 
@@ -65,9 +66,13 @@ export class DeckBuilder extends Component {
           <h4>Cards Selected</h4>
           <p>{numberSelectedCards} of {numberTotalCards}</p>
           <h4>Character Level</h4> 
-          <button className="inline-button">-</button>
-          <h3>9</h3>
-          <button className="inline-button">+</button>
+          <button id="decreaseLevel" 
+            className="inline-button"
+            onClick={currentLevel === 1 ? console.log('Minimum Level') : decreaseCurrentLevel} >+</button>
+          <h3>{currentLevel}</h3>
+          <button id="increaseLevel" 
+            className="inline-button"
+            onClick={currentLevel === 9 ? console.log('Maximum Level') : increaseCurrentLevel} >+</button>
           <button>Save Deck</button>
           <button>Reset Deck</button>
           <button>Change Class</button>
@@ -85,14 +90,19 @@ export const mapDispatchToProps = dispatch => ({
   addAvailableCards: availableCards =>
     dispatch(addAvailableCards(availableCards)),
   addSelectedClass: selectedClass =>
-    dispatch(addSelectedClass(selectedClass))
+    dispatch(addSelectedClass(selectedClass)),
+  increaseCurrentLevel: currentLevel =>
+    dispatch(increaseCurrentLevel(currentLevel)),
+  decreaseCurrentLevel: currentLevel =>
+    dispatch(decreaseCurrentLevel(currentLevel))
 });
 
 export const mapStateToProps = state => ({
   cards: state.cards,
   selectedCards: state.selectedCards,
   availableCards: state.availableCards,
-  selectedClass: state.selectedClass
+  selectedClass: state.selectedClass,
+  currentLevel: state.currentLevel
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(DeckBuilder));

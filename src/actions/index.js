@@ -53,3 +53,13 @@ export const addSelectedClass = (selectedClass) => ({
   selectedClass
 });
 
+export const increaseCurrentLevel = (currentLevel) => ({
+  type: 'INCREASE_CURRENT_LEVEL',
+  currentLevel
+})
+
+export const decreaseCurrentLevel = (currentLevel) => ({
+  type: 'DECREASE_CURRENT_LEVEL',
+  currentLevel
+})
+
