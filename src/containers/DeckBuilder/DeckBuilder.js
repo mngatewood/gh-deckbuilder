@@ -54,7 +54,8 @@ export class DeckBuilder extends Component {
       increaseCurrentLevel, 
       decreaseCurrentLevel } = this.props;
     const numberSelectedCards = selectedCards.length;
-    const numberTotalCards = cards.length;
+    const handSize = helpers.getHandSize(selectedClass);
+
 
     return (
       <div className="deck-builder">     
@@ -64,7 +65,7 @@ export class DeckBuilder extends Component {
           <img src={this.state.classImage}
             alt={selectedClass}/>
           <h4>Cards Selected</h4>
-          <p>{numberSelectedCards} of {numberTotalCards}</p>
+          <p>{numberSelectedCards} of {handSize}</p>
           <h4>Character Level</h4> 
           <button id="decreaseLevel" 
             className="inline-button"
