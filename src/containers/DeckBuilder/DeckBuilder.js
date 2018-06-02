@@ -31,8 +31,9 @@ export class DeckBuilder extends Component {
       const cards = await api.fetchCards(selectedClass);
       const selected = await helpers.getSelected(this.state.deck, cards);
       const available = await helpers.getAvailable(cards, selected);
+      const dynamicImage = require(`../../images/classArtwork/${selectedClass}FullBody.png`)
+      this.setState({ classImage: dynamicImage })
       addSelectedClass(selectedClass)
-      this.setState({ classImage: require(`../../images/classArtwork/${selectedClass}FullBody.png`) })
       addCards(cards);
       addSelectedCards(selected);
       addAvailableCards(available);
@@ -50,7 +51,10 @@ export class DeckBuilder extends Component {
 
   
   render() {
-    const { selectedClass } = this.props;
+    const { selectedClass, cards, selectedCards } = this.props;
+    const numberSelectedCards = selectedCards.length;
+    const numberTotalCards = cards.length;
+
     return (
       <div className="deck-builder">     
         <AvailableCards />
@@ -59,7 +63,7 @@ export class DeckBuilder extends Component {
           <img src={this.state.classImage}
             alt={selectedClass}/>
           <h4>Cards Selected</h4>
-          <p>X of X</p>
+          <p>{numberSelectedCards} of {numberTotalCards}</p>
           <h4>Character Level</h4> 
           <button className="inline-button">-</button>
           <h3>9</h3>
