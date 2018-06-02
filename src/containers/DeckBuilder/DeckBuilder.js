@@ -17,24 +17,26 @@ export class DeckBuilder extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      deck: 1,
-      selectedClass: '',
+      deck: 2,
+      classImage: require('../../images/classArtwork/pending.png'),
       error: ''
     };
   };
 
+
   async componentDidMount() {
     try {
-      const { addCards, addSelectedCards, addAvailableCards } = this.props
+      const { addCards, addSelectedCards, addAvailableCards, addSelectedClass } = this.props
       const selectedClass = this.props.location.pathname.slice(1);
       const cards = await api.fetchCards(selectedClass);
       const selected = await helpers.getSelected(this.state.deck, cards);
       const available = await helpers.getAvailable(cards, selected);
-      this.setState({selectedClass})
       addSelectedClass(selectedClass)
+      this.setState({ classImage: require(`../../images/classArtwork/${selectedClass}FullBody.png`) })
       addCards(cards);
       addSelectedCards(selected);
       addAvailableCards(available);
+      this.setState()
     } catch (error) {
       this.setState({ error });
     }
@@ -48,13 +50,14 @@ export class DeckBuilder extends Component {
 
   
   render() {
+    const { selectedClass } = this.props;
     return (
       <div className="deck-builder">     
         <AvailableCards />
         <div id="class-info">
-          <h2>{this.state.selectedClass}</h2>
-          <img src='http://www.cephalofair.com/wp-content/uploads/2015/04/Inox-Brute1-731x1024.jpg'
-            alt="`{this.state.selectedClass} Class`" />
+          <h2>{selectedClass}</h2>
+          <img src={this.state.classImage}
+            alt={selectedClass}/>
           <h4>Cards Selected</h4>
           <p>X of X</p>
           <h4>Character Level</h4> 
