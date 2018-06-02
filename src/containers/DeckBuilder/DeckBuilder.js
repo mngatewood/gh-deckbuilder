@@ -48,7 +48,6 @@ export class DeckBuilder extends Component {
   
   render() {
     const { selectedClass, 
-      cards, 
       selectedCards, 
       currentLevel,
       increaseCurrentLevel, 

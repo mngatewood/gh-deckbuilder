@@ -12,7 +12,6 @@ export const getHandSize = (selectedClass) => {
       return 10;
     case 'Scoundrel':
       return 9;
-    default: 0
-      break;
+    default: return 0;
   }
 }
