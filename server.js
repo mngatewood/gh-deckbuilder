@@ -40,6 +40,20 @@ app.get('/api/v1/cards/:class', (request, response) => {
       .json('Internal server error ' + error));
 });
 
+app.get('/api/v1/decks', (request, response) => {
+
+  database('decks').select()
+    .then( decks => {
+      if (!decks.length) {
+        return response.status(404).json('No decks found');
+      } else {
+        return response.status(200).json(decks);
+      }
+    })
+    .catch(error => response.status(500)
+      .json('Internal server error ' + error));
+});
+
 app.get('/api/v1/decks/:id', (request, response) => {
   const deckId = request.params.id;
 
