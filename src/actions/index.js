@@ -28,9 +28,8 @@ export const removeSelectedCard = (selectedCard) => ({
   selectedCard
 });
 
-export const removeSelectedCards = (selectedCards) => ({
-  type: 'REMOVE_SELECTED_CARDS',
-  selectedCards
+export const removeSelectedCards = () => ({
+  type: 'REMOVE_SELECTED_CARDS'
 });
 
 export const addAvailableCard = (availableCard) => ({

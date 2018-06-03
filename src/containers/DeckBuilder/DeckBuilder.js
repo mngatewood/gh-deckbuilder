@@ -12,7 +12,8 @@ import {
   addAvailableCards, 
   addSelectedClass,
   increaseCurrentLevel,
-  decreaseCurrentLevel
+  decreaseCurrentLevel,
+  removeSelectedCards
   } from '../../actions';
 
 export class DeckBuilder extends Component {
@@ -21,7 +22,7 @@ export class DeckBuilder extends Component {
     this.deckSave = React.createRef();
     this.deckSaveName = React.createRef();
     this.state = {
-      deck: 5,
+      deck: 0,
       deckName: '',
       classImage: require('../../images/classArtwork/pending.png'),
       level: 1,
@@ -36,7 +37,6 @@ export class DeckBuilder extends Component {
       const selectedClass = this.props.location.pathname.slice(1);
       const cards = await api.fetchCards(selectedClass);
       const deck = await helpers.getSelected(this.state.deck, cards);
-      console.log(deck.cards)
       const available = await helpers.getAvailable(cards, deck.cards);
       const dynamicImage = require(`../../images/classArtwork/${selectedClass}FullBody.png`)
       this.setState({ 
@@ -56,13 +56,26 @@ export class DeckBuilder extends Component {
     this.deckSave.current.classList.toggle('hidden');
   }
 
-  submitDeck(event) {
+  async submitDeck(event) {
     event.preventDefault();
     const name = this.deckSaveName.current.value;
     const selectedClass = this.props.selectedClass;
     const level = this.state.level;
     const cards = this.props.selectedCards.map( card => {return card.id});
-    api.fetchPostDeck(name, selectedClass, level, cards);
+    await api.fetchPostDeck(name, selectedClass, level, cards);
+  }
+
+  async resetDeck () {
+    const { removeSelectedCards, addSelectedCards, addAvailableCards, cards } = this.props
+    if(this.state.deck === 0) {
+      removeSelectedCards();
+      addAvailableCards(this.props.cards)
+    } else {
+      const deck = await helpers.getSelected(this.state.deck, cards);
+      const available = await helpers.getAvailable(cards, deck.cards);
+      addSelectedCards(deck.cards);
+      addAvailableCards(available);
+    }
   }
   
   render() {
@@ -108,7 +121,7 @@ export class DeckBuilder extends Component {
                 onClick={this.submitDeck.bind(this)}>Submit</button>
             </form>
           </div>
-          <button>Reset Deck</button>
+          <button onClick={this.resetDeck.bind(this)}>Reset Deck</button>
           <button>Change Class</button>
         </div>
         <SelectedCards />
@@ -128,7 +141,9 @@ export const mapDispatchToProps = dispatch => ({
   increaseCurrentLevel: currentLevel =>
     dispatch(increaseCurrentLevel(currentLevel)),
   decreaseCurrentLevel: currentLevel =>
-    dispatch(decreaseCurrentLevel(currentLevel))
+    dispatch(decreaseCurrentLevel(currentLevel)),
+  removeSelectedCards: () => 
+    dispatch(removeSelectedCards())
 });
 
 export const mapStateToProps = state => ({
