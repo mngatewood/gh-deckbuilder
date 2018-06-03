@@ -9,7 +9,7 @@ export const getHandSize = (selectedClass) => {
     case 'Cragheart':
       return 11;
     case 'Tinkerer':
-      return 10;
+      return 12;
     case 'Scoundrel':
       return 9;
     default: return 0;

@@ -9,16 +9,10 @@ import {
 } from '../../actions';
 
 export class SelectedCards extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      filteredCards: []
-    }
-  }
 
   render() {
 
-    const { cards, selectedCards, currentLevel, addSelectedCard, removeAvailableCard } = this.props;
+    const { cards, selectedCards, selectedClass, currentLevel, addSelectedCard, removeAvailableCard } = this.props;
 
     const dragoverHandler = (event) => {
       event.preventDefault();
@@ -30,7 +24,9 @@ export class SelectedCards extends Component {
       const data = JSON.parse(event.dataTransfer.getData("text"));
       const id = data.id;
       const parent = data.parent;
-      if (parent === "available-component") {
+      const handSize = selectedCards.length;
+      const handLimit = helpers.getHandSize(selectedClass);
+      if (parent === "available-component" && handSize < handLimit) {
         const droppedCard = helpers.getCardById(parseInt(id, 10), cards);
         addSelectedCard(droppedCard);
         removeAvailableCard(droppedCard);
@@ -61,6 +57,7 @@ export const mapStateToProps = state => ({
   cards: state.cards,
   selectedCards: state.selectedCards,
   availableCards: state.availableCards,
+  selectedClass: state.selectedClass,
   currentLevel: state.currentLevel
 });
 

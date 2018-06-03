@@ -9,12 +9,6 @@ import {
 } from '../../actions';
 
 export class AvailableCards extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      filteredCards: []
-    }
-  }
 
   render() {
 
