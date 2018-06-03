@@ -75,6 +75,8 @@ app.get('/api/v1/decks/:id', (request, response) => {
 app.post('/api/v1/decks', (request, response) => {
   const deck = request.body;
   const deckName = request.body.name;
+  const className = request.body.class;
+  const level = request.body.level
   const cardArray = request.body.cards;
 
   for (let requiredParameter of ['name', 'cards', 'class', 'level']) {
@@ -97,7 +99,11 @@ app.post('/api/v1/decks', (request, response) => {
     return response.status(422).json('Invalid card.');
   }
 
-  database('decks').insert({ "name": deckName }, 'id')
+  database('decks').insert({ 
+    "name": deckName,
+    "class": className,
+    "level": level
+  }, 'id')
     .then(deckId => {
       cardArray.forEach(card => {
         database('joins').insert(
