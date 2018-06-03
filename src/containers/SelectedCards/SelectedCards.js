@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import './SelectedCards.css';
-// import * as api from '../../api/index'
 import * as helpers from '../../helpers/index'
 import {
   addSelectedCard,
@@ -10,10 +9,16 @@ import {
 } from '../../actions';
 
 export class SelectedCards extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      filteredCards: []
+    }
+  }
 
   render() {
 
-    const { cards, selectedCards, addSelectedCard, removeAvailableCard } = this.props;
+    const { cards, selectedCards, currentLevel, addSelectedCard, removeAvailableCard } = this.props;
 
     const dragoverHandler = (event) => {
       event.preventDefault();
@@ -38,7 +43,7 @@ export class SelectedCards extends Component {
         <div className="cards-container"
           onDrop={event => dropHandler(event)}
           onDragOver={event => dragoverHandler(event)} >
-          {helpers.renderCards(selectedCards)}
+          {helpers.renderCards(selectedCards, currentLevel)}
         </div>
       </div>
     );
@@ -55,7 +60,8 @@ export const mapDispatchToProps = dispatch => ({
 export const mapStateToProps = state => ({
   cards: state.cards,
   selectedCards: state.selectedCards,
-  availableCards: state.availableCards
+  availableCards: state.availableCards,
+  currentLevel: state.currentLevel
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SelectedCards));

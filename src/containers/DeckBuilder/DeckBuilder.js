@@ -19,7 +19,7 @@ export class DeckBuilder extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      deck: 0,
+      deck: 1,
       classImage: require('../../images/classArtwork/pending.png'),
       level: 1,
       error: ''
