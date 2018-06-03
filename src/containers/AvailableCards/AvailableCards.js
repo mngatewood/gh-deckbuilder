@@ -9,9 +9,19 @@ import {
 } from '../../actions';
 
 export class AvailableCards extends Component {
+  constructor(props) {
+    super(props); 
+    this.state = {
+      location: {}
+    }
+  }
+
+  async componentWillReceiveProps(props) {
+    await this.setState({ location: props.location })
+  }
 
   render() {
-
+    
     const { cards, availableCards, currentLevel, addAvailableCard, removeSelectedCard } = this.props;
     
     const dragoverHandler = (event) => {

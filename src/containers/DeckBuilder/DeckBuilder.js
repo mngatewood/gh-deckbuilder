@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
+import { Route } from 'react-router-dom';
 import './DeckBuilder.css';
 import AvailableCards from '../AvailableCards/AvailableCards';
 import SelectedCards from '../SelectedCards/SelectedCards';
@@ -21,6 +22,8 @@ export class DeckBuilder extends Component {
     super(props);
     this.deckSave = React.createRef();
     this.deckSaveName = React.createRef();
+    this.changeClassDiv = React.createRef();
+    this.changeClassSelect = React.createRef();
     this.state = {
       deck: 0,
       deckName: '',
@@ -52,8 +55,12 @@ export class DeckBuilder extends Component {
     }
   }
 
-  toggleHidden() {
+  toggleDeckSave() {
     this.deckSave.current.classList.toggle('hidden');
+  }
+
+  toggleChangeClass() {
+    this.changeClassDiv.current.classList.toggle('hidden');
   }
 
   async submitDeck(event) {
@@ -65,7 +72,7 @@ export class DeckBuilder extends Component {
     await api.fetchPostDeck(name, selectedClass, level, cards);
   }
 
-  async resetDeck () {
+  async resetDeck() {
     const { removeSelectedCards, addSelectedCards, addAvailableCards, cards } = this.props
     if(this.state.deck === 0) {
       removeSelectedCards();
@@ -76,6 +83,15 @@ export class DeckBuilder extends Component {
       addSelectedCards(deck.cards);
       addAvailableCards(available);
     }
+  }
+
+  changeClass() {
+    const newClass = this.changeClassSelect.current.value;
+    this.props.history.push(`/${newClass}`);
+    this.props.addSelectedClass(newClass);
+    this.setState({ deck: 0, 
+      level: 1, 
+      classImage: require(`../../images/classArtwork/${newClass}FullBody.png`) })
   }
   
   render() {
@@ -91,8 +107,8 @@ export class DeckBuilder extends Component {
     //   : '';
 
     return (
-      <div className="deck-builder">     
-        <AvailableCards />
+      <div className="deck-builder">  
+        <AvailableCards location={this.props.location} />
         <div id="class-info">
           <h2>{selectedClass}</h2>
           <img src={this.state.classImage}
@@ -107,7 +123,7 @@ export class DeckBuilder extends Component {
           <button id="increase-level" 
             className="inline-button"
             onClick={currentLevel === 9 ? console.log('Maximum Level') : increaseCurrentLevel} >+</button>
-          <button onClick={this.toggleHidden.bind(this)}>Save Deck</button>
+          <button onClick={this.toggleDeckSave.bind(this)}>Save Deck</button>
           <div id="deck-save-container" 
             className="hidden" 
             ref={this.deckSave}>
@@ -122,9 +138,22 @@ export class DeckBuilder extends Component {
             </form>
           </div>
           <button onClick={this.resetDeck.bind(this)}>Reset Deck</button>
-          <button>Change Class</button>
+          <button onClick={this.toggleChangeClass.bind(this)}>Change Class</button>
+          <div id="change-class-container" 
+            className="hidden" 
+            ref={this.changeClassDiv}>
+            <select onChange={this.changeClass.bind(this)}
+              ref={this.changeClassSelect}>
+              <option value="Brute">Brute</option>
+              <option value="Cragheart">Cragheart</option>
+              <option value="Mindthief">Mindthief</option>
+              <option value="Scoundrel">Scoundrel</option>
+              <option value="Spellweaver">Spellweaver</option>
+              <option value="Tinkerer">Tinkerer</option>
+            </select>
+          </div>
         </div>
-        <SelectedCards />
+        <SelectedCards location={this.props.location} />
       </div>
     )
   }
