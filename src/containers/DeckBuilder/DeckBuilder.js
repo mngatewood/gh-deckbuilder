@@ -10,57 +10,69 @@ import {
   addCards, 
   addSelectedCards, 
   addAvailableCards, 
-  addSelectedClass 
+  addSelectedClass,
+  increaseCurrentLevel,
+  decreaseCurrentLevel
   } from '../../actions';
 
 export class DeckBuilder extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      deck: 1,
-      selectedClass: '',
+      deck: 2,
+      classImage: require('../../images/classArtwork/pending.png'),
+      level: 1,
       error: ''
     };
   };
 
+
   async componentDidMount() {
     try {
-      const { addCards, addSelectedCards, addAvailableCards } = this.props
+      const { addCards, addSelectedCards, addAvailableCards, addSelectedClass } = this.props
       const selectedClass = this.props.location.pathname.slice(1);
       const cards = await api.fetchCards(selectedClass);
       const selected = await helpers.getSelected(this.state.deck, cards);
       const available = await helpers.getAvailable(cards, selected);
-      this.setState({selectedClass})
+      const dynamicImage = require(`../../images/classArtwork/${selectedClass}FullBody.png`)
+      this.setState({ classImage: dynamicImage })
       addSelectedClass(selectedClass)
       addCards(cards);
       addSelectedCards(selected);
       addAvailableCards(available);
+      this.setState()
     } catch (error) {
       this.setState({ error });
     }
   }
-
-  // THIS WILL BE A SMART COMPONENT THAT DISPLAYS THE
-  // CLASS IMAGE AND INFORMATION in a middle column.
-  // 
-  // WILL ALSO RENDER 'AVAILABLE CARDS' COMPONENT AND
-  // 'SELECTED CARDS COMPONENT
-
   
   render() {
+    const { selectedClass, 
+      cards, 
+      selectedCards, 
+      currentLevel,
+      increaseCurrentLevel, 
+      decreaseCurrentLevel } = this.props;
+    const numberSelectedCards = selectedCards.length;
+    const numberTotalCards = cards.length;
+
     return (
       <div className="deck-builder">     
         <AvailableCards />
         <div id="class-info">
-          <h2>{this.state.selectedClass}</h2>
-          <img src='http://www.cephalofair.com/wp-content/uploads/2015/04/Inox-Brute1-731x1024.jpg'
-            alt="`{this.state.selectedClass} Class`" />
+          <h2>{selectedClass}</h2>
+          <img src={this.state.classImage}
+            alt={selectedClass}/>
           <h4>Cards Selected</h4>
-          <p>X of X</p>
+          <p>{numberSelectedCards} of {numberTotalCards}</p>
           <h4>Character Level</h4> 
-          <button className="inline-button">-</button>
-          <h3>9</h3>
-          <button className="inline-button">+</button>
+          <button id="decreaseLevel" 
+            className="inline-button"
+            onClick={currentLevel === 1 ? console.log('Minimum Level') : decreaseCurrentLevel} >+</button>
+          <h3>{currentLevel}</h3>
+          <button id="increaseLevel" 
+            className="inline-button"
+            onClick={currentLevel === 9 ? console.log('Maximum Level') : increaseCurrentLevel} >+</button>
           <button>Save Deck</button>
           <button>Reset Deck</button>
           <button>Change Class</button>
@@ -78,14 +90,19 @@ export const mapDispatchToProps = dispatch => ({
   addAvailableCards: availableCards =>
     dispatch(addAvailableCards(availableCards)),
   addSelectedClass: selectedClass =>
-    dispatch(addSelectedClass(selectedClass))
+    dispatch(addSelectedClass(selectedClass)),
+  increaseCurrentLevel: currentLevel =>
+    dispatch(increaseCurrentLevel(currentLevel)),
+  decreaseCurrentLevel: currentLevel =>
+    dispatch(decreaseCurrentLevel(currentLevel))
 });
 
 export const mapStateToProps = state => ({
   cards: state.cards,
   selectedCards: state.selectedCards,
   availableCards: state.availableCards,
-  selectedClass: state.selectedClass
+  selectedClass: state.selectedClass,
+  currentLevel: state.currentLevel
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(DeckBuilder));

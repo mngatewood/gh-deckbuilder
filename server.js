@@ -57,7 +57,8 @@ app.get('/api/v1/decks/:id', (request, response) => {
               return response.status(200).json({
                 name: deck[0].name,
                 class: deck[0].class,
-                cards: cardsArray
+                cards: cardsArray,
+                level: deck[0].level
               });
             } else {
               return response.status(404).json('No matching cards found.');
@@ -76,7 +77,7 @@ app.post('/api/v1/decks', (request, response) => {
   const deckName = request.body.name;
   const cardArray = request.body.cards;
 
-  for (let requiredParameter of ['name', 'cards', 'class']) {
+  for (let requiredParameter of ['name', 'cards', 'class', 'level']) {
     if (!deck[requiredParameter]) {
       return response.status(422)
         .json(`You are missing a ${requiredParameter} parameter.`);

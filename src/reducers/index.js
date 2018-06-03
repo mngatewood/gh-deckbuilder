@@ -3,12 +3,14 @@ import cards from './cardsReducer';
 import availableCards from './availableCardsReducer';
 import selectedCards from './selectedCardsReducer';
 import selectedClass from './selectedClassReducer';
+import currentLevel from './currentLevelReducer';
 
 const rootReducer = combineReducers({
   cards,
   availableCards,
   selectedCards,
-  selectedClass
+  selectedClass,
+  currentLevel
 });
 
 export default rootReducer;
