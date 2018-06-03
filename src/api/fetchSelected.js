@@ -4,7 +4,8 @@ export const fetchSelected = async (deckId) => {
   try {
     const response = await fetch(url);
     const deck = await response.json();
-    return deck.cards;
+    return deck
+
   } catch (error) {
     throw error("Error getting deck")
   }

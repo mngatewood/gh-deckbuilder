@@ -37,3 +37,7 @@
 #class-info button.inline-button {
   display: inline-block;
 }
+
+#class-info .hidden {
+  display: none
+}

@@ -28,9 +28,8 @@ export const removeSelectedCard = (selectedCard) => ({
   selectedCard
 });
 
-export const removeSelectedCards = (selectedCards) => ({
-  type: 'REMOVE_SELECTED_CARDS',
-  selectedCards
+export const removeSelectedCards = () => ({
+  type: 'REMOVE_SELECTED_CARDS'
 });
 
 export const addAvailableCard = (availableCard) => ({
@@ -52,4 +51,14 @@ export const addSelectedClass = (selectedClass) => ({
   type: 'ADD_SELECTED_CLASS',
   selectedClass
 });
+
+export const increaseCurrentLevel = (currentLevel) => ({
+  type: 'INCREASE_CURRENT_LEVEL',
+  currentLevel
+})
+
+export const decreaseCurrentLevel = (currentLevel) => ({
+  type: 'DECREASE_CURRENT_LEVEL',
+  currentLevel
+})
 

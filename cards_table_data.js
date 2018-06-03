@@ -536,7 +536,7 @@ module.exports = [
     initiative: 75,
     top_action: "Augment On melee attack: Add +2 Attack Attack 1 ●, 1XP Persistent ^(When another Augment is played, discard this card)",
     bottom_action: "Attack 1 ● ^Wound",
-    image_url: './images/cards/Spellweaver6.png',
+    image_url: './images/cards/Mindthief6.png',
     card_level: 1
   },
   {
@@ -545,7 +545,7 @@ module.exports = [
     initiative: 48,
     top_action: "Attack 2 ● ^(Add +1 Attack for each negative condition on the target) 1XP",
     bottom_action: "Force one enemy within Range 5 to perform Attack 2 Range +0 targeting another enemy with you controlling the action.",
-    image_url: './images/cards/Spellweaver1.png',
+    image_url: './images/cards/Mindthief1.png',
     card_level: 1
   },
   {
@@ -554,7 +554,7 @@ module.exports = [
     initiative: 82,
     top_action: "Summon Rat Swarm HP: 6 ● Move: 1 ● Attack: 2 ● Range: - Poison 2XP, Persistent, LOSS ",
     bottom_action: "Move 4 ●",
-    image_url: './images/cards/Spellweaver5.png',
+    image_url: './images/cards/Mindthief5.png',
     card_level: 1
   },
   {
@@ -563,7 +563,7 @@ module.exports = [
     initiative: 20,
     top_action: "Move 3 ● Attack 1 ●",
     bottom_action: "Loot 2 1XP LOSS",
-    image_url: './images/cards/Spellweaver8.png',
+    image_url: './images/cards/Mindthief8.png',
     card_level: 1
   },
   {
@@ -572,7 +572,7 @@ module.exports = [
     initiative: 27,
     top_action: "Attack 2 ● ^(Push 3 ●) 1XP",
     bottom_action: "Move 4 Attack 2 ● ● 2XP, LOSS",
-    image_url: './images/cards/Spellweaver3.png',
+    image_url: './images/cards/Mindthief3.png',
     card_level: 1
   },
   {
@@ -581,7 +581,7 @@ module.exports = [
     initiative: 71,
     top_action: "Augment On your melee attacks: Heal 2 self Attack 1 ●, 1XP Persistent When another augment is played, discard this card.  ",
     bottom_action: "Force one enemy within Range 4 to perform Move 1 with you controlling the action",
-    image_url: './images/cards/Spellweaver7.png',
+    image_url: './images/cards/Mindthief7.png',
     card_level: 1
   },
   {
@@ -590,7 +590,7 @@ module.exports = [
     initiative: 79,
     top_action: "Augment On your melee attacks: Gain Shield 1 (Round Bonus) Attack 1 ●, 1XP Persistent When another Augment is played, discard this card.",
     bottom_action: "Move 4 ● ^Jump ^(If you end the movement in the same hex you started in, perform) Muddle ^(Target all enemies moved through)",
-    image_url: './images/cards/Spellweaver4.png',
+    image_url: './images/cards/Mindthief4.png',
     card_level: 1
   },
   {
@@ -599,7 +599,7 @@ module.exports = [
     initiative: 14,
     top_action: "Loot 1 Generate Dark",
     bottom_action: "Invisible ^Self",
-    image_url: './images/cards/Spellweaver2.png',
+    image_url: './images/cards/Mindthief2.png',
     card_level: 1
   },
   {
@@ -608,7 +608,7 @@ module.exports = [
     initiative: 11,
     top_action: "Attack 4 ● ● ^(Range 5) ^Disarm Generate Ice, 2XP LOSS",
     bottom_action: "Move 2 ● Heal 2 ● ^Self",
-    image_url: './images/cards/Spellweaver10.png',
+    image_url: './images/cards/Mindthief10.png',
     card_level: 1
   },
   {
@@ -617,7 +617,7 @@ module.exports = [
     initiative: 8,
     top_action: "Attack 3 ● ^(Add +2 Attack and gain 1 XP for each negative condition on the target). LOSS",
     bottom_action: "Attack 1 ● ^(Range 2 ●) ^Stun Generate Ice, 1XP",
-    image_url: './images/cards/Spellweaver9.png',
+    image_url: './images/cards/Mindthief9.png',
     card_level: 1
   },
   {
@@ -626,7 +626,7 @@ module.exports = [
     initiative: 77,
     top_action: "Augment On your melee attacks: Add Muddle and Poison Attack 1 ●, 1XP Persistent When another Augment is played, discard this card  ",
     bottom_action: "Immobilize ^(Target one adjacent enemy) Move 3",
-    image_url: './images/cards/Spellweaver11.png',
+    image_url: './images/cards/Mindthief11.png',
     card_level: 0
   },
   {
@@ -635,7 +635,7 @@ module.exports = [
     initiative: 51,
     top_action: "One adjacent ally may perform Attack 6 2XP, LOSS",
     bottom_action: "One ally within Range 3 may perform Move 4",
-    image_url: './images/cards/Spellweaver12.png',
+    image_url: './images/cards/Mindthief12.png',
     card_level: 0
   },
   {
@@ -644,7 +644,7 @@ module.exports = [
     initiative: 29,
     top_action: "Attack 3 ● ^(Use Ice: Stun, 1XP)  ",
     bottom_action: "Move 4 ● Stun ^(Target one adjacent enemy) 1XP, LOSS",
-    image_url: './images/cards/Spellweaver13.png',
+    image_url: './images/cards/Mindthief13.png',
     card_level: 0
   },
   {
@@ -653,7 +653,7 @@ module.exports = [
     initiative: 84,
     top_action: "Summon Monstrous Rat HP: 4 ● Move: 3 ● Attack: 3 ● Range: - 2XP, Persistent, LOSS  ",
     bottom_action: "Move 3 ● ^(Use Dark, Curse, Target one adjacent enemy)",
-    image_url: './images/cards/Spellweaver14.png',
+    image_url: './images/cards/Mindthief14.png',
     card_level: 2
   },
   {
@@ -662,7 +662,7 @@ module.exports = [
     initiative: 9,
     top_action: "Attack 2 ● ^(Range 4 ●) ^Immobilize Generate Ice, 1XP",
     bottom_action: "Force one normal or elite enemy within Range 3 to perform its turn this round as if its allies were enemies and its enemies were allies. To signify this, place one of your character tokens on this enemy for the round. 2XP, Round bonus, LOSS",
-    image_url: './images/cards/Spellweaver15.png',
+    image_url: './images/cards/Mindthief15.png',
     card_level: 2
   },
   {
@@ -671,7 +671,7 @@ module.exports = [
     initiative: 16,
     top_action: "Attack 4 ● ^(Range 4) Heal 4 ● ^Self Generate Dark, 2XP, LOSS  ",
     bottom_action: "Attack 1 ● Strengthen ^Self",
-    image_url: './images/cards/Spellweaver16.png',
+    image_url: './images/cards/Mindthief16.png',
     card_level: 3
   },
   {
@@ -680,7 +680,7 @@ module.exports = [
     initiative: 73,
     top_action: "Augment On your melee attacks: Heal 2, Range 2 Attack 2 ●, 1XP Persistent When another augment is played, discard this card  ",
     bottom_action: "Move 3 ● Push 2 ● ^(Target all adjacent enemies) ^(Use Ice: +1 Push, 1XP)",
-    image_url: './images/cards/Spellweaver17.png',
+    image_url: './images/cards/Mindthief17.png',
     card_level: 3
   },
   {
@@ -689,7 +689,7 @@ module.exports = [
     initiative: 68,
     top_action: "Loot 1 ^(Gain one additional money token from the supply for each adjacent enemy.)",
     bottom_action: "Attack 2 ● Move 3 ● Attack 2 ● 2XP, LOSS",
-    image_url: './images/cards/Spellweaver18.png',
+    image_url: './images/cards/Mindthief18.png',
     card_level: 4
   },
   {
@@ -698,7 +698,7 @@ module.exports = [
     initiative: 5,
     top_action: "Kill one normal enemy within Range 4 where current hit point value is equal to or less than 5. Attack 2 ● ● ^(Target all enemies adjacent to the killed target) ^(Gain 1XP for each enemy targeted with this attack.) LOSS",
     bottom_action: "Move 5 ●",
-    image_url: './images/cards/Spellweaver19.png',
+    image_url: './images/cards/Mindthief19.png',
     card_level: 4
   },
   {
@@ -707,7 +707,7 @@ module.exports = [
     initiative: 81,
     top_action: "Augment On your melee attacks: Use Ice: Stun Attack 2 ●, 1XP Persistent When another Augment is played, discard this card.  ",
     bottom_action: "Force one enemy within Range 5 to perform Move 2 with you controlling the action",
-    image_url: './images/cards/Spellweaver21.png',
+    image_url: './images/cards/Mindthief21.png',
     card_level: 5
   },
   {
@@ -716,7 +716,7 @@ module.exports = [
     initiative: 12,
     top_action: "Attack 1 ^(Range 4) ^(Target 4 ●) ^Muddle Generate Ice, 1XP ",
     bottom_action: "You may have two Augments active at once. If a third Augment is played, discard one of the others. Persistent, LOSS",
-    image_url: './images/cards/Spellweaver20.png',
+    image_url: './images/cards/Mindthief20.png',
     card_level: 5
   },
   {
@@ -725,7 +725,7 @@ module.exports = [
     initiative: 10,
     top_action: "Attack 2 ● ^(Use Ice: +2 Attack, 1XP) ^(Use Dark: +2 Attack, 1XP)",
     bottom_action: "Move 3 ● Attack 3 ● ^(Range 3) Generate Ice, 1XP",
-    image_url: './images/cards/Spellweaver23.png',
+    image_url: './images/cards/Mindthief23.png',
     card_level: 6
   },
   {
@@ -734,7 +734,7 @@ module.exports = [
     initiative: 39,
     top_action: "Attack 1 ● ^Poison Attack 1 ● ^Muddle",
     bottom_action: "Move 4 ● ^Jump Poison ^(Target all enemies moved through) Generate Dark",
-    image_url: './images/cards/Spellweaver22.png',
+    image_url: './images/cards/Mindthief22.png',
     card_level: 6
   },
   {
@@ -743,7 +743,7 @@ module.exports = [
     initiative: 83,
     top_action: "Augment On your melee attacks: Gain Retaliate 2, Round Bonus Attack 2 ●, 1XP Persistent When another Augment is played, discard this card",
     bottom_action: "Move 2 ● Attack 2 ●",
-    image_url: './images/cards/Spellweaver24.png',
+    image_url: './images/cards/Mindthief24.png',
     card_level: 7
   },
   {
@@ -752,7 +752,7 @@ module.exports = [
     initiative: 92,
     top_action: "Heal 5 ● ^Self Shield 1 ●, Round Bonus Stun ^Something, I can fix this later  ",
     bottom_action: "All your ranged attacks gain the effects of your Augments this round. Round Bonus, LOSS",
-    image_url: './images/cards/Spellweaver25.png',
+    image_url: './images/cards/Mindthief25.png',
     card_level: 7
   },
   {
@@ -761,7 +761,7 @@ module.exports = [
     initiative: 7,
     top_action: "Attack 3 ● ^(Range 4) ^(Target 2 ●) ^(Use Dark: Poison, Curse) Generate Ice, 1XP  ",
     bottom_action: "Move 5 ● ^(Use Ice: Shield 1, Self, 1 XP, Round bonus)",
-    image_url: './images/cards/Spellweaver26.png',
+    image_url: './images/cards/Mindthief26.png',
     card_level: 8
   },
   {
@@ -770,7 +770,7 @@ module.exports = [
     initiative: 13,
     top_action: "One adjacent ally may perform Attack 4. This attack gains the effects of your Augments 1XP",
     bottom_action: "Force one normal or elite enemy within Range 5 to perform its turn this round as if its allies were enemies and its enemies were allies, with you controlling the actions. To signify this, place one of your character tokens on this enemy for the round. 2XP, Round Bonus, LOSS",
-    image_url: './images/cards/Spellweaver27.png',
+    image_url: './images/cards/Mindthief27.png',
     card_level: 8
   },
   {
@@ -779,7 +779,7 @@ module.exports = [
     initiative: 91,
     top_action: "Summon Rat King: HP: 9 ● Move: 2 ● Attack: X Range: - X is half the rat's current hit point value (Rounded up). 2 XP, Persistent, LOSS  ",
     bottom_action: "All allies within Range 2 add +X Attack to all their attacks this round, where X is the number of your allies within Range 2 of you. 2XP, Round bonus, LOSS",
-    image_url: './images/cards/Spellweaver28.png',
+    image_url: './images/cards/Mindthief28.png',
     card_level: 9
   },
   {
@@ -788,7 +788,7 @@ module.exports = [
     initiative: 67,
     top_action: "Augment. On your melee attacks: Use Dark: Kill one normal target instead Attack 2 ●, 1XP Persistent When another Augment is played, discard this card.",
     bottom_action: "Move 2 ● Loot 1 Invisible ^Self Generate Dark",
-    image_url: './images/cards/Spellweaver29.png',
+    image_url: './images/cards/Mindthief29.png',
     card_level: 9
   },
   {

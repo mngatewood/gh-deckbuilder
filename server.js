@@ -57,7 +57,8 @@ app.get('/api/v1/decks/:id', (request, response) => {
               return response.status(200).json({
                 name: deck[0].name,
                 class: deck[0].class,
-                cards: cardsArray
+                cards: cardsArray,
+                level: deck[0].level
               });
             } else {
               return response.status(404).json('No matching cards found.');
@@ -74,9 +75,11 @@ app.get('/api/v1/decks/:id', (request, response) => {
 app.post('/api/v1/decks', (request, response) => {
   const deck = request.body;
   const deckName = request.body.name;
+  const className = request.body.class;
+  const level = request.body.level
   const cardArray = request.body.cards;
 
-  for (let requiredParameter of ['name', 'cards', 'class']) {
+  for (let requiredParameter of ['name', 'cards', 'class', 'level']) {
     if (!deck[requiredParameter]) {
       return response.status(422)
         .json(`You are missing a ${requiredParameter} parameter.`);
@@ -96,7 +99,11 @@ app.post('/api/v1/decks', (request, response) => {
     return response.status(422).json('Invalid card.');
   }
 
-  database('decks').insert({ "name": deckName }, 'id')
+  database('decks').insert({ 
+    "name": deckName,
+    "class": className,
+    "level": level
+  }, 'id')
     .then(deckId => {
       cardArray.forEach(card => {
         database('joins').insert(
