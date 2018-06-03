@@ -35,7 +35,7 @@ export class DeckBuilder extends Component {
       const cards = await api.fetchCards(selectedClass);
       const deck = await helpers.getSelected(this.state.deck, cards);
       console.log(deck)
-      const available = await helpers.getAvailable(cards, deck.cardIds);
+      const available = await helpers.getAvailable(cards, deck.cards);
       const dynamicImage = require(`../../images/classArtwork/${selectedClass}FullBody.png`)
       this.setState({ classImage: dynamicImage })
       addSelectedClass(selectedClass)
