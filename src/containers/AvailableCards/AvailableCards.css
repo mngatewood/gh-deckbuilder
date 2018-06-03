@@ -12,10 +12,14 @@
   margin-left: 60px;
 }
 
+#selected-component {
+  margin-left: 20px;
+}
+
 .cards-container {
   display: flex;
   flex-flow: row wrap;
-  align-items: center;
+  min-width: 500px;
   max-width: 550px;
   height: 90%;
   overflow-x: auto;
