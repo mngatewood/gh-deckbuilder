@@ -2,7 +2,9 @@ import { fetchSelected } from '../api/fetchSelected'
 
 export const getSelected = async (deckId, cards) => {
     if(deckId === 0) {
-      return []; 
+      return {
+        cards: []
+      }; 
     } else {
       const selectedDeck = await fetchSelected(deckId);
       const selectedIds = selectedDeck.cards;

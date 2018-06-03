@@ -18,8 +18,9 @@ import {
 export class DeckBuilder extends Component {
   constructor(props) {
     super(props);
+    this.deckSave = React.createRef();
     this.state = {
-      deck: 1,
+      deck: 1 ,
       deckName: '',
       classImage: require('../../images/classArtwork/pending.png'),
       level: 1,
@@ -34,10 +35,12 @@ export class DeckBuilder extends Component {
       const selectedClass = this.props.location.pathname.slice(1);
       const cards = await api.fetchCards(selectedClass);
       const deck = await helpers.getSelected(this.state.deck, cards);
-      console.log(deck)
+      console.log(deck.cards)
       const available = await helpers.getAvailable(cards, deck.cards);
       const dynamicImage = require(`../../images/classArtwork/${selectedClass}FullBody.png`)
-      this.setState({ classImage: dynamicImage })
+      this.setState({ 
+        classImage: dynamicImage,
+        deckName: deck.name })
       addSelectedClass(selectedClass)
       addCards(cards);
       addSelectedCards(deck.cards);
@@ -46,6 +49,10 @@ export class DeckBuilder extends Component {
     } catch (error) {
       this.setState({ error });
     }
+  }
+
+  toggleHidden() {
+    this.deckSave.current.classList.toggle('hidden');
   }
   
   render() {
@@ -56,7 +63,9 @@ export class DeckBuilder extends Component {
       decreaseCurrentLevel } = this.props;
     const numberSelectedCards = selectedCards.length;
     const handSize = helpers.getHandSize(selectedClass);
-
+    const deckPlaceholder = this.state.deckName 
+      ? this.state.deckName 
+      : '';
 
     return (
       <div className="deck-builder">     
@@ -75,10 +84,10 @@ export class DeckBuilder extends Component {
           <button id="increase-level" 
             className="inline-button"
             onClick={currentLevel === 9 ? console.log('Maximum Level') : increaseCurrentLevel} >+</button>
-          <button>Save Deck</button>
-          <div>
+          <button onClick={this.toggleHidden.bind(this)}>Save Deck</button>
+          <div id="deck-save-container" className="hidden" ref={this.deckSave}>
             <form>
-              <input id="deck-name" type="text" placeholder="Enter deck name."/>
+              <input id="deck-name" type="text" value={deckPlaceholder} placeholder="Enter deck name."/>
               <button id="submit-deck-name" type="submit">Submit</button>
             </form>
           </div>
