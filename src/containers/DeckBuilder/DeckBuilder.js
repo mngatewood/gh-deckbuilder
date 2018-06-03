@@ -20,6 +20,7 @@ export class DeckBuilder extends Component {
     super(props);
     this.state = {
       deck: 1,
+      deckName: '',
       classImage: require('../../images/classArtwork/pending.png'),
       level: 1,
       error: ''
@@ -32,13 +33,14 @@ export class DeckBuilder extends Component {
       const { addCards, addSelectedCards, addAvailableCards, addSelectedClass } = this.props
       const selectedClass = this.props.location.pathname.slice(1);
       const cards = await api.fetchCards(selectedClass);
-      const selected = await helpers.getSelected(this.state.deck, cards);
-      const available = await helpers.getAvailable(cards, selected);
+      const deck = await helpers.getSelected(this.state.deck, cards);
+      console.log(deck)
+      const available = await helpers.getAvailable(cards, deck.cardIds);
       const dynamicImage = require(`../../images/classArtwork/${selectedClass}FullBody.png`)
       this.setState({ classImage: dynamicImage })
       addSelectedClass(selectedClass)
       addCards(cards);
-      addSelectedCards(selected);
+      addSelectedCards(deck.cards);
       addAvailableCards(available);
       this.setState()
     } catch (error) {
@@ -66,14 +68,20 @@ export class DeckBuilder extends Component {
           <h4>Cards Selected</h4>
           <p>{numberSelectedCards} of {handSize}</p>
           <h4>Character Level</h4> 
-          <button id="decreaseLevel" 
+          <button id="decrease-level" 
             className="inline-button"
             onClick={currentLevel === 1 ? console.log('Minimum Level') : decreaseCurrentLevel} >+</button>
           <h3>{currentLevel}</h3>
-          <button id="increaseLevel" 
+          <button id="increase-level" 
             className="inline-button"
             onClick={currentLevel === 9 ? console.log('Maximum Level') : increaseCurrentLevel} >+</button>
           <button>Save Deck</button>
+          <div>
+            <form>
+              <input id="deck-name" type="text" placeholder="Enter deck name."/>
+              <button id="submit-deck-name" type="submit">Submit</button>
+            </form>
+          </div>
           <button>Reset Deck</button>
           <button>Change Class</button>
         </div>

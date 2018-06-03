@@ -1,4 +1,5 @@
 export const getAvailable = (cards, selected) => {
+  console.log(cards)
   if (selected === []) {
     return cards;
   } else {
