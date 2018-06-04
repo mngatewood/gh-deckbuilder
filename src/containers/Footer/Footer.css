@@ -3,4 +3,42 @@ footer {
   width: 100vw;
   height: 100px;
   background-color: transparent;
+  position: absolute;
+  top: calc(100vh - 65px);
+  color: white;
+  font-family: "HighTower";
+}
+
+.saved-decks-tab {
+  width: 190px;
+  margin: auto;
+  background: black;
+}
+
+.saved-decks-title {
+  font-size: 26px;
+}
+
+.saved-decks-container {
+  width: 85vw;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.saved-deck {
+  flex-basis: 42.5%;
+}
+
+.saved-deck-img {
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+}
+
+.saved-deck-name {
+  font-size: 26px;
+  display: inline-block;
+  line-height: 50px;
 }

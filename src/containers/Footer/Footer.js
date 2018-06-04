@@ -28,9 +28,9 @@ export class Footer extends Component {
     const mappedDecks = decks.map(deck => {
       const dynamicIcon = require(`../../images/classIcons/${deck.class}Icon.png`)
       return (
-      <div className=".saved-deck">
-        <img  className=".saved-deck-img" src={dynamicIcon} alt={deck.class}/>
-        <h1 className=".saved-deck-name">{deck.name}</h1>
+      <div className="saved-deck">
+        <img  className="saved-deck-img" src={dynamicIcon} alt={deck.class}/>
+        <h1 className="saved-deck-name">{deck.name}</h1>
       </div>
       )
     })
@@ -40,10 +40,12 @@ export class Footer extends Component {
   render() {
     return (
       <footer>
-        <div className=".saved-decks-tab">
-          <h1 className=".saved-decks-title">SAVED DECKS</h1>
+        <div className="saved-decks-tab">
+          <h1 className="saved-decks-title">SAVED DECKS</h1>
         </div>
+        <div className="saved-decks-container">
           {this.mapDecks(this.state.decks)}
+        </div>
       </footer>
     );
   }

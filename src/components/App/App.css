@@ -15,16 +15,6 @@ header {
   background: none;
 }
 
-footer {
-  position: absolute;
-  bottom: 0;
-  height: 50px;
-  background: none;
-}
-
-h1 {
-  margin: 5px;
-}
 
 /* width */
 ::-webkit-scrollbar {
