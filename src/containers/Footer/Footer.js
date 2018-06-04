@@ -19,22 +19,17 @@ export class Footer extends Component {
     try {
       const decks = await api.fetchDecks();
       this.setState({ decks })
-      
     } catch (error) {
       this.setState({ error })
     }
   }
 
   mapDecks = (decks) => {
-    console.log(this.state.decks)
     const mappedDecks = decks.map(deck => {
       const dynamicIcon = require(`../../images/classIcons/${deck.class}Icon.png`)
-      
-      
-      console.log(dynamicIcon)
       return (
       <div className=".saved-deck">
-        <img  className=".saved-deck-img" src={dynamicIcon} alt={deck.class} height="50" width="50"/>
+        <img  className=".saved-deck-img" src={dynamicIcon} alt={deck.class}/>
         <h1 className=".saved-deck-name">{deck.name}</h1>
       </div>
       )
