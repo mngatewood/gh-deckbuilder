@@ -11,13 +11,43 @@
   width: 190px;
   text-align: center;
   color: white;
-  margin: 25px auto 0 auto;
+  margin: 40px auto 0 auto;
 }
 
 #class-info img {
   width: 180px;
+  height: 280px;
   border: 5px outset #666666;
 }
+
+#class-info #feedback-container {
+  position: absolute;
+}
+
+#class-info #feedback-content {
+  display: flex;
+  position: relative;
+  top: -240px;
+  flex-direction: column;
+  justify-content: center;
+  height: 180px;
+}
+
+#class-info #feedback-content p {
+  position: relative;
+  left: 40px;
+  margin: 0;
+  width: 100px;
+  font-family: 'Nyala';
+  font-size: 24px;
+  color: #000000;
+
+}
+
+/* #class-info #feedback img {
+  width: 180px;
+  height: 315px;
+} */
 
 #class-info #stats {
   flex: 1 1;
@@ -35,7 +65,7 @@
 #class-info h2 {
   font-family: "Pirata";
   letter-spacing: 2px;
-  margin: 10px 10px 10px 15px;
+  margin: 10px 10px 5px 15px;
 }
 
 #class-info h3 {
@@ -47,6 +77,13 @@
   font-family: "Nyala";
   font-size: 24px;
   margin: 15px 0 0 0;
+}
+
+#class-info h5 {
+  font-family: "Nyala";
+  font-size: 18px;
+  letter-spacing: 2px;
+  margin: 0;
 }
 
 #class-info #number-cards {

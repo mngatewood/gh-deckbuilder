@@ -19,6 +19,7 @@ import {
 export class DeckBuilder extends Component {
   constructor(props) {
     super(props);
+    this.feedback = React.createRef();
     this.deckSaveButton = React.createRef();
     this.deckSaveDiv = React.createRef();
     this.deckSaveName = React.createRef();
@@ -32,6 +33,7 @@ export class DeckBuilder extends Component {
       background: require('../../images/background/background.png'),
       classImage: require('../../images/classArtwork/pending.png'),
       level: 1,
+      feedback: 'Here is your feedback!',
       error: ''
     };
   };
@@ -65,7 +67,7 @@ export class DeckBuilder extends Component {
     const cards = await api.fetchCards(selectedClass);
     const deck = await helpers.getSelected(this.state.deck, cards);
     const available = await helpers.getAvailable(cards, deck.cards);
-    this.setState({deck: deck.name})
+    this.setState({deckName: deck.name})
     addCards(cards);
     addSelectedCards(deck.cards);
     addAvailableCards(available);
@@ -103,7 +105,7 @@ export class DeckBuilder extends Component {
     event.preventDefault();
     const name = this.deckSaveName.current.value;
     const selectedClass = this.props.selectedClass;
-    const level = this.state.level;
+    const level = this.props.level;
     const cards = this.props.selectedCards.map( card => {return card.id});
     await api.fetchPostDeck(name, selectedClass, level, cards);
   }
@@ -127,10 +129,6 @@ export class DeckBuilder extends Component {
       this.toggleChangeClass()
     } else {
       this.props.history.push(`/${newClass}`);
-      this.props.addSelectedClass(newClass);
-      this.setState({ deck: 0, 
-        level: 1, 
-        classImage: require(`../../images/classArtwork/${newClass}FullBody.png`) })
     }
   }
   
@@ -147,9 +145,16 @@ export class DeckBuilder extends Component {
       <div className="deck-builder">  
         <AvailableCards location={this.props.location} />
         <div id="class-info">
-          <h2>{selectedClass}</h2>
           <img src={this.state.classImage}
             alt={selectedClass}/>
+          <div id="feedback-container" class="hidden" ref={this.feedback}>
+            <img src={require('../../images/feedback-bg.png')} />
+            <div id="feedback-content">
+              <p>{this.state.feedback}</p>
+            </div>
+          </div>
+          <h2>{selectedClass}</h2>
+          <h5>Deck Name</h5>
           <div id="stats">
             <h4>Cards Selected</h4>
             <p id="number-cards">{numberSelectedCards} &nbsp; of &nbsp; {handSize}</p>
