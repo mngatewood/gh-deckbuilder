@@ -27,6 +27,7 @@ export class DeckBuilder extends Component {
     this.state = {
       deck: 0,
       deckName: '',
+      background: require('../../images/background/background.png'),
       classImage: require('../../images/classArtwork/pending.png'),
       level: 1,
       error: ''
@@ -42,9 +43,12 @@ export class DeckBuilder extends Component {
       const deck = await helpers.getSelected(this.state.deck, cards);
       const available = await helpers.getAvailable(cards, deck.cards);
       const dynamicImage = require(`../../images/classArtwork/${selectedClass}FullBody.png`)
+      const dynamicBackground = require(`../../images/background/background-${selectedClass}.png`)
       this.setState({ 
         classImage: dynamicImage,
+        background: dynamicBackground,
         deckName: deck.name })
+      document.body.style = `background-image: url(${this.state.background});`;
       addSelectedClass(selectedClass)
       addCards(cards);
       addSelectedCards(deck.cards);
