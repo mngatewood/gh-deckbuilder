@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import './SelectedCards.css';
-// import * as api from '../../api/index'
 import * as helpers from '../../helpers/index'
 import {
   addSelectedCard,
@@ -13,7 +12,7 @@ export class SelectedCards extends Component {
 
   render() {
 
-    const { cards, selectedCards, addSelectedCard, removeAvailableCard } = this.props;
+    const { cards, selectedCards, selectedClass, currentLevel, addSelectedCard, removeAvailableCard } = this.props;
 
     const dragoverHandler = (event) => {
       event.preventDefault();
@@ -25,7 +24,9 @@ export class SelectedCards extends Component {
       const data = JSON.parse(event.dataTransfer.getData("text"));
       const id = data.id;
       const parent = data.parent;
-      if (parent === "available-component") {
+      const handSize = selectedCards.length;
+      const handLimit = helpers.getHandSize(selectedClass);
+      if (parent === "available-component" && handSize < handLimit) {
         const droppedCard = helpers.getCardById(parseInt(id, 10), cards);
         addSelectedCard(droppedCard);
         removeAvailableCard(droppedCard);
@@ -35,11 +36,13 @@ export class SelectedCards extends Component {
     return (
       <div className="cards-component" id="selected-component">
         <h2>Selected Cards</h2>
+        <div className="scroll-fade-top"></div>
         <div className="cards-container"
           onDrop={event => dropHandler(event)}
           onDragOver={event => dragoverHandler(event)} >
-          {helpers.renderCards(selectedCards)}
+          {helpers.renderCards(selectedCards, currentLevel)}
         </div>
+        <div className="scroll-fade-bottom"></div>
       </div>
     );
   }
@@ -55,7 +58,9 @@ export const mapDispatchToProps = dispatch => ({
 export const mapStateToProps = state => ({
   cards: state.cards,
   selectedCards: state.selectedCards,
-  availableCards: state.availableCards
+  availableCards: state.availableCards,
+  selectedClass: state.selectedClass,
+  currentLevel: state.currentLevel
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SelectedCards));

@@ -1,15 +1,18 @@
-.cards-component {
+#available-component {
   width: 42%;
-  margin-bottom: 60px;
+  margin-right: 20px;
+}
+
+.cards-component {
+ margin: 0 50px;
 }
 
 .cards-component h2 {
+  font-family: "HighTower";
   color: white;
-  margin: 10px;
-}
-
-#available-component {
-  margin-left: 60px;
+  margin: 5px;
+  text-align: center;
+  white-space: nowrap;
 }
 
 #selected-component {
@@ -19,8 +22,28 @@
 .cards-container {
   display: flex;
   flex-flow: row wrap;
-  min-width: 500px;
-  max-width: 550px;
-  height: 90%;
+  justify-content: center;
+  /* max-width: 550px; */
+  padding: 25px 0;
+  height: 85%;
   overflow-x: auto;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 2px solid #D1D2D3;
+}
+
+
+.cards-component .scroll-fade-bottom {
+    content:'';
+    margin-top: -40px;
+    height: 40px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
+    position: relative;
+}
+
+.cards-component .scroll-fade-top {
+    content:'';
+    margin-bottom: -40px;
+    height: 40px;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
+    position: relative;
 }

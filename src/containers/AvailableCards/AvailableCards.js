@@ -2,19 +2,25 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import './AvailableCards.css';
-// import * as api from '../../api/index'
-import * as helpers from '../../helpers/index'
+import * as helpers from '../../helpers/index';
 import {
   addAvailableCard,
   removeSelectedCard
 } from '../../actions';
 
 export class AvailableCards extends Component {
+  constructor(props) {
+    super(props); 
+    this.container = React.createRef();
+    this.state = {
+      location: {}
+    }
+  }
 
   render() {
-
-    const { cards, availableCards, addAvailableCard, removeSelectedCard } = this.props;
-
+    
+    const { cards, availableCards, currentLevel, addAvailableCard, removeSelectedCard } = this.props;
+    
     const dragoverHandler = (event) => {
       event.preventDefault();
       event.dataTransfer.dropEffect = "move"
@@ -32,14 +38,21 @@ export class AvailableCards extends Component {
       } 
     }
 
+    // const scrollHeight = this.container.current ? this.container.current.scrollHeight : 0
+    // const clientHeight = this.container.current ? this.container.current.clientHeight : 0
+    // const isOverflown = scrollHeight > clientHeight
+
     return (
       <div className="cards-component" id="available-component">
         <h2>Available Cards</h2>
+        <div className="scroll-fade-top"></div>
         <div className="cards-container" 
           onDrop={ event => dropHandler(event)} 
-          onDragOver={ event => dragoverHandler(event)} >
-          {helpers.renderCards(availableCards)}
+          onDragOver={ event => dragoverHandler(event)} 
+          ref={this.container} >
+          {helpers.renderCards(availableCards, currentLevel)}
         </div>
+        <div className="scroll-fade-bottom"></div>
       </div>
     );
   }
@@ -55,7 +68,8 @@ export const mapDispatchToProps = dispatch => ({
 export const mapStateToProps = state => ({
   cards: state.cards,
   selectedCards: state.selectedCards,
-  availableCards: state.availableCards
+  availableCards: state.availableCards,
+  currentLevel: state.currentLevel
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(AvailableCards));

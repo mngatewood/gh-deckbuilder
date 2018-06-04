@@ -6,34 +6,60 @@
 }
 
 #class-info {
-  width: 220px;
+  display: flex;
+  flex-direction: column;
+  width: 190px;
   text-align: center;
   color: white;
-  margin: auto;
+  margin: 25px auto 0 auto;
 }
 
 #class-info img {
-  width: 100%;
+  width: 180px;
+  border: 5px outset #666666;
+}
+
+#class-info #stats {
+  flex: 1 1;
+  background-color: rgba(0, 0, 0, 0.5);
+  margin: 15px 0;
+  border: 5px outset #666666;
 }
 
 #class-info button {
   display: block;
-  margin: 5px auto;
+  width: 80%;
+  margin: 15px auto;
 }
 
 #class-info h2 {
+  font-family: "Pirata";
+  letter-spacing: 2px;
   margin: 10px 10px 10px 15px;
 }
 
 #class-info h3 {
   display: inline-block;
-  margin: 10px;
+  margin: 5px 15px;
 }
 
 #class-info h4 {
-  margin-bottom: 0;
+  font-family: "Nyala";
+  font-size: 24px;
+  margin: 15px 0 0 0;
+}
+
+#class-info #number-cards {
+  font-size: 18px;
+  margin: 5px;
 }
 
 #class-info button.inline-button {
   display: inline-block;
+  width: 22px;
+  height: 21px;
+}
+
+#class-info .hidden {
+  display: none
 }
