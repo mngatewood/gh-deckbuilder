@@ -41,10 +41,12 @@ export class Footer extends Component {
       const dynamicIcon = require(`../../images/classIcons/${deck.class}Icon.png`)
       const dynamicPath = `/${deck.class}`
       
+console.log(this.props)
+
       return (
         <div className="saved-deck" key={deck.id}>
           <Link to={dynamicPath}
-          onClick={() => this.props.addSelectedDeckId(deck.id)}
+          onClick={() => this.props.addSelectedDeck(deck.id)}
           >
           <img  className="saved-deck-classImg" src={dynamicIcon} alt={deck.class}/>
           <h1 className="saved-deck-name">{deck.name}</h1>
@@ -84,8 +86,12 @@ export class Footer extends Component {
   }
 };
 
+export const mapStateToProps = state => ({
+  deck: state.deck
+})
+
 export const mapDispatchToProps = dispatch => ({
-  addSelectedDeckId: (deckId) => dispatch(actions.addSelectedDeckId(deckId))
+  addSelectedDeck: deckId => dispatch(actions.addSelectedDeck(deckId))
 });
 
-export default withRouter(connect(null, mapDispatchToProps)(Footer));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Footer));

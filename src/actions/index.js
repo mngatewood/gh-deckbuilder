@@ -62,7 +62,7 @@ export const decreaseCurrentLevel = (currentLevel) => ({
   currentLevel
 });
 
-export const addSelectedDeckId = (deckId) => ({
+export const addSelectedDeck = (deckId) => ({
   type: 'ADD_SELECTED_DECK_ID',
   deckId
 });
