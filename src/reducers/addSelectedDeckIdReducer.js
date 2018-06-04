@@ -2,7 +2,7 @@ const addSelectedDeckIdReducer = (state = 0, action) => {
   console.log(action);
   switch (action.type) {
     case 'ADD_SELECTED_DECK_ID':
-      return action.addDeckId;
+      return action.deckId;
     default:
       return state;
   }
