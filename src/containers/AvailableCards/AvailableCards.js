@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import './AvailableCards.css';
-import * as helpers from '../../helpers/index'
+import * as helpers from '../../helpers/index';
 import {
   addAvailableCard,
   removeSelectedCard
@@ -38,9 +38,9 @@ export class AvailableCards extends Component {
       } 
     }
 
-    const scrollHeight = this.container.current ? this.container.current.scrollHeight : 0
-    const clientHeight = this.container.current ? this.container.current.clientHeight : 0
-    const isOverflown = scrollHeight > clientHeight
+    // const scrollHeight = this.container.current ? this.container.current.scrollHeight : 0
+    // const clientHeight = this.container.current ? this.container.current.clientHeight : 0
+    // const isOverflown = scrollHeight > clientHeight
 
     return (
       <div className="cards-component" id="available-component">

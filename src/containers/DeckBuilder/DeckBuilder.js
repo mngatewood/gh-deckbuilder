@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
-import { Route } from 'react-router-dom';
 import './DeckBuilder.css';
 import AvailableCards from '../AvailableCards/AvailableCards';
 import SelectedCards from '../SelectedCards/SelectedCards';
@@ -73,11 +72,9 @@ export class DeckBuilder extends Component {
   }
 
   toggleChangeClass() {
-    const buttonText = this.changeClassButton.current.innerText === "Change Class"
-      ? "Cancel"
-      : "Change Class"
+    this.changeClassSelect.current.value = this.props.selectedClass;
     this.changeClassDiv.current.classList.toggle('hidden');
-    this.changeClassButton.current.innerText = buttonText;
+    this.changeClassButton.current.classList.toggle('hidden');
     this.deckSaveButton.current.classList.toggle('hidden');
     this.deckReset.current.classList.toggle('hidden');
   }
@@ -106,11 +103,15 @@ export class DeckBuilder extends Component {
 
   changeClass() {
     const newClass = this.changeClassSelect.current.value;
-    this.props.history.push(`/${newClass}`);
-    this.props.addSelectedClass(newClass);
-    this.setState({ deck: 0, 
-      level: 1, 
-      classImage: require(`../../images/classArtwork/${newClass}FullBody.png`) })
+    if(newClass === "Cancel") {
+      this.toggleChangeClass()
+    } else {
+      this.props.history.push(`/${newClass}`);
+      this.props.addSelectedClass(newClass);
+      this.setState({ deck: 0, 
+        level: 1, 
+        classImage: require(`../../images/classArtwork/${newClass}FullBody.png`) })
+    }
   }
   
   render() {
@@ -121,9 +122,6 @@ export class DeckBuilder extends Component {
       decreaseCurrentLevel } = this.props;
     const numberSelectedCards = selectedCards.length;
     const handSize = helpers.getHandSize(selectedClass);
-    // const deckPlaceholder = this.state.deckName 
-    //   ? this.state.deckName 
-    //   : '';
 
     return (
       <div className="deck-builder">  
@@ -178,6 +176,7 @@ export class DeckBuilder extends Component {
                 <option value="Scoundrel">Scoundrel</option>
                 <option value="Spellweaver">Spellweaver</option>
                 <option value="Tinkerer">Tinkerer</option>
+                <option value="Cancel">Cancel</option>
               </select>
             </div>
           </div>

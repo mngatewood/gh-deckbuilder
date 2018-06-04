@@ -21,8 +21,8 @@
 
 #class-info #stats {
   flex: 1 1;
-  background-color: rgba(102, 102, 102, 0.2);
-  margin: 12px 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  margin: 15px 0;
   border: 5px outset #666666;
 }
 
@@ -56,8 +56,8 @@
 
 #class-info button.inline-button {
   display: inline-block;
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 21px;
 }
 
 #class-info .hidden {
