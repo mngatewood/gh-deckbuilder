@@ -19,33 +19,36 @@ export class Footer extends Component {
     try {
       const decks = await api.fetchDecks();
       this.setState({ decks })
+      
     } catch (error) {
       this.setState({ error })
     }
   }
 
   mapDecks = (decks) => {
-    decks.map(deck => {
-      const dynamicIcon = `../../images/classIcons/${deck.class}Icon.png`
+    console.log(this.state.decks)
+    const mappedDecks = decks.map(deck => {
+      const dynamicIcon = require(`../../images/classIcons/${deck.class}Icon.png`)
       
-      // require(`../../images/classIcons/${deck.class}Icon.png`)
+      
       console.log(dynamicIcon)
-      return <img src={dynamicIcon} alt={deck.name}/>
+      return (
+      <div className=".saved-deck">
+        <img  className=".saved-deck-img" src={dynamicIcon} alt={deck.class} height="50" width="50"/>
+        <h1 className=".saved-deck-name">{deck.name}</h1>
+      </div>
+      )
     })
+    return mappedDecks;
   }
 
   render() {
     return (
       <footer>
-        <div>
-          <h1>SAVED DECKS</h1>
+        <div className=".saved-decks-tab">
+          <h1 className=".saved-decks-title">SAVED DECKS</h1>
         </div>
-        <div>
-          {
-            this.state.decks.length &&
-            this.mapDecks(this.state.decks)
-          }
-        </div>
+          {this.mapDecks(this.state.decks)}
       </footer>
     );
   }
