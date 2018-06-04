@@ -27,6 +27,7 @@ footer {
   flex-wrap: wrap;
   justify-content: space-evenly;
   background-color: black;
+  overflow-y: scroll;
 }
 
 .saved-deck {
