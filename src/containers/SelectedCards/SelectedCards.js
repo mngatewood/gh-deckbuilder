@@ -36,11 +36,13 @@ export class SelectedCards extends Component {
     return (
       <div className="cards-component" id="selected-component">
         <h2>Selected Cards</h2>
+        <div className="scroll-fade-top"></div>
         <div className="cards-container"
           onDrop={event => dropHandler(event)}
           onDragOver={event => dragoverHandler(event)} >
           {helpers.renderCards(selectedCards, currentLevel)}
         </div>
+        <div className="scroll-fade-bottom"></div>
       </div>
     );
   }

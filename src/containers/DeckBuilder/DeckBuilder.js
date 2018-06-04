@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
-import { Route } from 'react-router-dom';
 import './DeckBuilder.css';
 import AvailableCards from '../AvailableCards/AvailableCards';
 import SelectedCards from '../SelectedCards/SelectedCards';
@@ -20,13 +19,17 @@ import {
 export class DeckBuilder extends Component {
   constructor(props) {
     super(props);
-    this.deckSave = React.createRef();
+    this.deckSaveButton = React.createRef();
+    this.deckSaveDiv = React.createRef();
     this.deckSaveName = React.createRef();
+    this.deckReset = React.createRef();
+    this.changeClassButton = React.createRef();
     this.changeClassDiv = React.createRef();
     this.changeClassSelect = React.createRef();
     this.state = {
       deck: 0,
       deckName: '',
+      background: require('../../images/background/background.png'),
       classImage: require('../../images/classArtwork/pending.png'),
       level: 1,
       error: ''
@@ -42,9 +45,12 @@ export class DeckBuilder extends Component {
       const deck = await helpers.getSelected(this.state.deck, cards);
       const available = await helpers.getAvailable(cards, deck.cards);
       const dynamicImage = require(`../../images/classArtwork/${selectedClass}FullBody.png`)
+      const dynamicBackground = require(`../../images/background/background-${selectedClass}.png`)
       this.setState({ 
         classImage: dynamicImage,
+        background: dynamicBackground,
         deckName: deck.name })
+      document.body.style = `background-image: url(${this.state.background});`;
       addSelectedClass(selectedClass)
       addCards(cards);
       addSelectedCards(deck.cards);
@@ -56,11 +62,21 @@ export class DeckBuilder extends Component {
   }
 
   toggleDeckSave() {
-    this.deckSave.current.classList.toggle('hidden');
+    const buttonText = this.deckSaveButton.current.innerText === "Save Deck" 
+      ? "Cancel"
+      : "Save Deck"
+    this.deckSaveDiv.current.classList.toggle('hidden');
+    this.deckSaveButton.current.innerText = buttonText;
+    this.deckReset.current.classList.toggle('hidden');
+    this.changeClassButton.current.classList.toggle('hidden');
   }
 
   toggleChangeClass() {
+    this.changeClassSelect.current.value = this.props.selectedClass;
     this.changeClassDiv.current.classList.toggle('hidden');
+    this.changeClassButton.current.classList.toggle('hidden');
+    this.deckSaveButton.current.classList.toggle('hidden');
+    this.deckReset.current.classList.toggle('hidden');
   }
 
   async submitDeck(event) {
@@ -87,11 +103,15 @@ export class DeckBuilder extends Component {
 
   changeClass() {
     const newClass = this.changeClassSelect.current.value;
-    this.props.history.push(`/${newClass}`);
-    this.props.addSelectedClass(newClass);
-    this.setState({ deck: 0, 
-      level: 1, 
-      classImage: require(`../../images/classArtwork/${newClass}FullBody.png`) })
+    if(newClass === "Cancel") {
+      this.toggleChangeClass()
+    } else {
+      this.props.history.push(`/${newClass}`);
+      this.props.addSelectedClass(newClass);
+      this.setState({ deck: 0, 
+        level: 1, 
+        classImage: require(`../../images/classArtwork/${newClass}FullBody.png`) })
+    }
   }
   
   render() {
@@ -102,9 +122,6 @@ export class DeckBuilder extends Component {
       decreaseCurrentLevel } = this.props;
     const numberSelectedCards = selectedCards.length;
     const handSize = helpers.getHandSize(selectedClass);
-    // const deckPlaceholder = this.state.deckName 
-    //   ? this.state.deckName 
-    //   : '';
 
     return (
       <div className="deck-builder">  
@@ -113,44 +130,55 @@ export class DeckBuilder extends Component {
           <h2>{selectedClass}</h2>
           <img src={this.state.classImage}
             alt={selectedClass}/>
-          <h4>Cards Selected</h4>
-          <p>{numberSelectedCards} of {handSize}</p>
-          <h4>Character Level</h4> 
-          <button id="decrease-level" 
-            className="inline-button"
-            onClick={currentLevel === 1 ? console.log('Minimum Level') : decreaseCurrentLevel} >+</button>
-          <h3>{currentLevel}</h3>
-          <button id="increase-level" 
-            className="inline-button"
-            onClick={currentLevel === 9 ? console.log('Maximum Level') : increaseCurrentLevel} >+</button>
-          <button onClick={this.toggleDeckSave.bind(this)}>Save Deck</button>
-          <div id="deck-save-container" 
-            className="hidden" 
-            ref={this.deckSave}>
-            <form>
-              <input id="deck-name" 
-                type="text" 
-                placeholder="Enter deck name."
-                ref={this.deckSaveName}/>
-              <button id="submit-deck-name" 
-                type="submit" 
-                onClick={this.submitDeck.bind(this)}>Submit</button>
-            </form>
-          </div>
-          <button onClick={this.resetDeck.bind(this)}>Reset Deck</button>
-          <button onClick={this.toggleChangeClass.bind(this)}>Change Class</button>
-          <div id="change-class-container" 
-            className="hidden" 
-            ref={this.changeClassDiv}>
-            <select onChange={this.changeClass.bind(this)}
-              ref={this.changeClassSelect}>
-              <option value="Brute">Brute</option>
-              <option value="Cragheart">Cragheart</option>
-              <option value="Mindthief">Mindthief</option>
-              <option value="Scoundrel">Scoundrel</option>
-              <option value="Spellweaver">Spellweaver</option>
-              <option value="Tinkerer">Tinkerer</option>
-            </select>
+          <div id="stats">
+            <h4>Cards Selected</h4>
+            <p id="number-cards">{numberSelectedCards} &nbsp; of &nbsp; {handSize}</p>
+            <h4>Character Level</h4> 
+            <button id="decrease-level" 
+              className="inline-button"
+              onClick={currentLevel === 1 ? console.log('Minimum Level') : decreaseCurrentLevel} >-</button>
+            <h3>{currentLevel}</h3>
+            <button id="increase-level" 
+              className="inline-button"
+              onClick={currentLevel === 9 ? console.log('Maximum Level') : increaseCurrentLevel} >+</button>
+            <button onClick={this.toggleChangeClass.bind(this)}
+              ref={this.changeClassButton}>
+              Change Class
+              </button>
+            <button onClick={this.toggleDeckSave.bind(this)}
+              ref={this.deckSaveButton}>
+              Save Deck
+            </button>
+            <div id="deck-save-container" 
+              className="hidden" 
+              ref={this.deckSaveDiv}>
+              <form>
+                <input id="deck-name" 
+                  type="text" 
+                  placeholder="Enter deck name."
+                  ref={this.deckSaveName}/>
+                <button id="submit-deck-name" 
+                  onClick={this.submitDeck.bind(this)}>Submit</button>
+              </form>
+            </div>
+           <button onClick={this.resetDeck.bind(this)}
+              ref={this.deckReset}>
+              Reset Deck
+            </button>
+            <div id="change-class-container" 
+              className="hidden" 
+              ref={this.changeClassDiv}>
+              <select onChange={this.changeClass.bind(this)}
+                ref={this.changeClassSelect}>
+                <option value="Brute">Brute</option>
+                <option value="Cragheart">Cragheart</option>
+                <option value="Mindthief">Mindthief</option>
+                <option value="Scoundrel">Scoundrel</option>
+                <option value="Spellweaver">Spellweaver</option>
+                <option value="Tinkerer">Tinkerer</option>
+                <option value="Cancel">Cancel</option>
+              </select>
+            </div>
           </div>
         </div>
         <SelectedCards location={this.props.location} />
