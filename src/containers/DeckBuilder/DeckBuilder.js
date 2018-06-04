@@ -32,7 +32,6 @@ export class DeckBuilder extends Component {
       deckName: 'Unnamed Deck',
       background: require('../../images/background/background.png'),
       classImage: require('../../images/classArtwork/pending.png'),
-      level: 1,
       feedback: 'Here is your feedback!',
       error: ''
     };
@@ -126,8 +125,12 @@ export class DeckBuilder extends Component {
     event.preventDefault();
     const name = this.deckSaveName.current.value;
     const selectedClass = this.props.selectedClass;
-    const level = this.props.level;
+    const level = this.props.currentLevel;
     const cards = this.props.selectedCards.map( card => {return card.id});
+    console.log(name)
+    console.log(selectedClass)
+    console.log(level)
+    console.log(cards)
     await api.fetchPostDeck(name, selectedClass, level, cards);
   }
 
