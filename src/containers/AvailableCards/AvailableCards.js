@@ -11,13 +11,10 @@ import {
 export class AvailableCards extends Component {
   constructor(props) {
     super(props); 
+    this.container = React.createRef();
     this.state = {
       location: {}
     }
-  }
-
-  async componentWillReceiveProps(props) {
-    await this.setState({ location: props.location })
   }
 
   render() {
@@ -41,14 +38,20 @@ export class AvailableCards extends Component {
       } 
     }
 
+    const scrollHeight = this.container.current ? this.container.current.scrollHeight : 0
+    const clientHeight = this.container.current ? this.container.current.clientHeight : 0
+    const isOverflown = scrollHeight > clientHeight
+
     return (
       <div className="cards-component" id="available-component">
         <h2>Available Cards</h2>
         <div className="cards-container" 
           onDrop={ event => dropHandler(event)} 
-          onDragOver={ event => dragoverHandler(event)} >
+          onDragOver={ event => dragoverHandler(event)} 
+          ref={this.container} >
           {helpers.renderCards(availableCards, currentLevel)}
         </div>
+        <div className="scroll-fade"></div>
       </div>
     );
   }

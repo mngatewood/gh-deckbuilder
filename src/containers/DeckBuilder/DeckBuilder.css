@@ -9,7 +9,7 @@
   width: 220px;
   text-align: center;
   color: white;
-  margin: auto;
+  margin: 0 auto;
 }
 
 #class-info img {
@@ -22,6 +22,8 @@
 }
 
 #class-info h2 {
+  font-family: "Pirata";
+  letter-spacing: 2px;
   margin: 10px 10px 10px 15px;
 }
 

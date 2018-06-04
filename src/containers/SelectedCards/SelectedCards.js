@@ -41,6 +41,7 @@ export class SelectedCards extends Component {
           onDragOver={event => dragoverHandler(event)} >
           {helpers.renderCards(selectedCards, currentLevel)}
         </div>
+        <div className="scroll-fade"></div>
       </div>
     );
   }

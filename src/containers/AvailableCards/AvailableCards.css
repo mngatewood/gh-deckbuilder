@@ -1,22 +1,35 @@
-.cards-component {
+#available-component {
   width: 42%;
-  margin-bottom: 60px;
+  margin-right: 20px;
 }
+
+.cards-component {
+ margin: 0 50px; 
+} 
 
 .cards-component h2 {
+  font-family: "HighTower";
   color: white;
   margin: 10px;
-}
-
-#available-component {
-  margin-left: 60px;
-}
+  text-align: center;
+  white-space: nowrap;
+}  
 
 .cards-container {
   display: flex;
   flex-flow: row wrap;
-  align-items: center;
-  max-width: 550px;
+  justify-content: center;
+  /* max-width: 550px; */
   height: 90%;
   overflow-x: auto;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 5px inset #D1D2D3;
+}
+
+.cards-component .scroll-fade {
+    content:'';
+    margin-top: -40px;
+    height: 40px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
+    position: relative;
 }
