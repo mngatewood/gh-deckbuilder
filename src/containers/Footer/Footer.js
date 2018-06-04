@@ -26,7 +26,7 @@ export class Footer extends Component {
       const dynamicIcon = require(`../../images/classIcons/${deck.class}Icon.png`)
       const dynamicPath = `/${deck.class}`
       return (
-        <Link to={dynamicPath} className="saved-deck">
+        <Link to={dynamicPath} className="saved-deck"key={deck.id}>
         <img  className="saved-deck-img" src={dynamicIcon} alt={deck.class}/>
         <h1 className="saved-deck-name">{deck.name}</h1>
         </Link>
