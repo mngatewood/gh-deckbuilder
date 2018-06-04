@@ -13,8 +13,4 @@ describe("Selected Class Reducers", () => {
     expect(selectedClassReducer(undefined, actions.addSelectedClass("Cragheart"))).toEqual(expected);
   });
 
-  it.skip("should remove class from state", () => {
-    const expected = "";
-    expect(selectedClassReducer(undefined, actions.removeSelectedClass("Cragheart"))).toEqual(expected);
-  });
 });
