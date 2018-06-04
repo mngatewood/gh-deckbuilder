@@ -118,7 +118,7 @@ export class DeckBuilder extends Component {
           <img src={this.state.classImage}
             alt={selectedClass}/>
           <h4>Cards Selected</h4>
-          <p>{numberSelectedCards} of {handSize}</p>
+          <p id="number-cards">{numberSelectedCards} of {handSize}</p>
           <h4>Character Level</h4> 
           <button id="decrease-level" 
             className="inline-button"

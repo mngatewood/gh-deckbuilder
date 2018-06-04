@@ -23,7 +23,7 @@
   height: 90%;
   overflow-x: auto;
   background-color: rgba(255, 255, 255, 0.2);
-  border: 5px inset #D1D2D3;
+  border: 2px inset #D1D2D3;
 }
 
 .cards-component .scroll-fade {
