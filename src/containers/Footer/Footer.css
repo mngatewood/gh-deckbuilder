@@ -1,12 +1,13 @@
 footer {
   text-align: center;
   width: 100vw;
-  height: 100px;
+  max-height: 65px;
   background-color: transparent;
   position: absolute;
-  top: calc(100vh - 65px);
+  bottom: 0px;
   color: white;
   font-family: "HighTower";
+  transition: all 1s;
 }
 
 .saved-decks-tab {
@@ -25,6 +26,7 @@ footer {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
+  background-color: black;
 }
 
 .saved-deck {
@@ -41,4 +43,10 @@ footer {
   font-size: 26px;
   display: inline-block;
   line-height: 50px;
+  margin: 0;
+  text-decoration: none;
+}
+
+footer:hover {
+  max-height: 50vh;
 }

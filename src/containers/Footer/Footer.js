@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
-// import { connect } from 'react-redux';
-// import { withRouter } from 'react-router';
+import { Link } from 'react-router-dom';
 import * as api from '../../api/index';
-import * as helpers from '../../helpers/index';
-import * as icons from '../../images/index'
 import './Footer.css';
 
 export class Footer extends Component {
@@ -27,11 +24,12 @@ export class Footer extends Component {
   mapDecks = (decks) => {
     const mappedDecks = decks.map(deck => {
       const dynamicIcon = require(`../../images/classIcons/${deck.class}Icon.png`)
+      const dynamicPath = `/${deck.class}`
       return (
-      <div className="saved-deck">
+        <Link to={dynamicPath} className="saved-deck">
         <img  className="saved-deck-img" src={dynamicIcon} alt={deck.class}/>
         <h1 className="saved-deck-name">{deck.name}</h1>
-      </div>
+        </Link>
       )
     })
     return mappedDecks;
