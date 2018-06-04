@@ -10,6 +10,10 @@ footer {
   transition: all 1s;
 }
 
+footer:hover {
+  max-height: 50vh;
+}
+
 .saved-decks-tab {
   width: 190px;
   margin: auto;
@@ -34,7 +38,7 @@ footer {
   flex-basis: 42.5%;
 }
 
-.saved-deck-img {
+.saved-deck-classImg {
   width: 50px;
   height: 50px;
   display: inline-block;
@@ -48,6 +52,9 @@ footer {
   text-decoration: none;
 }
 
-footer:hover {
-  max-height: 50vh;
+.saved-deck-deleteImg {
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+  background-color: black;
 }

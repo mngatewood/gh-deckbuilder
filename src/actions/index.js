@@ -55,10 +55,15 @@ export const addSelectedClass = (selectedClass) => ({
 export const increaseCurrentLevel = (currentLevel) => ({
   type: 'INCREASE_CURRENT_LEVEL',
   currentLevel
-})
+});
 
 export const decreaseCurrentLevel = (currentLevel) => ({
   type: 'DECREASE_CURRENT_LEVEL',
   currentLevel
-})
+});
+
+export const addSelectedDeckId = (deckId) => ({
+  type: 'ADD_SELECTED_DECK_ID',
+  deckId
+});
 

@@ -14,6 +14,7 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(function (request, response, next) {
   response.header("Access-Control-Allow-Origin", "*");
+  response.header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE");
   response.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
 });
@@ -90,7 +91,7 @@ app.post('/api/v1/decks', (request, response) => {
   const deck = request.body;
   const deckName = request.body.name;
   const className = request.body.class;
-  const level = request.body.level
+  const level = request.body.level;
   const cardArray = request.body.cards;
 
   for (let requiredParameter of ['name', 'cards', 'class', 'level']) {
