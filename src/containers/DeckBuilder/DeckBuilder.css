@@ -18,6 +18,7 @@
   width: 180px;
   height: 280px;
   border: 5px outset #666666;
+  pointer-events: none;
 }
 
 #class-info #feedback-container {
@@ -31,6 +32,7 @@
   flex-direction: column;
   justify-content: center;
   height: 180px;
+  pointer-events: none;
 }
 
 #class-info #feedback-content p {
@@ -41,13 +43,8 @@
   font-family: 'Nyala';
   font-size: 24px;
   color: #000000;
-
+  pointer-events: none;
 }
-
-/* #class-info #feedback img {
-  width: 180px;
-  height: 315px;
-} */
 
 #class-info #stats {
   flex: 1 1;

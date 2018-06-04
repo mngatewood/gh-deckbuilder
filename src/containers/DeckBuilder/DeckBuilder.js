@@ -84,27 +84,20 @@ export class DeckBuilder extends Component {
   }
 
   displayFeedback(message) {
-    if(this.feedback && this.state.feedback !== message) {
-      this.setState({ feedback: message });
-      console.log(this.feedbackDiv)
-      this.feedback.current.classList.toggle('hidden');
-    }
+    this.setState({ feedback: message });
+    this.feedbackDiv.current.classList.remove('hidden');
+  }
+
+  hideFeedback(event) {
+    event.target.classList.add('hidden');
   }
 
   changeLevel(operator) {
     const { currentLevel, increaseCurrentLevel, decreaseCurrentLevel } = this.props
     if(operator === 'plus'){
-      if(currentLevel < 9) {
-        increaseCurrentLevel()
-       } else { 
-        this.displayFeedback('Maximum level is already selected.')
-       }
+      currentLevel < 9 ? increaseCurrentLevel() : this.displayFeedback('Maximum level is already selected.')
     } else if(operator === 'minus') {
-      if(currentLevel > 1) {
-        decreaseCurrentLevel()
-      } else {
-        this.displayFeedback('Minimum level is already selected.')
-      }
+      currentLevel > 1 ? decreaseCurrentLevel() : this.displayFeedback('Minimum level is already selected.')
     }
   }
 
@@ -116,6 +109,9 @@ export class DeckBuilder extends Component {
     this.deckSaveButton.current.innerText = buttonText;
     this.deckReset.current.classList.toggle('hidden');
     this.changeClassButton.current.classList.toggle('hidden');
+    if(this.deckSaveButton.current.innerText === "Save Deck") {
+      this.displayFeedback('Save cancelled.')
+    }
   }
 
   toggleChangeClass() {
@@ -140,11 +136,13 @@ export class DeckBuilder extends Component {
     if(this.state.deck === 0) {
       removeSelectedCards();
       addAvailableCards(this.props.cards)
+      this.displayFeedback('All selected cards cleared.')
     } else {
       const deck = await helpers.getSelected(this.state.deck, cards);
       const available = await helpers.getAvailable(cards, deck.cards);
       addSelectedCards(deck.cards);
       addAvailableCards(available);
+      this.displayFeedback('Selected Cards reverted to saved deck.')
     }
   }
 
@@ -152,6 +150,7 @@ export class DeckBuilder extends Component {
     const newClass = this.changeClassSelect.current.value;
     if(newClass === "Cancel") {
       this.toggleChangeClass()
+      this.displayFeedback('Action cancelled.')
     } else {
       this.props.history.push(`/${newClass}`);
     }
@@ -172,7 +171,10 @@ export class DeckBuilder extends Component {
         <div id="class-info">
           <img src={this.state.classImage}
             alt={selectedClass}/>
-          <div id="feedback-container" className="hidden" ref={this.feedbackDiv}>
+          <div id="feedback-container" 
+            className="hidden" 
+            ref={this.feedbackDiv}
+            onClick={this.hideFeedback}>
             <img src={require('../../images/feedback-bg.png')} />
             <div id="feedback-content">
               <p>{this.state.feedback}</p>
