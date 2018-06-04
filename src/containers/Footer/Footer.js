@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import { withRouter } from 'react-router';
+import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
 import * as api from '../../api/index';
@@ -62,6 +61,12 @@ console.log(this.props)
       )
     })
     return mappedDecks;
+  }
+
+  addSelectedId = (deckId) => {
+    console.log(this.props)
+    debugger
+    this.props.addSelectedDeckId(deckId)
   }
 
   deleteDeck = async (deckId) => {
