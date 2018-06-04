@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import { withRouter } from 'react-router';
+import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
 import * as api from '../../api/index';
@@ -44,8 +43,7 @@ export class Footer extends Component {
       return (
         <div className="saved-deck" key={deck.id}>
           <Link to={dynamicPath}
-          onClick={() => this.props.addSelectedDeckId(deck.id)}
-          >
+            onClick={() => this.addSelectedId(deck.id)}>
           <img  className="saved-deck-classImg" src={dynamicIcon} alt={deck.class}/>
           <h1 className="saved-deck-name">{deck.name}</h1>
           </Link>
@@ -60,6 +58,12 @@ export class Footer extends Component {
       )
     })
     return mappedDecks;
+  }
+
+  addSelectedId = (deckId) => {
+    console.log(this.props)
+    debugger
+    this.props.addSelectedDeckId(deckId)
   }
 
   deleteDeck = async (deckId) => {
@@ -83,6 +87,8 @@ export class Footer extends Component {
     );
   }
 };
+
+
 
 export const mapDispatchToProps = dispatch => ({
   addSelectedDeckId: (deckId) => dispatch(actions.addSelectedDeckId(deckId))

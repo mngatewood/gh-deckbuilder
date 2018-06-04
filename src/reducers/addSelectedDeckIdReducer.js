@@ -1,5 +1,5 @@
 const addSelectedDeckIdReducer = (state = 0, action) => {
-  console.log(action);
+  console.log('in reducer' + action.type);
   switch (action.type) {
     case 'ADD_SELECTED_DECK_ID':
       return action.deckId;
