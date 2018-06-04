@@ -20,8 +20,11 @@ import {
 export class DeckBuilder extends Component {
   constructor(props) {
     super(props);
-    this.deckSave = React.createRef();
+    this.deckSaveButton = React.createRef();
+    this.deckSaveDiv = React.createRef();
     this.deckSaveName = React.createRef();
+    this.deckReset = React.createRef();
+    this.changeClassButton = React.createRef();
     this.changeClassDiv = React.createRef();
     this.changeClassSelect = React.createRef();
     this.state = {
@@ -60,11 +63,23 @@ export class DeckBuilder extends Component {
   }
 
   toggleDeckSave() {
-    this.deckSave.current.classList.toggle('hidden');
+    const buttonText = this.deckSaveButton.current.innerText === "Save Deck" 
+      ? "Cancel"
+      : "Save Deck"
+    this.deckSaveDiv.current.classList.toggle('hidden');
+    this.deckSaveButton.current.innerText = buttonText;
+    this.deckReset.current.classList.toggle('hidden');
+    this.changeClassButton.current.classList.toggle('hidden');
   }
 
   toggleChangeClass() {
+    const buttonText = this.changeClassButton.current.innerText === "Change Class"
+      ? "Cancel"
+      : "Change Class"
     this.changeClassDiv.current.classList.toggle('hidden');
+    this.changeClassButton.current.innerText = buttonText;
+    this.deckSaveButton.current.classList.toggle('hidden');
+    this.deckReset.current.classList.toggle('hidden');
   }
 
   async submitDeck(event) {
@@ -117,44 +132,54 @@ export class DeckBuilder extends Component {
           <h2>{selectedClass}</h2>
           <img src={this.state.classImage}
             alt={selectedClass}/>
-          <h4>Cards Selected</h4>
-          <p id="number-cards">{numberSelectedCards} of {handSize}</p>
-          <h4>Character Level</h4> 
-          <button id="decrease-level" 
-            className="inline-button"
-            onClick={currentLevel === 1 ? console.log('Minimum Level') : decreaseCurrentLevel} >+</button>
-          <h3>{currentLevel}</h3>
-          <button id="increase-level" 
-            className="inline-button"
-            onClick={currentLevel === 9 ? console.log('Maximum Level') : increaseCurrentLevel} >+</button>
-          <button onClick={this.toggleDeckSave.bind(this)}>Save Deck</button>
-          <div id="deck-save-container" 
-            className="hidden" 
-            ref={this.deckSave}>
-            <form>
-              <input id="deck-name" 
-                type="text" 
-                placeholder="Enter deck name."
-                ref={this.deckSaveName}/>
-              <button id="submit-deck-name" 
-                type="submit" 
-                onClick={this.submitDeck.bind(this)}>Submit</button>
-            </form>
-          </div>
-          <button onClick={this.resetDeck.bind(this)}>Reset Deck</button>
-          <button onClick={this.toggleChangeClass.bind(this)}>Change Class</button>
-          <div id="change-class-container" 
-            className="hidden" 
-            ref={this.changeClassDiv}>
-            <select onChange={this.changeClass.bind(this)}
-              ref={this.changeClassSelect}>
-              <option value="Brute">Brute</option>
-              <option value="Cragheart">Cragheart</option>
-              <option value="Mindthief">Mindthief</option>
-              <option value="Scoundrel">Scoundrel</option>
-              <option value="Spellweaver">Spellweaver</option>
-              <option value="Tinkerer">Tinkerer</option>
-            </select>
+          <div id="stats">
+            <h4>Cards Selected</h4>
+            <p id="number-cards">{numberSelectedCards} &nbsp; of &nbsp; {handSize}</p>
+            <h4>Character Level</h4> 
+            <button id="decrease-level" 
+              className="inline-button"
+              onClick={currentLevel === 1 ? console.log('Minimum Level') : decreaseCurrentLevel} >-</button>
+            <h3>{currentLevel}</h3>
+            <button id="increase-level" 
+              className="inline-button"
+              onClick={currentLevel === 9 ? console.log('Maximum Level') : increaseCurrentLevel} >+</button>
+            <button onClick={this.toggleChangeClass.bind(this)}
+              ref={this.changeClassButton}>
+              Change Class
+              </button>
+            <button onClick={this.toggleDeckSave.bind(this)}
+              ref={this.deckSaveButton}>
+              Save Deck
+            </button>
+            <div id="deck-save-container" 
+              className="hidden" 
+              ref={this.deckSaveDiv}>
+              <form>
+                <input id="deck-name" 
+                  type="text" 
+                  placeholder="Enter deck name."
+                  ref={this.deckSaveName}/>
+                <button id="submit-deck-name" 
+                  onClick={this.submitDeck.bind(this)}>Submit</button>
+              </form>
+            </div>
+           <button onClick={this.resetDeck.bind(this)}
+              ref={this.deckReset}>
+              Reset Deck
+            </button>
+            <div id="change-class-container" 
+              className="hidden" 
+              ref={this.changeClassDiv}>
+              <select onChange={this.changeClass.bind(this)}
+                ref={this.changeClassSelect}>
+                <option value="Brute">Brute</option>
+                <option value="Cragheart">Cragheart</option>
+                <option value="Mindthief">Mindthief</option>
+                <option value="Scoundrel">Scoundrel</option>
+                <option value="Spellweaver">Spellweaver</option>
+                <option value="Tinkerer">Tinkerer</option>
+              </select>
+            </div>
           </div>
         </div>
         <SelectedCards location={this.props.location} />

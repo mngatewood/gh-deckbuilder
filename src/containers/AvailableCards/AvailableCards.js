@@ -45,13 +45,14 @@ export class AvailableCards extends Component {
     return (
       <div className="cards-component" id="available-component">
         <h2>Available Cards</h2>
+        <div className="scroll-fade-top"></div>
         <div className="cards-container" 
           onDrop={ event => dropHandler(event)} 
           onDragOver={ event => dragoverHandler(event)} 
           ref={this.container} >
           {helpers.renderCards(availableCards, currentLevel)}
         </div>
-        <div className="scroll-fade"></div>
+        <div className="scroll-fade-bottom"></div>
       </div>
     );
   }
