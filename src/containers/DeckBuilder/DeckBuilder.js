@@ -19,7 +19,7 @@ import {
 export class DeckBuilder extends Component {
   constructor(props) {
     super(props);
-    this.feedback = React.createRef();
+    this.feedbackDiv = React.createRef();
     this.deckSaveButton = React.createRef();
     this.deckSaveDiv = React.createRef();
     this.deckSaveName = React.createRef();
@@ -29,7 +29,7 @@ export class DeckBuilder extends Component {
     this.changeClassSelect = React.createRef();
     this.state = {
       deck: 0,
-      deckName: '',
+      deckName: 'Unnamed Deck',
       background: require('../../images/background/background.png'),
       classImage: require('../../images/classArtwork/pending.png'),
       level: 1,
@@ -81,6 +81,31 @@ export class DeckBuilder extends Component {
       classImage: dynamicImage,
       background: dynamicBackground})
     document.body.style = `background-image: url(${this.state.background});`;
+  }
+
+  displayFeedback(message) {
+    if(this.feedback && this.state.feedback !== message) {
+      this.setState({ feedback: message });
+      console.log(this.feedbackDiv)
+      this.feedback.current.classList.toggle('hidden');
+    }
+  }
+
+  changeLevel(operator) {
+    const { currentLevel, increaseCurrentLevel, decreaseCurrentLevel } = this.props
+    if(operator === 'plus'){
+      if(currentLevel < 9) {
+        increaseCurrentLevel()
+       } else { 
+        this.displayFeedback('Maximum level is already selected.')
+       }
+    } else if(operator === 'minus') {
+      if(currentLevel > 1) {
+        decreaseCurrentLevel()
+      } else {
+        this.displayFeedback('Minimum level is already selected.')
+      }
+    }
   }
 
   toggleDeckSave() {
@@ -147,25 +172,25 @@ export class DeckBuilder extends Component {
         <div id="class-info">
           <img src={this.state.classImage}
             alt={selectedClass}/>
-          <div id="feedback-container" class="hidden" ref={this.feedback}>
+          <div id="feedback-container" className="hidden" ref={this.feedbackDiv}>
             <img src={require('../../images/feedback-bg.png')} />
             <div id="feedback-content">
               <p>{this.state.feedback}</p>
             </div>
           </div>
           <h2>{selectedClass}</h2>
-          <h5>Deck Name</h5>
+          <h5>{this.state.deckName}</h5>
           <div id="stats">
             <h4>Cards Selected</h4>
             <p id="number-cards">{numberSelectedCards} &nbsp; of &nbsp; {handSize}</p>
             <h4>Character Level</h4> 
             <button id="decrease-level" 
               className="inline-button"
-              onClick={currentLevel === 1 ? console.log('Minimum Level') : decreaseCurrentLevel} >-</button>
+              onClick={() => { this.changeLevel('minus') }} >-</button>
             <h3>{currentLevel}</h3>
             <button id="increase-level" 
               className="inline-button"
-              onClick={currentLevel === 9 ? console.log('Maximum Level') : increaseCurrentLevel} >+</button>
+              onClick={() => { this.changeLevel('plus') }} >+</button>
             <button onClick={this.toggleChangeClass.bind(this)}
               ref={this.changeClassButton}>
               Change Class

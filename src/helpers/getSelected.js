@@ -3,6 +3,7 @@ import { fetchSelected } from '../api/fetchSelected'
 export const getSelected = async (deckId, cards) => {
     if(deckId === 0) {
       return {
+        name: 'Unsaved Deck',
         cards: []
       }; 
     } else {
