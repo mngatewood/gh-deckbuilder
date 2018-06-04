@@ -39,26 +39,46 @@ export class DeckBuilder extends Component {
 
   async componentDidMount() {
     try {
-      const { addCards, addSelectedCards, addAvailableCards, addSelectedClass } = this.props
-      const selectedClass = this.props.location.pathname.slice(1);
-      const cards = await api.fetchCards(selectedClass);
-      const deck = await helpers.getSelected(this.state.deck, cards);
-      const available = await helpers.getAvailable(cards, deck.cards);
-      const dynamicImage = require(`../../images/classArtwork/${selectedClass}FullBody.png`)
-      const dynamicBackground = require(`../../images/background/background-${selectedClass}.png`)
-      this.setState({ 
-        classImage: dynamicImage,
-        background: dynamicBackground,
-        deckName: deck.name })
-      document.body.style = `background-image: url(${this.state.background});`;
-      addSelectedClass(selectedClass)
-      addCards(cards);
-      addSelectedCards(deck.cards);
-      addAvailableCards(available);
-      this.setState()
+      const selectedClass = await this.getAllCards()
+      this.getImages(selectedClass)
+      this.props.addSelectedClass(selectedClass)
     } catch (error) {
       this.setState({ error });
     }
+  }
+
+  async componentDidUpdate(prevProps) {
+    if (prevProps.location !== this.props.location) {
+      try {
+        const selectedClass = await this.getAllCards()
+        this.getImages(selectedClass)
+        this.props.addSelectedClass(selectedClass)
+      } catch (error) {
+        this.setState({ error });
+      }
+    }
+  }
+
+  async getAllCards() {
+    const { addCards, addSelectedCards, addAvailableCards } = this.props
+    const selectedClass = this.props.location.pathname.slice(1);
+    const cards = await api.fetchCards(selectedClass);
+    const deck = await helpers.getSelected(this.state.deck, cards);
+    const available = await helpers.getAvailable(cards, deck.cards);
+    this.setState({deck: deck.name})
+    addCards(cards);
+    addSelectedCards(deck.cards);
+    addAvailableCards(available);
+    return selectedClass
+  }
+
+  getImages(selectedClass) {
+    const dynamicImage = require(`../../images/classArtwork/${selectedClass}FullBody.png`)
+    const dynamicBackground = require(`../../images/background/background-${selectedClass}.png`)
+    this.setState({
+      classImage: dynamicImage,
+      background: dynamicBackground})
+    document.body.style = `background-image: url(${this.state.background});`;
   }
 
   toggleDeckSave() {
