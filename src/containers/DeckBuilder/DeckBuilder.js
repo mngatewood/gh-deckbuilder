@@ -28,7 +28,6 @@ export class DeckBuilder extends Component {
     this.changeClassDiv = React.createRef();
     this.changeClassSelect = React.createRef();
     this.state = {
-      deck: 0,
       deckName: 'Unnamed Deck',
       background: require('../../images/background/background.png'),
       classImage: require('../../images/classArtwork/pending.png'),
@@ -61,10 +60,10 @@ export class DeckBuilder extends Component {
   }
 
   async getAllCards() {
-    const { addCards, addSelectedCards, addAvailableCards } = this.props
+    const { addCards, addSelectedCards, addAvailableCards, selectedDeck } = this.props
     const selectedClass = this.props.location.pathname.slice(1);
     const cards = await api.fetchCards(selectedClass);
-    const deck = await helpers.getSelected(this.state.deck, cards);
+    const deck = await helpers.getSelected(selectedDeck, cards);
     const available = await helpers.getAvailable(cards, deck.cards);
     this.setState({deckName: deck.name})
     addCards(cards);
@@ -135,13 +134,13 @@ export class DeckBuilder extends Component {
   }
 
   async resetDeck() {
-    const { removeSelectedCards, addSelectedCards, addAvailableCards, cards } = this.props
-    if(this.state.deck === 0) {
+    const { removeSelectedCards, addSelectedCards, addAvailableCards, cards, selectedDeck } = this.props
+    if(selectedDeck === 0) {
       removeSelectedCards();
       addAvailableCards(this.props.cards)
       this.displayFeedback('All selected cards cleared.')
     } else {
-      const deck = await helpers.getSelected(this.state.deck, cards);
+      const deck = await helpers.getSelected(selectedDeck, cards);
       const available = await helpers.getAvailable(cards, deck.cards);
       addSelectedCards(deck.cards);
       addAvailableCards(available);
@@ -243,18 +242,12 @@ export class DeckBuilder extends Component {
 
 export const mapDispatchToProps = dispatch => ({
   addCards: cards => dispatch(addCards(cards)),
-  addSelectedCards: selectedCards => 
-    dispatch(addSelectedCards(selectedCards)),
-  addAvailableCards: availableCards =>
-    dispatch(addAvailableCards(availableCards)),
-  addSelectedClass: selectedClass =>
-    dispatch(addSelectedClass(selectedClass)),
-  increaseCurrentLevel: currentLevel =>
-    dispatch(increaseCurrentLevel(currentLevel)),
-  decreaseCurrentLevel: currentLevel =>
-    dispatch(decreaseCurrentLevel(currentLevel)),
-  removeSelectedCards: () => 
-    dispatch(removeSelectedCards())
+  addSelectedCards: selectedCards => dispatch(addSelectedCards(selectedCards)),
+  addAvailableCards: availableCards => dispatch(addAvailableCards(availableCards)),
+  addSelectedClass: selectedClass => dispatch(addSelectedClass(selectedClass)),
+  increaseCurrentLevel: currentLevel => dispatch(increaseCurrentLevel(currentLevel)),
+  decreaseCurrentLevel: currentLevel => dispatch(decreaseCurrentLevel(currentLevel)),
+  removeSelectedCards: () => dispatch(removeSelectedCards())
 });
 
 export const mapStateToProps = state => ({
@@ -262,7 +255,8 @@ export const mapStateToProps = state => ({
   selectedCards: state.selectedCards,
   availableCards: state.availableCards,
   selectedClass: state.selectedClass,
-  currentLevel: state.currentLevel
+  currentLevel: state.currentLevel,
+  selectedDeck: state.selectedDeck
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(DeckBuilder));
