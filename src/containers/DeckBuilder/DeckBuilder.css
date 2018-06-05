@@ -69,7 +69,7 @@
   display: block;
   width: 80%;
   height: 22px;
-  margin: 12px auto;
+  margin: 10px auto;
   background-image: url('../../images/button-bg.png');
   background-repeat: no-repeat;
   background-size: 100%;
@@ -77,6 +77,7 @@
   outline: none;
   border: none;
   color: white;
+  cursor: pointer;
 }
 
 #class-info h2 {
@@ -131,15 +132,29 @@
 
 #class-info #class-select-container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: left;
-  align-content: left;
 }
 
 #class-info ul {
+  display: flex;
+  justify-content: space-around;
   list-style-type: none;
+  text-align: left;
+  padding-left: 10px;
+  margin: 0;
+}
+
+#class-info li {
+  margin-bottom: 5px;
   cursor: pointer;
 }
+
+#class-info li img {
+  width: 20px;
+  height: 20px;
+}
+
 #class-info .hidden {
   display: none
 }
