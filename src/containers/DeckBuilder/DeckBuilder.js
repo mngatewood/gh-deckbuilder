@@ -162,9 +162,7 @@ export class DeckBuilder extends Component {
   render() {
     const { selectedClass, 
       selectedCards, 
-      currentLevel,
-      increaseCurrentLevel, 
-      decreaseCurrentLevel } = this.props;
+      currentLevel } = this.props;
     const numberSelectedCards = selectedCards.length;
     const handSize = helpers.getHandSize(selectedClass);
 
@@ -178,7 +176,8 @@ export class DeckBuilder extends Component {
             className="hidden" 
             ref={this.feedbackDiv}
             onClick={this.hideFeedback}>
-            <img src={require('../../images/feedback-bg.png')} />
+            <img src={require('../../images/feedback-bg.png')}
+              alt="feedback" />
             <div id="feedback-content">
               <p>{this.state.feedback}</p>
             </div>

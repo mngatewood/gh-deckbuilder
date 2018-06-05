@@ -16,16 +16,16 @@ export const fetchPostDeck = async (name, selectedClass, level, cards) => {
       .then(response => {
         switch (response.status) {
           case 201: {
-            console.log(response.statusText)
+            console.log('Success!')
           }; break;
           case 422: {
-            console.log(response)
+            console.log('Error: Unprocessable Entity')
           }; break;
           case 500: {
-            console.log(response)
+            console.log('Error: Internal Server Error')
           }; break;
           default: {
-            console.log('Success!')
+            console.log('Unknown response.')
           };
         }
       })
