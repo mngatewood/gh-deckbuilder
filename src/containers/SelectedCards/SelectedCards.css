@@ -5,7 +5,7 @@
 
 #selected-heading {
   text-align: right;
-  margin-right: 25px;
+  right: 8%;
 }
 
 /* Most of the styles for this component reside in AvailableCards.css */
