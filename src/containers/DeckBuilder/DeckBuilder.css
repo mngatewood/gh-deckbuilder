@@ -11,12 +11,39 @@
   width: 190px;
   text-align: center;
   color: white;
-  margin: 25px auto 0 auto;
+  margin: 40px auto 0 auto;
 }
 
 #class-info img {
   width: 180px;
+  height: 280px;
   border: 5px outset #666666;
+  pointer-events: none;
+}
+
+#class-info #feedback-container {
+  position: absolute;
+}
+
+#class-info #feedback-content {
+  display: flex;
+  position: relative;
+  top: -240px;
+  flex-direction: column;
+  justify-content: center;
+  height: 180px;
+  pointer-events: none;
+}
+
+#class-info #feedback-content p {
+  position: relative;
+  left: 40px;
+  margin: 0;
+  width: 100px;
+  font-family: 'Nyala';
+  font-size: 24px;
+  color: #000000;
+  pointer-events: none;
 }
 
 #class-info #stats {
@@ -30,12 +57,18 @@
   display: block;
   width: 80%;
   margin: 15px auto;
+  background-image: url('../../images/button-bg.png');
+  background-size: 100%;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  color: white;
 }
 
 #class-info h2 {
   font-family: "Pirata";
   letter-spacing: 2px;
-  margin: 10px 10px 10px 15px;
+  margin: 10px 10px 5px 15px;
 }
 
 #class-info h3 {
@@ -49,16 +82,56 @@
   margin: 15px 0 0 0;
 }
 
+#class-info h5 {
+  font-family: "Nyala";
+  font-size: 18px;
+  letter-spacing: 2px;
+  margin: 0;
+}
+
 #class-info #number-cards {
   font-size: 18px;
   margin: 5px;
 }
 
-#class-info button.inline-button {
+#class-info .inline-button {
   display: inline-block;
-  width: 22px;
-  height: 21px;
+  width: 30px;
+  height: 30px;
+  margin: 5px 0;
+  /* background-image: url('../../images/plus1.png'); */
+  background-repeat: no-repeat;
+  background-size: 30px 30px;
+  background-color: transparent;
+  outline: none;
+  border: none;
+
 }
+
+#class-info button#decrease-level {
+  display: inline-block;
+  /* width: 22px;
+  height: 21px; */
+
+  background-image: url('../../images/minus1.png');
+  /* background-size: 100%;
+  background-color: transparent;
+  outline: none;
+  border: none; */
+
+}
+
+#class-info button#increase-level {
+    display: inline-block;
+  background-image: url('../../images/plus1.png');
+  /* background-size: 100%;
+  background-color: transparent;
+  outline: none;
+  border: none; */
+
+}
+
+
 
 #class-info .hidden {
   display: none
