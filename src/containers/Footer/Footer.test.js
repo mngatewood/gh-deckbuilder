@@ -14,13 +14,21 @@ describe("Footer component", () => {
       wrapper = shallow(<Footer
         addDecks={jest.fn()}
         addSelectedDecks={jest.fn()}
-        currentDecks={mocks.mockMultiDecks}/>)
+        currentDecks={[]}/>)
     });
 
-    it("should match the snapshot", () => {
+    it("should match the snapshot when there are no decks", () => {
       expect(wrapper).toMatchSnapshot();
     });
 
+    it("should match snapshot when there are decks", () => {
+      wrapper = shallow(<Footer
+        addDecks={jest.fn()}
+        addSelectedDecks={jest.fn()}
+        currentDecks={mocks.mockMultiDecks}/>)
+
+      expect(wrapper).toMatchSnapshot();
+    });
   });
 
   describe("Map State to Props", () => {
