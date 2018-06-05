@@ -6,7 +6,7 @@ import { mapStateToProps, mapDispatchToProps } from './AvailableCards';
 import * as actions from '../../actions';
 import * as mocks from '../../mocks/mockCards';
 
-describe("Card component", () => {
+describe("Available Card component", () => {
   describe("Container Tests", () => {
     let wrapper;
 

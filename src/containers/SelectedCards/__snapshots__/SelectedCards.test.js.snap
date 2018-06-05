@@ -1,0 +1,195 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Selected Card component Container Tests should match the snapshot 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <SelectedCards
+    addSelectedCard={[Function]}
+    availableCards={Array []}
+    cards={Array []}
+    currentLevel={1}
+    removeAvailableCard={[Function]}
+    selectedCards={Array []}
+    selectedClass="Brute"
+/>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <h2
+          id="selected-heading"
+>
+          Selected Cards
+</h2>,
+        <div
+          className="scroll-fade-top"
+/>,
+        <div
+          className="cards-container"
+          onDragOver={[Function]}
+          onDrop={[Function]}
+>
+          
+</div>,
+        <div
+          className="scroll-fade-bottom"
+/>,
+      ],
+      "className": "cards-component",
+      "id": "selected-component",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Selected Cards",
+          "id": "selected-heading",
+        },
+        "ref": null,
+        "rendered": "Selected Cards",
+        "type": "h2",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "className": "scroll-fade-top",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [],
+          "className": "cards-container",
+          "onDragOver": [Function],
+          "onDrop": [Function],
+        },
+        "ref": null,
+        "rendered": Array [],
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "className": "scroll-fade-bottom",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "div",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <h2
+            id="selected-heading"
+>
+            Selected Cards
+</h2>,
+          <div
+            className="scroll-fade-top"
+/>,
+          <div
+            className="cards-container"
+            onDragOver={[Function]}
+            onDrop={[Function]}
+>
+            
+</div>,
+          <div
+            className="scroll-fade-bottom"
+/>,
+        ],
+        "className": "cards-component",
+        "id": "selected-component",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Selected Cards",
+            "id": "selected-heading",
+          },
+          "ref": null,
+          "rendered": "Selected Cards",
+          "type": "h2",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "className": "scroll-fade-top",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [],
+            "className": "cards-container",
+            "onDragOver": [Function],
+            "onDrop": [Function],
+          },
+          "ref": null,
+          "rendered": Array [],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "className": "scroll-fade-bottom",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "div",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Card component Container Tests should match the snapshot 1`] = `
+exports[`Available Card component Container Tests should match the snapshot 1`] = `
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
@@ -337,7 +337,9 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": Array [
-        <h2>
+        <h2
+          id="available-heading"
+>
           Available Cards
 </h2>,
         <div
@@ -429,6 +431,7 @@ ShallowWrapper {
         "nodeType": "host",
         "props": Object {
           "children": "Available Cards",
+          "id": "available-heading",
         },
         "ref": null,
         "rendered": "Available Cards",
@@ -718,7 +721,9 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
-          <h2>
+          <h2
+            id="available-heading"
+>
             Available Cards
 </h2>,
           <div
@@ -810,6 +815,7 @@ ShallowWrapper {
           "nodeType": "host",
           "props": Object {
             "children": "Available Cards",
+            "id": "available-heading",
           },
           "ref": null,
           "rendered": "Available Cards",
