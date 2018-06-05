@@ -11,14 +11,20 @@ describe("Fetch Cards", () => {
     url = `http://localhost:8080/api/v1/decks/${deckId}`;
   });
 
-  it("should fetch with correct URL", () => {
+  it("should fetch with correct params", () => {
     window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
       ok: true,
       status: 200
     }));
+    const expected = [
+      `http://localhost:8080/api/v1/decks/${deckId}`,
+      { method: 'DELETE',
+        headers: {'Content-Type': 'application/json'}
+      }
+    ];
 
     fetchDeleteDeck(deckId);
-    expect(window.fetch).toHaveBeenCalled();
+    expect(window.fetch).toHaveBeenCalledWith(...expected);
   });
 
   it("should give status 200 if successful", async () => {

@@ -22,7 +22,7 @@ describe("Fetch Cards", () => {
     expect(window.fetch).toHaveBeenCalledWith(url);
   });
 
-  it.skip("should return all cards of that class", async () => {
+  it("should return selected deck", async () => {
     let results = mocks.mockDeck;
 
     window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
@@ -30,11 +30,11 @@ describe("Fetch Cards", () => {
       json: () => Promise.resolve(results)
     }));
 
-    const cards = await fetchSelected(selectedClass);
+    const cards = await fetchSelected(deckId);
     expect(cards).toEqual(results);
   });
 
-  it.skip("should throw an error", async () => {
+  it("should throw an error", async () => {
     window.fetch = jest.fn().mockImplementation(() =>
       Promise.reject({
         status: 500,
@@ -43,7 +43,7 @@ describe("Fetch Cards", () => {
     );
     const expected = { "Error": 'Error getting cards'}
 
-    const errorFetch = fetchSelected(selectedClass)
-    expect(errorFetch).rejects.toEqual(expected);
+    const fetchSuccess = fetchSelected(deckId)
+    expect(fetchSuccess).rejects.toEqual(expected);
   });
 });
