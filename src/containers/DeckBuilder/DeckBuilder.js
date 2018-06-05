@@ -42,6 +42,7 @@ export class DeckBuilder extends Component {
       const selectedClass = await this.getAllCards()
       this.getImages(selectedClass)
       this.props.addSelectedClass(selectedClass)
+      this.feedbackDiv.current.classList.add('hidden');
     } catch (error) {
       this.setState({ error });
     }
@@ -53,6 +54,7 @@ export class DeckBuilder extends Component {
         const selectedClass = await this.getAllCards()
         this.getImages(selectedClass)
         this.props.addSelectedClass(selectedClass)
+        this.feedbackDiv.current.classList.add('hidden');
       } catch (error) {
         this.setState({ error });
       }
@@ -93,9 +95,13 @@ export class DeckBuilder extends Component {
   changeLevel(operator) {
     const { currentLevel, increaseCurrentLevel, decreaseCurrentLevel } = this.props
     if(operator === 'plus'){
-      currentLevel < 9 ? increaseCurrentLevel() : this.displayFeedback('Maximum level is already selected.')
+      currentLevel < 9 
+      ? increaseCurrentLevel() 
+      : this.displayFeedback('Maximum level is already selected.')
     } else if(operator === 'minus') {
-      currentLevel > 1 ? decreaseCurrentLevel() : this.displayFeedback('Minimum level is already selected.')
+      currentLevel > 1 
+      ? decreaseCurrentLevel() 
+      : this.displayFeedback('Minimum level is already selected.')
     }
   }
 
