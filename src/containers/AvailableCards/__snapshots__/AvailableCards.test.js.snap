@@ -1,0 +1,1104 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card component should match the snapshot 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <AvailableCards
+    addAvailableCard={[Function]}
+    availableCards={
+        Array [
+            Object {
+              "bottom_action": "Move 3 Push 1 ● ^(Target all adjacent enemies)",
+              "card_level": 1,
+              "class": "Brute",
+              "image_url": "./images/cards/Brute3.png",
+              "initiative": 64,
+              "name": "Sweeping Blow",
+              "top_action": "Attack 2 ● Attack Pattern: 3 connected adjacent hexes, enhanceable to 4",
+            },
+            Object {
+              "bottom_action": "Move 4 ● ^Jump Attack 2 ● ● ^(Target all enemies moved through) 2 XP, LOSS",
+              "card_level": 1,
+              "class": "Brute",
+              "image_url": "./images/cards/Brute1.png",
+              "initiative": 72,
+              "name": "Trample",
+              "top_action": "Attack 3 ● ^(Pierce 2 ●)",
+            },
+            Object {
+              "bottom_action": "Any enemy who targets one of your adjacent allies with an attack this round targets you with that attack instead, regardless of the attack's range. Round Bonus",
+              "card_level": 1,
+              "class": "Brute",
+              "image_url": "./images/cards/Brute4.png",
+              "initiative": 10,
+              "name": "Provoking Roar ",
+              "top_action": "Attack 2 ● ^Disarm ",
+            },
+            Object {
+              "bottom_action": "Shield 1 ● ● Self Round Bonus",
+              "card_level": 1,
+              "class": "Brute",
+              "image_url": "./images/cards/Brute8.png",
+              "initiative": 15,
+              "name": "Shield Bash",
+              "top_action": "Attack 4 ● ● ^Stun 2 XP, Loss",
+            },
+            Object {
+              "bottom_action": "Move 4 ●",
+              "card_level": 1,
+              "class": "Brute",
+              "image_url": "./images/cards/Brute6.png",
+              "initiative": 87,
+              "name": "Grab and Go",
+              "top_action": "Loot 1",
+            },
+            Object {
+              "bottom_action": "Heal 2 ● ● ^(Range 1) Generate Earth",
+              "card_level": 1,
+              "class": "Brute",
+              "image_url": "./images/cards/Brute2.png",
+              "initiative": 18,
+              "name": "Eye for an Eye",
+              "top_action": "Retaliate 2 ● ^Self ^(Gain 1 XP each time you retaliate this round.) Round Bonus ",
+            },
+            Object {
+              "bottom_action": "On the next six sources of damage from attacks targeting you, gain Shield 1. 6 Charges, gain 1 XP on 2nd, 4th, and 6th charge. LOSS",
+              "card_level": 1,
+              "class": "Brute",
+              "image_url": "./images/cards/Brute7.png",
+              "initiative": 32,
+              "name": "Warding Strength ",
+              "top_action": "Attack 3 ● ^(Push 2 ●) ",
+            },
+            Object {
+              "bottom_action": "Move 3 Push 2 ● ^(Target one adjacent enemy)",
+              "card_level": 1,
+              "class": "Brute",
+              "image_url": "./images/cards/Brute5.png",
+              "initiative": 61,
+              "name": "Overwhelming Assault",
+              "top_action": "Attack 6 ● ● 2 XP, LOSS",
+            },
+            Object {
+              "bottom_action": "Attack 2",
+              "card_level": 1,
+              "class": "Brute",
+              "image_url": "./images/cards/Brute10.png",
+              "initiative": 27,
+              "name": "Spare Dagger",
+              "top_action": "Attack 3 ● ^(Range 3) 1 XP",
+            },
+            Object {
+              "bottom_action": "Move 3 ● ^Jump Generate Air",
+              "card_level": 1,
+              "class": "Brute",
+              "image_url": "./images/cards/Brute9.png",
+              "initiative": 54,
+              "name": "Leaping Cleave",
+              "top_action": "Attack 3 ● Attack Pattern: 3 consecutive adjacent hexes 1XP ",
+            },
+            Object {
+              "bottom_action": "Move 6 ● ● 1 XP, LOSS",
+              "card_level": 0,
+              "class": "Brute",
+              "image_url": "./images/cards/Brute11.png",
+              "initiative": 35,
+              "name": "Skewer",
+              "top_action": "Attack 3 ● Use Air: +1 Attack, Pierce 1 Attack Pattern: Two hexes in a line from your position. Enhanceable to add a 3rd hex. 1 XP",
+            },
+            Object {
+              "bottom_action": "Add +1 Attack to all your attacks this round. Round Bonus",
+              "card_level": 0,
+              "class": "Brute",
+              "image_url": "./images/cards/Brute13.png",
+              "initiative": 20,
+              "name": "Wall of Doom",
+              "top_action": "Retaliate 2 ● ^Self Shield 2 ● ^Self 2 XP, Round Bonus, LOSS",
+            },
+            Object {
+              "bottom_action": "Move X ^(where X is the amount of damage you have inflicted so far this turn.)",
+              "card_level": 0,
+              "class": "Brute",
+              "image_url": "./images/cards/Brute12.png",
+              "initiative": 77,
+              "name": "Balanced Measure",
+              "top_action": "Attack X ^(where X is the number of hexes you have moved so far this turn) 1XP",
+            },
+            Object {
+              "bottom_action": "On the next three sources of damage to you, suffer no damage instead. 3 Charges, 1 XP on each charge LOSS",
+              "card_level": 2,
+              "class": "Brute",
+              "image_url": "./images/cards/Brute3.png",
+              "initiative": 34,
+              "name": "Juggernaut",
+              "top_action": "Move 2 ● Attack 2 ●",
+            },
+            Object {
+              "bottom_action": "Move 4 ●",
+              "card_level": 2,
+              "class": "Brute",
+              "image_url": "./images/cards/Brute14.png",
+              "initiative": 40,
+              "name": "Fatal Advance",
+              "top_action": "Kill one adjacent normal enemy 2 XP, LOSS  ",
+            },
+            Object {
+              "bottom_action": "Move 4 ^(If the movement was in a straight line, perform) Attack X ^(where X is the number of hexes you moved with this action).",
+              "card_level": 3,
+              "class": "Brute",
+              "image_url": "./images/cards/Brute16.png",
+              "initiative": 42,
+              "name": "Hook and Chain",
+              "top_action": "Attack 3 ● ● ^(Range 3) ^(Pull 2)",
+            },
+            Object {
+              "bottom_action": "Move 2 Shield 1 ● ^Self Round Bonus",
+              "card_level": 3,
+              "class": "Brute",
+              "image_url": "./images/cards/Brute17.png",
+              "initiative": 51,
+              "name": "Brute Force",
+              "top_action": "Attack 2 ● ^Muddle Attack Pattern: 3 consecutive adjacent hexes. Enhanceable to add a 4th and 5th hex. 1 XP ",
+            },
+            Object {
+              "bottom_action": "Move 4 ● Stun ^(Target all adjacent enemies) LOSS",
+              "card_level": 4,
+              "class": "Brute",
+              "image_url": "./images/cards/Brute18.png",
+              "initiative": 86,
+              "name": "Unstoppable Charge",
+              "top_action": "Attack 5 ● 1 XP",
+            },
+            Object {
+              "bottom_action": "Loot 1",
+              "card_level": 4,
+              "class": "Brute",
+              "image_url": "./images/cards/Brute19.png",
+              "initiative": 27,
+              "name": "Devastating Hack",
+              "top_action": "Attack 8 ● ● 3 XP, LOSS",
+            },
+            Object {
+              "bottom_action": "Attack 3 ● ^(Range 3) 1 XP",
+              "card_level": 5,
+              "class": "Brute",
+              "image_url": "./images/cards/Brute21.png",
+              "initiative": 29,
+              "name": "Skirmishing Maneuver",
+              "top_action": "Attack 2 Move 2 ● Attack 2",
+            },
+            Object {
+              "bottom_action": "Move 4 ● Push 3 ● ^(Target one adjacent enemy)",
+              "card_level": 5,
+              "class": "Brute",
+              "image_url": "./images/cards/Brute20.png",
+              "initiative": 28,
+              "name": "Whirlwind",
+              "top_action": "Attack 4 ● ^(Target all adjacent enemies. Gain 1 XP for each enemy targeted). LOSS",
+            },
+            Object {
+              "bottom_action": "You may treat all Move abilities as Attack abilities of equal value. Round Bonus LOSS",
+              "card_level": 6,
+              "class": "Brute",
+              "image_url": "./images/cards/Brute23.png",
+              "initiative": 17,
+              "name": "Immovable Phalanx",
+              "top_action": "Attack 4 ● Shield 1 ● ^(Self) Round Bonus",
+            },
+            Object {
+              "bottom_action": "Move 3 ● Add +1 Attack to all your attacks this round. Round Bonus",
+              "card_level": 6,
+              "class": "Brute",
+              "image_url": "./images/cards/Brute22.png",
+              "initiative": 57,
+              "name": "Quietus",
+              "top_action": "Kill one adjacent normal enemy with STUN 1XP",
+            },
+            Object {
+              "bottom_action": "Move 3 ● Immobilize and Push 1 ^(Target one adjacent enemy)",
+              "card_level": 7,
+              "class": "Brute",
+              "image_url": "./images/cards/Brute25.png",
+              "initiative": 33,
+              "name": "Crippling Offensive",
+              "top_action": "Attack 6 ● ● ^Wound ^Stun 3 XP, LOSS",
+            },
+            Object {
+              "bottom_action": "Retaliate 1 ^Self Shield 1 ^Self 2 XP, Round Bonus LOSS",
+              "card_level": 7,
+              "class": "Brute",
+              "image_url": "./images/cards/Brute24.png",
+              "initiative": 26,
+              "name": "Defensive Tactics",
+              "top_action": "Attack 2 ● ^(Range 3) ^(Target 2 ●) ^Immobilize 1XP",
+            },
+            Object {
+              "bottom_action": "Add +3 Attack to all your attacks targeting enemies with Disarm, Immobilize, or Stun this round. 1XP, Round Bonus",
+              "card_level": 8,
+              "class": "Brute",
+              "image_url": "./images/cards/Brute26.png",
+              "initiative": 41,
+              "name": "Frenzied Onslaught",
+              "top_action": "Move 2 Attack 2 ● Move 2 Attack 2 ●",
+            },
+            Object {
+              "bottom_action": "Move 3 ● Retaliate 2 ● ^Self 1XP, Round Bonus",
+              "card_level": 8,
+              "class": "Brute",
+              "image_url": "./images/cards/Brute27.png",
+              "initiative": 12,
+              "name": "Selfish Retribution",
+              "top_action": "Move 1 ● Loot 2 LOSS",
+            },
+            Object {
+              "bottom_action": "Kill one adjacent normal or elite enemy 2XP LOSS",
+              "card_level": 9,
+              "class": "Brute",
+              "image_url": "./images/cards/Brute29.png",
+              "initiative": 67,
+              "name": "Face Your End",
+              "top_action": "Attack 2 ● ^(Range 4) ^(Target 3 ●) ^(Pull 3) 1XP",
+            },
+            Object {
+              "bottom_action": "Heal 5 ● ^Self",
+              "card_level": 9,
+              "class": "Brute",
+              "image_url": "./images/cards/Brute28.png",
+              "initiative": 39,
+              "name": "King of the Hill",
+              "top_action": "Attack 6 ● ● ^(Target all adjacent enemies) ^(Push 1) ^(Gain 1XP for each enemy targeted) LOSS",
+            },
+          ]
+    }
+    cards={
+        Array [
+            Object {
+              "bottom_action": "Move 3 Push 1 ● ^(Target all adjacent enemies)",
+              "card_level": 1,
+              "class": "Brute",
+              "created_at": "2018-06-01T22:34:26.644Z",
+              "id": 1,
+              "image_url": "./images/cards/Brute3.png",
+              "initiative": 64,
+              "name": "Sweeping Blow",
+              "top_action": "Attack 2 ● Attack Pattern: 3 connected adjacent hexes, enhanceable to 4",
+              "updated_at": "2018-06-01T22:34:26.644Z",
+            },
+            Object {
+              "bottom_action": "Move 4 ● ^Jump Attack 2 ● ● ^(Target all enemies moved through) 2 XP, LOSS",
+              "card_level": 1,
+              "class": "Brute",
+              "image_url": "./images/cards/Brute1.png",
+              "initiative": 72,
+              "name": "Trample",
+              "top_action": "Attack 3 ● ^(Pierce 2 ●)",
+            },
+          ]
+    }
+    currentLevel={1}
+    removeSelectedCard={[Function]}
+    selectedCards={
+        Array [
+            Object {
+              "bottom_action": "Move 3 Push 1 ● ^(Target all adjacent enemies)",
+              "card_level": 1,
+              "class": "Brute",
+              "created_at": "2018-06-01T22:34:26.644Z",
+              "id": 1,
+              "image_url": "./images/cards/Brute3.png",
+              "initiative": 64,
+              "name": "Sweeping Blow",
+              "top_action": "Attack 2 ● Attack Pattern: 3 connected adjacent hexes, enhanceable to 4",
+              "updated_at": "2018-06-01T22:34:26.644Z",
+            },
+            Object {
+              "bottom_action": "Move 4 ● ^Jump Attack 2 ● ● ^(Target all enemies moved through) 2 XP, LOSS",
+              "card_level": 1,
+              "class": "Brute",
+              "image_url": "./images/cards/Brute1.png",
+              "initiative": 72,
+              "name": "Trample",
+              "top_action": "Attack 3 ● ^(Pierce 2 ●)",
+            },
+          ]
+    }
+/>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <h2>
+          Available Cards
+</h2>,
+        <div
+          className="scroll-fade-top"
+/>,
+        <div
+          className="cards-container"
+          onDragOver={[Function]}
+          onDrop={[Function]}
+>
+          <Unknown
+                    id={undefined}
+                    image="./images/cards/Brute12.png"
+                    name="Balanced Measure"
+          />
+          <Unknown
+                    id={undefined}
+                    image="./images/cards/Brute11.png"
+                    name="Skewer"
+          />
+          <Unknown
+                    id={undefined}
+                    image="./images/cards/Brute13.png"
+                    name="Wall of Doom"
+          />
+          <Unknown
+                    id={undefined}
+                    image="./images/cards/Brute8.png"
+                    name="Shield Bash"
+          />
+          <Unknown
+                    id={undefined}
+                    image="./images/cards/Brute6.png"
+                    name="Grab and Go"
+          />
+          <Unknown
+                    id={undefined}
+                    image="./images/cards/Brute2.png"
+                    name="Eye for an Eye"
+          />
+          <Unknown
+                    id={undefined}
+                    image="./images/cards/Brute1.png"
+                    name="Trample"
+          />
+          <Unknown
+                    id={undefined}
+                    image="./images/cards/Brute5.png"
+                    name="Overwhelming Assault"
+          />
+          <Unknown
+                    id={undefined}
+                    image="./images/cards/Brute10.png"
+                    name="Spare Dagger"
+          />
+          <Unknown
+                    id={undefined}
+                    image="./images/cards/Brute9.png"
+                    name="Leaping Cleave"
+          />
+          <Unknown
+                    id={undefined}
+                    image="./images/cards/Brute3.png"
+                    name="Sweeping Blow"
+          />
+          <Unknown
+                    id={undefined}
+                    image="./images/cards/Brute4.png"
+                    name="Provoking Roar "
+          />
+          <Unknown
+                    id={undefined}
+                    image="./images/cards/Brute7.png"
+                    name="Warding Strength "
+          />
+</div>,
+        <div
+          className="scroll-fade-bottom"
+/>,
+      ],
+      "className": "cards-component",
+      "id": "available-component",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Available Cards",
+        },
+        "ref": null,
+        "rendered": "Available Cards",
+        "type": "h2",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "className": "scroll-fade-top",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <Unknown
+              id={undefined}
+              image="./images/cards/Brute12.png"
+              name="Balanced Measure"
+/>,
+            <Unknown
+              id={undefined}
+              image="./images/cards/Brute11.png"
+              name="Skewer"
+/>,
+            <Unknown
+              id={undefined}
+              image="./images/cards/Brute13.png"
+              name="Wall of Doom"
+/>,
+            <Unknown
+              id={undefined}
+              image="./images/cards/Brute8.png"
+              name="Shield Bash"
+/>,
+            <Unknown
+              id={undefined}
+              image="./images/cards/Brute6.png"
+              name="Grab and Go"
+/>,
+            <Unknown
+              id={undefined}
+              image="./images/cards/Brute2.png"
+              name="Eye for an Eye"
+/>,
+            <Unknown
+              id={undefined}
+              image="./images/cards/Brute1.png"
+              name="Trample"
+/>,
+            <Unknown
+              id={undefined}
+              image="./images/cards/Brute5.png"
+              name="Overwhelming Assault"
+/>,
+            <Unknown
+              id={undefined}
+              image="./images/cards/Brute10.png"
+              name="Spare Dagger"
+/>,
+            <Unknown
+              id={undefined}
+              image="./images/cards/Brute9.png"
+              name="Leaping Cleave"
+/>,
+            <Unknown
+              id={undefined}
+              image="./images/cards/Brute3.png"
+              name="Sweeping Blow"
+/>,
+            <Unknown
+              id={undefined}
+              image="./images/cards/Brute4.png"
+              name="Provoking Roar "
+/>,
+            <Unknown
+              id={undefined}
+              image="./images/cards/Brute7.png"
+              name="Warding Strength "
+/>,
+          ],
+          "className": "cards-container",
+          "onDragOver": [Function],
+          "onDrop": [Function],
+        },
+        "ref": Object {
+          "current": null,
+        },
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "id": undefined,
+              "image": "./images/cards/Brute12.png",
+              "name": "Balanced Measure",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "id": undefined,
+              "image": "./images/cards/Brute11.png",
+              "name": "Skewer",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "id": undefined,
+              "image": "./images/cards/Brute13.png",
+              "name": "Wall of Doom",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "id": undefined,
+              "image": "./images/cards/Brute8.png",
+              "name": "Shield Bash",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "id": undefined,
+              "image": "./images/cards/Brute6.png",
+              "name": "Grab and Go",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "id": undefined,
+              "image": "./images/cards/Brute2.png",
+              "name": "Eye for an Eye",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "id": undefined,
+              "image": "./images/cards/Brute1.png",
+              "name": "Trample",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "id": undefined,
+              "image": "./images/cards/Brute5.png",
+              "name": "Overwhelming Assault",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "id": undefined,
+              "image": "./images/cards/Brute10.png",
+              "name": "Spare Dagger",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "id": undefined,
+              "image": "./images/cards/Brute9.png",
+              "name": "Leaping Cleave",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "id": undefined,
+              "image": "./images/cards/Brute3.png",
+              "name": "Sweeping Blow",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "id": undefined,
+              "image": "./images/cards/Brute4.png",
+              "name": "Provoking Roar ",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "id": undefined,
+              "image": "./images/cards/Brute7.png",
+              "name": "Warding Strength ",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+        ],
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "className": "scroll-fade-bottom",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "div",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <h2>
+            Available Cards
+</h2>,
+          <div
+            className="scroll-fade-top"
+/>,
+          <div
+            className="cards-container"
+            onDragOver={[Function]}
+            onDrop={[Function]}
+>
+            <Unknown
+                        id={undefined}
+                        image="./images/cards/Brute12.png"
+                        name="Balanced Measure"
+            />
+            <Unknown
+                        id={undefined}
+                        image="./images/cards/Brute11.png"
+                        name="Skewer"
+            />
+            <Unknown
+                        id={undefined}
+                        image="./images/cards/Brute13.png"
+                        name="Wall of Doom"
+            />
+            <Unknown
+                        id={undefined}
+                        image="./images/cards/Brute8.png"
+                        name="Shield Bash"
+            />
+            <Unknown
+                        id={undefined}
+                        image="./images/cards/Brute6.png"
+                        name="Grab and Go"
+            />
+            <Unknown
+                        id={undefined}
+                        image="./images/cards/Brute2.png"
+                        name="Eye for an Eye"
+            />
+            <Unknown
+                        id={undefined}
+                        image="./images/cards/Brute1.png"
+                        name="Trample"
+            />
+            <Unknown
+                        id={undefined}
+                        image="./images/cards/Brute5.png"
+                        name="Overwhelming Assault"
+            />
+            <Unknown
+                        id={undefined}
+                        image="./images/cards/Brute10.png"
+                        name="Spare Dagger"
+            />
+            <Unknown
+                        id={undefined}
+                        image="./images/cards/Brute9.png"
+                        name="Leaping Cleave"
+            />
+            <Unknown
+                        id={undefined}
+                        image="./images/cards/Brute3.png"
+                        name="Sweeping Blow"
+            />
+            <Unknown
+                        id={undefined}
+                        image="./images/cards/Brute4.png"
+                        name="Provoking Roar "
+            />
+            <Unknown
+                        id={undefined}
+                        image="./images/cards/Brute7.png"
+                        name="Warding Strength "
+            />
+</div>,
+          <div
+            className="scroll-fade-bottom"
+/>,
+        ],
+        "className": "cards-component",
+        "id": "available-component",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Available Cards",
+          },
+          "ref": null,
+          "rendered": "Available Cards",
+          "type": "h2",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "className": "scroll-fade-top",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <Unknown
+                id={undefined}
+                image="./images/cards/Brute12.png"
+                name="Balanced Measure"
+/>,
+              <Unknown
+                id={undefined}
+                image="./images/cards/Brute11.png"
+                name="Skewer"
+/>,
+              <Unknown
+                id={undefined}
+                image="./images/cards/Brute13.png"
+                name="Wall of Doom"
+/>,
+              <Unknown
+                id={undefined}
+                image="./images/cards/Brute8.png"
+                name="Shield Bash"
+/>,
+              <Unknown
+                id={undefined}
+                image="./images/cards/Brute6.png"
+                name="Grab and Go"
+/>,
+              <Unknown
+                id={undefined}
+                image="./images/cards/Brute2.png"
+                name="Eye for an Eye"
+/>,
+              <Unknown
+                id={undefined}
+                image="./images/cards/Brute1.png"
+                name="Trample"
+/>,
+              <Unknown
+                id={undefined}
+                image="./images/cards/Brute5.png"
+                name="Overwhelming Assault"
+/>,
+              <Unknown
+                id={undefined}
+                image="./images/cards/Brute10.png"
+                name="Spare Dagger"
+/>,
+              <Unknown
+                id={undefined}
+                image="./images/cards/Brute9.png"
+                name="Leaping Cleave"
+/>,
+              <Unknown
+                id={undefined}
+                image="./images/cards/Brute3.png"
+                name="Sweeping Blow"
+/>,
+              <Unknown
+                id={undefined}
+                image="./images/cards/Brute4.png"
+                name="Provoking Roar "
+/>,
+              <Unknown
+                id={undefined}
+                image="./images/cards/Brute7.png"
+                name="Warding Strength "
+/>,
+            ],
+            "className": "cards-container",
+            "onDragOver": [Function],
+            "onDrop": [Function],
+          },
+          "ref": Object {
+            "current": null,
+          },
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "id": undefined,
+                "image": "./images/cards/Brute12.png",
+                "name": "Balanced Measure",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "id": undefined,
+                "image": "./images/cards/Brute11.png",
+                "name": "Skewer",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "id": undefined,
+                "image": "./images/cards/Brute13.png",
+                "name": "Wall of Doom",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "id": undefined,
+                "image": "./images/cards/Brute8.png",
+                "name": "Shield Bash",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "id": undefined,
+                "image": "./images/cards/Brute6.png",
+                "name": "Grab and Go",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "id": undefined,
+                "image": "./images/cards/Brute2.png",
+                "name": "Eye for an Eye",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "id": undefined,
+                "image": "./images/cards/Brute1.png",
+                "name": "Trample",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "id": undefined,
+                "image": "./images/cards/Brute5.png",
+                "name": "Overwhelming Assault",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "id": undefined,
+                "image": "./images/cards/Brute10.png",
+                "name": "Spare Dagger",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "id": undefined,
+                "image": "./images/cards/Brute9.png",
+                "name": "Leaping Cleave",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "id": undefined,
+                "image": "./images/cards/Brute3.png",
+                "name": "Sweeping Blow",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "id": undefined,
+                "image": "./images/cards/Brute4.png",
+                "name": "Provoking Roar ",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "id": undefined,
+                "image": "./images/cards/Brute7.png",
+                "name": "Warding Strength ",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "className": "scroll-fade-bottom",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "div",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
