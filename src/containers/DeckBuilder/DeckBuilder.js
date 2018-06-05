@@ -42,7 +42,6 @@ export class DeckBuilder extends Component {
       const selectedClass = await this.getAllCards()
       this.getImages(selectedClass)
       this.props.addSelectedClass(selectedClass)
-      this.feedbackDiv.current.classList.add('hidden');
     } catch (error) {
       this.setState({ error });
     }
