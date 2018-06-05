@@ -24,6 +24,8 @@ export class Footer extends Component {
   }
 
   async componentDidUpdate(prevProps) {
+    console.log(this.props);
+    
     if (prevProps !== this.props) {
       try {
         const decks = await api.fetchDecks();
@@ -39,9 +41,7 @@ export class Footer extends Component {
     const mappedDecks = decks.map(deck => {
       const dynamicIcon = require(`../../images/classIcons/${deck.class}Icon.png`)
       const dynamicPath = `/${deck.class}`
-      
-console.log(this.props)
-
+    
       return (
         <div className="saved-deck" key={deck.id}>
           <Link to={dynamicPath}
@@ -64,14 +64,14 @@ console.log(this.props)
   }
 
   addSelectedId = (deckId) => {
-    console.log(this.props)
-    debugger
     this.props.addSelectedDeckId(deckId)
   }
 
   deleteDeck = async (deckId) => {
     try {
       await api.fetchDeleteDeck(deckId)
+      const decks = await api.fetchDecks();
+      this.setState({ decks })
     } catch (error) {
       this.setState({error})
     }
@@ -91,12 +91,8 @@ console.log(this.props)
   }
 };
 
-export const mapStateToProps = state => ({
-  deck: state.deck
-})
-
 export const mapDispatchToProps = dispatch => ({
   addSelectedDeck: deckId => dispatch(actions.addSelectedDeck(deckId))
 });
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Footer));
+export default withRouter(connect(null, mapDispatchToProps)(Footer));
