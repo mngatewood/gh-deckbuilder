@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 export const fetchPostDeck = async (name, selectedClass, level, cards) => {
   const url = 'http://localhost:8080/api/v1/decks/';
   console.log(name)
@@ -34,3 +36,10 @@ export const fetchPostDeck = async (name, selectedClass, level, cards) => {
   }
 
 }
+
+fetchPostDeck.propTypes = {
+  name: PropTypes.string, 
+  selectedClass: PropTypes.string, 
+  level: PropTypes.number, 
+  cards: PropTypes.array
+};
