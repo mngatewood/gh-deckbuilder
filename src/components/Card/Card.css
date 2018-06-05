@@ -4,4 +4,9 @@
   height: 230px;
   margin: 5px;
   cursor: pointer;
+  transition: all 0.2s ease-in-out;;
+}
+.card:hover {
+  transform: scale(1.5); 
+  transition-delay: 1s;
 }
