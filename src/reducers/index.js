@@ -4,13 +4,17 @@ import availableCards from './availableCardsReducer';
 import selectedCards from './selectedCardsReducer';
 import selectedClass from './selectedClassReducer';
 import currentLevel from './currentLevelReducer';
+import selectedDeck from './selectedDeckReducer';
+import currentDecks from './addDecksReducer';
 
 const rootReducer = combineReducers({
   cards,
   availableCards,
   selectedCards,
   selectedClass,
-  currentLevel
+  currentLevel,
+  selectedDeck,
+  currentDecks
 });
 
 export default rootReducer;
