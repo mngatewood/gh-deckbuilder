@@ -3,17 +3,45 @@ import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
 import * as api from '../../api/index';
+import FirebaseAuth from 'react-firebaseui/FirebaseAuth';
+import firebase from 'firebase';
 import './Footer.css';
+
+const config = {
+  apiKey: "AIzaSyBHV499x0Il6LN4XYA1JCExxTH_kgkg3pg",
+  authDomain: "gh-deckbuilder.firebaseapp.com",
+  databaseURL: "https://gh-deckbuilder.firebaseio.com",
+  projectId: "gh-deckbuilder",
+  storageBucket: "gh-deckbuilder.appspot.com",
+  messagingSenderId: "997988713770"
+};
+firebase.initializeApp(config);
 
 export class Footer extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      isSignedIn: false,
       error: ''
+    };
+    this.uiConfig = {
+      signInFlow: 'popup',
+      signInOptions: [
+        firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+        firebase.auth.FacebookAuthProvider.PROVIDER_ID
+      ],
+      callbacks: {
+        signInSuccessWithAuthResult: (authResult) => {
+          this.props.changeUser(authResult.user.displayName)
+        }
+      }
     };
   };
 
   async componentDidMount() {
+    this.unregisterAuthObserver = firebase.auth().onAuthStateChanged(
+      (user) => this.setState({isSignedIn: !!user})
+  );
     try {
       const decks = await api.fetchDecks();
       this.props.addDecks(decks);
@@ -31,6 +59,10 @@ export class Footer extends Component {
         this.setState({ error })
       }
     }
+  }
+
+  componentWillUnmount() {
+    this.unregisterAuthObserver();
   }
 
   mapDecks = (decks) => {
@@ -74,27 +106,57 @@ export class Footer extends Component {
     }
   }
 
+  signOut = () => {
+    firebase.auth().signOut();
+    this.props.changeUser("Guest")
+  }
+
   render() {
-    return (
-      <footer>
+
+    if (!this.state.isSignedIn) {
+      return (
+        <footer>
         <div className="saved-decks-tab">
           <h1 className="saved-decks-title">SAVED DECKS</h1>
         </div>
         <div className="saved-decks-container">
-          {this.mapDecks(this.props.currentDecks)}
+          <div>
+            <p className="sign-in-request">Please sign-in:</p>
+            <FirebaseAuth 
+              uiCallback={ui => ui.disableAutoSignIn()}
+              uiConfig={this.uiConfig} 
+              firebaseAuth={firebase.auth()}/>
+          </div>
         </div>
       </footer>
+      );
+    }
+
+    return (
+      <footer>
+      <div className="saved-decks-tab">
+        <h1 className="saved-decks-title">SAVED DECKS</h1>
+      </div>
+      <div className="saved-decks-container">
+      {this.mapDecks(this.props.currentDecks)}
+      <a className="sign-out"
+      onClick={() => this.signOut()}>Sign-out</a>
+      </div>
+    </footer>
+
     );
   }
 };
 
 export const mapStateToProps = state => ({
   currentDecks: state.currentDecks,
+  user: state.user
 });
 
 export const mapDispatchToProps = dispatch => ({
   addSelectedDeck: deckId => dispatch(actions.addSelectedDeck(deckId)),
-  addDecks: decksArray => dispatch(actions.addDecks(decksArray))
+  addDecks: decksArray => dispatch(actions.addDecks(decksArray)),
+  changeUser: user => dispatch(actions.changeUser(user))
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Footer));
