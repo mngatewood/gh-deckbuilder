@@ -10,8 +10,8 @@ export const mockCard = {
   created_at: "2018-06-01T22:34:26.644Z",
   updated_at: "2018-06-01T22:34:26.644Z"
 }
-export const mockCards =
-[
+
+export const mockCards = [
   {
     id: 1,
     class: "Brute",
@@ -145,4 +145,8 @@ export const mockDeck = [
     image_url: './images/cards/Brute11.png',
     card_level: 0
   }
+]
+export const mockMultiDecks = [
+  {deckId: 1, deckName: 'Hello', cards: [1,2,3,4,5,6,7,8]},
+  {deckId: 12, deckName: 'Friend', cards: [10,2,3,12,5,6,7,8]}
 ]
