@@ -7,6 +7,6 @@ export const fetchSelected = async (deckId) => {
     return deck
 
   } catch (error) {
-    throw error("Error getting deck")
+    throw error.message;
   }
 }
