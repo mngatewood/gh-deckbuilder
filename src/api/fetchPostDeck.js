@@ -7,10 +7,10 @@ export const fetchPostDeck = async (name, selectedClass, level, cards) => {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ 
-        "name": name, 
+      body: JSON.stringify({
+        "name": name,
         "class": selectedClass,
-        "level": level, 
+        "level": level,
         "cards": cards })
     })
       .then(response => {
