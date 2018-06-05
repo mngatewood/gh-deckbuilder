@@ -11,12 +11,16 @@
   font-family: "HighTower";
   color: white;
   margin: 5px;
-  text-align: center;
   white-space: nowrap;
 }
 
 #selected-component {
   margin-left: 20px;
+}
+
+#available-heading {
+  text-align: left;
+  margin-left: 25px;
 }
 
 .cards-container {

@@ -38,13 +38,9 @@ export class AvailableCards extends Component {
       } 
     }
 
-    // const scrollHeight = this.container.current ? this.container.current.scrollHeight : 0
-    // const clientHeight = this.container.current ? this.container.current.clientHeight : 0
-    // const isOverflown = scrollHeight > clientHeight
-
     return (
       <div className="cards-component" id="available-component">
-        <h2>Available Cards</h2>
+        <h2 id="available-heading">Available Cards</h2>
         <div className="scroll-fade-top"></div>
         <div className="cards-container" 
           onDrop={ event => dropHandler(event)} 

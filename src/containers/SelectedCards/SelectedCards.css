@@ -3,4 +3,9 @@
   margin-left: 20px;
 }
 
+#selected-heading {
+  text-align: right;
+  margin-right: 25px;
+}
+
 /* Most of the styles for this component reside in AvailableCards.css */
