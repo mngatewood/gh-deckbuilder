@@ -147,8 +147,8 @@ export const mockDeck = [
   }
 ]
 export const mockMultiDecks = [
-  {deckId: 1, deckName: 'Hello', cards: [1,2,3,4,5,6,7,8]},
-  {deckId: 12, deckName: 'Friend', cards: [10,2,3,12,5,6,7,8]}
+  {deckId: 1, deckName: 'Hello', class: 'Brute', cards: [1,2,3,4,5,6,7,8]},
+  {deckId: 12, deckName: 'Friend', class: 'Cragheart', cards: [10,2,3,12,5,6,7,8]}
 ]
 
 export const allBruteCards = [
