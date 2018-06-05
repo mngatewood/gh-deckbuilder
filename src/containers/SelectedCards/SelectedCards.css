@@ -8,4 +8,24 @@
   right: 8%;
 }
 
+
+@media screen and (max-width: 700px){
+
+  #selected-component {
+    width: 94vw;
+    margin-left: 3vw;
+  }
+
+  #selected-heading {
+    text-align: left;
+    top: unset;
+    right: unset;
+    left: 10px;
+    bottom: 39%;
+    width: 200px;
+    z-index: -1;
+  }
+
+}
+
 /* Most of the styles for this component reside in AvailableCards.css */

@@ -60,11 +60,41 @@
 
 @media screen and (max-width: 700px){
 
+  .cards-component {
+    margin: 20px;
+  }
+
+  #available-component {
+    width: 94vw;
+    margin: 20px 0 0 3vw;
+  }
+
+  #available-heading {
+    top: 40%;
+    left: 10px;
+    width: 200px;
+  }
+
   .cards-component h2 {
-    width: 100px;
     top: -30px;
+    width: 100px;
+    margin: 25px;
     font-size: 20px;
   }  
+
+  .cards-container {
+    justify-content: left;
+    flex-flow: column wrap;
+    overflow-x: scroll;
+    margin: 10px 0 5px 0px;
+    padding: 10px 0;
+    height: 240px;
+  }
+
+  .cards-component .scroll-fade-top,
+  .cards-component .scroll-fade-bottom {
+    display: none;
+  }
 
 }
 
