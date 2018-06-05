@@ -5,6 +5,16 @@
   bottom: 50px;
 }
 
+.deck-builder #menu {
+  display: none;
+  position: absolute;
+  top: -20px;
+  right: 35px;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
 #class-info {
   display: flex;
   flex-direction: column;
@@ -27,7 +37,6 @@
 
 #class-info #feedback-container img {
   border: 5px outset #c20000;
-
 }
 
 #class-info #feedback-content {
@@ -72,7 +81,7 @@
   margin: 10px auto;
   background-image: url('../../images/button-bg.png');
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: 100% 100%;
   background-color: transparent;
   outline: none;
   border: none;
@@ -158,3 +167,119 @@
 #class-info .hidden {
   display: none
 }
+
+
+
+@media screen and (max-width: 700px){
+
+  .deck-builder {
+    flex-direction: column;
+  }
+
+  .deck-builder #menu {
+    display: block;
+  }
+
+  #class-info {
+    margin: 0;
+    width: 100%;
+  }
+
+  #class-info img {
+    display: none;
+  }
+
+  #class-info h2 {
+    position: relative;
+    top: 10px;
+    margin: 0 50px 70px 0;
+    font-size: 36px;
+    text-align: right;
+  }
+
+  #class-info h3 {
+    font-size: 40px;
+    text-align: center;
+  }
+
+  #class-info h4 {
+    font-size: 36px;
+    margin-top: 24px;
+  }
+
+  #class-info h5 {
+    position: relative;
+    top: -60px;
+    font-size: 24px;
+    text-align: right;
+    margin: 0 50px 70px 0;
+
+  }
+
+  #class-info #stats {
+    position: absolute;
+    top: 20px;
+    left: 50px;
+    right: 50px;
+    height: 80vh;
+    display: none;
+  }
+
+  #class-info button {
+    height: 60px;
+    margin: 20px auto;
+    font-size: 20px;
+  }
+
+  #class-info #number-cards {
+    font-size: 24px;
+  }
+
+  #class-info .inline-button {
+    width: 50px;
+    height: 50px;
+    margin: 5px 25px;
+    background-size: 50px 50px;
+  }
+
+  #class-info li img {
+    display: block;
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+  }
+
+  #class-info #deck-name {
+    height: 30px;
+    width: 60%;
+    font-size: 24px;
+  }
+
+  #class-info #feedback-container {
+    position: absolute;
+    top: 500px;
+    width: 100%;
+  }
+
+  #class-info #feedback-content {
+    top: 0;
+  }
+
+  #class-info #feedback-content p {
+    text-align: center;
+    color: white;
+    z-index: 99;
+    width: 50%;
+    left: 25%;
+  }
+
+
+
+
+}
+
+
+
+
+
+
