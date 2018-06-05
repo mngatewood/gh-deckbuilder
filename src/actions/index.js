@@ -67,3 +67,7 @@ export const addSelectedDeck = (deckId) => ({
   deckId
 });
 
+export const addDecks = (deckArray) => ({
+  type: 'ADD_DECKS',
+  deckArray
+});

@@ -9,7 +9,6 @@ export class Footer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      decks: [],
       error: ''
     };
   };
@@ -17,19 +16,17 @@ export class Footer extends Component {
   async componentDidMount() {
     try {
       const decks = await api.fetchDecks();
-      this.setState({ decks })
+      this.props.addDecks(decks);
     } catch (error) {
       this.setState({ error })
     }
   }
 
   async componentDidUpdate(prevProps) {
-    console.log(this.props);
-    
     if (prevProps !== this.props) {
       try {
         const decks = await api.fetchDecks();
-        this.setState({ decks })
+        this.props.addDecks(decks);
       } catch (error) {
         this.setState({ error })
       }
@@ -71,7 +68,7 @@ export class Footer extends Component {
     try {
       await api.fetchDeleteDeck(deckId)
       const decks = await api.fetchDecks();
-      this.setState({ decks })
+      this.props.addDecks(decks);
     } catch (error) {
       this.setState({error})
     }
@@ -84,15 +81,20 @@ export class Footer extends Component {
           <h1 className="saved-decks-title">SAVED DECKS</h1>
         </div>
         <div className="saved-decks-container">
-          {this.mapDecks(this.state.decks)}
+          {this.mapDecks(this.props.currentDecks)}
         </div>
       </footer>
     );
   }
 };
 
-export const mapDispatchToProps = dispatch => ({
-  addSelectedDeck: deckId => dispatch(actions.addSelectedDeck(deckId))
+export const mapStateToProps = state => ({
+  currentDecks: state.currentDecks,
 });
 
-export default withRouter(connect(null, mapDispatchToProps)(Footer));
+export const mapDispatchToProps = dispatch => ({
+  addSelectedDeck: deckId => dispatch(actions.addSelectedDeck(deckId)),
+  addDecks: decksArray => dispatch(actions.addDecks(decksArray))
+});
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Footer));
