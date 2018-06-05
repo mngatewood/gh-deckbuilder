@@ -37,17 +37,17 @@ describe("Available Card component", () => {
     });
 
     it("correctly maps selectedCards to props", () => {
-      const mockState = {cards: [], selectedCards: mocks.mockCards, availableCards: [], currentLevel: 0};
+      const mockState = {cards: [], selectedCards: mocks.mockSelectedCards, availableCards: [], currentLevel: 0};
       const mapped = mapStateToProps(mockState);
-      const expectedState = mocks.mockCards;
+      const expectedState = mocks.mockSelectedCards;
 
       expect(mapped.selectedCards).toEqual(expectedState);
     });
 
     it("correctly maps availableCards to props", () => {
-      const mockState = {cards: [], selectedCards: [], availableCards: mocks.allBruteCards, currentLevel: 0};
+      const mockState = {cards: [], selectedCards: [], availableCards: mocks.mockAvailableCards, currentLevel: 0};
       const mapped = mapStateToProps(mockState);
-      const expectedState = mocks.allBruteCards;
+      const expectedState = mocks.mockAvailableCards;
 
       expect(mapped.availableCards).toEqual(expectedState);
     });
