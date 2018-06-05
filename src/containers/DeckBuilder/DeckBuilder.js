@@ -20,6 +20,7 @@ export class DeckBuilder extends Component {
   constructor(props) {
     super(props);
     this.feedbackDiv = React.createRef();
+    this.stats = React.createRef();
     this.deckSaveButton = React.createRef();
     this.deckSaveDiv = React.createRef();
     this.deckSaveName = React.createRef();
@@ -31,7 +32,7 @@ export class DeckBuilder extends Component {
       deckName: 'Unnamed Deck',
       background: require('../../images/background/background.png'),
       classImage: require('../../images/classArtwork/pending.png'),
-      feedback: 'Here is your feedback!',
+      feedback: '',
       error: ''
     };
   };
@@ -128,6 +129,17 @@ export class DeckBuilder extends Component {
     }
   }
 
+  toggleStats() {
+    const display = this.stats.current.style.display;
+    console.log(display)
+    if(display === "none") {
+      this.stats.current.style.setProperty("display", "block")
+    } else {
+      this.stats.current.style.setProperty("display", "none")
+      this.feedbackDiv.current.classList.toggle('hidden')
+    }
+  }
+
   async submitDeck(event) {
     event.preventDefault();
     const name = this.deckSaveName.current.value;
@@ -174,7 +186,12 @@ export class DeckBuilder extends Component {
     const handSize = helpers.getHandSize(selectedClass);
 
     return (
-      <div className="deck-builder">  
+      <div className="deck-builder"> 
+        <img src={require('../../images/menu.png')}
+          alt="menu" 
+          id="menu"
+          onClick={this.toggleStats.bind(this)}
+          />
         <AvailableCards location={this.props.location} />
         <div id="class-info">
           <img src={this.state.classImage}
@@ -191,7 +208,8 @@ export class DeckBuilder extends Component {
           </div>
           <h2>{selectedClass}</h2>
           <h5>{this.state.deckName}</h5>
-          <div id="stats">
+          <div id="stats"
+            ref={this.stats}>
             <h4>Cards Selected</h4>
             <p id="number-cards">{numberSelectedCards} &nbsp; of &nbsp; {handSize}</p>
             <h4>Character Level</h4> 

@@ -8,26 +8,24 @@
 }
 
 .cards-component h2 {
+  position: absolute;
+  top: -12px;
   font-family: "HighTower";
   color: white;
-  margin: 5px;
-  white-space: nowrap;
-}
+  width: 170px;
+}  
 
-#selected-component {
-  margin-left: 20px;
-}
 
 #available-heading {
   text-align: left;
-  margin-left: 25px;
+  left: 8%;
 }
 
 .cards-container {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
-  /* max-width: 550px; */
+  margin-top: 40px;
   padding: 25px 0;
   height: 85%;
   overflow-x: auto;
@@ -45,9 +43,60 @@
 }
 
 .cards-component .scroll-fade-top {
+    top: 40px;
     content:'';
     margin-bottom: -40px;
     height: 40px;
     background: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
     position: relative;
 }
+
+@media screen and (max-width: 1000px){
+
+  .cards-component h2 {
+    width: 100px;
+    top: -40px;
+  }  
+
+}
+
+@media screen and (max-width: 700px){
+
+  .cards-component {
+    margin: 20px;
+  }
+
+  #available-component {
+    width: 94vw;
+    margin: 20px 0 0 3vw;
+  }
+
+  #available-heading {
+    top: 40%;
+    left: 10px;
+    width: 200px;
+  }
+
+  .cards-component h2 {
+    top: -30px;
+    width: 100px;
+    margin: 25px;
+    font-size: 20px;
+  }  
+
+  .cards-container {
+    justify-content: left;
+    flex-flow: column wrap;
+    overflow-x: scroll;
+    margin: 10px 0 5px 0px;
+    padding: 10px 0;
+    height: 240px;
+  }
+
+  .cards-component .scroll-fade-top,
+  .cards-component .scroll-fade-bottom {
+    display: none;
+  }
+
+}
+
