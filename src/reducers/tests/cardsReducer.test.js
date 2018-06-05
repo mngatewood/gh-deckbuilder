@@ -11,13 +11,9 @@ describe("Cards Reducer", () => {
     expect(cardsReducer(undefined, 'boo')).toEqual(expected)
   });
 
-  it.skip("should add a card to state", () => {
-    const expected = [mocks.mockCard];
-
-    expect(cardsReducer(undefined, actions.addCard(mocks.mockCard))).toEqual(expected)
-  });
-
   it("should add multiple cards to state", () => {
+    const expected = mocks.mockCards;
 
+    expect(cardsReducer([], actions.addCards(mocks.mockCards))).toEqual(expected)
   });
 });
