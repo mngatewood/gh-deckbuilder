@@ -2,15 +2,6 @@ import * as actions from './index.js';
 import * as mocks from '../mocks/mockCards';
 
 describe("Generic Card Actions", () => {
-  it("should create an action to add a card", () => {
-    const expectedAction = {
-      type: 'ADD_CARD',
-      card: mocks.mockCard
-    }
-
-    expect(actions.addCard(mocks.mockCard)).toEqual(expectedAction);
-  });
-
   it("should create an action to add multiple cards", () => {
     const expectedAction = {
       type: 'ADD_CARDS',
@@ -128,5 +119,28 @@ describe("Current Level Actions", () => {
     }
 
     expect(actions.decreaseCurrentLevel(mockLevel)).toEqual(expectedAction);
+  });
+});
+
+describe("Deck Actions", () => {
+ // Note: Though 'add selected deck' and 'add decks' have different reducers, they are both in this 1 describe block
+
+  it("should create an action to add a selected deck ID", () => {
+    const mockDeckID = 3;
+    const expectedAction = {
+      type: 'ADD_SELECTED_DECK_ID',
+      deckId: mockDeckID
+    };
+
+    expect(actions.addSelectedDeck(mockDeckID)).toEqual(expectedAction);
+  });
+
+  it("should create an action to add decks to state", () => {
+    const expectedAction = {
+      type: 'ADD_DECKS',
+      deckArray: mocks.mockDeck
+    }
+
+    expect(actions.addDecks(mocks.mockDeck)).toEqual(expectedAction);
   });
 });
