@@ -1,0 +1,1265 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card component should match the snapshot 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Unknown />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <div
+          className="class-title-wrapper"
+>
+          <h1
+                    className="class-title"
+          >
+                    CLASS SELECT
+          </h1>
+</div>,
+        <div
+          className="full-page"
+>
+          <section
+                    className="class-select-container"
+          >
+                    <NavLink
+                              activeClassName="active"
+                              ariaCurrent="true"
+                              to="/Brute"
+                    >
+                              <div
+                                        className="brute"
+                              />
+                              <h1
+                                        className="class-title-h1"
+                              >
+                                        BRUTE
+                              </h1>
+                    </NavLink>
+                    <NavLink
+                              activeClassName="active"
+                              ariaCurrent="true"
+                              to="/Cragheart"
+                    >
+                              <div
+                                        className="cragheart"
+                              />
+                              <h1
+                                        className="class-title-h1"
+                              >
+                                        CRAGHEART
+                              </h1>
+                    </NavLink>
+                    <NavLink
+                              activeClassName="active"
+                              ariaCurrent="true"
+                              to="/Mindthief"
+                    >
+                              <div
+                                        className="mindthief"
+                              />
+                              <h1
+                                        className="class-title-h1"
+                              >
+                                        MINDTHIEF
+                              </h1>
+                    </NavLink>
+                    <NavLink
+                              activeClassName="active"
+                              ariaCurrent="true"
+                              to="/Scoundrel"
+                    >
+                              <div
+                                        className="scoundrel"
+                              />
+                              <h1
+                                        className="class-title-h1"
+                              >
+                                        SCOUNDREL
+                              </h1>
+                    </NavLink>
+                    <NavLink
+                              activeClassName="active"
+                              ariaCurrent="true"
+                              to="/Spellweaver"
+                    >
+                              <div
+                                        className="spellweaver"
+                              />
+                              <h1
+                                        className="class-title-h1"
+                              >
+                                        SPELLWEAVER
+                              </h1>
+                    </NavLink>
+                    <NavLink
+                              activeClassName="active"
+                              ariaCurrent="true"
+                              to="/Tinkerer"
+                    >
+                              <div
+                                        className="tinkerer"
+                              />
+                              <h1
+                                        className="class-title-h1"
+                              >
+                                        TINKERER
+                              </h1>
+                    </NavLink>
+          </section>
+</div>,
+      ],
+      "className": "welcome-section",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <h1
+            className="class-title"
+>
+            CLASS SELECT
+</h1>,
+          "className": "class-title-wrapper",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "CLASS SELECT",
+            "className": "class-title",
+          },
+          "ref": null,
+          "rendered": "CLASS SELECT",
+          "type": "h1",
+        },
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <section
+            className="class-select-container"
+>
+            <NavLink
+                        activeClassName="active"
+                        ariaCurrent="true"
+                        to="/Brute"
+            >
+                        <div
+                                    className="brute"
+                        />
+                        <h1
+                                    className="class-title-h1"
+                        >
+                                    BRUTE
+                        </h1>
+            </NavLink>
+            <NavLink
+                        activeClassName="active"
+                        ariaCurrent="true"
+                        to="/Cragheart"
+            >
+                        <div
+                                    className="cragheart"
+                        />
+                        <h1
+                                    className="class-title-h1"
+                        >
+                                    CRAGHEART
+                        </h1>
+            </NavLink>
+            <NavLink
+                        activeClassName="active"
+                        ariaCurrent="true"
+                        to="/Mindthief"
+            >
+                        <div
+                                    className="mindthief"
+                        />
+                        <h1
+                                    className="class-title-h1"
+                        >
+                                    MINDTHIEF
+                        </h1>
+            </NavLink>
+            <NavLink
+                        activeClassName="active"
+                        ariaCurrent="true"
+                        to="/Scoundrel"
+            >
+                        <div
+                                    className="scoundrel"
+                        />
+                        <h1
+                                    className="class-title-h1"
+                        >
+                                    SCOUNDREL
+                        </h1>
+            </NavLink>
+            <NavLink
+                        activeClassName="active"
+                        ariaCurrent="true"
+                        to="/Spellweaver"
+            >
+                        <div
+                                    className="spellweaver"
+                        />
+                        <h1
+                                    className="class-title-h1"
+                        >
+                                    SPELLWEAVER
+                        </h1>
+            </NavLink>
+            <NavLink
+                        activeClassName="active"
+                        ariaCurrent="true"
+                        to="/Tinkerer"
+            >
+                        <div
+                                    className="tinkerer"
+                        />
+                        <h1
+                                    className="class-title-h1"
+                        >
+                                    TINKERER
+                        </h1>
+            </NavLink>
+</section>,
+          "className": "full-page",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <NavLink
+                activeClassName="active"
+                ariaCurrent="true"
+                to="/Brute"
+>
+                <div
+                                className="brute"
+                />
+                <h1
+                                className="class-title-h1"
+                >
+                                BRUTE
+                </h1>
+</NavLink>,
+              <NavLink
+                activeClassName="active"
+                ariaCurrent="true"
+                to="/Cragheart"
+>
+                <div
+                                className="cragheart"
+                />
+                <h1
+                                className="class-title-h1"
+                >
+                                CRAGHEART
+                </h1>
+</NavLink>,
+              <NavLink
+                activeClassName="active"
+                ariaCurrent="true"
+                to="/Mindthief"
+>
+                <div
+                                className="mindthief"
+                />
+                <h1
+                                className="class-title-h1"
+                >
+                                MINDTHIEF
+                </h1>
+</NavLink>,
+              <NavLink
+                activeClassName="active"
+                ariaCurrent="true"
+                to="/Scoundrel"
+>
+                <div
+                                className="scoundrel"
+                />
+                <h1
+                                className="class-title-h1"
+                >
+                                SCOUNDREL
+                </h1>
+</NavLink>,
+              <NavLink
+                activeClassName="active"
+                ariaCurrent="true"
+                to="/Spellweaver"
+>
+                <div
+                                className="spellweaver"
+                />
+                <h1
+                                className="class-title-h1"
+                >
+                                SPELLWEAVER
+                </h1>
+</NavLink>,
+              <NavLink
+                activeClassName="active"
+                ariaCurrent="true"
+                to="/Tinkerer"
+>
+                <div
+                                className="tinkerer"
+                />
+                <h1
+                                className="class-title-h1"
+                >
+                                TINKERER
+                </h1>
+</NavLink>,
+            ],
+            "className": "class-select-container",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "activeClassName": "active",
+                "ariaCurrent": "true",
+                "children": Array [
+                  <div
+                    className="brute"
+/>,
+                  <h1
+                    className="class-title-h1"
+>
+                    BRUTE
+</h1>,
+                ],
+                "to": "/Brute",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "className": "brute",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "div",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "BRUTE",
+                    "className": "class-title-h1",
+                  },
+                  "ref": null,
+                  "rendered": "BRUTE",
+                  "type": "h1",
+                },
+              ],
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "activeClassName": "active",
+                "ariaCurrent": "true",
+                "children": Array [
+                  <div
+                    className="cragheart"
+/>,
+                  <h1
+                    className="class-title-h1"
+>
+                    CRAGHEART
+</h1>,
+                ],
+                "to": "/Cragheart",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "className": "cragheart",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "div",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "CRAGHEART",
+                    "className": "class-title-h1",
+                  },
+                  "ref": null,
+                  "rendered": "CRAGHEART",
+                  "type": "h1",
+                },
+              ],
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "activeClassName": "active",
+                "ariaCurrent": "true",
+                "children": Array [
+                  <div
+                    className="mindthief"
+/>,
+                  <h1
+                    className="class-title-h1"
+>
+                    MINDTHIEF
+</h1>,
+                ],
+                "to": "/Mindthief",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "className": "mindthief",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "div",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "MINDTHIEF",
+                    "className": "class-title-h1",
+                  },
+                  "ref": null,
+                  "rendered": "MINDTHIEF",
+                  "type": "h1",
+                },
+              ],
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "activeClassName": "active",
+                "ariaCurrent": "true",
+                "children": Array [
+                  <div
+                    className="scoundrel"
+/>,
+                  <h1
+                    className="class-title-h1"
+>
+                    SCOUNDREL
+</h1>,
+                ],
+                "to": "/Scoundrel",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "className": "scoundrel",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "div",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "SCOUNDREL",
+                    "className": "class-title-h1",
+                  },
+                  "ref": null,
+                  "rendered": "SCOUNDREL",
+                  "type": "h1",
+                },
+              ],
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "activeClassName": "active",
+                "ariaCurrent": "true",
+                "children": Array [
+                  <div
+                    className="spellweaver"
+/>,
+                  <h1
+                    className="class-title-h1"
+>
+                    SPELLWEAVER
+</h1>,
+                ],
+                "to": "/Spellweaver",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "className": "spellweaver",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "div",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "SPELLWEAVER",
+                    "className": "class-title-h1",
+                  },
+                  "ref": null,
+                  "rendered": "SPELLWEAVER",
+                  "type": "h1",
+                },
+              ],
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "activeClassName": "active",
+                "ariaCurrent": "true",
+                "children": Array [
+                  <div
+                    className="tinkerer"
+/>,
+                  <h1
+                    className="class-title-h1"
+>
+                    TINKERER
+</h1>,
+                ],
+                "to": "/Tinkerer",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "className": "tinkerer",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "div",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "TINKERER",
+                    "className": "class-title-h1",
+                  },
+                  "ref": null,
+                  "rendered": "TINKERER",
+                  "type": "h1",
+                },
+              ],
+              "type": [Function],
+            },
+          ],
+          "type": "section",
+        },
+        "type": "div",
+      },
+    ],
+    "type": "section",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <div
+            className="class-title-wrapper"
+>
+            <h1
+                        className="class-title"
+            >
+                        CLASS SELECT
+            </h1>
+</div>,
+          <div
+            className="full-page"
+>
+            <section
+                        className="class-select-container"
+            >
+                        <NavLink
+                                    activeClassName="active"
+                                    ariaCurrent="true"
+                                    to="/Brute"
+                        >
+                                    <div
+                                                className="brute"
+                                    />
+                                    <h1
+                                                className="class-title-h1"
+                                    >
+                                                BRUTE
+                                    </h1>
+                        </NavLink>
+                        <NavLink
+                                    activeClassName="active"
+                                    ariaCurrent="true"
+                                    to="/Cragheart"
+                        >
+                                    <div
+                                                className="cragheart"
+                                    />
+                                    <h1
+                                                className="class-title-h1"
+                                    >
+                                                CRAGHEART
+                                    </h1>
+                        </NavLink>
+                        <NavLink
+                                    activeClassName="active"
+                                    ariaCurrent="true"
+                                    to="/Mindthief"
+                        >
+                                    <div
+                                                className="mindthief"
+                                    />
+                                    <h1
+                                                className="class-title-h1"
+                                    >
+                                                MINDTHIEF
+                                    </h1>
+                        </NavLink>
+                        <NavLink
+                                    activeClassName="active"
+                                    ariaCurrent="true"
+                                    to="/Scoundrel"
+                        >
+                                    <div
+                                                className="scoundrel"
+                                    />
+                                    <h1
+                                                className="class-title-h1"
+                                    >
+                                                SCOUNDREL
+                                    </h1>
+                        </NavLink>
+                        <NavLink
+                                    activeClassName="active"
+                                    ariaCurrent="true"
+                                    to="/Spellweaver"
+                        >
+                                    <div
+                                                className="spellweaver"
+                                    />
+                                    <h1
+                                                className="class-title-h1"
+                                    >
+                                                SPELLWEAVER
+                                    </h1>
+                        </NavLink>
+                        <NavLink
+                                    activeClassName="active"
+                                    ariaCurrent="true"
+                                    to="/Tinkerer"
+                        >
+                                    <div
+                                                className="tinkerer"
+                                    />
+                                    <h1
+                                                className="class-title-h1"
+                                    >
+                                                TINKERER
+                                    </h1>
+                        </NavLink>
+            </section>
+</div>,
+        ],
+        "className": "welcome-section",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <h1
+              className="class-title"
+>
+              CLASS SELECT
+</h1>,
+            "className": "class-title-wrapper",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "CLASS SELECT",
+              "className": "class-title",
+            },
+            "ref": null,
+            "rendered": "CLASS SELECT",
+            "type": "h1",
+          },
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <section
+              className="class-select-container"
+>
+              <NavLink
+                            activeClassName="active"
+                            ariaCurrent="true"
+                            to="/Brute"
+              >
+                            <div
+                                          className="brute"
+                            />
+                            <h1
+                                          className="class-title-h1"
+                            >
+                                          BRUTE
+                            </h1>
+              </NavLink>
+              <NavLink
+                            activeClassName="active"
+                            ariaCurrent="true"
+                            to="/Cragheart"
+              >
+                            <div
+                                          className="cragheart"
+                            />
+                            <h1
+                                          className="class-title-h1"
+                            >
+                                          CRAGHEART
+                            </h1>
+              </NavLink>
+              <NavLink
+                            activeClassName="active"
+                            ariaCurrent="true"
+                            to="/Mindthief"
+              >
+                            <div
+                                          className="mindthief"
+                            />
+                            <h1
+                                          className="class-title-h1"
+                            >
+                                          MINDTHIEF
+                            </h1>
+              </NavLink>
+              <NavLink
+                            activeClassName="active"
+                            ariaCurrent="true"
+                            to="/Scoundrel"
+              >
+                            <div
+                                          className="scoundrel"
+                            />
+                            <h1
+                                          className="class-title-h1"
+                            >
+                                          SCOUNDREL
+                            </h1>
+              </NavLink>
+              <NavLink
+                            activeClassName="active"
+                            ariaCurrent="true"
+                            to="/Spellweaver"
+              >
+                            <div
+                                          className="spellweaver"
+                            />
+                            <h1
+                                          className="class-title-h1"
+                            >
+                                          SPELLWEAVER
+                            </h1>
+              </NavLink>
+              <NavLink
+                            activeClassName="active"
+                            ariaCurrent="true"
+                            to="/Tinkerer"
+              >
+                            <div
+                                          className="tinkerer"
+                            />
+                            <h1
+                                          className="class-title-h1"
+                            >
+                                          TINKERER
+                            </h1>
+              </NavLink>
+</section>,
+            "className": "full-page",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <NavLink
+                  activeClassName="active"
+                  ariaCurrent="true"
+                  to="/Brute"
+>
+                  <div
+                                    className="brute"
+                  />
+                  <h1
+                                    className="class-title-h1"
+                  >
+                                    BRUTE
+                  </h1>
+</NavLink>,
+                <NavLink
+                  activeClassName="active"
+                  ariaCurrent="true"
+                  to="/Cragheart"
+>
+                  <div
+                                    className="cragheart"
+                  />
+                  <h1
+                                    className="class-title-h1"
+                  >
+                                    CRAGHEART
+                  </h1>
+</NavLink>,
+                <NavLink
+                  activeClassName="active"
+                  ariaCurrent="true"
+                  to="/Mindthief"
+>
+                  <div
+                                    className="mindthief"
+                  />
+                  <h1
+                                    className="class-title-h1"
+                  >
+                                    MINDTHIEF
+                  </h1>
+</NavLink>,
+                <NavLink
+                  activeClassName="active"
+                  ariaCurrent="true"
+                  to="/Scoundrel"
+>
+                  <div
+                                    className="scoundrel"
+                  />
+                  <h1
+                                    className="class-title-h1"
+                  >
+                                    SCOUNDREL
+                  </h1>
+</NavLink>,
+                <NavLink
+                  activeClassName="active"
+                  ariaCurrent="true"
+                  to="/Spellweaver"
+>
+                  <div
+                                    className="spellweaver"
+                  />
+                  <h1
+                                    className="class-title-h1"
+                  >
+                                    SPELLWEAVER
+                  </h1>
+</NavLink>,
+                <NavLink
+                  activeClassName="active"
+                  ariaCurrent="true"
+                  to="/Tinkerer"
+>
+                  <div
+                                    className="tinkerer"
+                  />
+                  <h1
+                                    className="class-title-h1"
+                  >
+                                    TINKERER
+                  </h1>
+</NavLink>,
+              ],
+              "className": "class-select-container",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "activeClassName": "active",
+                  "ariaCurrent": "true",
+                  "children": Array [
+                    <div
+                      className="brute"
+/>,
+                    <h1
+                      className="class-title-h1"
+>
+                      BRUTE
+</h1>,
+                  ],
+                  "to": "/Brute",
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "className": "brute",
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": "div",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "BRUTE",
+                      "className": "class-title-h1",
+                    },
+                    "ref": null,
+                    "rendered": "BRUTE",
+                    "type": "h1",
+                  },
+                ],
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "activeClassName": "active",
+                  "ariaCurrent": "true",
+                  "children": Array [
+                    <div
+                      className="cragheart"
+/>,
+                    <h1
+                      className="class-title-h1"
+>
+                      CRAGHEART
+</h1>,
+                  ],
+                  "to": "/Cragheart",
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "className": "cragheart",
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": "div",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "CRAGHEART",
+                      "className": "class-title-h1",
+                    },
+                    "ref": null,
+                    "rendered": "CRAGHEART",
+                    "type": "h1",
+                  },
+                ],
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "activeClassName": "active",
+                  "ariaCurrent": "true",
+                  "children": Array [
+                    <div
+                      className="mindthief"
+/>,
+                    <h1
+                      className="class-title-h1"
+>
+                      MINDTHIEF
+</h1>,
+                  ],
+                  "to": "/Mindthief",
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "className": "mindthief",
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": "div",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "MINDTHIEF",
+                      "className": "class-title-h1",
+                    },
+                    "ref": null,
+                    "rendered": "MINDTHIEF",
+                    "type": "h1",
+                  },
+                ],
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "activeClassName": "active",
+                  "ariaCurrent": "true",
+                  "children": Array [
+                    <div
+                      className="scoundrel"
+/>,
+                    <h1
+                      className="class-title-h1"
+>
+                      SCOUNDREL
+</h1>,
+                  ],
+                  "to": "/Scoundrel",
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "className": "scoundrel",
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": "div",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "SCOUNDREL",
+                      "className": "class-title-h1",
+                    },
+                    "ref": null,
+                    "rendered": "SCOUNDREL",
+                    "type": "h1",
+                  },
+                ],
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "activeClassName": "active",
+                  "ariaCurrent": "true",
+                  "children": Array [
+                    <div
+                      className="spellweaver"
+/>,
+                    <h1
+                      className="class-title-h1"
+>
+                      SPELLWEAVER
+</h1>,
+                  ],
+                  "to": "/Spellweaver",
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "className": "spellweaver",
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": "div",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "SPELLWEAVER",
+                      "className": "class-title-h1",
+                    },
+                    "ref": null,
+                    "rendered": "SPELLWEAVER",
+                    "type": "h1",
+                  },
+                ],
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "activeClassName": "active",
+                  "ariaCurrent": "true",
+                  "children": Array [
+                    <div
+                      className="tinkerer"
+/>,
+                    <h1
+                      className="class-title-h1"
+>
+                      TINKERER
+</h1>,
+                  ],
+                  "to": "/Tinkerer",
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "className": "tinkerer",
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": "div",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "TINKERER",
+                      "className": "class-title-h1",
+                    },
+                    "ref": null,
+                    "rendered": "TINKERER",
+                    "type": "h1",
+                  },
+                ],
+                "type": [Function],
+              },
+            ],
+            "type": "section",
+          },
+          "type": "div",
+        },
+      ],
+      "type": "section",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
