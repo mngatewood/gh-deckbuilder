@@ -25,6 +25,11 @@
   position: absolute;
 }
 
+#class-info #feedback-container img {
+  border: 5px outset #c20000;
+
+}
+
 #class-info #feedback-content {
   display: flex;
   position: relative;
@@ -53,11 +58,20 @@
   border: 5px outset #666666;
 }
 
+#class-info #level-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+}
+
 #class-info button {
   display: block;
   width: 80%;
-  margin: 15px auto;
+  height: 22px;
+  margin: 12px auto;
   background-image: url('../../images/button-bg.png');
+  background-repeat: no-repeat;
   background-size: 100%;
   background-color: transparent;
   outline: none;
@@ -73,7 +87,8 @@
 
 #class-info h3 {
   display: inline-block;
-  margin: 5px 15px;
+  margin: 6px 15px;
+  font-size: 24px;
 }
 
 #class-info h4 {
@@ -99,40 +114,32 @@
   width: 30px;
   height: 30px;
   margin: 5px 0;
-  /* background-image: url('../../images/plus1.png'); */
   background-repeat: no-repeat;
   background-size: 30px 30px;
   background-color: transparent;
   outline: none;
   border: none;
-
 }
 
 #class-info button#decrease-level {
-  display: inline-block;
-  /* width: 22px;
-  height: 21px; */
-
   background-image: url('../../images/minus1.png');
-  /* background-size: 100%;
-  background-color: transparent;
-  outline: none;
-  border: none; */
-
 }
 
 #class-info button#increase-level {
-    display: inline-block;
   background-image: url('../../images/plus1.png');
-  /* background-size: 100%;
-  background-color: transparent;
-  outline: none;
-  border: none; */
-
 }
 
+#class-info #class-select-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-content: left;
+}
 
-
+#class-info ul {
+  list-style-type: none;
+  cursor: pointer;
+}
 #class-info .hidden {
   display: none
 }
