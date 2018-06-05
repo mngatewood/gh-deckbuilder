@@ -112,12 +112,16 @@ export class DeckBuilder extends Component {
     }
   }
 
-  toggleChangeClass() {
-    this.changeClassSelect.current.value = this.props.selectedClass;
+  toggleChangeClass(event) {
+    console.log(event)
+    // this.changeClassSelect.current.value = this.props.selectedClass;
     this.changeClassDiv.current.classList.toggle('hidden');
     this.changeClassButton.current.classList.toggle('hidden');
     this.deckSaveButton.current.classList.toggle('hidden');
     this.deckReset.current.classList.toggle('hidden');
+    if (event.target.id === 'cancel-class-change') {
+      this.displayFeedback('Change class cancelled.')
+    }
   }
 
   async submitDeck(event) {
@@ -148,14 +152,9 @@ export class DeckBuilder extends Component {
     }
   }
 
-  changeClass() {
-    const newClass = this.changeClassSelect.current.value;
-    if(newClass === "Cancel") {
-      this.toggleChangeClass()
-      this.displayFeedback('Action cancelled.')
-    } else {
-      this.props.history.push(`/${newClass}`);
-    }
+  changeClass(event) {
+    this.props.history.push(`/${event.target.id}`);
+    this.toggleChangeClass(event)
   }
   
   render() {
@@ -187,13 +186,15 @@ export class DeckBuilder extends Component {
             <h4>Cards Selected</h4>
             <p id="number-cards">{numberSelectedCards} &nbsp; of &nbsp; {handSize}</p>
             <h4>Character Level</h4> 
-            <button id="decrease-level" 
-              className="inline-button"
-              onClick={() => { this.changeLevel('minus') }} ></button>
-            <h3>{currentLevel}</h3>
-            <button id="increase-level" 
-              className="inline-button"
-              onClick={() => { this.changeLevel('plus') }} ></button>
+            <div id="level-container">
+              <button id="decrease-level" 
+                className="inline-button"
+                onClick={() => { this.changeLevel('minus') }} ></button>
+              <h3>{currentLevel}</h3>
+              <button id="increase-level" 
+                className="inline-button"
+                onClick={() => { this.changeLevel('plus') }} ></button>
+            </div>
             <button onClick={this.toggleChangeClass.bind(this)}
               ref={this.changeClassButton}>
               Change Class
@@ -221,16 +222,22 @@ export class DeckBuilder extends Component {
             <div id="change-class-container" 
               className="hidden" 
               ref={this.changeClassDiv}>
-              <select onChange={this.changeClass.bind(this)}
-                ref={this.changeClassSelect}>
-                <option value="Brute">Brute</option>
-                <option value="Cragheart">Cragheart</option>
-                <option value="Mindthief">Mindthief</option>
-                <option value="Scoundrel">Scoundrel</option>
-                <option value="Spellweaver">Spellweaver</option>
-                <option value="Tinkerer">Tinkerer</option>
-                <option value="Cancel">Cancel</option>
-              </select>
+              <button id="cancel-class-change" 
+                onClick={this.toggleChangeClass.bind(this)}>
+                Cancel
+                </button>
+                <div id="class-select-container">
+                  <ul>
+                    <li id="Brute" onClick={this.changeClass.bind(this)}>Brute</li>
+                    <li id="Cragheart" onClick={this.changeClass.bind(this)}>Cragheart</li>
+                    <li id="Mindthief" onClick={this.changeClass.bind(this)}>Mindthief</li>
+                  </ul>
+                  <ul>
+                    <li id="Spellweaver" onClick={this.changeClass.bind(this)}>Spellweaver</li>
+                    <li id="Scoundrel" onClick={this.changeClass.bind(this)}>Scoundrel</li>
+                    <li id="Tinkerer" onClick={this.changeClass.bind(this)}>Tinkerer</li>
+                  </ul>
+                </div>
             </div>
           </div>
         </div>
