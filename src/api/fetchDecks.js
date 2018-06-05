@@ -6,6 +6,6 @@ export const fetchDecks = async () => {
     const decks = await response.json();
     return decks
   } catch (error) {
-    throw error("Error getting decks")
+    throw error.message;
   }
 }
