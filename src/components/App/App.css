@@ -1,3 +1,9 @@
+html {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
 body {
   background-color: black;
   background-image: url("../../images/background/background.png");
@@ -15,16 +21,6 @@ header {
   background: none;
 }
 
-footer {
-  position: absolute;
-  bottom: 0;
-  height: 50px;
-  background: none;
-}
-
-h1 {
-  margin: 5px;
-}
 
 /* width */
 ::-webkit-scrollbar {

@@ -1,12 +1,23 @@
 import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import {Header} from '../Header/Header';
-import {Footer} from '../Footer/Footer';
+import Footer from '../../containers/Footer/Footer';
 import {Welcome} from '../Welcome/Welcome';
 import DeckBuilder from '../../containers/DeckBuilder/DeckBuilder';
 import './App.css';
 
 class App extends Component {
+
+  componentDidMount() {
+    const background = require('../../images/background/background.png')
+    document.body.style = `background-image: url(${background});`;
+  }
+
+  componentDidUpdate() {
+    const background = require('../../images/background/background.png')
+    document.body.style = `background-image: url(${background});`;
+  }
+
   render() {
     return (
       <div className="App">

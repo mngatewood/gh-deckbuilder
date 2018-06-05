@@ -1,3 +1,5 @@
 export { fetchCards } from './fetchCards';
-export { fetchSelected } from './fetchSelected'
-export { fetchPostDeck } from './fetchPostDeck'
+export { fetchSelected } from './fetchSelected';
+export { fetchPostDeck } from './fetchPostDeck';
+export { fetchDecks } from './fetchDecks';
+export { fetchDeleteDeck } from './fetchDeleteDeck';

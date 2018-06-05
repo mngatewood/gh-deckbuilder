@@ -19,6 +19,7 @@ import {
 export class DeckBuilder extends Component {
   constructor(props) {
     super(props);
+    this.feedbackDiv = React.createRef();
     this.deckSaveButton = React.createRef();
     this.deckSaveDiv = React.createRef();
     this.deckSaveName = React.createRef();
@@ -27,11 +28,10 @@ export class DeckBuilder extends Component {
     this.changeClassDiv = React.createRef();
     this.changeClassSelect = React.createRef();
     this.state = {
-      deck: 0,
-      deckName: '',
+      deckName: 'Unnamed Deck',
       background: require('../../images/background/background.png'),
       classImage: require('../../images/classArtwork/pending.png'),
-      level: 1,
+      feedback: 'Here is your feedback!',
       error: ''
     };
   };
@@ -39,25 +39,63 @@ export class DeckBuilder extends Component {
 
   async componentDidMount() {
     try {
-      const { addCards, addSelectedCards, addAvailableCards, addSelectedClass } = this.props
-      const selectedClass = this.props.location.pathname.slice(1);
-      const cards = await api.fetchCards(selectedClass);
-      const deck = await helpers.getSelected(this.state.deck, cards);
-      const available = await helpers.getAvailable(cards, deck.cards);
-      const dynamicImage = require(`../../images/classArtwork/${selectedClass}FullBody.png`)
-      const dynamicBackground = require(`../../images/background/background-${selectedClass}.png`)
-      this.setState({ 
-        classImage: dynamicImage,
-        background: dynamicBackground,
-        deckName: deck.name })
-      document.body.style = `background-image: url(${this.state.background});`;
-      addSelectedClass(selectedClass)
-      addCards(cards);
-      addSelectedCards(deck.cards);
-      addAvailableCards(available);
-      this.setState()
+      const selectedClass = await this.getAllCards()
+      this.getImages(selectedClass)
+      this.props.addSelectedClass(selectedClass)
     } catch (error) {
       this.setState({ error });
+    }
+  }
+
+  async componentDidUpdate(prevProps) {
+    if (prevProps.location !== this.props.location) {
+      try {
+        const selectedClass = await this.getAllCards()
+        this.getImages(selectedClass)
+        this.props.addSelectedClass(selectedClass)
+      } catch (error) {
+        this.setState({ error });
+      }
+    }
+  }
+
+  async getAllCards() {
+    const { addCards, addSelectedCards, addAvailableCards, selectedDeck } = this.props
+    const selectedClass = this.props.location.pathname.slice(1);
+    const cards = await api.fetchCards(selectedClass);
+    const deck = await helpers.getSelected(selectedDeck, cards);
+    const available = await helpers.getAvailable(cards, deck.cards);
+    this.setState({deckName: deck.name})
+    addCards(cards);
+    addSelectedCards(deck.cards);
+    addAvailableCards(available);
+    return selectedClass
+  }
+
+  getImages(selectedClass) {
+    const dynamicImage = require(`../../images/classArtwork/${selectedClass}FullBody.png`)
+    const dynamicBackground = require(`../../images/background/background-${selectedClass}.png`)
+    this.setState({
+      classImage: dynamicImage,
+      background: dynamicBackground})
+    document.body.style = `background-image: url(${this.state.background});`;
+  }
+
+  displayFeedback(message) {
+    this.setState({ feedback: message });
+    this.feedbackDiv.current.classList.remove('hidden');
+  }
+
+  hideFeedback(event) {
+    event.target.classList.add('hidden');
+  }
+
+  changeLevel(operator) {
+    const { currentLevel, increaseCurrentLevel, decreaseCurrentLevel } = this.props
+    if(operator === 'plus'){
+      currentLevel < 9 ? increaseCurrentLevel() : this.displayFeedback('Maximum level is already selected.')
+    } else if(operator === 'minus') {
+      currentLevel > 1 ? decreaseCurrentLevel() : this.displayFeedback('Minimum level is already selected.')
     }
   }
 
@@ -69,6 +107,9 @@ export class DeckBuilder extends Component {
     this.deckSaveButton.current.innerText = buttonText;
     this.deckReset.current.classList.toggle('hidden');
     this.changeClassButton.current.classList.toggle('hidden');
+    if(this.deckSaveButton.current.innerText === "Save Deck") {
+      this.displayFeedback('Save cancelled.')
+    }
   }
 
   toggleChangeClass() {
@@ -83,21 +124,27 @@ export class DeckBuilder extends Component {
     event.preventDefault();
     const name = this.deckSaveName.current.value;
     const selectedClass = this.props.selectedClass;
-    const level = this.state.level;
+    const level = this.props.currentLevel;
     const cards = this.props.selectedCards.map( card => {return card.id});
+    console.log(name)
+    console.log(selectedClass)
+    console.log(level)
+    console.log(cards)
     await api.fetchPostDeck(name, selectedClass, level, cards);
   }
 
   async resetDeck() {
-    const { removeSelectedCards, addSelectedCards, addAvailableCards, cards } = this.props
-    if(this.state.deck === 0) {
+    const { removeSelectedCards, addSelectedCards, addAvailableCards, cards, selectedDeck } = this.props
+    if(selectedDeck === 0) {
       removeSelectedCards();
       addAvailableCards(this.props.cards)
+      this.displayFeedback('All selected cards cleared.')
     } else {
-      const deck = await helpers.getSelected(this.state.deck, cards);
+      const deck = await helpers.getSelected(selectedDeck, cards);
       const available = await helpers.getAvailable(cards, deck.cards);
       addSelectedCards(deck.cards);
       addAvailableCards(available);
+      this.displayFeedback('Selected Cards reverted to saved deck.')
     }
   }
 
@@ -105,21 +152,16 @@ export class DeckBuilder extends Component {
     const newClass = this.changeClassSelect.current.value;
     if(newClass === "Cancel") {
       this.toggleChangeClass()
+      this.displayFeedback('Action cancelled.')
     } else {
       this.props.history.push(`/${newClass}`);
-      this.props.addSelectedClass(newClass);
-      this.setState({ deck: 0, 
-        level: 1, 
-        classImage: require(`../../images/classArtwork/${newClass}FullBody.png`) })
     }
   }
   
   render() {
     const { selectedClass, 
       selectedCards, 
-      currentLevel,
-      increaseCurrentLevel, 
-      decreaseCurrentLevel } = this.props;
+      currentLevel } = this.props;
     const numberSelectedCards = selectedCards.length;
     const handSize = helpers.getHandSize(selectedClass);
 
@@ -127,20 +169,31 @@ export class DeckBuilder extends Component {
       <div className="deck-builder">  
         <AvailableCards location={this.props.location} />
         <div id="class-info">
-          <h2>{selectedClass}</h2>
           <img src={this.state.classImage}
             alt={selectedClass}/>
+          <div id="feedback-container" 
+            className="hidden" 
+            ref={this.feedbackDiv}
+            onClick={this.hideFeedback}>
+            <img src={require('../../images/feedback-bg.png')}
+              alt="feedback" />
+            <div id="feedback-content">
+              <p>{this.state.feedback}</p>
+            </div>
+          </div>
+          <h2>{selectedClass}</h2>
+          <h5>{this.state.deckName}</h5>
           <div id="stats">
             <h4>Cards Selected</h4>
             <p id="number-cards">{numberSelectedCards} &nbsp; of &nbsp; {handSize}</p>
             <h4>Character Level</h4> 
             <button id="decrease-level" 
               className="inline-button"
-              onClick={currentLevel === 1 ? console.log('Minimum Level') : decreaseCurrentLevel} >-</button>
+              onClick={() => { this.changeLevel('minus') }} ></button>
             <h3>{currentLevel}</h3>
             <button id="increase-level" 
               className="inline-button"
-              onClick={currentLevel === 9 ? console.log('Maximum Level') : increaseCurrentLevel} >+</button>
+              onClick={() => { this.changeLevel('plus') }} ></button>
             <button onClick={this.toggleChangeClass.bind(this)}
               ref={this.changeClassButton}>
               Change Class
@@ -189,18 +242,12 @@ export class DeckBuilder extends Component {
 
 export const mapDispatchToProps = dispatch => ({
   addCards: cards => dispatch(addCards(cards)),
-  addSelectedCards: selectedCards => 
-    dispatch(addSelectedCards(selectedCards)),
-  addAvailableCards: availableCards =>
-    dispatch(addAvailableCards(availableCards)),
-  addSelectedClass: selectedClass =>
-    dispatch(addSelectedClass(selectedClass)),
-  increaseCurrentLevel: currentLevel =>
-    dispatch(increaseCurrentLevel(currentLevel)),
-  decreaseCurrentLevel: currentLevel =>
-    dispatch(decreaseCurrentLevel(currentLevel)),
-  removeSelectedCards: () => 
-    dispatch(removeSelectedCards())
+  addSelectedCards: selectedCards => dispatch(addSelectedCards(selectedCards)),
+  addAvailableCards: availableCards => dispatch(addAvailableCards(availableCards)),
+  addSelectedClass: selectedClass => dispatch(addSelectedClass(selectedClass)),
+  increaseCurrentLevel: currentLevel => dispatch(increaseCurrentLevel(currentLevel)),
+  decreaseCurrentLevel: currentLevel => dispatch(decreaseCurrentLevel(currentLevel)),
+  removeSelectedCards: () => dispatch(removeSelectedCards())
 });
 
 export const mapStateToProps = state => ({
@@ -208,7 +255,8 @@ export const mapStateToProps = state => ({
   selectedCards: state.selectedCards,
   availableCards: state.availableCards,
   selectedClass: state.selectedClass,
-  currentLevel: state.currentLevel
+  currentLevel: state.currentLevel,
+  selectedDeck: state.selectedDeck
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(DeckBuilder));
