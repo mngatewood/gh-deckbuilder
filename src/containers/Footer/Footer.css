@@ -58,3 +58,12 @@ footer:hover {
   display: inline-block;
   background-color: black;
 }
+
+.sign-in-request {
+  margin-bottom: 0;
+}
+
+.sign-out {
+  cursor: pointer;
+  flex-basis: 100%;
+}

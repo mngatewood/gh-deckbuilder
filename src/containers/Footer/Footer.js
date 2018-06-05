@@ -3,7 +3,7 @@ import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
 import * as api from '../../api/index';
-import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
+import FirebaseAuth from 'react-firebaseui/FirebaseAuth';
 import firebase from 'firebase';
 import './Footer.css';
 
@@ -24,7 +24,6 @@ export class Footer extends Component {
       isSignedIn: false,
       error: ''
     };
-
     this.uiConfig = {
       signInFlow: 'popup',
       signInOptions: [
@@ -32,24 +31,23 @@ export class Footer extends Component {
         firebase.auth.FacebookAuthProvider.PROVIDER_ID
       ],
       callbacks: {
-        signInSuccessWithAuthResult: () => false
+        signInSuccessWithAuthResult: (authResult) => {
+          this.props.changeUser(authResult.user.displayName)
+        }
       }
     };
   };
-
 
   async componentDidMount() {
     this.unregisterAuthObserver = firebase.auth().onAuthStateChanged(
       (user) => this.setState({isSignedIn: !!user})
   );
-    
     try {
       const decks = await api.fetchDecks();
       this.props.addDecks(decks);
     } catch (error) {
       this.setState({ error })
     }
-
   }
 
   async componentDidUpdate(prevProps) {
@@ -108,6 +106,11 @@ export class Footer extends Component {
     }
   }
 
+  signOut = () => {
+    firebase.auth().signOut();
+    this.props.changeUser("Guest")
+  }
+
   render() {
 
     if (!this.state.isSignedIn) {
@@ -117,9 +120,13 @@ export class Footer extends Component {
           <h1 className="saved-decks-title">SAVED DECKS</h1>
         </div>
         <div className="saved-decks-container">
-          <p>Please sign-in:</p>
-          <StyledFirebaseAuth uiConfig={this.uiConfig} firebaseAuth={firebase.auth()}/>
-          
+          <div>
+            <p className="sign-in-request">Please sign-in:</p>
+            <FirebaseAuth 
+              uiCallback={ui => ui.disableAutoSignIn()}
+              uiConfig={this.uiConfig} 
+              firebaseAuth={firebase.auth()}/>
+          </div>
         </div>
       </footer>
       );
@@ -131,9 +138,9 @@ export class Footer extends Component {
         <h1 className="saved-decks-title">SAVED DECKS</h1>
       </div>
       <div className="saved-decks-container">
-
-        <a onClick={() => firebase.auth().signOut()}>Sign-out</a>
-        {this.mapDecks(this.props.currentDecks)}
+      {this.mapDecks(this.props.currentDecks)}
+      <a className="sign-out"
+      onClick={() => this.signOut()}>Sign-out</a>
       </div>
     </footer>
 
@@ -143,11 +150,13 @@ export class Footer extends Component {
 
 export const mapStateToProps = state => ({
   currentDecks: state.currentDecks,
+  user: state.user
 });
 
 export const mapDispatchToProps = dispatch => ({
   addSelectedDeck: deckId => dispatch(actions.addSelectedDeck(deckId)),
-  addDecks: decksArray => dispatch(actions.addDecks(decksArray))
+  addDecks: decksArray => dispatch(actions.addDecks(decksArray)),
+  changeUser: user => dispatch(actions.changeUser(user))
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Footer));

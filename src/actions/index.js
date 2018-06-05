@@ -71,3 +71,8 @@ export const addDecks = (deckArray) => ({
   type: 'ADD_DECKS',
   deckArray
 });
+
+export const changeUser = (user) => ({
+  type: 'CHANGE_USER',
+  user
+});
