@@ -28,37 +28,37 @@ describe("Available Card component", () => {
   });
 
   describe("Map State to Props", () => {
-      it('correctly maps cards to props', () => {
-        const mockState = {cards: mocks.mockCards, selectedCards: [], availableCards: [], currentLevel: 0};
-        const mapped = mapStateToProps(mockState);
-        const expectedState = mocks.mockCards;
+    it('correctly maps cards to props', () => {
+      const mockState = {cards: mocks.mockCards, selectedCards: [], availableCards: [], currentLevel: 0};
+      const mapped = mapStateToProps(mockState);
+      const expectedState = mocks.mockCards;
 
-        expect(mapped.cards).toEqual(expectedState);
-      });
+      expect(mapped.cards).toEqual(expectedState);
+    });
 
-      it("correctly maps selectedCards to props", () => {
-        const mockState = {cards: [], selectedCards: mocks.mockCards, availableCards: [], currentLevel: 0};
-        const mapped = mapStateToProps(mockState);
-        const expectedState = mocks.mockCards;
+    it("correctly maps selectedCards to props", () => {
+      const mockState = {cards: [], selectedCards: mocks.mockCards, availableCards: [], currentLevel: 0};
+      const mapped = mapStateToProps(mockState);
+      const expectedState = mocks.mockCards;
 
-        expect(mapped.selectedCards).toEqual(expectedState);
-      });
+      expect(mapped.selectedCards).toEqual(expectedState);
+    });
 
-      it("correctly maps availableCards to props", () => {
-        const mockState = {cards: [], selectedCards: [], availableCards: mocks.allBruteCards, currentLevel: 0};
-        const mapped = mapStateToProps(mockState);
-        const expectedState = mocks.allBruteCards;
+    it("correctly maps availableCards to props", () => {
+      const mockState = {cards: [], selectedCards: [], availableCards: mocks.allBruteCards, currentLevel: 0};
+      const mapped = mapStateToProps(mockState);
+      const expectedState = mocks.allBruteCards;
 
-        expect(mapped.availableCards).toEqual(expectedState);
-      });
+      expect(mapped.availableCards).toEqual(expectedState);
+    });
 
-      it("correctly maps currentLevel to props", () => {
-        const mockState = {cards: [], selectedCards: [], availableCards: [], currentLevel: 3};
-        const mapped = mapStateToProps(mockState);
-        const expectedState = 3;
+    it("correctly maps currentLevel to props", () => {
+      const mockState = {cards: [], selectedCards: [], availableCards: [], currentLevel: 3};
+      const mapped = mapStateToProps(mockState);
+      const expectedState = 3;
 
-        expect(mapped.currentLevel).toEqual(expectedState);
-      });
+      expect(mapped.currentLevel).toEqual(expectedState);
+    });
   });
 
   describe("Map Dispatch to Props", () => {
