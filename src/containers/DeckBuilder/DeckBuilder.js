@@ -99,22 +99,21 @@ export class DeckBuilder extends Component {
     }
   }
 
-  toggleDeckSave() {
-    const buttonText = this.deckSaveButton.current.innerText === "Save Deck" 
+  toggleDeckSave(event) {
+    const prevButtonText = this.deckSaveButton.current.innerText
+    const newButtonText = prevButtonText === "Save Deck" 
       ? "Cancel"
       : "Save Deck"
     this.deckSaveDiv.current.classList.toggle('hidden');
-    this.deckSaveButton.current.innerText = buttonText;
+    this.deckSaveButton.current.innerText = newButtonText;
     this.deckReset.current.classList.toggle('hidden');
     this.changeClassButton.current.classList.toggle('hidden');
-    if(this.deckSaveButton.current.innerText === "Save Deck") {
+    if(prevButtonText === "Cancel") {
       this.displayFeedback('Save cancelled.')
     }
   }
 
   toggleChangeClass(event) {
-    console.log(event)
-    // this.changeClassSelect.current.value = this.props.selectedClass;
     this.changeClassDiv.current.classList.toggle('hidden');
     this.changeClassButton.current.classList.toggle('hidden');
     this.deckSaveButton.current.classList.toggle('hidden');
@@ -130,11 +129,16 @@ export class DeckBuilder extends Component {
     const selectedClass = this.props.selectedClass;
     const level = this.props.currentLevel;
     const cards = this.props.selectedCards.map( card => {return card.id});
-    console.log(name)
-    console.log(selectedClass)
-    console.log(level)
-    console.log(cards)
-    await api.fetchPostDeck(name, selectedClass, level, cards);
+    if(name.length && cards.length) {
+      await api.fetchPostDeck(name, selectedClass, level, cards);
+      this.displayFeedback("Deck successfully saved.");
+      this.deckSaveDiv.current.classList.toggle('hidden');
+      this.deckSaveButton.current.innerText = 'Save Deck';
+      this.deckReset.current.classList.toggle('hidden');
+      this.changeClassButton.current.classList.toggle('hidden');
+    } else {
+      this.displayFeedback('You must enter a deck name and select at least one card.')
+    }
   }
 
   async resetDeck() {
@@ -199,7 +203,8 @@ export class DeckBuilder extends Component {
               ref={this.changeClassButton}>
               Change Class
               </button>
-            <button onClick={this.toggleDeckSave.bind(this)}
+            <button id="save-button" 
+              onClick={this.toggleDeckSave.bind(this)}
               ref={this.deckSaveButton}>
               Save Deck
             </button>
@@ -211,7 +216,7 @@ export class DeckBuilder extends Component {
                   type="text" 
                   placeholder="Enter deck name."
                   ref={this.deckSaveName}/>
-                <button id="submit-deck-name" 
+                <button id="submit-deck" 
                   onClick={this.submitDeck.bind(this)}>Submit</button>
               </form>
             </div>
@@ -228,14 +233,33 @@ export class DeckBuilder extends Component {
                 </button>
                 <div id="class-select-container">
                   <ul>
-                    <li id="Brute" onClick={this.changeClass.bind(this)}>Brute</li>
-                    <li id="Cragheart" onClick={this.changeClass.bind(this)}>Cragheart</li>
-                    <li id="Mindthief" onClick={this.changeClass.bind(this)}>Mindthief</li>
+                    <li id="Brute" onClick={this.changeClass.bind(this)}>
+                      <img src={require('../../images/classIcons/Brute-icon.png')}
+                        alt="Brute icon"
+                        tooltip="Brute" />
+                    </li>
+                    <li id="Cragheart" onClick={this.changeClass.bind(this)}>
+                      <img src={require('../../images/classIcons/Cragheart-icon.png')}
+                      alt="Cragheart icon" />
+                    </li>
+                    <li id="Mindthief" onClick={this.changeClass.bind(this)}>
+                      <img src={require('../../images/classIcons/Mindthief-icon.png')}
+                        alt="Mindthief icon" />
+                    </li>
                   </ul>
                   <ul>
-                    <li id="Spellweaver" onClick={this.changeClass.bind(this)}>Spellweaver</li>
-                    <li id="Scoundrel" onClick={this.changeClass.bind(this)}>Scoundrel</li>
-                    <li id="Tinkerer" onClick={this.changeClass.bind(this)}>Tinkerer</li>
+                    <li id="Spellweaver" onClick={this.changeClass.bind(this)}>
+                      <img src={require('../../images/classIcons/Spellweaver-icon.png')}
+                        alt="Spellweaver icon" />
+                    </li>
+                    <li id="Scoundrel" onClick={this.changeClass.bind(this)}>
+                      <img src={require('../../images/classIcons/Scoundrel-icon.png')}
+                        alt="Scoundrel icon" />
+                    </li>
+                    <li id="Tinkerer" onClick={this.changeClass.bind(this)}>
+                      <img src={require('../../images/classIcons/Tinkerer-icon.png')}
+                        alt="Tinkerer icon" />
+                    </li>
                   </ul>
                 </div>
             </div>
