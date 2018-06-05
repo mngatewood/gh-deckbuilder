@@ -190,11 +190,11 @@ export class DeckBuilder extends Component {
             <h4>Character Level</h4> 
             <button id="decrease-level" 
               className="inline-button"
-              onClick={() => { this.changeLevel('minus') }} >-</button>
+              onClick={() => { this.changeLevel('minus') }} ></button>
             <h3>{currentLevel}</h3>
             <button id="increase-level" 
               className="inline-button"
-              onClick={() => { this.changeLevel('plus') }} >+</button>
+              onClick={() => { this.changeLevel('plus') }} ></button>
             <button onClick={this.toggleChangeClass.bind(this)}
               ref={this.changeClassButton}>
               Change Class

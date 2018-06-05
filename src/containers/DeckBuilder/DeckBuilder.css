@@ -57,6 +57,12 @@
   display: block;
   width: 80%;
   margin: 15px auto;
+  background-image: url('../../images/button-bg.png');
+  background-size: 100%;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  color: white;
 }
 
 #class-info h2 {
@@ -88,11 +94,44 @@
   margin: 5px;
 }
 
-#class-info button.inline-button {
+#class-info .inline-button {
   display: inline-block;
-  width: 22px;
-  height: 21px;
+  width: 30px;
+  height: 30px;
+  margin: 5px 0;
+  /* background-image: url('../../images/plus1.png'); */
+  background-repeat: no-repeat;
+  background-size: 30px 30px;
+  background-color: transparent;
+  outline: none;
+  border: none;
+
 }
+
+#class-info button#decrease-level {
+  display: inline-block;
+  /* width: 22px;
+  height: 21px; */
+
+  background-image: url('../../images/minus1.png');
+  /* background-size: 100%;
+  background-color: transparent;
+  outline: none;
+  border: none; */
+
+}
+
+#class-info button#increase-level {
+    display: inline-block;
+  background-image: url('../../images/plus1.png');
+  /* background-size: 100%;
+  background-color: transparent;
+  outline: none;
+  border: none; */
+
+}
+
+
 
 #class-info .hidden {
   display: none
