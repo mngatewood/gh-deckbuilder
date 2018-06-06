@@ -41,9 +41,9 @@ describe("Fetch Cards", () => {
         message: {"Error": "Error getting cards"}
       })
     );
-    const expected = { "Error": 'Error getting cards'}
+    const expected = { "Error": 'Error getting cards'};
 
-    const errorFetch = fetchCards(selectedClass)
+    const errorFetch = fetchCards(selectedClass);
     expect(errorFetch).rejects.toEqual(expected);
   });
 });

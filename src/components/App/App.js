@@ -9,12 +9,12 @@ import './App.css';
 class App extends Component {
 
   componentDidMount() {
-    const background = require('../../images/background/background.png')
+    const background = require('../../images/background/background.png');
     document.body.style = `background-image: url(${background});`;
   }
 
   componentDidUpdate() {
-    const background = require('../../images/background/background.png')
+    const background = require('../../images/background/background.png');
     document.body.style = `background-image: url(${background});`;
   }
 

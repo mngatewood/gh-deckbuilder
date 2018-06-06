@@ -13,10 +13,14 @@ app.locals.title = 'Gloomhaven Deck-Builder';
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'build')));
 app.use(function (request, response, next) {
-  response.header("Access-Control-Allow-Origin", "*");
-  response.header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE");
-  response.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  response.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+  response.header("Access-Control-Allow-Origin",
+    "*");
+  response.header("Access-Control-Allow-Methods",
+    "GET, PUT, POST, DELETE");
+  response.header("Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept");
+  response.header("Access-Control-Allow-Methods",
+    "GET, POST, PUT, DELETE, OPTIONS");
   next();
 });
 
@@ -132,7 +136,8 @@ app.post('/api/v1/decks', (request, response) => {
           }
         ).then(id => id);
       });
-      return response.status(201).json(`Deck ${deckName} was added to the database.`);
+      return response.status(201)
+        .json(`Deck ${deckName} was added to the database.`);
     })
     .catch(error => {
       return response.status(500).json('Internal server error' + error );
@@ -154,9 +159,11 @@ app.delete('/api/v1/decks/:id', (request, response) => {
       database('decks').where('id', deckId).del()
         .then(deleteCount => {
           if (deleteCount === 0) {
-            return response.status(404).json(`No decks found with id ${deckId}.`);
+            return response.status(404)
+              .json(`No decks found with id ${deckId}.`);
           }
-          return response.status(200).json(`Successfully removed deck ${deckId} from database.`);
+          return response.status(200)
+            .json(`Successfully removed deck ${deckId} from database.`);
         });
     })
     .catch(error => {

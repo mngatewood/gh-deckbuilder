@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
 import * as api from '../../api/index';
@@ -32,23 +33,23 @@ export class Footer extends Component {
       ],
       callbacks: {
         signInSuccessWithAuthResult: (authResult) => {
-          this.props.changeUser(authResult.user.email)
+          this.props.changeUser(authResult.user.email);
         }
       }
     };
-  };
+  }
 
   async componentDidMount() {
-    this.signOut()
+    this.signOut();
     this.unregisterAuthObserver = firebase.auth().onAuthStateChanged(
       (user) => this.setState({isSignedIn: !!user})
     );
     try {
       const decks = await api.fetchDecks();
-      const filteredDeck = this.filterDecks(decks)
+      const filteredDeck = this.filterDecks(decks);
       this.props.addDecks(filteredDeck);
     } catch (error) {
-      this.setState({ error })
+      this.setState({ error });
     }
   }
 
@@ -56,10 +57,10 @@ export class Footer extends Component {
     if (prevProps !== this.props) {
       try {
         const decks = await api.fetchDecks();
-        const filteredDeck = this.filterDecks(decks)
+        const filteredDeck = this.filterDecks(decks);
         this.props.addDecks(filteredDeck);
       } catch (error) {
-        this.setState({ error })
+        this.setState({ error });
       }
     }
   }
@@ -70,55 +71,57 @@ export class Footer extends Component {
 
   filterDecks = (decks) => {
     const filteredDecks = decks.filter(deck => {
-      return deck.user === this.props.user
-    })
-    return filteredDecks
+      return deck.user === this.props.user;
+    });
+    return filteredDecks;
   }
 
   mapDecks = (filteredDecks) => {
-    const deleteImg = require('../../images/red-x.png')
+    const deleteImg = require('../../images/red-x.png');
     const mappedDecks = filteredDecks.map(deck => {
-      const dynamicIcon = require(`../../images/classIcons/${deck.class}Icon.png`)
-      const dynamicPath = `/${deck.class}`
+      const dynamicIcon = 
+        require(`../../images/classIcons/${deck.class}-icon.png`);
+      const dynamicPath = `/${deck.class}`;
     
       return (
         <div className="saved-deck" key={deck.id}>
           <Link to={dynamicPath}
-          onClick={() => this.props.addSelectedDeck(deck.id)}
+            onClick={() => this.props.addSelectedDeck(deck.id)}
           >
-          <img  className="saved-deck-classImg" src={dynamicIcon} alt={deck.class}/>
-          <h1 className="saved-deck-name">{deck.name}</h1>
+            <img  className="saved-deck-classImg" 
+              src={dynamicIcon} alt={deck.class}/>
+            <h1 className="saved-deck-name">{deck.name}</h1>
           </Link>
           <button>
             <img className="saved-deck-deleteImg"
               src={deleteImg}
               alt="delete"
               onClick={() => this.deleteDeck(deck.id)}
-              />
+            />
           </button>
         </div>
-      )
-    })
+      );
+    });
     return mappedDecks;
   }
 
   addSelectedId = (deckId) => {
-    this.props.addSelectedDeckId(deckId)
+    this.props.addSelectedDeckId(deckId);
   }
 
   deleteDeck = async (deckId) => {
     try {
-      await api.fetchDeleteDeck(deckId)
+      await api.fetchDeleteDeck(deckId);
       const decks = await api.fetchDecks();
       this.props.addDecks(decks);
     } catch (error) {
-      this.setState({error})
+      this.setState({error});
     }
   }
 
   signOut = () => {
     firebase.auth().signOut();
-    this.props.changeUser("guest")
+    this.props.changeUser("guest");
   }
 
   render() {
@@ -126,37 +129,39 @@ export class Footer extends Component {
     if (!this.state.isSignedIn) {
       return (
         <footer>
-        <div className="saved-decks-tab">
-          <h1 className="saved-decks-title">SAVED DECKS</h1>
-        </div>
-        <div className="saved-decks-container">
-          <div className="sign-in-request">
-            <p >Please sign-in:</p>
-            <FirebaseAuth 
-              uiCallback={ui => ui.disableAutoSignIn()}
-              uiConfig={this.uiConfig} 
-              firebaseAuth={firebase.auth()}/>
+          <div className="saved-decks-tab">
+            <h1 className="saved-decks-title">SAVED DECKS</h1>
           </div>
-            {this.mapDecks(this.props.currentDecks)}
-        </div>
-      </footer>
+          <div className="saved-decks-container">
+            <div className="sign-in-request">
+              <p >Please sign-in:</p>
+              <FirebaseAuth 
+                uiCallback={ui => ui.disableAutoSignIn()}
+                uiConfig={this.uiConfig} 
+                firebaseAuth={firebase.auth()}/>
+            </div>
+            <div id="decks-container">
+              {this.mapDecks(this.props.currentDecks)}
+            </div>
+          </div>
+        </footer>
       );
     }
 
     return (
       <footer>
-      <div className="saved-decks-tab">
-        <h1 className="saved-decks-title">SAVED DECKS</h1>
-      </div>
-      <div className="saved-decks-container">
-      <a className="sign-out"
-      onClick={() => this.signOut()}>Sign-out</a>
-      {this.mapDecks(this.props.currentDecks)}
-      </div>
-    </footer>
+        <div className="saved-decks-tab">
+          <h1 className="saved-decks-title">SAVED DECKS</h1>
+        </div>
+        <div className="saved-decks-container">
+          <a className="sign-out"
+            onClick={() => this.signOut()}>Sign-out</a>
+          {this.mapDecks(this.props.currentDecks)}
+        </div>
+      </footer>
     );
   }
-};
+}
 
 export const mapStateToProps = state => ({
   currentDecks: state.currentDecks,
@@ -168,5 +173,14 @@ export const mapDispatchToProps = dispatch => ({
   addDecks: decksArray => dispatch(actions.addDecks(decksArray)),
   changeUser: user => dispatch(actions.changeUser(user))
 });
+
+Footer.propTypes = {
+  changeUser: PropTypes.func,
+  addDecks: PropTypes.func,
+  user: PropTypes.string,
+  addSelectedDeck: PropTypes.func,
+  addSelectedDeckId: PropTypes.func,
+  currentDecks: PropTypes.array
+};
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Footer));

@@ -3,19 +3,20 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import PropTypes from 'prop-types';
 import './SelectedCards.css';
-import * as helpers from '../../helpers/index'
+import * as helpers from '../../helpers/index';
 import * as actions from '../../actions';
 
 export class SelectedCards extends Component {
 
   render() {
 
-    const { cards, selectedCards, selectedClass, currentLevel, addSelectedCard, removeAvailableCard } = this.props;
+    const { cards, selectedCards, selectedClass, currentLevel,
+      addSelectedCard, removeAvailableCard } = this.props;
 
     const dragoverHandler = (event) => {
       event.preventDefault();
-      event.dataTransfer.dropEffect = "move"
-    }
+      event.dataTransfer.dropEffect = "move";
+    };
 
     const dropHandler = (event) => {
       event.preventDefault();
@@ -29,7 +30,7 @@ export class SelectedCards extends Component {
         addSelectedCard(droppedCard);
         removeAvailableCard(droppedCard);
       } 
-    }
+    };
 
     return (
       <div className="cards-component" id="selected-component">
@@ -70,4 +71,5 @@ SelectedCards.propTypes = {
   removeAvailableCard: PropTypes.func
 };
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SelectedCards));
+export default withRouter(connect(mapStateToProps,
+  mapDispatchToProps)(SelectedCards));
