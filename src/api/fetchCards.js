@@ -6,12 +6,12 @@ export const fetchCards = async (selectedClass) => {
   try {
     const response = await fetch(url);
     const cards = await response.json();
-    return cards
+    return cards;
   } catch (error) {
     throw error.message;
   }
-}
+};
 
 fetchCards.propTypes = {
-  selectedClass: PropTypes.string,
+  selectedClass: PropTypes.string
 };

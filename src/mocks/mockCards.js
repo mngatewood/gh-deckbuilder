@@ -1,3 +1,4 @@
+
 export const mockCard = {
   id: 1,
   class: "Brute",
@@ -9,7 +10,7 @@ export const mockCard = {
   card_level: 1,
   created_at: "2018-06-01T22:34:26.644Z",
   updated_at: "2018-06-01T22:34:26.644Z"
-}
+};
 
 export const mockCards = [
   {
@@ -33,7 +34,7 @@ export const mockCards = [
     image_url: './images/cards/Brute1.png',
     card_level: 1
   }
-]
+];
 
 export const mockSelectedCards = [
   {
@@ -54,7 +55,7 @@ export const mockSelectedCards = [
     image_url: './images/cards/Brute6.png',
     card_level: 1
   }
-]
+];
 
 export const mockAvailableCards = [
   {
@@ -300,7 +301,7 @@ export const mockAvailableCards = [
     image_url: './images/cards/Brute28.png',
     card_level: 9
   }
-]
+];
 export const cardToDelete = {
   class: "Brute",
   name: "Trample",
@@ -309,7 +310,7 @@ export const cardToDelete = {
   bottom_action: "Move 4 ● ^Jump Attack 2 ● ● ^(Target all enemies moved through) 2 XP, LOSS",
   image_url: './images/cards/Brute1.png',
   card_level: 1
-}
+};
 
 export const mockDeck = [
   {
@@ -411,11 +412,11 @@ export const mockDeck = [
     image_url: './images/cards/Brute11.png',
     card_level: 0
   }
-]
+];
 export const mockMultiDecks = [
-  {deckId: 1, deckName: 'Hello', class: 'Brute', cards: [1,2,3,4,5,6,7,8]},
-  {deckId: 12, deckName: 'Friend', class: 'Cragheart', cards: [10,2,3,12,5,6,7,8]}
-]
+  {deckId: 1, deckName: 'Hello', class: 'Brute', cards: [1, 2, 3, 4, 5, 6, 7, 8]},
+  {deckId: 12, deckName: 'Friend', class: 'Cragheart', cards: [10, 2, 3, 12, 5, 6, 7, 8]}
+];
 
 export const allBruteCards = [
   {
@@ -679,4 +680,4 @@ export const allBruteCards = [
     image_url: './images/cards/Brute28.png',
     card_level: 9
   }
-]
+];

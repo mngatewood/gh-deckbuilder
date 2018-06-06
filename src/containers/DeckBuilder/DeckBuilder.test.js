@@ -2,10 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { shallow, mount } from 'enzyme';
 import { DeckBuilder } from './DeckBuilder';
-import { mapStateToProps, mapDispatchToProps } from './DeckBuilder';
-import * as actions from '../../actions';
 import * as mocks from '../../mocks/mockCards';
-import * as api from '../../api';
 
 jest.mock('../../api');
 
@@ -15,17 +12,16 @@ describe("Deckbuilder Component", () => {
     let wrapper;
     let location;
     let prevProps;
-    let addAvailableCards, addCards, addSelectedCards, addSelectedClass, availableCards, cards, currentLevel, decreaseCurrentLevel, increaseCurrentLevel, removeSelectedCards, selectedCards, selectedClass, selectedDeck;
-    // let changeClassDiv;
-    // let mockStore;
+    let addAvailableCards, addCards, addSelectedCards, addSelectedClass,
+      decreaseCurrentLevel, increaseCurrentLevel, removeSelectedCards;
 
     beforeEach(() => {
       location = {
         pathname: '/Brute'
-      }
+      };
       prevProps = {
         location: '/Spellweaver'
-      }
+      };
       addAvailableCards = jest.fn();
       addCards = jest.fn();
       addSelectedCards = jest.fn();
@@ -50,7 +46,7 @@ describe("Deckbuilder Component", () => {
           selectedCards={mocks.mockSelectedCards}
           selectedClass={"Brute"}
           selectedDeck={0}
-        />,{disableLifecycleMethods: true})
+        />, {disableLifecycleMethods: true});
     });
     it("should match snapshot", async () => {
       await wrapper.instance().componentDidMount();
@@ -99,7 +95,7 @@ describe("Deckbuilder Component", () => {
       });
 
       it("Should call addSelectedClass on componentDidUpdate", async () => {
-      await wrapper.instance().componentDidUpdate(prevProps);
+        await wrapper.instance().componentDidUpdate(prevProps);
 
       expect(addSelectedClass).toHaveBeenCalled();
       });
@@ -225,6 +221,5 @@ describe("Deckbuilder Component", () => {
       const expected = actions.removeSelectedCards();
       expect(mockDispatch).toHaveBeenCalledWith(expected);
     });
-
   });
 });

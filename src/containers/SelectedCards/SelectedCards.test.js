@@ -1,8 +1,8 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';
-import { SelectedCards } from './SelectedCards';
-import { mapStateToProps, mapDispatchToProps } from './SelectedCards';
+import { SelectedCards,
+  mapStateToProps,
+  mapDispatchToProps } from './SelectedCards';
 import * as actions from '../../actions';
 import * as mocks from '../../mocks/mockCards';
 
@@ -19,7 +19,7 @@ describe("Selected Card component", () => {
         removeAvailableCard={jest.fn()}
         selectedCards={[]}
         selectedClass={"Brute"}
-      />)
+      />);
     });
 
     it("should match the snapshot", () => {
@@ -30,7 +30,8 @@ describe("Selected Card component", () => {
 
   describe("Map State to Props", () => {
     it('correctly maps cards to props', () => {
-      const mockState = {cards: mocks.mockCards, selectedCards: [], availableCards: [], selectedClass: "", currentLevel: 0};
+      const mockState = {cards: mocks.mockCards, selectedCards: [],
+        availableCards: [], selectedClass: "", currentLevel: 0};
       const mapped = mapStateToProps(mockState);
       const expectedState = mocks.mockCards;
 
@@ -38,7 +39,8 @@ describe("Selected Card component", () => {
     });
 
     it("correctly maps selectedCards to props", () => {
-      const mockState = {cards: [], selectedCards: mocks.mockSelectedCards, availableCards: [], selectedClass: "", currentLevel: 0};
+      const mockState = {cards: [], selectedCards: mocks.mockSelectedCards,
+        availableCards: [], selectedClass: "", currentLevel: 0};
       const mapped = mapStateToProps(mockState);
       const expectedState = mocks.mockSelectedCards;
 
@@ -46,7 +48,9 @@ describe("Selected Card component", () => {
     });
 
     it("correctly maps availableCards to props", () => {
-      const mockState = {cards: [], selectedCards: mocks.mockSelectedCards, availableCards: mocks.mockAvailableCards, selectedClass: "", currentLevel: 0};
+      const mockState = {cards: [], selectedCards: mocks.mockSelectedCards,
+        availableCards: mocks.mockAvailableCards,
+        selectedClass: "", currentLevel: 0};
       const mapped = mapStateToProps(mockState);
       const expectedState = mocks.mockAvailableCards;
 
@@ -54,7 +58,8 @@ describe("Selected Card component", () => {
     });
 
     it("correctly maps selectedClass to props", () => {
-      const mockState = {cards: [], selectedCards: [], availableCards: [], selectedClass: "Brute", currentLevel: 0};
+      const mockState = {cards: [], selectedCards: [], availableCards: [],
+        selectedClass: "Brute", currentLevel: 0};
       const mapped = mapStateToProps(mockState);
       const expectedState = "Brute";
 
@@ -62,7 +67,8 @@ describe("Selected Card component", () => {
     });
 
     it("correctly maps currentLevel to props", () => {
-      const mockState = {cards: [], selectedCards: [], availableCards: [], selectedClass: "", currentLevel: 4};
+      const mockState = {cards: [], selectedCards: [], availableCards: [],
+        selectedClass: "", currentLevel: 4};
       const mapped = mapStateToProps(mockState);
       const expectedState = 4;
 

@@ -18,7 +18,7 @@ exports.up = function (knex, Promise) {
     knex.schema.createTable('decks', (table) => {
       table.increments('id').primary();
       table.string('name');
-      table.string('class')
+      table.string('class');
 
       table.timestamps(true, true);
     }),
@@ -33,7 +33,7 @@ exports.up = function (knex, Promise) {
       table.timestamps(true, true);
     })
 
-  ])
+  ]);
 
 };
 

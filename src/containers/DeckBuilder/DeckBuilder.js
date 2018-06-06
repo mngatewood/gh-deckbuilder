@@ -28,13 +28,13 @@ export class DeckBuilder extends Component {
       feedback: '',
       error: ''
     };
-  };
+  }
 
   async componentDidMount() {
     try {
-      const selectedClass = await this.getAllCards()
-      this.getImages(selectedClass)
-      this.props.addSelectedClass(selectedClass)
+      const selectedClass = await this.getAllCards();
+      this.getImages(selectedClass);
+      this.props.addSelectedClass(selectedClass);
     } catch (error) {
       this.setState({ error });
     }
@@ -44,9 +44,9 @@ export class DeckBuilder extends Component {
     const {location, addSelectedClass} = this.props;
     if (prevProps.location !== location) {
       try {
-        const selectedClass = await this.getAllCards()
-        this.getImages(selectedClass)
-        addSelectedClass(selectedClass)
+        const selectedClass = await this.getAllCards();
+        this.getImages(selectedClass);
+        addSelectedClass(selectedClass);
         this.feedbackDiv.current.classList.add('hidden');
       } catch (error) {
         this.setState({ error });
@@ -55,24 +55,27 @@ export class DeckBuilder extends Component {
   }
 
   async getAllCards() {
-    const { addCards, addSelectedCards, addAvailableCards, selectedDeck, location } = this.props
+    const { addCards, addSelectedCards, addAvailableCards,
+      selectedDeck, location } = this.props;
     const selectedClass = location.pathname.slice(1);
     const cards = await api.fetchCards(selectedClass);
     const deck = await helpers.getSelected(selectedDeck, cards);
     const available = await helpers.getAvailable(cards, deck.cards);
-    this.setState({deckName: deck.name})
+    this.setState({deckName: deck.name});
     addCards(cards);
     addSelectedCards(deck.cards);
     addAvailableCards(available);
-    return selectedClass
+    return selectedClass;
   }
 
   getImages(selectedClass) {
-    const dynamicImage = require(`../../images/classArtwork/${selectedClass}FullBody.png`)
-    const dynamicBackground = require(`../../images/background/background-${selectedClass}.png`)
+    const dynamicImage = 
+      require(`../../images/classArtwork/${selectedClass}FullBody.png`);
+    const dynamicBackground = 
+      require(`../../images/background/background-${selectedClass}.png`);
     this.setState({
       classImage: dynamicImage,
-      background: dynamicBackground})
+      background: dynamicBackground});
     document.body.style = `background-image: url(${this.state.background});`;
   }
 
@@ -86,29 +89,30 @@ export class DeckBuilder extends Component {
   }
 
   changeLevel(operator) {
-    const { currentLevel, increaseCurrentLevel, decreaseCurrentLevel } = this.props
-    if(operator === 'plus'){
+    const { currentLevel, increaseCurrentLevel,
+      decreaseCurrentLevel } = this.props;
+    if (operator === 'plus'){
       currentLevel < 9
-      ? increaseCurrentLevel()
-      : this.displayFeedback('Maximum level is already selected.')
-    } else if(operator === 'minus') {
+        ? increaseCurrentLevel()
+        : this.displayFeedback('Maximum level is already selected.');
+    } else if (operator === 'minus') {
       currentLevel > 1
-      ? decreaseCurrentLevel()
-      : this.displayFeedback('Minimum level is already selected.')
+        ? decreaseCurrentLevel()
+        : this.displayFeedback('Minimum level is already selected.');
     }
   }
 
-  toggleDeckSave(event) {
-    const prevButtonText = this.deckSaveButton.current.innerText
+  toggleDeckSave() {
+    const prevButtonText = this.deckSaveButton.current.innerText;
     const newButtonText = prevButtonText === "Save Deck"
       ? "Cancel"
-      : "Save Deck"
+      : "Save Deck";
     this.deckSaveDiv.current.classList.toggle('hidden');
     this.deckSaveButton.current.innerText = newButtonText;
     this.deckReset.current.classList.toggle('hidden');
     this.changeClassButton.current.classList.toggle('hidden');
-    if(prevButtonText === "Cancel") {
-      this.displayFeedback('Save cancelled.')
+    if (prevButtonText === "Cancel") {
+      this.displayFeedback('Save cancelled.');
     }
   }
 
@@ -119,55 +123,57 @@ export class DeckBuilder extends Component {
     this.deckSaveButton.current.classList.toggle('hidden');
     this.deckReset.current.classList.toggle('hidden');
     if (event.target.id === 'cancel-class-change') {
-      this.displayFeedback('Change class cancelled.')
+      this.displayFeedback('Change class cancelled.');
     }
   }
 
   toggleStats() {
     const display = this.stats.current.style.display;
-    if(display === "none") {
-      this.stats.current.style.setProperty("display", "block")
+    if (display === "none") {
+      this.stats.current.style.setProperty("display", "block");
     } else {
-      this.stats.current.style.setProperty("display", "none")
-      this.feedbackDiv.current.classList.add('hidden')
+      this.stats.current.style.setProperty("display", "none");
+      this.feedbackDiv.current.classList.add('hidden');
     }
   }
 
   async submitDeck(event) {
-    const {selectedClass, currentLevel, selectedCards, user} = this.props
+    const {selectedClass, currentLevel, selectedCards, user} = this.props;
     event.preventDefault();
     const name = this.deckSaveName.current.value;
-    const cards = selectedCards.map( card => {return card.id});
-    if(name.length && cards.length) {
-      const response = await api.fetchPostDeck(name, selectedClass, currentLevel, user, cards);
+    const cards = selectedCards.map( card => { return card.id; });
+    if (name.length && cards.length) {
+      const response = await api.fetchPostDeck(name, selectedClass,
+        currentLevel, user, cards);
       this.displayFeedback(response);
       this.deckSaveDiv.current.classList.toggle('hidden');
       this.deckSaveButton.current.innerText = 'Save Deck';
       this.deckReset.current.classList.toggle('hidden');
       this.changeClassButton.current.classList.toggle('hidden');
     } else {
-      this.displayFeedback('You must enter a deck name and select at least one card.')
+      this.displayFeedback('You must enter a deck name and select at least one card.'); //eslint-disable-line
     }
   }
 
   async resetDeck() {
-    const { removeSelectedCards, addSelectedCards, addAvailableCards, cards, selectedDeck } = this.props
-    if(selectedDeck === 0) {
+    const { removeSelectedCards, addSelectedCards,
+      addAvailableCards, cards, selectedDeck } = this.props;
+    if (selectedDeck === 0) {
       removeSelectedCards();
-      addAvailableCards(cards)
-      this.displayFeedback('All selected cards cleared.')
+      addAvailableCards(cards);
+      this.displayFeedback('All selected cards cleared.');
     } else {
       const deck = await helpers.getSelected(selectedDeck, cards);
       const available = await helpers.getAvailable(cards, deck.cards);
       addSelectedCards(deck.cards);
       addAvailableCards(available);
-      this.displayFeedback('Selected Cards reverted to saved deck.')
+      this.displayFeedback('Selected Cards reverted to saved deck.');
     }
   }
 
   changeClass(event) {
     this.props.history.push(`/${event.target.id}`);
-    this.toggleChangeClass(event)
+    this.toggleChangeClass(event);
   }
 
   render() {
@@ -181,8 +187,8 @@ export class DeckBuilder extends Component {
         <img src={require('../../images/menu.png')}
           alt="menu"
           id="menu"
-          onClick={() => {this.toggleStats()}}
-          />
+          onClick={() => { this.toggleStats(); }}
+        />
 
         <AvailableCards />
 
@@ -206,27 +212,29 @@ export class DeckBuilder extends Component {
           <div id="stats" ref={this.stats}>
 
             <h4>Cards Selected</h4>
-            <p id="number-cards">{numberSelectedCards} &nbsp; of &nbsp; {handSize}</p>
+            <p id="number-cards">
+              {numberSelectedCards} &nbsp; of &nbsp; {handSize}
+            </p>
 
             <h4>Character Level</h4>
             <div id="level-container">
               <button id="decrease-level"
                 className="inline-button"
-                onClick={() => { this.changeLevel('minus') }} ></button>
+                onClick={() => { this.changeLevel('minus'); }} ></button>
               <h3>{currentLevel}</h3>
               <button id="increase-level"
                 className="inline-button"
-                onClick={() => { this.changeLevel('plus') }} ></button>
+                onClick={() => { this.changeLevel('plus'); }} ></button>
             </div>
 
             <button onClick={(event) => {this.toggleChangeClass(event)}}
               ref={this.changeClassButton}
               id="change-class-button">
               Change Class
-              </button>
+            </button>
 
             <button id="save-button"
-              onClick={() => {this.toggleDeckSave()}}
+              onClick={() => { this.toggleDeckSave(); }}
               ref={this.deckSaveButton}>
               Save Deck
             </button>
@@ -239,11 +247,13 @@ export class DeckBuilder extends Component {
                   placeholder="Enter deck name."
                   ref={this.deckSaveName}/>
                 <button id="submit-deck"
-                  onClick={(event) => {this.submitDeck(event)}}>Submit</button>
+                  onClick={(event) => { this.submitDeck(event); }}>
+                  Submit
+                </button>
               </form>
             </div>
 
-           <button onClick={() => {this.resetDeck()}}
+            <button onClick={() => { this.resetDeck(); }}
               ref={this.deckReset}>
               Reset Deck
             </button>
@@ -252,40 +262,50 @@ export class DeckBuilder extends Component {
               className="hidden"
               ref={this.changeClassDiv}>
               <button id="cancel-class-change"
-                onClick={(event) => {this.toggleChangeClass(event)}}>
+                onClick={(event) => { this.toggleChangeClass(event); }}>
                 Cancel
-                </button>
-                <div id="class-select-container">
-                  <ul>
-                    <li id="Brute" onClick={(event) => this.changeClass(event)}>
-                      <img src={require('../../images/classIcons/Brute-icon.png')}
-                        alt="Brute icon"
-                        tooltip="Brute" />
-                    </li>
-                    <li id="Cragheart" onClick={(event) => this.changeClass(event)}>
-                      <img src={require('../../images/classIcons/Cragheart-icon.png')}
-                      alt="Cragheart icon" />
-                    </li>
-                    <li id="Mindthief" onClick={(event) => this.changeClass(event)}>
-                      <img src={require('../../images/classIcons/Mindthief-icon.png')}
-                        alt="Mindthief icon" />
-                    </li>
-                  </ul>
-                  <ul>
-                    <li id="Spellweaver" onClick={(event) => this.changeClass(event)}>
-                      <img src={require('../../images/classIcons/Spellweaver-icon.png')}
-                        alt="Spellweaver icon" />
-                    </li>
-                    <li id="Scoundrel" onClick={(event) => this.changeClass(event)}>
-                      <img src={require('../../images/classIcons/Scoundrel-icon.png')}
-                        alt="Scoundrel icon" />
-                    </li>
-                    <li id="Tinkerer" onClick={(event) => this.changeClass(event)}>
-                      <img src={require('../../images/classIcons/Tinkerer-icon.png')}
-                        alt="Tinkerer icon" />
-                    </li>
-                  </ul>
-                </div>
+              </button>
+              <div id="class-select-container">
+                <ul>
+                  <li id="Brute" onClick={(event) => this.changeClass(event)}>
+                    <img src={require('../../images/classIcons/Brute-icon.png')}
+                      alt="Brute icon"
+                      tooltip="Brute" />
+                  </li>
+                  <li id="Cragheart" 
+                    onClick={(event) => this.changeClass(event)}>
+                    <img src={
+                      require('../../images/classIcons/Cragheart-icon.png')} 
+                    alt="Cragheart icon" />
+                  </li>
+                  <li id="Mindthief" 
+                    onClick={(event) => this.changeClass(event)}>
+                    <img src={
+                      require('../../images/classIcons/Mindthief-icon.png')}
+                    alt="Mindthief icon" />
+                  </li>
+                </ul>
+                <ul>
+                  <li id="Spellweaver" 
+                    onClick={(event) => this.changeClass(event)}>
+                    <img src={
+                      require('../../images/classIcons/Spellweaver-icon.png')}
+                    alt="Spellweaver icon" />
+                  </li>
+                  <li id="Scoundrel" 
+                    onClick={(event) => this.changeClass(event)}>
+                    <img src={
+                      require('../../images/classIcons/Scoundrel-icon.png')}
+                    alt="Scoundrel icon" />
+                  </li>
+                  <li id="Tinkerer" 
+                    onClick={(event) => this.changeClass(event)}>
+                    <img src={
+                      require('../../images/classIcons/Tinkerer-icon.png')}
+                    alt="Tinkerer icon" />
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
@@ -293,9 +313,9 @@ export class DeckBuilder extends Component {
         <SelectedCards />
 
       </div>
-    )
+    );
   }
-};
+}
 
 export const mapStateToProps = state => ({
   cards: state.cards,
@@ -309,12 +329,18 @@ export const mapStateToProps = state => ({
 
 export const mapDispatchToProps = dispatch => ({
   addCards: cards => dispatch(actions.addCards(cards)),
-  addSelectedCards: selectedCards => dispatch(actions.addSelectedCards(selectedCards)),
-  addAvailableCards: availableCards => dispatch(actions.addAvailableCards(availableCards)),
-  addSelectedClass: selectedClass => dispatch(actions.addSelectedClass(selectedClass)),
-  increaseCurrentLevel: currentLevel => dispatch(actions.increaseCurrentLevel(currentLevel)),
-  decreaseCurrentLevel: currentLevel => dispatch(actions.decreaseCurrentLevel(currentLevel)),
-  removeSelectedCards: () => dispatch(actions.removeSelectedCards())
+  addSelectedCards: selectedCards => 
+    dispatch(actions.addSelectedCards(selectedCards)),
+  addAvailableCards: availableCards => 
+    dispatch(actions.addAvailableCards(availableCards)),
+  addSelectedClass: selectedClass => 
+    dispatch(actions.addSelectedClass(selectedClass)),
+  increaseCurrentLevel: currentLevel => 
+    dispatch(actions.increaseCurrentLevel(currentLevel)),
+  decreaseCurrentLevel: currentLevel => 
+    dispatch(actions.decreaseCurrentLevel(currentLevel)),
+  removeSelectedCards: () => 
+    dispatch(actions.removeSelectedCards())
 });
 
 DeckBuilder.propTypes = {
@@ -332,4 +358,5 @@ DeckBuilder.propTypes = {
   decreaseCurrentLevel: PropTypes.func
 };
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(DeckBuilder));
+export default withRouter(connect(mapStateToProps,
+  mapDispatchToProps)(DeckBuilder));

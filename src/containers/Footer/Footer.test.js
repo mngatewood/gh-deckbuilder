@@ -1,8 +1,6 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';
-import { Footer } from './Footer';
-import { mapStateToProps, mapDispatchToProps } from './Footer';
+import { Footer, mapStateToProps, mapDispatchToProps } from './Footer';
 import * as actions from '../../actions';
 import * as mocks from '../../mocks/mockCards';
 
@@ -41,13 +39,13 @@ describe("Footer component", () => {
   });
 
   describe("Map State to Props", () => {
-      it('correctly maps currentDecks to props', () => {
-        const mockState = {currentDecks: mocks.mockMultiDecks, user:"guest"};
-        const mapped = mapStateToProps(mockState);
-        const expectedState = mocks.mockMultiDecks;
+    it('correctly maps currentDecks to props', () => {
+      const mockState = {currentDecks: mocks.mockMultiDecks};
+      const mapped = mapStateToProps(mockState);
+      const expectedState = mocks.mockMultiDecks;
 
-        expect(mapped.currentDecks).toEqual(expectedState);
-      });
+      expect(mapped.currentDecks).toEqual(expectedState);
+    });
 
       it('correctly maps user to props', () => {
         const mockState = {currentDecks: mocks.mockMultiDecks, user:"guest"};
