@@ -32,13 +32,14 @@ export class Footer extends Component {
       ],
       callbacks: {
         signInSuccessWithAuthResult: (authResult) => {
-          this.props.changeUser(authResult.user.displayName)
+          this.props.changeUser(authResult.user.email)
         }
       }
     };
   };
 
   async componentDidMount() {
+    this.signOut()
     this.unregisterAuthObserver = firebase.auth().onAuthStateChanged(
       (user) => this.setState({isSignedIn: !!user})
   );
