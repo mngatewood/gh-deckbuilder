@@ -177,7 +177,7 @@ export const mapDispatchToProps = dispatch => ({
 Footer.propTypes = {
   changeUser: PropTypes.func,
   addDecks: PropTypes.func,
-  user: PropTypes.obj,
+  user: PropTypes.string,
   addSelectedDeck: PropTypes.func,
   addSelectedDeckId: PropTypes.func,
   currentDecks: PropTypes.array
