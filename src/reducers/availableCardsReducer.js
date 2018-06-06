@@ -7,8 +7,6 @@ const availableCardsReducer = (state = [], action) => {
   case 'REMOVE_AVAILABLE_CARD':
     return state.filter(card =>
       card.id !== action.availableCard.id);
-  case 'REMOVE_AVAILABLE_CARDS':
-    return [];
   default:
     return state;
   }
