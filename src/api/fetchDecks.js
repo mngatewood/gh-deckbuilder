@@ -4,8 +4,8 @@ export const fetchDecks = async () => {
   try {
     const response = await fetch(url);
     const decks = await response.json();
-    return decks
+    return decks;
   } catch (error) {
     throw error.message;
   }
-}
+};

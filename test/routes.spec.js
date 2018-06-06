@@ -1,5 +1,4 @@
 const chai = require('chai');
-const should = chai.should();
 const chaiHttp = require('chai-http');
 const { app, database } = require('../server');
 
@@ -58,16 +57,17 @@ describe('API Routes', () => {
         });
     });
 
-    it("should give a 404 and a 'no matches found message' if there is no specified class", (done) => {
-      chai.request(app)
-        .get('/api/v1/cards/Kittens')
-        .end((error, response) => {
-          response.should.be.json;
-          response.should.have.status(404);
-          response.body.should.equal('No matches found');
-          done();
-        });
-    });
+    it("should 404 and a 'no matches found message' if no specified class",
+      (done) => {
+        chai.request(app)
+          .get('/api/v1/cards/Kittens')
+          .end((error, response) => {
+            response.should.be.json;
+            response.should.have.status(404);
+            response.body.should.equal('No matches found');
+            done();
+          });
+      });
   });
 
   describe("GET all decks by id", () => {
@@ -97,16 +97,17 @@ describe('API Routes', () => {
         });
     });
 
-    it("should return a 404 if there is no deck by specified ID in joins table", (done) => {
-      chai.request(app)
-        .get('/api/v1/decks/3')
-        .end((error, response) => {
-          response.should.be.json;
-          response.should.have.status(404);
-          response.body.should.equal('No matching cards found.');
-          done();
-        });
-    });
+    it("should return a 404 if there is no deck by specified ID in joins table",
+      (done) => {
+        chai.request(app)
+          .get('/api/v1/decks/3')
+          .end((error, response) => {
+            response.should.be.json;
+            response.should.have.status(404);
+            response.body.should.equal('No matching cards found.');
+            done();
+          });
+      });
   });
 
   describe("POST to decks", () => {
@@ -123,7 +124,7 @@ describe('API Routes', () => {
         .end((err, response) => {
           response.should.have.status(201);
           response.should.be.json;
-          response.body.should.equal('Deck Ultra Mega Awesome Tinkerer was added to the database.');
+          response.body.should.equal('Deck Ultra Mega Awesome Tinkerer was added to the database.'); //eslint-disable-line
           done();
         });
     });
@@ -158,7 +159,7 @@ describe('API Routes', () => {
         .end((err, response) => {
           response.should.have.status(422);
           response.should.be.json;
-          response.body.should.equal('You must have at least one card in your deck.');
+          response.body.should.equal('You must have at least one card in your deck.'); //eslint-disable-line
           done();
         });
     });
@@ -189,7 +190,7 @@ describe('API Routes', () => {
         .end((err, response) => {
           response.should.have.status(200);
           response.should.be.json;
-          response.body.should.equal('Successfully removed deck 2 from database.');
+          response.body.should.equal('Successfully removed deck 2 from database.');//eslint-disable-line
           done();
         });
     });

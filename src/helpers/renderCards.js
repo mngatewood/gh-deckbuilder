@@ -3,13 +3,13 @@ import { Card } from '../components/Card/Card';
 import PropTypes from 'prop-types';
 
 export const renderCards = (availableCards, currentLevel) => {
-  let displayCards
+  let displayCards;
   const filteredCards = availableCards.filter(card => {
-    return card.card_level <= currentLevel
-  })
-  const sortedCards = filteredCards.sort((a, b) => {
-    return a.card_level - b.card_level
-  })
+    return card.card_level <= currentLevel;
+  });
+  const sortedCards = filteredCards.sort((alpha, beta) => {
+    return alpha.card_level - beta.card_level;
+  });
 
   if (sortedCards) {  
     displayCards = sortedCards.map(card => {
@@ -20,8 +20,8 @@ export const renderCards = (availableCards, currentLevel) => {
         name={card.name} />;
     });
   }
-  return displayCards
-}
+  return displayCards;
+};
 
 renderCards.propTypes = {
   availableCards: PropTypes.array,

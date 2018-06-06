@@ -8,14 +8,14 @@ export const fetchDeleteDeck = async (deckId) => {
       headers: {
         'Content-Type': 'application/json'
       }
-    })
+    });
     return response;
   } catch (error) {
     throw error.message;
   }
-}
+};
 
 fetchDeleteDeck.propTypes = {
-  deckId: PropTypes.number,
+  deckId: PropTypes.number
 };
 
