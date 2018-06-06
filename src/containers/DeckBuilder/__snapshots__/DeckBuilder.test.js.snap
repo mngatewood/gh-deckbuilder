@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Deckbuilder Component Container Tests should match the snapshot 1`] = `
+exports[`Deckbuilder Component Container Tests componentDidMount should match the snapshot 1`] = `
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
@@ -524,6 +524,11 @@ ShallowWrapper {
     currentLevel={1}
     decreaseCurrentLevel={[Function]}
     increaseCurrentLevel={[Function]}
+    location={
+        Object {
+            "pathname": "/Brute",
+          }
+    }
     removeSelectedCards={[Function]}
     selectedCards={
         Array [
@@ -570,7 +575,11 @@ ShallowWrapper {
           src="menu.png"
 />,
         <withRouter(Connect(AvailableCards))
-          location={undefined}
+          location={
+                    Object {
+                              "pathname": "/Brute",
+                            }
+          }
 />,
         <div
           id="class-info"
@@ -744,7 +753,11 @@ ShallowWrapper {
           </div>
 </div>,
         <withRouter(Connect(SelectedCards))
-          location={undefined}
+          location={
+                    Object {
+                              "pathname": "/Brute",
+                            }
+          }
 />,
       ],
       "className": "deck-builder",
@@ -770,7 +783,9 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "function",
         "props": Object {
-          "location": undefined,
+          "location": Object {
+            "pathname": "/Brute",
+          },
         },
         "ref": null,
         "rendered": null,
@@ -1855,7 +1870,9 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "function",
         "props": Object {
-          "location": undefined,
+          "location": Object {
+            "pathname": "/Brute",
+          },
         },
         "ref": null,
         "rendered": null,
@@ -1878,7 +1895,11 @@ ShallowWrapper {
             src="menu.png"
 />,
           <withRouter(Connect(AvailableCards))
-            location={undefined}
+            location={
+                        Object {
+                                    "pathname": "/Brute",
+                                  }
+            }
 />,
           <div
             id="class-info"
@@ -2052,7 +2073,11 @@ ShallowWrapper {
             </div>
 </div>,
           <withRouter(Connect(SelectedCards))
-            location={undefined}
+            location={
+                        Object {
+                                    "pathname": "/Brute",
+                                  }
+            }
 />,
         ],
         "className": "deck-builder",
@@ -2078,7 +2103,9 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "function",
           "props": Object {
-            "location": undefined,
+            "location": Object {
+              "pathname": "/Brute",
+            },
           },
           "ref": null,
           "rendered": null,
@@ -3163,7 +3190,9 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "function",
           "props": Object {
-            "location": undefined,
+            "location": Object {
+              "pathname": "/Brute",
+            },
           },
           "ref": null,
           "rendered": null,

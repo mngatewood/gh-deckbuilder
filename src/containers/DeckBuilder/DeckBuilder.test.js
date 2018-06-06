@@ -5,15 +5,25 @@ import { DeckBuilder } from './DeckBuilder';
 import { mapStateToProps, mapDispatchToProps } from './DeckBuilder';
 import * as actions from '../../actions';
 import * as mocks from '../../mocks/mockCards';
+import * as api from '../../api';
+
+jest.mock('../../api');
 
 describe("Deckbuilder Component", () => {
 
   describe("Container Tests", () => {
     let wrapper;
-    let addAvailableCards, addCards, addSelectedCards, addSelectedClass, availableCards;
-    let cards, currentLevel, decreaseCurrentLevel, increaseCurrentLevel, removeSelectedCards, selectedCards, selectedClass, selectedDeck;
+    let location;
+    let prevProps;
+    let addAvailableCards, addCards, addSelectedCards, addSelectedClass, availableCards, cards, currentLevel, decreaseCurrentLevel, increaseCurrentLevel, removeSelectedCards, selectedCards, selectedClass, selectedDeck;
 
     beforeEach(() => {
+      location = {
+        pathname: '/Brute'
+      }
+      prevProps = {
+        location: '/Spellweaver'
+      }
       addAvailableCards = jest.fn();
       addCards = jest.fn();
       addSelectedCards = jest.fn();
@@ -22,45 +32,69 @@ describe("Deckbuilder Component", () => {
       increaseCurrentLevel = jest.fn();
       removeSelectedCards = jest.fn();
 
-      wrapper = shallow(<DeckBuilder
-        addAvailableCards={addAvailableCards}
-        addCards={addCards}
-        addSelectedCards={addSelectedCards}
-        addSelectedClass={addSelectedClass}
-        availableCards={mocks.mockAvailableCards}
-        cards={mocks.allBruteCards}
-        currentLevel={1}
-        decreaseCurrentLevel={decreaseCurrentLevel}
-        increaseCurrentLevel={increaseCurrentLevel}
-        removeSelectedCards={removeSelectedCards}
-        selectedCards={mocks.mockSelectedCards}
-        selectedClass={"Brute"}
-        selectedDeck={0}
+      wrapper = shallow(
+        <DeckBuilder
+          location={location}
+          addAvailableCards={addAvailableCards}
+          addCards={addCards}
+          addSelectedCards={addSelectedCards}
+          addSelectedClass={addSelectedClass}
+          availableCards={mocks.mockAvailableCards}
+          cards={mocks.allBruteCards}
+          currentLevel={1}
+          decreaseCurrentLevel={decreaseCurrentLevel}
+          increaseCurrentLevel={increaseCurrentLevel}
+          removeSelectedCards={removeSelectedCards}
+          selectedCards={mocks.mockSelectedCards}
+          selectedClass={"Brute"}
+          selectedDeck={0}
         />,{disableLifecycleMethods: true})
     });
 
-    it("should match the snapshot", () => {
-      expect(wrapper).toMatchSnapshot();
+    describe("componentDidMount", () => {
+      it("should match the snapshot", () => {
+        expect(wrapper).toMatchSnapshot();
+      });
+
+      it("Should call getAllCards on componentDidMount", async () => {
+        const spy = jest.spyOn(DeckBuilder.prototype, 'getAllCards');
+        await wrapper.instance().componentDidMount();
+
+        expect(spy).toHaveBeenCalled();
+      });
+
+      it("Should call getImages on componentDidMount", async () => {
+        const spy = jest.spyOn(DeckBuilder.prototype, 'getImages');
+        await wrapper.instance().componentDidMount();
+
+        expect(spy).toHaveBeenCalled();
+      });
+
+      it("Should call addSelectedClass on componentDidMount", async () => {
+        await wrapper.instance().componentDidMount();
+        expect(addSelectedClass).toHaveBeenCalled();
+      });
     });
+    describe("componentDidUpdate", () => {
+      it("Should call getAllCards on componentDidUpdate", async () => {
+        const spy = jest.spyOn(DeckBuilder.prototype, 'getAllCards');
+        await wrapper.instance().componentDidUpdate(prevProps);
 
-    it.skip("Should call getAllCards on componentDidMount", async () => {
-      await wrapper.instance().componentDidMount();
-      const spy = jest.spyOn(DeckBuilder.prototype, 'getAllCards');
+        expect(spy).toHaveBeenCalled();
+      });
 
-      expect(spy).toHaveBeenCalled();
-    });
+      it("Should call getImages on componentDidUpdate", async () => {
+        const spy = jest.spyOn(DeckBuilder.prototype, 'getImages');
+        await wrapper.instance().componentDidUpdate(prevProps);
 
-    it.skip("Should call getImages on componentDidMount", async () => {
-      await wrapper.instance().componentDidMount();
-      const spy = jest.spyOn(DeckBuilder.prototype, 'getImages');
+        expect(spy).toHaveBeenCalled();
+      });
 
-      expect(spy).toHaveBeenCalled();
-    });
+      it("Should call addSelectedClass on componentDidUpdate", async () => {
+      await wrapper.instance().componentDidUpdate(prevProps);
 
-    it("Should call addSelectedClass on componentDidMount", async () => {
-      await wrapper.instance().componentDidMount();
-      // const spy = jest.spyOn(DeckBuilder.prototype, 'getImages');
       expect(addSelectedClass).toHaveBeenCalled();
+    });
     });
 
   });

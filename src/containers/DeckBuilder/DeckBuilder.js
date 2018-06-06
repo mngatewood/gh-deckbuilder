@@ -6,10 +6,10 @@ import AvailableCards from '../AvailableCards/AvailableCards';
 import SelectedCards from '../SelectedCards/SelectedCards';
 import * as api from '../../api/index';
 import * as helpers from '../../helpers/index';
-import { 
-  addCards, 
-  addSelectedCards, 
-  addAvailableCards, 
+import {
+  addCards,
+  addSelectedCards,
+  addAvailableCards,
   addSelectedClass,
   increaseCurrentLevel,
   decreaseCurrentLevel,
@@ -95,19 +95,19 @@ export class DeckBuilder extends Component {
   changeLevel(operator) {
     const { currentLevel, increaseCurrentLevel, decreaseCurrentLevel } = this.props
     if(operator === 'plus'){
-      currentLevel < 9 
-      ? increaseCurrentLevel() 
+      currentLevel < 9
+      ? increaseCurrentLevel()
       : this.displayFeedback('Maximum level is already selected.')
     } else if(operator === 'minus') {
-      currentLevel > 1 
-      ? decreaseCurrentLevel() 
+      currentLevel > 1
+      ? decreaseCurrentLevel()
       : this.displayFeedback('Minimum level is already selected.')
     }
   }
 
   toggleDeckSave(event) {
     const prevButtonText = this.deckSaveButton.current.innerText
-    const newButtonText = prevButtonText === "Save Deck" 
+    const newButtonText = prevButtonText === "Save Deck"
       ? "Cancel"
       : "Save Deck"
     this.deckSaveDiv.current.classList.toggle('hidden');
@@ -177,18 +177,18 @@ export class DeckBuilder extends Component {
     this.props.history.push(`/${event.target.id}`);
     this.toggleChangeClass(event)
   }
-  
+
   render() {
-    const { selectedClass, 
-      selectedCards, 
+    const { selectedClass,
+      selectedCards,
       currentLevel } = this.props;
     const numberSelectedCards = selectedCards.length;
     const handSize = helpers.getHandSize(selectedClass);
 
     return (
-      <div className="deck-builder"> 
+      <div className="deck-builder">
         <img src={require('../../images/menu.png')}
-          alt="menu" 
+          alt="menu"
           id="menu"
           onClick={this.toggleStats.bind(this)}
           />
@@ -196,8 +196,8 @@ export class DeckBuilder extends Component {
         <div id="class-info">
           <img src={this.state.classImage}
             alt={selectedClass}/>
-          <div id="feedback-container" 
-            className="hidden" 
+          <div id="feedback-container"
+            className="hidden"
             ref={this.feedbackDiv}
             onClick={this.hideFeedback}>
             <img src={require('../../images/feedback-bg.png')}
@@ -212,13 +212,13 @@ export class DeckBuilder extends Component {
             ref={this.stats}>
             <h4>Cards Selected</h4>
             <p id="number-cards">{numberSelectedCards} &nbsp; of &nbsp; {handSize}</p>
-            <h4>Character Level</h4> 
+            <h4>Character Level</h4>
             <div id="level-container">
-              <button id="decrease-level" 
+              <button id="decrease-level"
                 className="inline-button"
                 onClick={() => { this.changeLevel('minus') }} ></button>
               <h3>{currentLevel}</h3>
-              <button id="increase-level" 
+              <button id="increase-level"
                 className="inline-button"
                 onClick={() => { this.changeLevel('plus') }} ></button>
             </div>
@@ -226,20 +226,20 @@ export class DeckBuilder extends Component {
               ref={this.changeClassButton}>
               Change Class
               </button>
-            <button id="save-button" 
+            <button id="save-button"
               onClick={this.toggleDeckSave.bind(this)}
               ref={this.deckSaveButton}>
               Save Deck
             </button>
-            <div id="deck-save-container" 
-              className="hidden" 
+            <div id="deck-save-container"
+              className="hidden"
               ref={this.deckSaveDiv}>
               <form>
-                <input id="deck-name" 
-                  type="text" 
+                <input id="deck-name"
+                  type="text"
                   placeholder="Enter deck name."
                   ref={this.deckSaveName}/>
-                <button id="submit-deck" 
+                <button id="submit-deck"
                   onClick={this.submitDeck.bind(this)}>Submit</button>
               </form>
             </div>
@@ -247,10 +247,10 @@ export class DeckBuilder extends Component {
               ref={this.deckReset}>
               Reset Deck
             </button>
-            <div id="change-class-container" 
-              className="hidden" 
+            <div id="change-class-container"
+              className="hidden"
               ref={this.changeClassDiv}>
-              <button id="cancel-class-change" 
+              <button id="cancel-class-change"
                 onClick={this.toggleChangeClass.bind(this)}>
                 Cancel
                 </button>
