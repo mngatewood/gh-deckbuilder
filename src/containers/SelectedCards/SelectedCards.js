@@ -1,12 +1,10 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
+import PropTypes from 'prop-types';
 import './SelectedCards.css';
 import * as helpers from '../../helpers/index'
-import {
-  addSelectedCard,
-  removeAvailableCard
-} from '../../actions';
+import * as actions from '../../actions';
 
 export class SelectedCards extends Component {
 
@@ -48,13 +46,6 @@ export class SelectedCards extends Component {
   }
 }
 
-export const mapDispatchToProps = dispatch => ({
-  removeAvailableCard: availableCard =>
-    dispatch(removeAvailableCard(availableCard)),
-  addSelectedCard: selectedCard =>
-    dispatch(addSelectedCard(selectedCard))
-});
-
 export const mapStateToProps = state => ({
   cards: state.cards,
   selectedCards: state.selectedCards,
@@ -62,5 +53,21 @@ export const mapStateToProps = state => ({
   selectedClass: state.selectedClass,
   currentLevel: state.currentLevel
 });
+
+export const mapDispatchToProps = dispatch => ({
+  removeAvailableCard: availableCard =>
+    dispatch(actions.removeAvailableCard(availableCard)),
+  addSelectedCard: selectedCard =>
+    dispatch(actions.addSelectedCard(selectedCard))
+});
+
+SelectedCards.propTypes = {
+  cards: PropTypes.array,
+  selectedCards: PropTypes.array,
+  selectedClass: PropTypes.string,
+  currentLevel: PropTypes.number,
+  addSelectedCard: PropTypes.func,
+  removeAvailableCard: PropTypes.func
+};
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SelectedCards));

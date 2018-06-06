@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
+import PropTypes from 'prop-types';
 import './AvailableCards.css';
 import * as helpers from '../../helpers/index';
-import {
-  addAvailableCard,
-  removeSelectedCard
-} from '../../actions';
+import * as actions from '../../actions';
 
 export class AvailableCards extends Component {
   constructor(props) {
@@ -40,7 +38,9 @@ export class AvailableCards extends Component {
 
     return (
       <div className="cards-component" id="available-component">
-        <h2 id="available-heading">Available Cards</h2>
+        <h2 id="available-heading">
+          Available Cards
+        </h2>
         <div className="scroll-fade-top"></div>
         <div className="cards-container" 
           onDrop={ event => dropHandler(event)} 
@@ -54,18 +54,26 @@ export class AvailableCards extends Component {
   }
 };
 
-export const mapDispatchToProps = dispatch => ({
-  addAvailableCard: availableCard =>
-    dispatch(addAvailableCard(availableCard)),
-  removeSelectedCard: selectedCard =>
-    dispatch(removeSelectedCard(selectedCard))
-});
-
 export const mapStateToProps = state => ({
   cards: state.cards,
   selectedCards: state.selectedCards,
   availableCards: state.availableCards,
   currentLevel: state.currentLevel
 });
+
+export const mapDispatchToProps = dispatch => ({
+  addAvailableCard: availableCard =>
+    dispatch(actions.addAvailableCard(availableCard)),
+  removeSelectedCard: selectedCard =>
+    dispatch(actions.removeSelectedCard(selectedCard))
+});
+
+AvailableCards.propTypes = {
+  cards: PropTypes.array,
+  availableCards: PropTypes.array,
+  currentLevel: PropTypes.number,
+  addAvailableCard: PropTypes.func,
+  removeSelectedCard: PropTypes.func
+};
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(AvailableCards));
