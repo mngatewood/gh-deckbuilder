@@ -139,8 +139,8 @@ export class DeckBuilder extends Component {
     const level = currentLevel;
     const cards = selectedCards.map( card => {return card.id});
     if(name.length && cards.length) {
-      await api.fetchPostDeck(name, selectedClass, level, cards);
-      this.displayFeedback("Deck successfully saved.");
+      const response = await api.fetchPostDeck(name, selectedClass, level, cards);
+      this.displayFeedback(response);
       this.deckSaveDiv.current.classList.toggle('hidden');
       this.deckSaveButton.current.innerText = 'Save Deck';
       this.deckReset.current.classList.toggle('hidden');

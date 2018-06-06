@@ -129,7 +129,7 @@ app.post('/api/v1/decks', (request, response) => {
           }
         ).then(id => id);
       });
-      return response.status(201).json(`Successfully added ${deckName} deck to database.`);
+      return response.status(201).json(`Deck ${deckName} was added to the database.`);
     })
     .catch(error => {
       return response.status(500).json('Internal server error' + error );
