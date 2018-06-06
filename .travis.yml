@@ -7,3 +7,6 @@ before_script:
 - psql -c 'CREATE DATABASE deckbuilder_test;' -U postgres
 notifications:
   email: false
+scripts:
+- npm test
+- npm test-fe

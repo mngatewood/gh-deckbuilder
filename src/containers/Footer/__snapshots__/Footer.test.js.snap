@@ -68,6 +68,36 @@ ShallowWrapper {
           className="saved-decks-container"
 >
           <div
+                    className="sign-in-request"
+          >
+                    <p>
+                              Please sign-in:
+                    </p>
+                    <FirebaseAuth
+                              firebaseAuth={
+                                        Object {
+                                                  "apiKey": "AIzaSyBHV499x0Il6LN4XYA1JCExxTH_kgkg3pg",
+                                                  "appName": "[DEFAULT]",
+                                                  "authDomain": "gh-deckbuilder.firebaseapp.com",
+                                                  "currentUser": null,
+                                                }
+                              }
+                              uiCallback={[Function]}
+                              uiConfig={
+                                        Object {
+                                                  "callbacks": Object {
+                                                    "signInSuccessWithAuthResult": [Function],
+                                                  },
+                                                  "signInFlow": "popup",
+                                                  "signInOptions": Array [
+                                                    "google.com",
+                                                    "facebook.com",
+                                                  ],
+                                                }
+                              }
+                    />
+          </div>
+          <div
                     className="saved-deck"
           >
                     <Link
@@ -158,62 +188,172 @@ ShallowWrapper {
         "props": Object {
           "children": Array [
             <div
-              className="saved-deck"
+              className="sign-in-request"
 >
-              <Link
-                            onClick={[Function]}
-                            replace={false}
-                            to="/Brute"
-              >
-                            <img
-                                          alt="Brute"
-                                          className="saved-deck-classImg"
-                                          src="BruteIcon.png"
-                            />
-                            <h1
-                                          className="saved-deck-name"
-                            />
-              </Link>
-              <button>
-                            <img
-                                          alt="delete"
-                                          className="saved-deck-deleteImg"
-                                          onClick={[Function]}
-                                          src="red-x.png"
-                            />
-              </button>
+              <p>
+                            Please sign-in:
+              </p>
+              <FirebaseAuth
+                            firebaseAuth={
+                                          Object {
+                                                        "apiKey": "AIzaSyBHV499x0Il6LN4XYA1JCExxTH_kgkg3pg",
+                                                        "appName": "[DEFAULT]",
+                                                        "authDomain": "gh-deckbuilder.firebaseapp.com",
+                                                        "currentUser": null,
+                                                      }
+                            }
+                            uiCallback={[Function]}
+                            uiConfig={
+                                          Object {
+                                                        "callbacks": Object {
+                                                          "signInSuccessWithAuthResult": [Function],
+                                                        },
+                                                        "signInFlow": "popup",
+                                                        "signInOptions": Array [
+                                                          "google.com",
+                                                          "facebook.com",
+                                                        ],
+                                                      }
+                            }
+              />
 </div>,
-            <div
-              className="saved-deck"
+            Array [
+              <div
+                className="saved-deck"
 >
-              <Link
-                            onClick={[Function]}
-                            replace={false}
-                            to="/Cragheart"
-              >
-                            <img
-                                          alt="Cragheart"
-                                          className="saved-deck-classImg"
-                                          src="CragheartIcon.png"
-                            />
-                            <h1
-                                          className="saved-deck-name"
-                            />
-              </Link>
-              <button>
-                            <img
-                                          alt="delete"
-                                          className="saved-deck-deleteImg"
-                                          onClick={[Function]}
-                                          src="red-x.png"
-                            />
-              </button>
+                <Link
+                                onClick={[Function]}
+                                replace={false}
+                                to="/Brute"
+                >
+                                <img
+                                                alt="Brute"
+                                                className="saved-deck-classImg"
+                                                src="BruteIcon.png"
+                                />
+                                <h1
+                                                className="saved-deck-name"
+                                />
+                </Link>
+                <button>
+                                <img
+                                                alt="delete"
+                                                className="saved-deck-deleteImg"
+                                                onClick={[Function]}
+                                                src="red-x.png"
+                                />
+                </button>
 </div>,
+              <div
+                className="saved-deck"
+>
+                <Link
+                                onClick={[Function]}
+                                replace={false}
+                                to="/Cragheart"
+                >
+                                <img
+                                                alt="Cragheart"
+                                                className="saved-deck-classImg"
+                                                src="CragheartIcon.png"
+                                />
+                                <h1
+                                                className="saved-deck-name"
+                                />
+                </Link>
+                <button>
+                                <img
+                                                alt="delete"
+                                                className="saved-deck-deleteImg"
+                                                onClick={[Function]}
+                                                src="red-x.png"
+                                />
+                </button>
+</div>,
+            ],
           ],
           "className": "saved-decks-container",
         },
         "ref": null,
         "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <p>
+                  Please sign-in:
+</p>,
+                <FirebaseAuth
+                  firebaseAuth={
+                                    Object {
+                                                      "apiKey": "AIzaSyBHV499x0Il6LN4XYA1JCExxTH_kgkg3pg",
+                                                      "appName": "[DEFAULT]",
+                                                      "authDomain": "gh-deckbuilder.firebaseapp.com",
+                                                      "currentUser": null,
+                                                    }
+                  }
+                  uiCallback={[Function]}
+                  uiConfig={
+                                    Object {
+                                                      "callbacks": Object {
+                                                        "signInSuccessWithAuthResult": [Function],
+                                                      },
+                                                      "signInFlow": "popup",
+                                                      "signInOptions": Array [
+                                                        "google.com",
+                                                        "facebook.com",
+                                                      ],
+                                                    }
+                  }
+/>,
+              ],
+              "className": "sign-in-request",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Please sign-in:",
+                },
+                "ref": null,
+                "rendered": "Please sign-in:",
+                "type": "p",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "firebaseAuth": Object {
+                    "apiKey": "AIzaSyBHV499x0Il6LN4XYA1JCExxTH_kgkg3pg",
+                    "appName": "[DEFAULT]",
+                    "authDomain": "gh-deckbuilder.firebaseapp.com",
+                    "currentUser": null,
+                  },
+                  "uiCallback": [Function],
+                  "uiConfig": Object {
+                    "callbacks": Object {
+                      "signInSuccessWithAuthResult": [Function],
+                    },
+                    "signInFlow": "popup",
+                    "signInOptions": Array [
+                      "google.com",
+                      "facebook.com",
+                    ],
+                  },
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+            ],
+            "type": "div",
+          },
           Object {
             "instance": null,
             "key": undefined,
@@ -468,6 +608,36 @@ ShallowWrapper {
             className="saved-decks-container"
 >
             <div
+                        className="sign-in-request"
+            >
+                        <p>
+                                    Please sign-in:
+                        </p>
+                        <FirebaseAuth
+                                    firebaseAuth={
+                                                Object {
+                                                            "apiKey": "AIzaSyBHV499x0Il6LN4XYA1JCExxTH_kgkg3pg",
+                                                            "appName": "[DEFAULT]",
+                                                            "authDomain": "gh-deckbuilder.firebaseapp.com",
+                                                            "currentUser": null,
+                                                          }
+                                    }
+                                    uiCallback={[Function]}
+                                    uiConfig={
+                                                Object {
+                                                            "callbacks": Object {
+                                                              "signInSuccessWithAuthResult": [Function],
+                                                            },
+                                                            "signInFlow": "popup",
+                                                            "signInOptions": Array [
+                                                              "google.com",
+                                                              "facebook.com",
+                                                            ],
+                                                          }
+                                    }
+                        />
+            </div>
+            <div
                         className="saved-deck"
             >
                         <Link
@@ -558,62 +728,172 @@ ShallowWrapper {
           "props": Object {
             "children": Array [
               <div
-                className="saved-deck"
+                className="sign-in-request"
 >
-                <Link
-                                onClick={[Function]}
-                                replace={false}
-                                to="/Brute"
-                >
-                                <img
-                                                alt="Brute"
-                                                className="saved-deck-classImg"
-                                                src="BruteIcon.png"
-                                />
-                                <h1
-                                                className="saved-deck-name"
-                                />
-                </Link>
-                <button>
-                                <img
-                                                alt="delete"
-                                                className="saved-deck-deleteImg"
-                                                onClick={[Function]}
-                                                src="red-x.png"
-                                />
-                </button>
+                <p>
+                                Please sign-in:
+                </p>
+                <FirebaseAuth
+                                firebaseAuth={
+                                                Object {
+                                                                "apiKey": "AIzaSyBHV499x0Il6LN4XYA1JCExxTH_kgkg3pg",
+                                                                "appName": "[DEFAULT]",
+                                                                "authDomain": "gh-deckbuilder.firebaseapp.com",
+                                                                "currentUser": null,
+                                                              }
+                                }
+                                uiCallback={[Function]}
+                                uiConfig={
+                                                Object {
+                                                                "callbacks": Object {
+                                                                  "signInSuccessWithAuthResult": [Function],
+                                                                },
+                                                                "signInFlow": "popup",
+                                                                "signInOptions": Array [
+                                                                  "google.com",
+                                                                  "facebook.com",
+                                                                ],
+                                                              }
+                                }
+                />
 </div>,
-              <div
-                className="saved-deck"
+              Array [
+                <div
+                  className="saved-deck"
 >
-                <Link
-                                onClick={[Function]}
-                                replace={false}
-                                to="/Cragheart"
-                >
-                                <img
-                                                alt="Cragheart"
-                                                className="saved-deck-classImg"
-                                                src="CragheartIcon.png"
-                                />
-                                <h1
-                                                className="saved-deck-name"
-                                />
-                </Link>
-                <button>
-                                <img
-                                                alt="delete"
-                                                className="saved-deck-deleteImg"
-                                                onClick={[Function]}
-                                                src="red-x.png"
-                                />
-                </button>
+                  <Link
+                                    onClick={[Function]}
+                                    replace={false}
+                                    to="/Brute"
+                  >
+                                    <img
+                                                      alt="Brute"
+                                                      className="saved-deck-classImg"
+                                                      src="BruteIcon.png"
+                                    />
+                                    <h1
+                                                      className="saved-deck-name"
+                                    />
+                  </Link>
+                  <button>
+                                    <img
+                                                      alt="delete"
+                                                      className="saved-deck-deleteImg"
+                                                      onClick={[Function]}
+                                                      src="red-x.png"
+                                    />
+                  </button>
 </div>,
+                <div
+                  className="saved-deck"
+>
+                  <Link
+                                    onClick={[Function]}
+                                    replace={false}
+                                    to="/Cragheart"
+                  >
+                                    <img
+                                                      alt="Cragheart"
+                                                      className="saved-deck-classImg"
+                                                      src="CragheartIcon.png"
+                                    />
+                                    <h1
+                                                      className="saved-deck-name"
+                                    />
+                  </Link>
+                  <button>
+                                    <img
+                                                      alt="delete"
+                                                      className="saved-deck-deleteImg"
+                                                      onClick={[Function]}
+                                                      src="red-x.png"
+                                    />
+                  </button>
+</div>,
+              ],
             ],
             "className": "saved-decks-container",
           },
           "ref": null,
           "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <p>
+                    Please sign-in:
+</p>,
+                  <FirebaseAuth
+                    firebaseAuth={
+                                        Object {
+                                                            "apiKey": "AIzaSyBHV499x0Il6LN4XYA1JCExxTH_kgkg3pg",
+                                                            "appName": "[DEFAULT]",
+                                                            "authDomain": "gh-deckbuilder.firebaseapp.com",
+                                                            "currentUser": null,
+                                                          }
+                    }
+                    uiCallback={[Function]}
+                    uiConfig={
+                                        Object {
+                                                            "callbacks": Object {
+                                                              "signInSuccessWithAuthResult": [Function],
+                                                            },
+                                                            "signInFlow": "popup",
+                                                            "signInOptions": Array [
+                                                              "google.com",
+                                                              "facebook.com",
+                                                            ],
+                                                          }
+                    }
+/>,
+                ],
+                "className": "sign-in-request",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Please sign-in:",
+                  },
+                  "ref": null,
+                  "rendered": "Please sign-in:",
+                  "type": "p",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "firebaseAuth": Object {
+                      "apiKey": "AIzaSyBHV499x0Il6LN4XYA1JCExxTH_kgkg3pg",
+                      "appName": "[DEFAULT]",
+                      "authDomain": "gh-deckbuilder.firebaseapp.com",
+                      "currentUser": null,
+                    },
+                    "uiCallback": [Function],
+                    "uiConfig": Object {
+                      "callbacks": Object {
+                        "signInSuccessWithAuthResult": [Function],
+                      },
+                      "signInFlow": "popup",
+                      "signInOptions": Array [
+                        "google.com",
+                        "facebook.com",
+                      ],
+                    },
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+              ],
+              "type": "div",
+            },
             Object {
               "instance": null,
               "key": undefined,
@@ -893,7 +1173,36 @@ ShallowWrapper {
         <div
           className="saved-decks-container"
 >
-          
+          <div
+                    className="sign-in-request"
+          >
+                    <p>
+                              Please sign-in:
+                    </p>
+                    <FirebaseAuth
+                              firebaseAuth={
+                                        Object {
+                                                  "apiKey": "AIzaSyBHV499x0Il6LN4XYA1JCExxTH_kgkg3pg",
+                                                  "appName": "[DEFAULT]",
+                                                  "authDomain": "gh-deckbuilder.firebaseapp.com",
+                                                  "currentUser": null,
+                                                }
+                              }
+                              uiCallback={[Function]}
+                              uiConfig={
+                                        Object {
+                                                  "callbacks": Object {
+                                                    "signInSuccessWithAuthResult": [Function],
+                                                  },
+                                                  "signInFlow": "popup",
+                                                  "signInOptions": Array [
+                                                    "google.com",
+                                                    "facebook.com",
+                                                  ],
+                                                }
+                              }
+                    />
+          </div>
 </div>,
       ],
     },
@@ -931,11 +1240,122 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": Array [],
+          "children": Array [
+            <div
+              className="sign-in-request"
+>
+              <p>
+                            Please sign-in:
+              </p>
+              <FirebaseAuth
+                            firebaseAuth={
+                                          Object {
+                                                        "apiKey": "AIzaSyBHV499x0Il6LN4XYA1JCExxTH_kgkg3pg",
+                                                        "appName": "[DEFAULT]",
+                                                        "authDomain": "gh-deckbuilder.firebaseapp.com",
+                                                        "currentUser": null,
+                                                      }
+                            }
+                            uiCallback={[Function]}
+                            uiConfig={
+                                          Object {
+                                                        "callbacks": Object {
+                                                          "signInSuccessWithAuthResult": [Function],
+                                                        },
+                                                        "signInFlow": "popup",
+                                                        "signInOptions": Array [
+                                                          "google.com",
+                                                          "facebook.com",
+                                                        ],
+                                                      }
+                            }
+              />
+</div>,
+            Array [],
+          ],
           "className": "saved-decks-container",
         },
         "ref": null,
-        "rendered": Array [],
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <p>
+                  Please sign-in:
+</p>,
+                <FirebaseAuth
+                  firebaseAuth={
+                                    Object {
+                                                      "apiKey": "AIzaSyBHV499x0Il6LN4XYA1JCExxTH_kgkg3pg",
+                                                      "appName": "[DEFAULT]",
+                                                      "authDomain": "gh-deckbuilder.firebaseapp.com",
+                                                      "currentUser": null,
+                                                    }
+                  }
+                  uiCallback={[Function]}
+                  uiConfig={
+                                    Object {
+                                                      "callbacks": Object {
+                                                        "signInSuccessWithAuthResult": [Function],
+                                                      },
+                                                      "signInFlow": "popup",
+                                                      "signInOptions": Array [
+                                                        "google.com",
+                                                        "facebook.com",
+                                                      ],
+                                                    }
+                  }
+/>,
+              ],
+              "className": "sign-in-request",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Please sign-in:",
+                },
+                "ref": null,
+                "rendered": "Please sign-in:",
+                "type": "p",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "firebaseAuth": Object {
+                    "apiKey": "AIzaSyBHV499x0Il6LN4XYA1JCExxTH_kgkg3pg",
+                    "appName": "[DEFAULT]",
+                    "authDomain": "gh-deckbuilder.firebaseapp.com",
+                    "currentUser": null,
+                  },
+                  "uiCallback": [Function],
+                  "uiConfig": Object {
+                    "callbacks": Object {
+                      "signInSuccessWithAuthResult": [Function],
+                    },
+                    "signInFlow": "popup",
+                    "signInOptions": Array [
+                      "google.com",
+                      "facebook.com",
+                    ],
+                  },
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+            ],
+            "type": "div",
+          },
+        ],
         "type": "div",
       },
     ],
@@ -960,7 +1380,36 @@ ShallowWrapper {
           <div
             className="saved-decks-container"
 >
-            
+            <div
+                        className="sign-in-request"
+            >
+                        <p>
+                                    Please sign-in:
+                        </p>
+                        <FirebaseAuth
+                                    firebaseAuth={
+                                                Object {
+                                                            "apiKey": "AIzaSyBHV499x0Il6LN4XYA1JCExxTH_kgkg3pg",
+                                                            "appName": "[DEFAULT]",
+                                                            "authDomain": "gh-deckbuilder.firebaseapp.com",
+                                                            "currentUser": null,
+                                                          }
+                                    }
+                                    uiCallback={[Function]}
+                                    uiConfig={
+                                                Object {
+                                                            "callbacks": Object {
+                                                              "signInSuccessWithAuthResult": [Function],
+                                                            },
+                                                            "signInFlow": "popup",
+                                                            "signInOptions": Array [
+                                                              "google.com",
+                                                              "facebook.com",
+                                                            ],
+                                                          }
+                                    }
+                        />
+            </div>
 </div>,
         ],
       },
@@ -998,11 +1447,122 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": Array [],
+            "children": Array [
+              <div
+                className="sign-in-request"
+>
+                <p>
+                                Please sign-in:
+                </p>
+                <FirebaseAuth
+                                firebaseAuth={
+                                                Object {
+                                                                "apiKey": "AIzaSyBHV499x0Il6LN4XYA1JCExxTH_kgkg3pg",
+                                                                "appName": "[DEFAULT]",
+                                                                "authDomain": "gh-deckbuilder.firebaseapp.com",
+                                                                "currentUser": null,
+                                                              }
+                                }
+                                uiCallback={[Function]}
+                                uiConfig={
+                                                Object {
+                                                                "callbacks": Object {
+                                                                  "signInSuccessWithAuthResult": [Function],
+                                                                },
+                                                                "signInFlow": "popup",
+                                                                "signInOptions": Array [
+                                                                  "google.com",
+                                                                  "facebook.com",
+                                                                ],
+                                                              }
+                                }
+                />
+</div>,
+              Array [],
+            ],
             "className": "saved-decks-container",
           },
           "ref": null,
-          "rendered": Array [],
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <p>
+                    Please sign-in:
+</p>,
+                  <FirebaseAuth
+                    firebaseAuth={
+                                        Object {
+                                                            "apiKey": "AIzaSyBHV499x0Il6LN4XYA1JCExxTH_kgkg3pg",
+                                                            "appName": "[DEFAULT]",
+                                                            "authDomain": "gh-deckbuilder.firebaseapp.com",
+                                                            "currentUser": null,
+                                                          }
+                    }
+                    uiCallback={[Function]}
+                    uiConfig={
+                                        Object {
+                                                            "callbacks": Object {
+                                                              "signInSuccessWithAuthResult": [Function],
+                                                            },
+                                                            "signInFlow": "popup",
+                                                            "signInOptions": Array [
+                                                              "google.com",
+                                                              "facebook.com",
+                                                            ],
+                                                          }
+                    }
+/>,
+                ],
+                "className": "sign-in-request",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Please sign-in:",
+                  },
+                  "ref": null,
+                  "rendered": "Please sign-in:",
+                  "type": "p",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "firebaseAuth": Object {
+                      "apiKey": "AIzaSyBHV499x0Il6LN4XYA1JCExxTH_kgkg3pg",
+                      "appName": "[DEFAULT]",
+                      "authDomain": "gh-deckbuilder.firebaseapp.com",
+                      "currentUser": null,
+                    },
+                    "uiCallback": [Function],
+                    "uiConfig": Object {
+                      "callbacks": Object {
+                        "signInSuccessWithAuthResult": [Function],
+                      },
+                      "signInFlow": "popup",
+                      "signInOptions": Array [
+                        "google.com",
+                        "facebook.com",
+                      ],
+                    },
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+              ],
+              "type": "div",
+            },
+          ],
           "type": "div",
         },
       ],
