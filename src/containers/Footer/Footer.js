@@ -78,7 +78,7 @@ export class Footer extends Component {
   mapDecks = (filteredDecks) => {
     const deleteImg = require('../../images/red-x.png')
     const mappedDecks = filteredDecks.map(deck => {
-      const dynamicIcon = require(`../../images/classIcons/${deck.class}Icon.png`)
+      const dynamicIcon = require(`../../images/classIcons/${deck.class}-icon.png`)
       const dynamicPath = `/${deck.class}`
     
       return (
@@ -137,7 +137,9 @@ export class Footer extends Component {
               uiConfig={this.uiConfig} 
               firebaseAuth={firebase.auth()}/>
           </div>
+          <div id="decks-container">
             {this.mapDecks(this.props.currentDecks)}
+          </div>
         </div>
       </footer>
       );
