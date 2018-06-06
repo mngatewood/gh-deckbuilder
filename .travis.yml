@@ -7,3 +7,11 @@ before_script:
 - psql -c 'CREATE DATABASE deckbuilder_test;' -U postgres
 notifications:
   email: false
+script:
+- npm test
+deploy:
+  provider: heroku
+  api_key:
+    secure: XqS+OhkaIVkoOw1pzx7vSZ2HvxwKxrfB/Tr71XLjEq+vWCyy0rq63n7qPoMbA1NO11IofnC2gqn0Pu8VmnrlA579nc7h18N0ZSzVtCs/n6bFnqKDy2e3x9kG6g7WAlfuZrTP9BPLMCQPpktWWMUCmyH5MpjGk+vo6PBuZLndPaO7DXAKgGh7svB+gK+n2wF40GY40FDm1vi1nC5Xc905srWSV7+S5NNujz3sZVkRNM7ngAiBBh8eanhdU0gsPFXT9GKNzOhR6z8zRDYu7GemMdC3tDWPTjvzJfHx/dq1T7xyuaBM4wwArw5aQZs+eoAuGP/4BHSw6LKMWPdfx8mU5Ooqri/DbVsHRCm52I7w7psxS8TQmiTnJLVdBEWC88QDofwg7BRxUflCaqvWjLOOjz5PdP4nDAlAovkrsshrHdY7nCMkkFzFXZmZwkSNFU0pHpx3ZsqwXlombjvwO/XjCcszJyXcPz5aIeqkN1qe1zUJ6J83ezeFUYEUy2y05s88RPLQ/aF+tKwNCU2s6+gc+mf0MYzaPnTlLkfrrhItpCpTi1yYn7xUZSvcATtZe64ktn2seh484WYzJEtYKiNVp5gZOyjHknD/l13BOZIC6RR2xXz5TEOzAkOivwJPlmScqtDUfMXXDF7xZV2QFhoLViSEzURCS1oyYMPdHbtn6AM=
+  app: gh-deckbuilder
+  skip-cleanup: true
