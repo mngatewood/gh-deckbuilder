@@ -574,13 +574,7 @@ ShallowWrapper {
           onClick={[Function]}
           src="menu.png"
 />,
-        <withRouter(Connect(AvailableCards))
-          location={
-                    Object {
-                              "pathname": "/Brute",
-                            }
-          }
-/>,
+        <withRouter(Connect(AvailableCards)) />,
         <div
           id="class-info"
 >
@@ -752,13 +746,7 @@ ShallowWrapper {
                     </div>
           </div>
 </div>,
-        <withRouter(Connect(SelectedCards))
-          location={
-                    Object {
-                              "pathname": "/Brute",
-                            }
-          }
-/>,
+        <withRouter(Connect(SelectedCards)) />,
       ],
       "className": "deck-builder",
     },
@@ -782,11 +770,7 @@ ShallowWrapper {
         "instance": null,
         "key": undefined,
         "nodeType": "function",
-        "props": Object {
-          "location": Object {
-            "pathname": "/Brute",
-          },
-        },
+        "props": Object {},
         "ref": null,
         "rendered": null,
         "type": [Function],
@@ -1869,11 +1853,7 @@ ShallowWrapper {
         "instance": null,
         "key": undefined,
         "nodeType": "function",
-        "props": Object {
-          "location": Object {
-            "pathname": "/Brute",
-          },
-        },
+        "props": Object {},
         "ref": null,
         "rendered": null,
         "type": [Function],
@@ -1894,13 +1874,7 @@ ShallowWrapper {
             onClick={[Function]}
             src="menu.png"
 />,
-          <withRouter(Connect(AvailableCards))
-            location={
-                        Object {
-                                    "pathname": "/Brute",
-                                  }
-            }
-/>,
+          <withRouter(Connect(AvailableCards)) />,
           <div
             id="class-info"
 >
@@ -2072,13 +2046,7 @@ ShallowWrapper {
                         </div>
             </div>
 </div>,
-          <withRouter(Connect(SelectedCards))
-            location={
-                        Object {
-                                    "pathname": "/Brute",
-                                  }
-            }
-/>,
+          <withRouter(Connect(SelectedCards)) />,
         ],
         "className": "deck-builder",
       },
@@ -2102,11 +2070,7 @@ ShallowWrapper {
           "instance": null,
           "key": undefined,
           "nodeType": "function",
-          "props": Object {
-            "location": Object {
-              "pathname": "/Brute",
-            },
-          },
+          "props": Object {},
           "ref": null,
           "rendered": null,
           "type": [Function],
@@ -3189,11 +3153,7 @@ ShallowWrapper {
           "instance": null,
           "key": undefined,
           "nodeType": "function",
-          "props": Object {
-            "location": Object {
-              "pathname": "/Brute",
-            },
-          },
+          "props": Object {},
           "ref": null,
           "rendered": null,
           "type": [Function],

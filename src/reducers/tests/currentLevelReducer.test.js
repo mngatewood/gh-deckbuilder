@@ -9,7 +9,7 @@ describe("Current Level Reducer", () => {
     expect(currentLevelReducer(undefined, 'abc')).toEqual(expected);
   });
 
-  it("should increate current level in state", () => {
+  it("should increase current level in state", () => {
     const expected = 2
 
     expect(currentLevelReducer(1,actions.increaseCurrentLevel(2))).toEqual(expected)
