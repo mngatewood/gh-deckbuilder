@@ -6,7 +6,7 @@ describe("Generic Card Actions", () => {
     const expectedAction = {
       type: 'ADD_CARDS',
       cards: mocks.mockCards
-    }
+    };
 
     expect(actions.addCards(mocks.mockCards)).toEqual(expectedAction);
   });
@@ -15,7 +15,7 @@ describe("Generic Card Actions", () => {
     const expectedAction = {
       type: 'REMOVE_CARDS',
       cards: mocks.mockCards
-    }
+    };
 
     expect(actions.removeCards(mocks.mockCards)).toEqual(expectedAction);
   });
@@ -27,7 +27,7 @@ describe("Selected Card Actions", () => {
     const expectedAction = {
       type: 'ADD_SELECTED_CARD',
       selectedCard: mocks.mockCard
-    }
+    };
 
     expect(actions.addSelectedCard(mocks.mockCard)).toEqual(expectedAction);
   });
@@ -36,16 +36,16 @@ describe("Selected Card Actions", () => {
     const expectedAction = {
       type: 'ADD_SELECTED_CARDS',
       selectedCards: mocks.mockCards
-    }
+    };
 
-    expect(actions.addSelectedCards(mocks.mockCards)).toEqual(expectedAction)
+    expect(actions.addSelectedCards(mocks.mockCards)).toEqual(expectedAction);
   });
 
   it("should create an action to remove a selected card", () => {
     const expectedAction = {
       type: 'REMOVE_SELECTED_CARD',
       selectedCard: mocks.mockCard
-    }
+    };
 
     expect(actions.removeSelectedCard(mocks.mockCard)).toEqual(expectedAction);
   });
@@ -53,9 +53,10 @@ describe("Selected Card Actions", () => {
   it("should create an action to remove multiple selected cards", () => {
     const expectedAction = {
       type: 'REMOVE_SELECTED_CARDS'
-    }
+    };
 
-    expect(actions.removeSelectedCards(mocks.mockCards)).toEqual(expectedAction)
+    expect(actions.removeSelectedCards(mocks.mockCards))
+      .toEqual(expectedAction);
   });
 });
 
@@ -64,7 +65,7 @@ describe("Available Card Actions", () => {
     const expectedAction = {
       type: 'ADD_AVAILABLE_CARD',
       availableCard: mocks.mockCard
-    }
+    };
 
     expect(actions.addAvailableCard(mocks.mockCard)).toEqual(expectedAction);
   });
@@ -73,7 +74,7 @@ describe("Available Card Actions", () => {
     const expectedAction = {
       type: 'ADD_AVAILABLE_CARDS',
       availableCards: mocks.mockCards
-    }
+    };
 
     expect(actions.addAvailableCards(mocks.mockCards)).toEqual(expectedAction);
   });
@@ -82,7 +83,7 @@ describe("Available Card Actions", () => {
     const expectedAction = {
       type: 'REMOVE_AVAILABLE_CARD',
       availableCard: mocks.mockCard
-    }
+    };
 
     expect(actions.removeAvailableCard(mocks.mockCard)).toEqual(expectedAction);
   });
@@ -90,11 +91,11 @@ describe("Available Card Actions", () => {
 
 describe("Class Actions", () => {
   it("should create an action to select a class", () => {
-    const mockClass = "Bob the Builder"
+    const mockClass = "Bob the Builder";
     const expectedAction = {
       type: 'ADD_SELECTED_CLASS',
       selectedClass: mockClass
-    }
+    };
 
     expect(actions.addSelectedClass(mockClass)).toEqual(expectedAction);
   });
@@ -102,28 +103,29 @@ describe("Class Actions", () => {
 
 describe("Current Level Actions", () => {
   it("should create an action to increase current level", () => {
-    const mockLevel = 2
+    const mockLevel = 2;
     const expectedAction = {
       type: 'INCREASE_CURRENT_LEVEL',
       currentLevel: mockLevel
-    }
+    };
 
     expect(actions.increaseCurrentLevel(mockLevel)).toEqual(expectedAction);
   });
 
   it("should create an action to decrease current level", () => {
-    const mockLevel = 1
+    const mockLevel = 1;
     const expectedAction = {
       type: 'DECREASE_CURRENT_LEVEL',
       currentLevel: mockLevel
-    }
+    };
 
     expect(actions.decreaseCurrentLevel(mockLevel)).toEqual(expectedAction);
   });
 });
 
 describe("Deck Actions", () => {
- // Note: Though 'add selected deck' and 'add decks' have different reducers, they are both in this 1 describe block
+  // Note: Though 'add selected deck' and 'add decks' have different reducers,
+  //  they are both in this 1 describe block
 
   it("should create an action to add a selected deck ID", () => {
     const mockDeckID = 3;
@@ -139,7 +141,7 @@ describe("Deck Actions", () => {
     const expectedAction = {
       type: 'ADD_DECKS',
       deckArray: mocks.mockDeck
-    }
+    };
 
     expect(actions.addDecks(mocks.mockDeck)).toEqual(expectedAction);
   });

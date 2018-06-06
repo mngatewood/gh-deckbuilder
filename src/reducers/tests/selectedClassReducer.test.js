@@ -10,7 +10,8 @@ describe("Selected Class Reducers", () => {
   it("should add class to state", () => {
     const expected = "Cragheart";
 
-    expect(selectedClassReducer(undefined, actions.addSelectedClass("Cragheart"))).toEqual(expected);
+    expect(selectedClassReducer(undefined,
+      actions.addSelectedClass("Cragheart"))).toEqual(expected);
   });
 
 });

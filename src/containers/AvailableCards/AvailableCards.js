@@ -12,29 +12,30 @@ export class AvailableCards extends Component {
     this.container = React.createRef();
     this.state = {
       location: {}
-    }
+    };
   }
 
   render() {
     
-    const { cards, availableCards, currentLevel, addAvailableCard, removeSelectedCard } = this.props;
+    const { cards, availableCards, currentLevel,
+      addAvailableCard, removeSelectedCard } = this.props;
     
     const dragoverHandler = (event) => {
       event.preventDefault();
-      event.dataTransfer.dropEffect = "move"
-    }
+      event.dataTransfer.dropEffect = "move";
+    };
 
     const dropHandler = (event) => {
       event.preventDefault();
       const data = JSON.parse(event.dataTransfer.getData("text"));
       const id = data.id;
       const parent = data.parent;
-      if(parent === "selected-component") {
+      if (parent === "selected-component") {
         const droppedCard = helpers.getCardById(parseInt(id, 10), cards);
         addAvailableCard(droppedCard);
         removeSelectedCard(droppedCard);
       } 
-    }
+    };
 
     return (
       <div className="cards-component" id="available-component">
@@ -52,7 +53,7 @@ export class AvailableCards extends Component {
       </div>
     );
   }
-};
+}
 
 export const mapStateToProps = state => ({
   cards: state.cards,
@@ -76,4 +77,5 @@ AvailableCards.propTypes = {
   removeSelectedCard: PropTypes.func
 };
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(AvailableCards));
+export default withRouter(connect(mapStateToProps,
+  mapDispatchToProps)(AvailableCards));

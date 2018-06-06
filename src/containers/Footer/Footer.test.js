@@ -1,8 +1,6 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';
-import { Footer } from './Footer';
-import { mapStateToProps, mapDispatchToProps } from './Footer';
+import { Footer, mapStateToProps, mapDispatchToProps } from './Footer';
 import * as actions from '../../actions';
 import * as mocks from '../../mocks/mockCards';
 
@@ -14,7 +12,7 @@ describe("Footer component", () => {
       wrapper = shallow(<Footer
         addDecks={jest.fn()}
         addSelectedDecks={jest.fn()}
-        currentDecks={[]}/>)
+        currentDecks={[]}/>);
     });
 
     it("should match the snapshot when there are no decks", () => {
@@ -25,20 +23,20 @@ describe("Footer component", () => {
       wrapper = shallow(<Footer
         addDecks={jest.fn()}
         addSelectedDecks={jest.fn()}
-        currentDecks={mocks.mockMultiDecks}/>)
+        currentDecks={mocks.mockMultiDecks}/>);
 
       expect(wrapper).toMatchSnapshot();
     });
   });
 
   describe("Map State to Props", () => {
-      it('correctly maps currentDecks to props', () => {
-        const mockState = {currentDecks: mocks.mockMultiDecks};
-        const mapped = mapStateToProps(mockState);
-        const expectedState = mocks.mockMultiDecks;
+    it('correctly maps currentDecks to props', () => {
+      const mockState = {currentDecks: mocks.mockMultiDecks};
+      const mapped = mapStateToProps(mockState);
+      const expectedState = mocks.mockMultiDecks;
 
-        expect(mapped.currentDecks).toEqual(expectedState);
-      });
+      expect(mapped.currentDecks).toEqual(expectedState);
+    });
 
   });
 

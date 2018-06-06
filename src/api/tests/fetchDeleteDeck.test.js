@@ -1,14 +1,10 @@
 import { fetchDeleteDeck } from '../fetchDeleteDeck';
-import * as mocks from '../../mocks/mockCards';
 
 describe("Fetch Cards", () => {
   let deckId;
-  let url;
-  let results;
 
   beforeEach(() => {
     deckId = 2;
-    url = `http://localhost:8080/api/v1/decks/${deckId}`;
   });
 
   it("should fetch with correct params", () => {
@@ -31,7 +27,7 @@ describe("Fetch Cards", () => {
     let results = {
       status: 200,
       message: "Successfully removed deck from database."
-    }
+    };
     window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
       status: 200,
       message: "Successfully removed deck from database."
@@ -48,9 +44,9 @@ describe("Fetch Cards", () => {
         message: {"Error": "Internal server error"}
       })
     );
-    const expected = { "Error": "Internal server error"}
+    const expected = { "Error": "Internal server error"};
 
-    const errorDelete = fetchDeleteDeck()
+    const errorDelete = fetchDeleteDeck();
     expect(errorDelete).rejects.toEqual(expected);
   });
 });

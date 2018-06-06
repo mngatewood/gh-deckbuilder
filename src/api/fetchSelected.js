@@ -6,12 +6,12 @@ export const fetchSelected = async (deckId) => {
   try {
     const response = await fetch(url);
     const deck = await response.json();
-    return deck
+    return deck;
 
   } catch (error) {
     throw error.message;
   }
-}
+};
 
 fetchSelected.propTypes = {
   deckId: PropTypes.number

@@ -2,12 +2,9 @@ import { fetchDecks } from '../fetchDecks';
 import * as mocks from '../../mocks/mockCards';
 
 describe("Fetch Cards", () => {
-  let selectedClass;
-  let url;
   let results;
 
   beforeEach(() => {
-    url = `http://localhost:8080/api/v1/decks`;
     results = mocks.mockDeck;
   });
 
@@ -38,9 +35,9 @@ describe("Fetch Cards", () => {
         message: {"Error": "Error getting cards"}
       })
     );
-    const expected = { "Error": 'Error getting cards'}
+    const expected = { "Error": 'Error getting cards'};
 
-    const errorFetch = fetchDecks()
+    const errorFetch = fetchDecks();
     expect(errorFetch).rejects.toEqual(expected);
   });
 });
