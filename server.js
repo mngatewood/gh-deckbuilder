@@ -74,7 +74,8 @@ app.get('/api/v1/decks/:id', (request, response) => {
                 name: deck[0].name,
                 class: deck[0].class,
                 cards: cardsArray,
-                level: deck[0].level
+                level: deck[0].level,
+                user: deck[0].user
               });
             } else {
               return response.status(404).json('No matching cards found.');
