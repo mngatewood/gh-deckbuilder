@@ -113,6 +113,7 @@ export class DeckBuilder extends Component {
   }
 
   toggleChangeClass(event) {
+    console.log(this.changeClassDiv);
     this.changeClassDiv.current.classList.toggle('hidden');
     this.changeClassButton.current.classList.toggle('hidden');
     this.deckSaveButton.current.classList.toggle('hidden');
@@ -219,7 +220,8 @@ export class DeckBuilder extends Component {
             </div>
 
             <button onClick={(event) => {this.toggleChangeClass(event)}}
-              ref={this.changeClassButton}>
+              ref={this.changeClassButton}
+              id="change-class-button">
               Change Class
               </button>
 

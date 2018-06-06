@@ -80,7 +80,7 @@ export class Footer extends Component {
     const mappedDecks = filteredDecks.map(deck => {
       const dynamicIcon = require(`../../images/classIcons/${deck.class}Icon.png`)
       const dynamicPath = `/${deck.class}`
-    
+
       return (
         <div className="saved-deck" key={deck.id}>
           <Link to={dynamicPath}
@@ -132,9 +132,9 @@ export class Footer extends Component {
         <div className="saved-decks-container">
           <div className="sign-in-request">
             <p >Please sign-in:</p>
-            <FirebaseAuth 
+            <FirebaseAuth
               uiCallback={ui => ui.disableAutoSignIn()}
-              uiConfig={this.uiConfig} 
+              uiConfig={this.uiConfig}
               firebaseAuth={firebase.auth()}/>
           </div>
             {this.mapDecks(this.props.currentDecks)}
