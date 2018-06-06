@@ -1,5 +1,5 @@
 const currentLevelReducer = (state = 1, action) => {
-  let copyState = state
+  let copyState = state;
   switch (action.type) {
     case 'INCREASE_CURRENT_LEVEL':
       return copyState + 1;

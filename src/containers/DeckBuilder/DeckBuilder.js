@@ -128,7 +128,7 @@ export class DeckBuilder extends Component {
       this.stats.current.style.setProperty("display", "block")
     } else {
       this.stats.current.style.setProperty("display", "none")
-      this.feedbackDiv.current.classList.toggle('hidden')
+      this.feedbackDiv.current.classList.add('hidden')
     }
   }
 

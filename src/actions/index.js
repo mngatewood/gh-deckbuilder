@@ -1,8 +1,3 @@
-export const addCard = (card) => ({
-  type: 'ADD_CARD',
-  card
-});
-
 export const addCards = (cards) => ({
   type: 'ADD_CARDS',
   cards
@@ -70,4 +65,9 @@ export const addSelectedDeck = (deckId) => ({
 export const addDecks = (deckArray) => ({
   type: 'ADD_DECKS',
   deckArray
+});
+
+export const changeUser = (user) => ({
+  type: 'CHANGE_USER',
+  user
 });

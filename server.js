@@ -101,12 +101,12 @@ app.post('/api/v1/decks', (request, response) => {
         .json(`You are missing a ${requiredParameter} parameter.`);
     }
   }
-  
+
   if (!cardArray.length) {
     return response.status(422)
       .json('You must have at least one card in your deck.');
   }
-  
+
   const checkInteger = (card) => {
     return Number.isInteger(card);
   };
@@ -115,7 +115,7 @@ app.post('/api/v1/decks', (request, response) => {
     return response.status(422).json('Invalid card.');
   }
 
-  database('decks').insert({ 
+  database('decks').insert({
     "name": deckName,
     "class": className,
     "level": level

@@ -8,7 +8,7 @@ export const fetchCards = async (selectedClass) => {
     const cards = await response.json();
     return cards
   } catch (error) {
-    throw error("Error getting cards")
+    throw error.message;
   }
 }
 
