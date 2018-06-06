@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 export const fetchCards = async (selectedClass) => {
   const url = `http://localhost:8080/api/v1/cards/${selectedClass}`;
 
@@ -9,3 +11,7 @@ export const fetchCards = async (selectedClass) => {
     throw error.message;
   }
 }
+
+fetchCards.propTypes = {
+  selectedClass: PropTypes.string,
+};

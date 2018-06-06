@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 export const getAvailable = (cards, selected) => {
   if (selected === []) {
     return cards;
@@ -12,3 +14,7 @@ export const getAvailable = (cards, selected) => {
   }
 }
 
+getAvailable.propTypes = {
+  cards: PropTypes.array,
+  selected: PropTypes.array
+};

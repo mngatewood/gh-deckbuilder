@@ -1,4 +1,5 @@
 import { fetchSelected } from '../api/fetchSelected'
+import PropTypes from 'prop-types';
 
 export const getSelected = async (deckId, cards) => {
     if(deckId === 0) {
@@ -19,3 +20,7 @@ export const getSelected = async (deckId, cards) => {
     }
   }
 
+getSelected.propTypes = {
+  deckId: PropTypes.number,
+  cards: PropTypes.array
+};

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Card } from '../components/Card/Card';
+import PropTypes from 'prop-types';
 
 export const renderCards = (availableCards, currentLevel) => {
   let displayCards
@@ -21,3 +22,8 @@ export const renderCards = (availableCards, currentLevel) => {
   }
   return displayCards
 }
+
+renderCards.propTypes = {
+  availableCards: PropTypes.array,
+  currentLevel: PropTypes.string
+};
