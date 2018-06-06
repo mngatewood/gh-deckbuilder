@@ -30,12 +30,4 @@ describe("Available Cards Reducer", () => {
     expect(availableCardsReducer(mocks.mockCards,
       actions.removeAvailableCard(2))).toEqual(expected);
   });
-
-  it.skip("should remove all available cards", () => {
-    const expected = [];
-
-    expect(availableCardsReducer(mocks.mockCards,
-      actions.removeAvailableCards())).toEqual(expected);
-  });
-
 });
