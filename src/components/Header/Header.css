@@ -9,3 +9,12 @@ header {
   height: 90px;
   margin: -10px auto;
 }
+
+@media screen and (max-width: 900px){
+
+  .header-title-image {
+    width: 50vw
+  }
+  
+}
+
