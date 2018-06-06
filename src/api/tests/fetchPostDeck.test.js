@@ -2,7 +2,7 @@ import { fetchPostDeck } from '../fetchPostDeck';
 
 describe("Fetch Cards", () => {
   let results;
-  let name, selectedClass, level, user, cards, url;
+  let name, selectedClass, level, user, cards;
 
   beforeEach(() => {
     name = "SpellWeeper";
@@ -10,7 +10,6 @@ describe("Fetch Cards", () => {
     level = 1;
     user = "guest";
     cards = [1, 2, 3, 4, 5, 6, 7, 8];
-    url = 'http://localhost:8080/api/v1/decks/';
     results = {
       status: 201,
       message: "Successfully added deck to database."
@@ -46,7 +45,8 @@ describe("Fetch Cards", () => {
       json: () => Promise.resolve(results)
     }));
 
-    const postSuccess = await fetchPostDeck(name, selectedClass, level, user, cards);
+    const postSuccess = await fetchPostDeck(name, selectedClass,
+      level, user, cards);
 
     expect(postSuccess).toEqual(results);
   });
