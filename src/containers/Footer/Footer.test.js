@@ -14,7 +14,7 @@ describe("Footer component", () => {
         addSelectedDecks={jest.fn()}
         changeUser={jest.fn()}
         currentDecks={[]}
-        user="guest"/>)
+        user="guest"/>);
     });
 
     it("should match the snapshot without being signed in", () => {
@@ -32,7 +32,7 @@ describe("Footer component", () => {
         addDecks={jest.fn()}
         addSelectedDecks={jest.fn()}
         changeUser={jest.fn()}
-        currentDecks={mocks.mockMultiDecks}/>)
+        currentDecks={mocks.mockMultiDecks}/>);
 
       expect(wrapper).toMatchSnapshot();
     });
@@ -47,13 +47,13 @@ describe("Footer component", () => {
       expect(mapped.currentDecks).toEqual(expectedState);
     });
 
-      it('correctly maps user to props', () => {
-        const mockState = {currentDecks: mocks.mockMultiDecks, user:"guest"};
-        const mapped = mapStateToProps(mockState);
-        const expectedState = "guest";
+    it('correctly maps user to props', () => {
+      const mockState = {currentDecks: mocks.mockMultiDecks, user:"guest"};
+      const mapped = mapStateToProps(mockState);
+      const expectedState = "guest";
 
-        expect(mapped.user).toEqual(expectedState);
-      });
+      expect(mapped.user).toEqual(expectedState);
+    });
   });
 
   describe("Map Dispatch to Props", () => {
