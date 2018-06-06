@@ -4,3 +4,8 @@ header {
   height: 100px;
   background-color: transparent;
 }
+
+.header-title-image {
+  height: 90px;
+  margin: -10px auto;
+}
