@@ -94,8 +94,9 @@ app.post('/api/v1/decks', (request, response) => {
   const className = request.body.class;
   const level = request.body.level;
   const cardArray = request.body.cards;
+  const user = request.body.user;
 
-  for (let requiredParameter of ['name', 'cards', 'class', 'level']) {
+  for (let requiredParameter of ['name', 'cards', 'class', 'level', 'user']) {
     if (!deck[requiredParameter]) {
       return response.status(422)
         .json(`You are missing a ${requiredParameter} parameter.`);
@@ -118,7 +119,8 @@ app.post('/api/v1/decks', (request, response) => {
   database('decks').insert({
     "name": deckName,
     "class": className,
-    "level": level
+    "level": level,
+    "user": user
   }, 'id')
     .then(deckId => {
       cardArray.forEach(card => {

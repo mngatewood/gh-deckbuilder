@@ -133,13 +133,12 @@ export class DeckBuilder extends Component {
   }
 
   async submitDeck(event) {
-    const {selectedClass, currentLevel, selectedCards} = this.props
+    const {selectedClass, currentLevel, selectedCards, user} = this.props
     event.preventDefault();
     const name = this.deckSaveName.current.value;
-    const level = currentLevel;
     const cards = selectedCards.map( card => {return card.id});
     if(name.length && cards.length) {
-      const response = await api.fetchPostDeck(name, selectedClass, level, cards);
+      const response = await api.fetchPostDeck(name, selectedClass, currentLevel, user, cards);
       this.displayFeedback(response);
       this.deckSaveDiv.current.classList.toggle('hidden');
       this.deckSaveButton.current.innerText = 'Save Deck';
@@ -302,7 +301,8 @@ export const mapStateToProps = state => ({
   availableCards: state.availableCards,
   selectedClass: state.selectedClass,
   currentLevel: state.currentLevel,
-  selectedDeck: state.selectedDeck
+  selectedDeck: state.selectedDeck,
+  user: state.user
 });
 
 export const mapDispatchToProps = dispatch => ({
@@ -318,12 +318,16 @@ export const mapDispatchToProps = dispatch => ({
 DeckBuilder.propTypes = {
   location: PropTypes.object,
   history: PropTypes.object,
-  currentLevel: PropTypes.number,
-  selectedClass: PropTypes.string,
+  cards: PropTypes.array,
+  availableCards: PropTypes.array,
   selectedCards: PropTypes.array,
+  selectedClass: PropTypes.string,
+  currentLevel: PropTypes.number,
+  selectedDeck: PropTypes.number,
+  user: PropTypes.string,
   addSelectedClass: PropTypes.func,
   increaseCurrentLevel: PropTypes.func,
-  decreaseCurrentLevel: PropTypes.func,
+  decreaseCurrentLevel: PropTypes.func
 };
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(DeckBuilder));

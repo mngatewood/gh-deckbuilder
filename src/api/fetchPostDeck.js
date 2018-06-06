@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-export const fetchPostDeck = async (name, selectedClass, level, cards) => {
+export const fetchPostDeck = async (name, selectedClass, currentLevel, user, cards) => {
   const url = 'http://localhost:8080/api/v1/decks/';
 
   try {
@@ -12,7 +12,8 @@ export const fetchPostDeck = async (name, selectedClass, level, cards) => {
       body: JSON.stringify({
         "name": name,
         "class": selectedClass,
-        "level": level,
+        "level": currentLevel,
+        "user": user,
         "cards": cards
       })
     })
