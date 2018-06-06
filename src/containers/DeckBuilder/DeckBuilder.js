@@ -1,13 +1,20 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
-import PropTypes from 'prop-types';
 import './DeckBuilder.css';
 import AvailableCards from '../AvailableCards/AvailableCards';
 import SelectedCards from '../SelectedCards/SelectedCards';
 import * as api from '../../api/index';
 import * as helpers from '../../helpers/index';
-import * as actions from '../../actions';
+import {
+  addCards,
+  addSelectedCards,
+  addAvailableCards,
+  addSelectedClass,
+  increaseCurrentLevel,
+  decreaseCurrentLevel,
+  removeSelectedCards
+  } from '../../actions';
 
 export class DeckBuilder extends Component {
   constructor(props) {
@@ -30,6 +37,7 @@ export class DeckBuilder extends Component {
     };
   };
 
+
   async componentDidMount() {
     try {
       const selectedClass = await this.getAllCards()
@@ -41,12 +49,11 @@ export class DeckBuilder extends Component {
   }
 
   async componentDidUpdate(prevProps) {
-    const {location, addSelectedClass} = this.props;
-    if (prevProps.location !== location) {
+    if (prevProps.location !== this.props.location) {
       try {
         const selectedClass = await this.getAllCards()
         this.getImages(selectedClass)
-        addSelectedClass(selectedClass)
+        this.props.addSelectedClass(selectedClass)
         this.feedbackDiv.current.classList.add('hidden');
       } catch (error) {
         this.setState({ error });
@@ -55,8 +62,8 @@ export class DeckBuilder extends Component {
   }
 
   async getAllCards() {
-    const { addCards, addSelectedCards, addAvailableCards, selectedDeck, location } = this.props
-    const selectedClass = location.pathname.slice(1);
+    const { addCards, addSelectedCards, addAvailableCards, selectedDeck } = this.props
+    const selectedClass = this.props.location.pathname.slice(1);
     const cards = await api.fetchCards(selectedClass);
     const deck = await helpers.getSelected(selectedDeck, cards);
     const available = await helpers.getAvailable(cards, deck.cards);
@@ -124,6 +131,7 @@ export class DeckBuilder extends Component {
 
   toggleStats() {
     const display = this.stats.current.style.display;
+    console.log(display)
     if(display === "none") {
       this.stats.current.style.setProperty("display", "block")
     } else {
@@ -133,13 +141,14 @@ export class DeckBuilder extends Component {
   }
 
   async submitDeck(event) {
-    const {selectedClass, currentLevel, selectedCards, user} = this.props
     event.preventDefault();
     const name = this.deckSaveName.current.value;
-    const cards = selectedCards.map( card => {return card.id});
+    const selectedClass = this.props.selectedClass;
+    const level = this.props.currentLevel;
+    const cards = this.props.selectedCards.map( card => {return card.id});
     if(name.length && cards.length) {
-      const response = await api.fetchPostDeck(name, selectedClass, currentLevel, user, cards);
-      this.displayFeedback(response);
+      await api.fetchPostDeck(name, selectedClass, level, cards);
+      this.displayFeedback("Deck successfully saved.");
       this.deckSaveDiv.current.classList.toggle('hidden');
       this.deckSaveButton.current.innerText = 'Save Deck';
       this.deckReset.current.classList.toggle('hidden');
@@ -153,7 +162,7 @@ export class DeckBuilder extends Component {
     const { removeSelectedCards, addSelectedCards, addAvailableCards, cards, selectedDeck } = this.props
     if(selectedDeck === 0) {
       removeSelectedCards();
-      addAvailableCards(cards)
+      addAvailableCards(this.props.cards)
       this.displayFeedback('All selected cards cleared.')
     } else {
       const deck = await helpers.getSelected(selectedDeck, cards);
@@ -170,24 +179,23 @@ export class DeckBuilder extends Component {
   }
 
   render() {
-    const { selectedClass, selectedCards, currentLevel } = this.props;
+    const { selectedClass,
+      selectedCards,
+      currentLevel } = this.props;
     const numberSelectedCards = selectedCards.length;
     const handSize = helpers.getHandSize(selectedClass);
 
     return (
       <div className="deck-builder">
-
         <img src={require('../../images/menu.png')}
           alt="menu"
           id="menu"
-          onClick={() => {this.toggleStats()}}
+          onClick={this.toggleStats.bind(this)}
           />
-
-        <AvailableCards />
-
+        <AvailableCards location={this.props.location} />
         <div id="class-info">
-          <img src={this.state.classImage} alt={selectedClass}/>
-
+          <img src={this.state.classImage}
+            alt={selectedClass}/>
           <div id="feedback-container"
             className="hidden"
             ref={this.feedbackDiv}
@@ -198,15 +206,12 @@ export class DeckBuilder extends Component {
               <p>{this.state.feedback}</p>
             </div>
           </div>
-
           <h2>{selectedClass}</h2>
           <h5>{this.state.deckName}</h5>
-
-          <div id="stats" ref={this.stats}>
-
+          <div id="stats"
+            ref={this.stats}>
             <h4>Cards Selected</h4>
             <p id="number-cards">{numberSelectedCards} &nbsp; of &nbsp; {handSize}</p>
-
             <h4>Character Level</h4>
             <div id="level-container">
               <button id="decrease-level"
@@ -217,14 +222,12 @@ export class DeckBuilder extends Component {
                 className="inline-button"
                 onClick={() => { this.changeLevel('plus') }} ></button>
             </div>
-
-            <button onClick={(event) => {this.toggleChangeClass(event)}}
+            <button onClick={this.toggleChangeClass.bind(this)}
               ref={this.changeClassButton}>
               Change Class
               </button>
-
             <button id="save-button"
-              onClick={() => {this.toggleDeckSave()}}
+              onClick={this.toggleDeckSave.bind(this)}
               ref={this.deckSaveButton}>
               Save Deck
             </button>
@@ -237,48 +240,46 @@ export class DeckBuilder extends Component {
                   placeholder="Enter deck name."
                   ref={this.deckSaveName}/>
                 <button id="submit-deck"
-                  onClick={(event) => {this.submitDeck(event)}}>Submit</button>
+                  onClick={this.submitDeck.bind(this)}>Submit</button>
               </form>
             </div>
-
-           <button onClick={() => {this.resetDeck()}}
+           <button onClick={this.resetDeck.bind(this)}
               ref={this.deckReset}>
               Reset Deck
             </button>
-
             <div id="change-class-container"
               className="hidden"
               ref={this.changeClassDiv}>
               <button id="cancel-class-change"
-                onClick={(event) => {this.toggleChangeClass(event)}}>
+                onClick={this.toggleChangeClass.bind(this)}>
                 Cancel
                 </button>
                 <div id="class-select-container">
                   <ul>
-                    <li id="Brute" onClick={(event) => this.changeClass(event)}>
+                    <li id="Brute" onClick={this.changeClass.bind(this)}>
                       <img src={require('../../images/classIcons/Brute-icon.png')}
                         alt="Brute icon"
                         tooltip="Brute" />
                     </li>
-                    <li id="Cragheart" onClick={(event) => this.changeClass(event)}>
+                    <li id="Cragheart" onClick={this.changeClass.bind(this)}>
                       <img src={require('../../images/classIcons/Cragheart-icon.png')}
                       alt="Cragheart icon" />
                     </li>
-                    <li id="Mindthief" onClick={(event) => this.changeClass(event)}>
+                    <li id="Mindthief" onClick={this.changeClass.bind(this)}>
                       <img src={require('../../images/classIcons/Mindthief-icon.png')}
                         alt="Mindthief icon" />
                     </li>
                   </ul>
                   <ul>
-                    <li id="Spellweaver" onClick={(event) => this.changeClass(event)}>
+                    <li id="Spellweaver" onClick={this.changeClass.bind(this)}>
                       <img src={require('../../images/classIcons/Spellweaver-icon.png')}
                         alt="Spellweaver icon" />
                     </li>
-                    <li id="Scoundrel" onClick={(event) => this.changeClass(event)}>
+                    <li id="Scoundrel" onClick={this.changeClass.bind(this)}>
                       <img src={require('../../images/classIcons/Scoundrel-icon.png')}
                         alt="Scoundrel icon" />
                     </li>
-                    <li id="Tinkerer" onClick={(event) => this.changeClass(event)}>
+                    <li id="Tinkerer" onClick={this.changeClass.bind(this)}>
                       <img src={require('../../images/classIcons/Tinkerer-icon.png')}
                         alt="Tinkerer icon" />
                     </li>
@@ -287,13 +288,21 @@ export class DeckBuilder extends Component {
             </div>
           </div>
         </div>
-
-        <SelectedCards />
-
+        <SelectedCards location={this.props.location} />
       </div>
     )
   }
 };
+
+export const mapDispatchToProps = dispatch => ({
+  addCards: cards => dispatch(addCards(cards)),
+  addSelectedCards: selectedCards => dispatch(addSelectedCards(selectedCards)),
+  addAvailableCards: availableCards => dispatch(addAvailableCards(availableCards)),
+  addSelectedClass: selectedClass => dispatch(addSelectedClass(selectedClass)),
+  increaseCurrentLevel: currentLevel => dispatch(increaseCurrentLevel(currentLevel)),
+  decreaseCurrentLevel: currentLevel => dispatch(decreaseCurrentLevel(currentLevel)),
+  removeSelectedCards: () => dispatch(removeSelectedCards())
+});
 
 export const mapStateToProps = state => ({
   cards: state.cards,
@@ -301,33 +310,7 @@ export const mapStateToProps = state => ({
   availableCards: state.availableCards,
   selectedClass: state.selectedClass,
   currentLevel: state.currentLevel,
-  selectedDeck: state.selectedDeck,
-  user: state.user
+  selectedDeck: state.selectedDeck
 });
-
-export const mapDispatchToProps = dispatch => ({
-  addCards: cards => dispatch(actions.addCards(cards)),
-  addSelectedCards: selectedCards => dispatch(actions.addSelectedCards(selectedCards)),
-  addAvailableCards: availableCards => dispatch(actions.addAvailableCards(availableCards)),
-  addSelectedClass: selectedClass => dispatch(actions.addSelectedClass(selectedClass)),
-  increaseCurrentLevel: currentLevel => dispatch(actions.increaseCurrentLevel(currentLevel)),
-  decreaseCurrentLevel: currentLevel => dispatch(actions.decreaseCurrentLevel(currentLevel)),
-  removeSelectedCards: () => dispatch(actions.removeSelectedCards())
-});
-
-DeckBuilder.propTypes = {
-  location: PropTypes.object,
-  history: PropTypes.object,
-  cards: PropTypes.array,
-  availableCards: PropTypes.array,
-  selectedCards: PropTypes.array,
-  selectedClass: PropTypes.string,
-  currentLevel: PropTypes.number,
-  selectedDeck: PropTypes.number,
-  user: PropTypes.string,
-  addSelectedClass: PropTypes.func,
-  increaseCurrentLevel: PropTypes.func,
-  decreaseCurrentLevel: PropTypes.func
-};
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(DeckBuilder));

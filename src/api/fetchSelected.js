@@ -1,5 +1,3 @@
-import PropTypes from 'prop-types';
-
 export const fetchSelected = async (deckId) => {
   const url = `http://localhost:8080/api/v1/decks/${deckId}`;
 
@@ -12,7 +10,3 @@ export const fetchSelected = async (deckId) => {
     throw error.message;
   }
 }
-
-fetchSelected.propTypes = {
-  deckId: PropTypes.number
-};

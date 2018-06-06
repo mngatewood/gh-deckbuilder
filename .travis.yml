@@ -1,9 +1,0 @@
-language: node_js
-node_js:
-- node
-services:
-- postgresql
-before_script:
-- psql -c 'CREATE DATABASE deckbuilder_test;' -U postgres
-notifications:
-  email: false

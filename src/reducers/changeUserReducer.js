@@ -1,4 +1,4 @@
-const changeUserReducer = (state = "guest", action) => {
+const changeUserReducer = (state = "", action) => {
   switch (action.type) {
     case 'CHANGE_USER':
       return action.user;

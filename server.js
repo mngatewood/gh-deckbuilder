@@ -74,8 +74,7 @@ app.get('/api/v1/decks/:id', (request, response) => {
                 name: deck[0].name,
                 class: deck[0].class,
                 cards: cardsArray,
-                level: deck[0].level,
-                user: deck[0].user
+                level: deck[0].level
               });
             } else {
               return response.status(404).json('No matching cards found.');
@@ -95,9 +94,8 @@ app.post('/api/v1/decks', (request, response) => {
   const className = request.body.class;
   const level = request.body.level;
   const cardArray = request.body.cards;
-  const user = request.body.user;
 
-  for (let requiredParameter of ['name', 'cards', 'class', 'level', 'user']) {
+  for (let requiredParameter of ['name', 'cards', 'class', 'level']) {
     if (!deck[requiredParameter]) {
       return response.status(422)
         .json(`You are missing a ${requiredParameter} parameter.`);
@@ -120,8 +118,7 @@ app.post('/api/v1/decks', (request, response) => {
   database('decks').insert({
     "name": deckName,
     "class": className,
-    "level": level,
-    "user": user
+    "level": level
   }, 'id')
     .then(deckId => {
       cardArray.forEach(card => {
@@ -132,7 +129,7 @@ app.post('/api/v1/decks', (request, response) => {
           }
         ).then(id => id);
       });
-      return response.status(201).json(`Deck ${deckName} was added to the database.`);
+      return response.status(201).json(`Successfully added ${deckName} deck to database.`);
     })
     .catch(error => {
       return response.status(500).json('Internal server error' + error );

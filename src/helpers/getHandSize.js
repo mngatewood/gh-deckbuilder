@@ -1,5 +1,3 @@
-import PropTypes from 'prop-types';
-
 export const getHandSize = (selectedClass) => {
   switch (selectedClass) {
     case 'Brute':
@@ -17,7 +15,3 @@ export const getHandSize = (selectedClass) => {
     default: return 0;
   }
 }
-
-getHandSize.propTypes = {
-  selectedClass: PropTypes.string,
-};

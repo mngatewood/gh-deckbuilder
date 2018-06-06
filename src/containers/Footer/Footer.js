@@ -7,15 +7,15 @@ import FirebaseAuth from 'react-firebaseui/FirebaseAuth';
 import firebase from 'firebase';
 import './Footer.css';
 
-
-firebase.initializeApp({
+const config = {
   apiKey: "AIzaSyBHV499x0Il6LN4XYA1JCExxTH_kgkg3pg",
   authDomain: "gh-deckbuilder.firebaseapp.com",
   databaseURL: "https://gh-deckbuilder.firebaseio.com",
   projectId: "gh-deckbuilder",
   storageBucket: "gh-deckbuilder.appspot.com",
   messagingSenderId: "997988713770"
-});
+};
+firebase.initializeApp(config);
 
 export class Footer extends Component {
   constructor(props) {
@@ -32,21 +32,19 @@ export class Footer extends Component {
       ],
       callbacks: {
         signInSuccessWithAuthResult: (authResult) => {
-          this.props.changeUser(authResult.user.email)
+          this.props.changeUser(authResult.user.displayName)
         }
       }
     };
   };
 
   async componentDidMount() {
-    this.signOut()
     this.unregisterAuthObserver = firebase.auth().onAuthStateChanged(
       (user) => this.setState({isSignedIn: !!user})
-    );
+  );
     try {
       const decks = await api.fetchDecks();
-      const filteredDeck = this.filterDecks(decks)
-      this.props.addDecks(filteredDeck);
+      this.props.addDecks(decks);
     } catch (error) {
       this.setState({ error })
     }
@@ -56,8 +54,7 @@ export class Footer extends Component {
     if (prevProps !== this.props) {
       try {
         const decks = await api.fetchDecks();
-        const filteredDeck = this.filterDecks(decks)
-        this.props.addDecks(filteredDeck);
+        this.props.addDecks(decks);
       } catch (error) {
         this.setState({ error })
       }
@@ -68,16 +65,9 @@ export class Footer extends Component {
     this.unregisterAuthObserver();
   }
 
-  filterDecks = (decks) => {
-    const filteredDecks = decks.filter(deck => {
-      return deck.user === this.props.user
-    })
-    return filteredDecks
-  }
-
-  mapDecks = (filteredDecks) => {
+  mapDecks = (decks) => {
     const deleteImg = require('../../images/red-x.png')
-    const mappedDecks = filteredDecks.map(deck => {
+    const mappedDecks = decks.map(deck => {
       const dynamicIcon = require(`../../images/classIcons/${deck.class}Icon.png`)
       const dynamicPath = `/${deck.class}`
     
@@ -118,7 +108,7 @@ export class Footer extends Component {
 
   signOut = () => {
     firebase.auth().signOut();
-    this.props.changeUser("guest")
+    this.props.changeUser("Guest")
   }
 
   render() {
@@ -130,14 +120,13 @@ export class Footer extends Component {
           <h1 className="saved-decks-title">SAVED DECKS</h1>
         </div>
         <div className="saved-decks-container">
-          <div className="sign-in-request">
-            <p >Please sign-in:</p>
+          <div>
+            <p className="sign-in-request">Please sign-in:</p>
             <FirebaseAuth 
               uiCallback={ui => ui.disableAutoSignIn()}
               uiConfig={this.uiConfig} 
               firebaseAuth={firebase.auth()}/>
           </div>
-            {this.mapDecks(this.props.currentDecks)}
         </div>
       </footer>
       );
@@ -149,11 +138,12 @@ export class Footer extends Component {
         <h1 className="saved-decks-title">SAVED DECKS</h1>
       </div>
       <div className="saved-decks-container">
+      {this.mapDecks(this.props.currentDecks)}
       <a className="sign-out"
       onClick={() => this.signOut()}>Sign-out</a>
-      {this.mapDecks(this.props.currentDecks)}
       </div>
     </footer>
+
     );
   }
 };
