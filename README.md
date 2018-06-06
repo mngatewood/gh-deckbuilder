@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/mngatewood/gh-deckbuilder.svg?branch=master)](https://travis-ci.org/mngatewood/gh-deckbuilder)
+
 Description:
 Gloomhaven is a board game with hundreds of pieces and hundreds of cards. Time is wasted when players arrive deciding what cards to use for their class. This app would allow them to build their decks remotely and arrive ready to play.
 
