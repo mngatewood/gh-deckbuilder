@@ -11,7 +11,7 @@ app.set('port', process.env.PORT || 8080);
 app.locals.title = 'Gloomhaven Deck-Builder';
 
 app.use(bodyParser.json());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'build')));
 app.use(function (request, response, next) {
   response.header("Access-Control-Allow-Origin",
     "*");
@@ -29,7 +29,7 @@ app.listen(app.get('port'), () => {
 });
 
 app.get('/', function (request, response) {
-  response.sendFile(path.join(__dirname, 'public', 'index.html'));
+  response.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
 app.get('/api/v1/cards/:class', (request, response) => {
