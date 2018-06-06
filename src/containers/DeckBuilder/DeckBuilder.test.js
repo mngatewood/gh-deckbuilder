@@ -1,7 +1,8 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { shallow, mount } from 'enzyme';
-import { DeckBuilder } from './DeckBuilder';
+import { shallow } from 'enzyme';
+import { DeckBuilder,
+  mapStateToProps, mapDispatchToProps } from './DeckBuilder';
+import * as actions from '../../actions/index';
 import * as mocks from '../../mocks/mockCards';
 
 jest.mock('../../api');
@@ -97,7 +98,7 @@ describe("Deckbuilder Component", () => {
       it("Should call addSelectedClass on componentDidUpdate", async () => {
         await wrapper.instance().componentDidUpdate(prevProps);
 
-      expect(addSelectedClass).toHaveBeenCalled();
+        expect(addSelectedClass).toHaveBeenCalled();
       });
     });
     describe("expanded snapshot tests", () => {
@@ -115,7 +116,9 @@ describe("Deckbuilder Component", () => {
 
   describe("Map State to Props", () => {
     it('correctly maps cards to props', () => {
-      const mockState = {cards: mocks.mockCards, selectedCards: [], availableCards: [], selectedClass: "", currentLevel: 0, selectedDeck: 0, user: "guest"};
+      const mockState = {cards: mocks.mockCards, selectedCards: [],
+        availableCards: [], selectedClass: "", currentLevel: 0,
+        selectedDeck: 0, user: "guest"};
       const mapped = mapStateToProps(mockState);
       const expectedState = mocks.mockCards;
 
@@ -123,7 +126,9 @@ describe("Deckbuilder Component", () => {
     });
 
     it("correctly maps selectedCards to props", () => {
-      const mockState = {cards: [], selectedCards: mocks.mockSelectedCards, availableCards: [], selectedClass: "", currentLevel: 0, selectedDeck: 0, user: "guest"};
+      const mockState = {cards: [], selectedCards: mocks.mockSelectedCards,
+        availableCards: [], selectedClass: "", currentLevel: 0,
+        selectedDeck: 0, user: "guest"};
       const mapped = mapStateToProps(mockState);
       const expectedState = mocks.mockSelectedCards;
 
@@ -131,7 +136,9 @@ describe("Deckbuilder Component", () => {
     });
 
     it("correctly maps availableCards to props", () => {
-      const mockState = {cards: [], selectedCards: mocks.mockSelectedCards, availableCards: mocks.mockAvailableCards, selectedClass: "", currentLevel: 0, selectedDeck: 0, user: "guest"};
+      const mockState = {cards: [], selectedCards: mocks.mockSelectedCards,
+        availableCards: mocks.mockAvailableCards, selectedClass: "",
+        currentLevel: 0, selectedDeck: 0, user: "guest"};
       const mapped = mapStateToProps(mockState);
       const expectedState = mocks.mockAvailableCards;
 
@@ -139,7 +146,9 @@ describe("Deckbuilder Component", () => {
     });
 
     it("correctly maps selectedClass to props", () => {
-      const mockState = {cards: [], selectedCards: [], availableCards: [], selectedClass: "Brute", currentLevel: 0, selectedDeck: 0, user: "guest"};
+      const mockState = {cards: [], selectedCards: [], availableCards: [],
+        selectedClass: "Brute", currentLevel: 0,
+        selectedDeck: 0, user: "guest"};
       const mapped = mapStateToProps(mockState);
       const expectedState = "Brute";
 
@@ -147,7 +156,8 @@ describe("Deckbuilder Component", () => {
     });
 
     it("correctly maps currentLevel to props", () => {
-      const mockState = {cards: [], selectedCards: [], availableCards: [], selectedClass: "", currentLevel: 4, selectedDeck: 0, user: "guest"};
+      const mockState = {cards: [], selectedCards: [], availableCards: [],
+        selectedClass: "", currentLevel: 4, selectedDeck: 0, user: "guest"};
       const mapped = mapStateToProps(mockState);
       const expectedState = 4;
 
@@ -155,7 +165,8 @@ describe("Deckbuilder Component", () => {
     });
 
     it("correctly maps selectedDeck to props", () => {
-      const mockState = {cards: [], selectedCards: [], availableCards: [], selectedClass: "", currentLevel: 4, selectedDeck: 0, user: "guest"};
+      const mockState = {cards: [], selectedCards: [], availableCards: [],
+        selectedClass: "", currentLevel: 4, selectedDeck: 0, user: "guest"};
       const mapped = mapStateToProps(mockState);
       const expectedState = 0;
 
@@ -163,7 +174,8 @@ describe("Deckbuilder Component", () => {
     });
 
     it("correctly maps user to props", () => {
-      const mockState = {cards: [], selectedCards: [], availableCards: [], selectedClass: "", currentLevel: 4, selectedDeck: 0, user: "guest"};
+      const mockState = {cards: [], selectedCards: [], availableCards: [],
+        selectedClass: "", currentLevel: 4, selectedDeck: 0, user: "guest"};
       const mapped = mapStateToProps(mockState);
       const expectedState = "guest";
 

@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import App from './App';
 import { shallow } from 'enzyme';
 
@@ -16,11 +15,11 @@ describe("App", () => {
   });
 
   it("componentDidUpdate", async () => {
-    wrapper = shallow(<App/>, {disableLifecycleMethods: true})
-    const update = wrapper.instance().componentDidUpdate();
-    const background = require('../../images/background/background.png')
+    wrapper = shallow(<App/>, {disableLifecycleMethods: true});
+    const update = wrapper.instance().componentDidUpdate();//eslint-disable-line
+    const background = require('../../images/background/background.png');//eslint-disable-line
     const expectedStyle = {"background-image": "url(background.png)"};
 
-    expect(document.body.style._values).toEqual(expectedStyle)
+    expect(document.body.style._values).toEqual(expectedStyle);
   });
 });
