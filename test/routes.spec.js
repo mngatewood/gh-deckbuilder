@@ -5,7 +5,7 @@ const { app, database } = require('../server');
 
 chai.use(chaiHttp);
 
-describe.skip('client routes', () => {
+describe('client routes', () => {
   it('should return the homepage', (done) => {
     chai.request(app)
       .get('/')
@@ -78,7 +78,7 @@ describe('API Routes', () => {
           response.should.be.json;
           response.should.have.status(200);
           response.body.should.be.an('object');
-          response.body.should.have.property('name', 'Brute Deck');
+          response.body.should.have.property('name');
           response.body.should.have.property('cards');
           response.body.cards.should.be.an('array');
           response.body.cards.length.should.equal(10);
@@ -116,12 +116,14 @@ describe('API Routes', () => {
         .send({
           name: 'Ultra Mega Awesome Tinkerer',
           class: 'Tinkerer',
+          level: 1,
+          user: 'guest',
           cards: [144, 145, 146, 147, 148, 149, 150]
         })
         .end((err, response) => {
           response.should.have.status(201);
           response.should.be.json;
-          response.body.should.equal('Successfully added Ultra Mega Awesome Tinkerer deck to database.');
+          response.body.should.equal('Deck Ultra Mega Awesome Tinkerer was added to the database.');
           done();
         });
     });
@@ -131,6 +133,8 @@ describe('API Routes', () => {
         .post('/api/v1/decks')
         .send({
           class: 'Tinkerer',
+          level: 1,
+          user: 'guest',
           cards: [144, 145, 146, 147, 148, 149, 150]
         })
         .end((err, response) => {
@@ -147,6 +151,8 @@ describe('API Routes', () => {
         .send({
           name: 'Ultra Mega Awesome Tinkerer',
           class: 'Tinkerer',
+          level: 1,
+          user: 'guest',
           cards: []
         })
         .end((err, response) => {
@@ -163,6 +169,8 @@ describe('API Routes', () => {
         .send({
           name: 'Ultra Mega Awesome Tinkerer',
           class: 'Tinkerer',
+          level: 1,
+          user: 'guest',
           cards: ['i do wat i want']
         })
         .end((err, response) => {
