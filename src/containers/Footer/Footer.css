@@ -11,7 +11,7 @@ footer {
 }
 
 footer:hover {
-  max-height: 50vh;
+  max-height: 80vh;
 }
 
 .saved-decks-tab {
@@ -32,22 +32,23 @@ footer:hover {
   margin: auto;
   display: flex;
   flex-wrap: wrap;
-  justify-content: baseline;
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0.8);
   overflow-y: scroll;
+  border-radius: 25px 25px 0 0;
 }
 
 #decks-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  align-items: left;
   width: 80vw;
+  margin-left: 3%;
 }
 
 #decks-container h1 {
   width: 20vw;
   white-space: nowrap;
+  color: black;
 }
 
 #decks-container img {
@@ -58,6 +59,10 @@ footer:hover {
 .saved-deck {
   flex-basis: 42.5%;
   white-space: pre;
+  background-color: rgba(210, 210, 210, 0.5);
+  margin: 10px;
+  border-radius: 10px;
+  height: 65px
 }
 
 .saved-deck-classImg {
@@ -77,6 +82,7 @@ footer:hover {
 #decks-container button {
   background-color: transparent;
   border: none;
+  outline: none;
 }
 
 .saved-deck-deleteImg {
@@ -88,6 +94,12 @@ footer:hover {
 .sign-in-request {
   margin-bottom: 0;
   flex-basis: 100%;
+}
+
+.sign-in-request p {
+  font-family: 'Nyala';
+  font-size: 24px;
+  margin-bottom: 0;
 }
 
 .sign-out {
