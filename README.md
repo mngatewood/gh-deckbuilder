@@ -41,12 +41,12 @@ This app currently allows deck building for the starting six classes. We did thi
 
 ### Desktop Welcome Page
 
-![welcome gif desktop](https://dzwonsemrish7.cloudfront.net/items/1F0E3v1Y0f3w2a3H2c2E/Screen%20Recording%202018-06-06%20at%2009.38%20AM.gif?v=001b9ea1)
+![welcome gif desktop](https://dzwonsemrish7.cloudfront.net/items/1F0E3v1Y0f3w2a3H2c2E/Screen%20Recording%202018-06-06%20at%2009.38%20AM.gif)
 
 ### Desktop Class Page
 
-![class gif desktop](https://dzwonsemrish7.cloudfront.net/items/0U0V0Y0R3K14322y1O40/Screen%20Recording%202018-06-06%20at%2009.44%20AM.gif?v=7776b431)
+![class gif desktop](https://dzwonsemrish7.cloudfront.net/items/0U0V0Y0R3K14322y1O40/Screen%20Recording%202018-06-06%20at%2009.44%20AM.gif)
 
 ### Mobile 
 
-![class gif mobile](https://dzwonsemrish7.cloudfront.net/items/25470U2L250t1b2F3v28/Screen%20Recording%202018-06-06%20at%2009.48%20AM.gif?v=49edee2d)
+![class gif mobile](https://dzwonsemrish7.cloudfront.net/items/25470U2L250t1b2F3v28/Screen%20Recording%202018-06-06%20at%2009.48%20AM.gif)
