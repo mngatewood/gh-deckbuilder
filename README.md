@@ -1,28 +1,52 @@
 [![Build Status](https://travis-ci.org/mngatewood/gh-deckbuilder.svg?branch=master)](https://travis-ci.org/mngatewood/gh-deckbuilder)
 
-Description:
+# GLOOMHAVEN DECK BUILDER
+
+## Group
+
+Charles Yach, Michael Gatewood, Kailin Cannon
+
+## Description
+
 Gloomhaven is a board game with hundreds of pieces and hundreds of cards. Time is wasted when players arrive deciding what cards to use for their class. This app would allow them to build their decks remotely and arrive ready to play.
 
-User Stories:
-As a player of this game, I want to prepare my character deck so that I can get straight to playing when I join my fellow nerds.
+This project was created using a Node/Knex/Express/PostgreSQL back-end, and a React, React-Router, React-Redux front end. The back-end is tested with Mocha/Chai and the frontend with Jest/Enzyme. User authorization is verified via Firebase.
 
-MVP:
-A user should be able to login. Once loged in, they can select a character class and level, then select cards within the restraints of that class and level. They will be able to save and name the collection of cards.
+## Set Up
 
-Wireframes:
-Desktop:
-https://cl.ly/143Z451d1K35
+### LIVE
 
-Mobile:
-Landscape:
-https://cl.ly/1W1y412E2r0o
+Visit http://gh-deckbuilder.herokuapp.com/ to view a live demonstration of the app!
 
-Portrait:
-https://cl.ly/012G1K2q1F34
+### Front and Back End
 
-Schema Layout:
-https://cl.ly/2c2y1v3X112e
+Clone this repository.
 
-Tech Stack:
-Node/Knex/Express/PostgreSQL backend with many to many relational databases to store cards and decks.
-PWA React App, Router, Redux (if createContext() isnt enough) Firebase for user login?
+Run `npm install` from the root directory.
+
+Run `node server.js` to start the back-end.
+
+Run `npm start` to launch the front-end.
+
+You can run the front-end testing suite with `npm run test-fe`.
+
+You can run the back-end testing suite with `npm test`.
+
+
+## Future
+
+This app currently allows deck building for the starting six classes. We did this to avoid spoilers for ourselves. In the future we would like to implement the other classes the game has to offer. Using user authorization we would to be able to share decks with friends that you may be dungeon crawling with. This would allow friends to synergize their decks remotely. We also need some polish for a mobile version including styling and less loading times for slower network connections.
+
+## Screenshot
+
+### Desktop Welcome Page
+
+![welcome gif desktop](https://dzwonsemrish7.cloudfront.net/items/1F0E3v1Y0f3w2a3H2c2E/Screen%20Recording%202018-06-06%20at%2009.38%20AM.gif?v=001b9ea1)
+
+### Desktop Class Page
+
+![class gif desktop](https://dzwonsemrish7.cloudfront.net/items/0U0V0Y0R3K14322y1O40/Screen%20Recording%202018-06-06%20at%2009.44%20AM.gif?v=7776b431)
+
+### Mobile 
+
+![class gif mobile](https://dzwonsemrish7.cloudfront.net/items/25470U2L250t1b2F3v28/Screen%20Recording%202018-06-06%20at%2009.48%20AM.gif?v=49edee2d)
