@@ -26,7 +26,7 @@
     "test-fe-coverage": "react-scripts test --coverage --env=jsdom",
     "eject": "react-scripts eject",
     "eslint": "./node_modules/.bin/eslint --fix ./*.js ./db/**/*.js ./test/*.js",
-    "heroku-postbuild": "npm install && npm start"
+    "heroku-postbuild": "npm install && npm run build"
   },
   "devDependencies": {
     "chai": "^4.1.2",
