@@ -1,4 +1,3 @@
-// PLACEHOLDER
 import rootReducer from '.././index';
 
 describe('rootReducer', () => {
