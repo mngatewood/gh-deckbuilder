@@ -11,13 +11,16 @@ describe("App", () => {
       <App/>);
   });
 
-  it.skip('renders without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(<App />, div);
-    ReactDOM.unmountComponentAtNode(div);
-  });
-
   it("matches the snapshot", () => {
     expect(wrapper).toMatchSnapshot();
+  });
+
+  it("componentDidUpdate", async () => {
+    wrapper = shallow(<App/>, {disableLifecycleMethods: true})
+    const update = wrapper.instance().componentDidUpdate();
+    const background = require('../../images/background/background.png')
+    const expectedStyle = {"background-image": "url(background.png)"};
+
+    expect(document.body.style._values).toEqual(expectedStyle)
   });
 });

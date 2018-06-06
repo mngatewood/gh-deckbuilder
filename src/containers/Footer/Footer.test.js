@@ -12,10 +12,18 @@ describe("Footer component", () => {
       wrapper = shallow(<Footer
         addDecks={jest.fn()}
         addSelectedDecks={jest.fn()}
-        currentDecks={[]}/>);
+        changeUser={jest.fn()}
+        currentDecks={[]}
+        user="guest"/>)
     });
 
-    it("should match the snapshot when there are no decks", () => {
+    it("should match the snapshot without being signed in", () => {
+      expect(wrapper).toMatchSnapshot();
+    });
+
+    it("should match the snapshot when a user is signed in", () => {
+      wrapper.setState({isSignedIn: true});
+
       expect(wrapper).toMatchSnapshot();
     });
 
@@ -23,7 +31,8 @@ describe("Footer component", () => {
       wrapper = shallow(<Footer
         addDecks={jest.fn()}
         addSelectedDecks={jest.fn()}
-        currentDecks={mocks.mockMultiDecks}/>);
+        changeUser={jest.fn()}
+        currentDecks={mocks.mockMultiDecks}/>)
 
       expect(wrapper).toMatchSnapshot();
     });
@@ -38,6 +47,13 @@ describe("Footer component", () => {
       expect(mapped.currentDecks).toEqual(expectedState);
     });
 
+      it('correctly maps user to props', () => {
+        const mockState = {currentDecks: mocks.mockMultiDecks, user:"guest"};
+        const mapped = mapStateToProps(mockState);
+        const expectedState = "guest";
+
+        expect(mapped.user).toEqual(expectedState);
+      });
   });
 
   describe("Map Dispatch to Props", () => {
@@ -58,6 +74,12 @@ describe("Footer component", () => {
     it('Should dispatch addDecks', () => {
       mappedDispatch.addDecks();
       const expected = actions.addDecks();
+      expect(mockDispatch).toHaveBeenCalledWith(expected);
+    });
+
+    it('Should dispatch changeUser', () => {
+      mappedDispatch.changeUser();
+      const expected = actions.changeUser();
       expect(mockDispatch).toHaveBeenCalledWith(expected);
     });
 

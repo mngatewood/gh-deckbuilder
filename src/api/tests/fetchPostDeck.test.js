@@ -39,6 +39,7 @@ describe("Fetch Cards", () => {
 
   it("should give status 201 if successful", async () => {
     window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+      status: 201,
       json: () => Promise.resolve(results)
     }));
 
