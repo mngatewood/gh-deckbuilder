@@ -1,0 +1,3185 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Deckbuilder Component Container Tests should match the snapshot 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <DeckBuilder
+    addAvailableCards={[Function]}
+    addCards={[Function]}
+    addSelectedCards={[Function]}
+    addSelectedClass={[Function]}
+    availableCards={
+        Array [
+            Object {
+              "bottom_action": "Move 3 Push 1 ● ^(Target all adjacent enemies)",
+              "card_level": 1,
+              "class": "Brute",
+              "image_url": "./images/cards/Brute3.png",
+              "initiative": 64,
+              "name": "Sweeping Blow",
+              "top_action": "Attack 2 ● Attack Pattern: 3 connected adjacent hexes, enhanceable to 4",
+            },
+            Object {
+              "bottom_action": "Move 4 ● ^Jump Attack 2 ● ● ^(Target all enemies moved through) 2 XP, LOSS",
+              "card_level": 1,
+              "class": "Brute",
+              "image_url": "./images/cards/Brute1.png",
+              "initiative": 72,
+              "name": "Trample",
+              "top_action": "Attack 3 ● ^(Pierce 2 ●)",
+            },
+            Object {
+              "bottom_action": "Any enemy who targets one of your adjacent allies with an attack this round targets you with that attack instead, regardless of the attack's range. Round Bonus",
+              "card_level": 1,
+              "class": "Brute",
+              "image_url": "./images/cards/Brute4.png",
+              "initiative": 10,
+              "name": "Provoking Roar ",
+              "top_action": "Attack 2 ● ^Disarm ",
+            },
+            Object {
+              "bottom_action": "Heal 2 ● ● ^(Range 1) Generate Earth",
+              "card_level": 1,
+              "class": "Brute",
+              "image_url": "./images/cards/Brute2.png",
+              "initiative": 18,
+              "name": "Eye for an Eye",
+              "top_action": "Retaliate 2 ● ^Self ^(Gain 1 XP each time you retaliate this round.) Round Bonus ",
+            },
+            Object {
+              "bottom_action": "On the next six sources of damage from attacks targeting you, gain Shield 1. 6 Charges, gain 1 XP on 2nd, 4th, and 6th charge. LOSS",
+              "card_level": 1,
+              "class": "Brute",
+              "image_url": "./images/cards/Brute7.png",
+              "initiative": 32,
+              "name": "Warding Strength ",
+              "top_action": "Attack 3 ● ^(Push 2 ●) ",
+            },
+            Object {
+              "bottom_action": "Move 3 Push 2 ● ^(Target one adjacent enemy)",
+              "card_level": 1,
+              "class": "Brute",
+              "image_url": "./images/cards/Brute5.png",
+              "initiative": 61,
+              "name": "Overwhelming Assault",
+              "top_action": "Attack 6 ● ● 2 XP, LOSS",
+            },
+            Object {
+              "bottom_action": "Attack 2",
+              "card_level": 1,
+              "class": "Brute",
+              "image_url": "./images/cards/Brute10.png",
+              "initiative": 27,
+              "name": "Spare Dagger",
+              "top_action": "Attack 3 ● ^(Range 3) 1 XP",
+            },
+            Object {
+              "bottom_action": "Move 3 ● ^Jump Generate Air",
+              "card_level": 1,
+              "class": "Brute",
+              "image_url": "./images/cards/Brute9.png",
+              "initiative": 54,
+              "name": "Leaping Cleave",
+              "top_action": "Attack 3 ● Attack Pattern: 3 consecutive adjacent hexes 1XP ",
+            },
+            Object {
+              "bottom_action": "Move 6 ● ● 1 XP, LOSS",
+              "card_level": 0,
+              "class": "Brute",
+              "image_url": "./images/cards/Brute11.png",
+              "initiative": 35,
+              "name": "Skewer",
+              "top_action": "Attack 3 ● Use Air: +1 Attack, Pierce 1 Attack Pattern: Two hexes in a line from your position. Enhanceable to add a 3rd hex. 1 XP",
+            },
+            Object {
+              "bottom_action": "Add +1 Attack to all your attacks this round. Round Bonus",
+              "card_level": 0,
+              "class": "Brute",
+              "image_url": "./images/cards/Brute13.png",
+              "initiative": 20,
+              "name": "Wall of Doom",
+              "top_action": "Retaliate 2 ● ^Self Shield 2 ● ^Self 2 XP, Round Bonus, LOSS",
+            },
+            Object {
+              "bottom_action": "Move X ^(where X is the amount of damage you have inflicted so far this turn.)",
+              "card_level": 0,
+              "class": "Brute",
+              "image_url": "./images/cards/Brute12.png",
+              "initiative": 77,
+              "name": "Balanced Measure",
+              "top_action": "Attack X ^(where X is the number of hexes you have moved so far this turn) 1XP",
+            },
+            Object {
+              "bottom_action": "On the next three sources of damage to you, suffer no damage instead. 3 Charges, 1 XP on each charge LOSS",
+              "card_level": 2,
+              "class": "Brute",
+              "image_url": "./images/cards/Brute3.png",
+              "initiative": 34,
+              "name": "Juggernaut",
+              "top_action": "Move 2 ● Attack 2 ●",
+            },
+            Object {
+              "bottom_action": "Move 4 ●",
+              "card_level": 2,
+              "class": "Brute",
+              "image_url": "./images/cards/Brute14.png",
+              "initiative": 40,
+              "name": "Fatal Advance",
+              "top_action": "Kill one adjacent normal enemy 2 XP, LOSS  ",
+            },
+            Object {
+              "bottom_action": "Move 4 ^(If the movement was in a straight line, perform) Attack X ^(where X is the number of hexes you moved with this action).",
+              "card_level": 3,
+              "class": "Brute",
+              "image_url": "./images/cards/Brute16.png",
+              "initiative": 42,
+              "name": "Hook and Chain",
+              "top_action": "Attack 3 ● ● ^(Range 3) ^(Pull 2)",
+            },
+            Object {
+              "bottom_action": "Move 2 Shield 1 ● ^Self Round Bonus",
+              "card_level": 3,
+              "class": "Brute",
+              "image_url": "./images/cards/Brute17.png",
+              "initiative": 51,
+              "name": "Brute Force",
+              "top_action": "Attack 2 ● ^Muddle Attack Pattern: 3 consecutive adjacent hexes. Enhanceable to add a 4th and 5th hex. 1 XP ",
+            },
+            Object {
+              "bottom_action": "Move 4 ● Stun ^(Target all adjacent enemies) LOSS",
+              "card_level": 4,
+              "class": "Brute",
+              "image_url": "./images/cards/Brute18.png",
+              "initiative": 86,
+              "name": "Unstoppable Charge",
+              "top_action": "Attack 5 ● 1 XP",
+            },
+            Object {
+              "bottom_action": "Loot 1",
+              "card_level": 4,
+              "class": "Brute",
+              "image_url": "./images/cards/Brute19.png",
+              "initiative": 27,
+              "name": "Devastating Hack",
+              "top_action": "Attack 8 ● ● 3 XP, LOSS",
+            },
+            Object {
+              "bottom_action": "Attack 3 ● ^(Range 3) 1 XP",
+              "card_level": 5,
+              "class": "Brute",
+              "image_url": "./images/cards/Brute21.png",
+              "initiative": 29,
+              "name": "Skirmishing Maneuver",
+              "top_action": "Attack 2 Move 2 ● Attack 2",
+            },
+            Object {
+              "bottom_action": "Move 4 ● Push 3 ● ^(Target one adjacent enemy)",
+              "card_level": 5,
+              "class": "Brute",
+              "image_url": "./images/cards/Brute20.png",
+              "initiative": 28,
+              "name": "Whirlwind",
+              "top_action": "Attack 4 ● ^(Target all adjacent enemies. Gain 1 XP for each enemy targeted). LOSS",
+            },
+            Object {
+              "bottom_action": "You may treat all Move abilities as Attack abilities of equal value. Round Bonus LOSS",
+              "card_level": 6,
+              "class": "Brute",
+              "image_url": "./images/cards/Brute23.png",
+              "initiative": 17,
+              "name": "Immovable Phalanx",
+              "top_action": "Attack 4 ● Shield 1 ● ^(Self) Round Bonus",
+            },
+            Object {
+              "bottom_action": "Move 3 ● Add +1 Attack to all your attacks this round. Round Bonus",
+              "card_level": 6,
+              "class": "Brute",
+              "image_url": "./images/cards/Brute22.png",
+              "initiative": 57,
+              "name": "Quietus",
+              "top_action": "Kill one adjacent normal enemy with STUN 1XP",
+            },
+            Object {
+              "bottom_action": "Move 3 ● Immobilize and Push 1 ^(Target one adjacent enemy)",
+              "card_level": 7,
+              "class": "Brute",
+              "image_url": "./images/cards/Brute25.png",
+              "initiative": 33,
+              "name": "Crippling Offensive",
+              "top_action": "Attack 6 ● ● ^Wound ^Stun 3 XP, LOSS",
+            },
+            Object {
+              "bottom_action": "Retaliate 1 ^Self Shield 1 ^Self 2 XP, Round Bonus LOSS",
+              "card_level": 7,
+              "class": "Brute",
+              "image_url": "./images/cards/Brute24.png",
+              "initiative": 26,
+              "name": "Defensive Tactics",
+              "top_action": "Attack 2 ● ^(Range 3) ^(Target 2 ●) ^Immobilize 1XP",
+            },
+            Object {
+              "bottom_action": "Add +3 Attack to all your attacks targeting enemies with Disarm, Immobilize, or Stun this round. 1XP, Round Bonus",
+              "card_level": 8,
+              "class": "Brute",
+              "image_url": "./images/cards/Brute26.png",
+              "initiative": 41,
+              "name": "Frenzied Onslaught",
+              "top_action": "Move 2 Attack 2 ● Move 2 Attack 2 ●",
+            },
+            Object {
+              "bottom_action": "Move 3 ● Retaliate 2 ● ^Self 1XP, Round Bonus",
+              "card_level": 8,
+              "class": "Brute",
+              "image_url": "./images/cards/Brute27.png",
+              "initiative": 12,
+              "name": "Selfish Retribution",
+              "top_action": "Move 1 ● Loot 2 LOSS",
+            },
+            Object {
+              "bottom_action": "Kill one adjacent normal or elite enemy 2XP LOSS",
+              "card_level": 9,
+              "class": "Brute",
+              "image_url": "./images/cards/Brute29.png",
+              "initiative": 67,
+              "name": "Face Your End",
+              "top_action": "Attack 2 ● ^(Range 4) ^(Target 3 ●) ^(Pull 3) 1XP",
+            },
+            Object {
+              "bottom_action": "Heal 5 ● ^Self",
+              "card_level": 9,
+              "class": "Brute",
+              "image_url": "./images/cards/Brute28.png",
+              "initiative": 39,
+              "name": "King of the Hill",
+              "top_action": "Attack 6 ● ● ^(Target all adjacent enemies) ^(Push 1) ^(Gain 1XP for each enemy targeted) LOSS",
+            },
+          ]
+    }
+    cards={
+        Array [
+            Object {
+              "bottom_action": "Move 3 Push 1 ● ^(Target all adjacent enemies)",
+              "card_level": 1,
+              "class": "Brute",
+              "image_url": "./images/cards/Brute3.png",
+              "initiative": 64,
+              "name": "Sweeping Blow",
+              "top_action": "Attack 2 ● Attack Pattern: 3 connected adjacent hexes, enhanceable to 4",
+            },
+            Object {
+              "bottom_action": "Move 4 ● ^Jump Attack 2 ● ● ^(Target all enemies moved through) 2 XP, LOSS",
+              "card_level": 1,
+              "class": "Brute",
+              "image_url": "./images/cards/Brute1.png",
+              "initiative": 72,
+              "name": "Trample",
+              "top_action": "Attack 3 ● ^(Pierce 2 ●)",
+            },
+            Object {
+              "bottom_action": "Any enemy who targets one of your adjacent allies with an attack this round targets you with that attack instead, regardless of the attack's range. Round Bonus",
+              "card_level": 1,
+              "class": "Brute",
+              "image_url": "./images/cards/Brute4.png",
+              "initiative": 10,
+              "name": "Provoking Roar ",
+              "top_action": "Attack 2 ● ^Disarm ",
+            },
+            Object {
+              "bottom_action": "Shield 1 ● ● Self Round Bonus",
+              "card_level": 1,
+              "class": "Brute",
+              "image_url": "./images/cards/Brute8.png",
+              "initiative": 15,
+              "name": "Shield Bash",
+              "top_action": "Attack 4 ● ● ^Stun 2 XP, Loss",
+            },
+            Object {
+              "bottom_action": "Move 4 ●",
+              "card_level": 1,
+              "class": "Brute",
+              "image_url": "./images/cards/Brute6.png",
+              "initiative": 87,
+              "name": "Grab and Go",
+              "top_action": "Loot 1",
+            },
+            Object {
+              "bottom_action": "Heal 2 ● ● ^(Range 1) Generate Earth",
+              "card_level": 1,
+              "class": "Brute",
+              "image_url": "./images/cards/Brute2.png",
+              "initiative": 18,
+              "name": "Eye for an Eye",
+              "top_action": "Retaliate 2 ● ^Self ^(Gain 1 XP each time you retaliate this round.) Round Bonus ",
+            },
+            Object {
+              "bottom_action": "On the next six sources of damage from attacks targeting you, gain Shield 1. 6 Charges, gain 1 XP on 2nd, 4th, and 6th charge. LOSS",
+              "card_level": 1,
+              "class": "Brute",
+              "image_url": "./images/cards/Brute7.png",
+              "initiative": 32,
+              "name": "Warding Strength ",
+              "top_action": "Attack 3 ● ^(Push 2 ●) ",
+            },
+            Object {
+              "bottom_action": "Move 3 Push 2 ● ^(Target one adjacent enemy)",
+              "card_level": 1,
+              "class": "Brute",
+              "image_url": "./images/cards/Brute5.png",
+              "initiative": 61,
+              "name": "Overwhelming Assault",
+              "top_action": "Attack 6 ● ● 2 XP, LOSS",
+            },
+            Object {
+              "bottom_action": "Attack 2",
+              "card_level": 1,
+              "class": "Brute",
+              "image_url": "./images/cards/Brute10.png",
+              "initiative": 27,
+              "name": "Spare Dagger",
+              "top_action": "Attack 3 ● ^(Range 3) 1 XP",
+            },
+            Object {
+              "bottom_action": "Move 3 ● ^Jump Generate Air",
+              "card_level": 1,
+              "class": "Brute",
+              "image_url": "./images/cards/Brute9.png",
+              "initiative": 54,
+              "name": "Leaping Cleave",
+              "top_action": "Attack 3 ● Attack Pattern: 3 consecutive adjacent hexes 1XP ",
+            },
+            Object {
+              "bottom_action": "Move 6 ● ● 1 XP, LOSS",
+              "card_level": 0,
+              "class": "Brute",
+              "image_url": "./images/cards/Brute11.png",
+              "initiative": 35,
+              "name": "Skewer",
+              "top_action": "Attack 3 ● Use Air: +1 Attack, Pierce 1 Attack Pattern: Two hexes in a line from your position. Enhanceable to add a 3rd hex. 1 XP",
+            },
+            Object {
+              "bottom_action": "Add +1 Attack to all your attacks this round. Round Bonus",
+              "card_level": 0,
+              "class": "Brute",
+              "image_url": "./images/cards/Brute13.png",
+              "initiative": 20,
+              "name": "Wall of Doom",
+              "top_action": "Retaliate 2 ● ^Self Shield 2 ● ^Self 2 XP, Round Bonus, LOSS",
+            },
+            Object {
+              "bottom_action": "Move X ^(where X is the amount of damage you have inflicted so far this turn.)",
+              "card_level": 0,
+              "class": "Brute",
+              "image_url": "./images/cards/Brute12.png",
+              "initiative": 77,
+              "name": "Balanced Measure",
+              "top_action": "Attack X ^(where X is the number of hexes you have moved so far this turn) 1XP",
+            },
+            Object {
+              "bottom_action": "On the next three sources of damage to you, suffer no damage instead. 3 Charges, 1 XP on each charge LOSS",
+              "card_level": 2,
+              "class": "Brute",
+              "image_url": "./images/cards/Brute3.png",
+              "initiative": 34,
+              "name": "Juggernaut",
+              "top_action": "Move 2 ● Attack 2 ●",
+            },
+            Object {
+              "bottom_action": "Move 4 ●",
+              "card_level": 2,
+              "class": "Brute",
+              "image_url": "./images/cards/Brute14.png",
+              "initiative": 40,
+              "name": "Fatal Advance",
+              "top_action": "Kill one adjacent normal enemy 2 XP, LOSS  ",
+            },
+            Object {
+              "bottom_action": "Move 4 ^(If the movement was in a straight line, perform) Attack X ^(where X is the number of hexes you moved with this action).",
+              "card_level": 3,
+              "class": "Brute",
+              "image_url": "./images/cards/Brute16.png",
+              "initiative": 42,
+              "name": "Hook and Chain",
+              "top_action": "Attack 3 ● ● ^(Range 3) ^(Pull 2)",
+            },
+            Object {
+              "bottom_action": "Move 2 Shield 1 ● ^Self Round Bonus",
+              "card_level": 3,
+              "class": "Brute",
+              "image_url": "./images/cards/Brute17.png",
+              "initiative": 51,
+              "name": "Brute Force",
+              "top_action": "Attack 2 ● ^Muddle Attack Pattern: 3 consecutive adjacent hexes. Enhanceable to add a 4th and 5th hex. 1 XP ",
+            },
+            Object {
+              "bottom_action": "Move 4 ● Stun ^(Target all adjacent enemies) LOSS",
+              "card_level": 4,
+              "class": "Brute",
+              "image_url": "./images/cards/Brute18.png",
+              "initiative": 86,
+              "name": "Unstoppable Charge",
+              "top_action": "Attack 5 ● 1 XP",
+            },
+            Object {
+              "bottom_action": "Loot 1",
+              "card_level": 4,
+              "class": "Brute",
+              "image_url": "./images/cards/Brute19.png",
+              "initiative": 27,
+              "name": "Devastating Hack",
+              "top_action": "Attack 8 ● ● 3 XP, LOSS",
+            },
+            Object {
+              "bottom_action": "Attack 3 ● ^(Range 3) 1 XP",
+              "card_level": 5,
+              "class": "Brute",
+              "image_url": "./images/cards/Brute21.png",
+              "initiative": 29,
+              "name": "Skirmishing Maneuver",
+              "top_action": "Attack 2 Move 2 ● Attack 2",
+            },
+            Object {
+              "bottom_action": "Move 4 ● Push 3 ● ^(Target one adjacent enemy)",
+              "card_level": 5,
+              "class": "Brute",
+              "image_url": "./images/cards/Brute20.png",
+              "initiative": 28,
+              "name": "Whirlwind",
+              "top_action": "Attack 4 ● ^(Target all adjacent enemies. Gain 1 XP for each enemy targeted). LOSS",
+            },
+            Object {
+              "bottom_action": "You may treat all Move abilities as Attack abilities of equal value. Round Bonus LOSS",
+              "card_level": 6,
+              "class": "Brute",
+              "image_url": "./images/cards/Brute23.png",
+              "initiative": 17,
+              "name": "Immovable Phalanx",
+              "top_action": "Attack 4 ● Shield 1 ● ^(Self) Round Bonus",
+            },
+            Object {
+              "bottom_action": "Move 3 ● Add +1 Attack to all your attacks this round. Round Bonus",
+              "card_level": 6,
+              "class": "Brute",
+              "image_url": "./images/cards/Brute22.png",
+              "initiative": 57,
+              "name": "Quietus",
+              "top_action": "Kill one adjacent normal enemy with STUN 1XP",
+            },
+            Object {
+              "bottom_action": "Move 3 ● Immobilize and Push 1 ^(Target one adjacent enemy)",
+              "card_level": 7,
+              "class": "Brute",
+              "image_url": "./images/cards/Brute25.png",
+              "initiative": 33,
+              "name": "Crippling Offensive",
+              "top_action": "Attack 6 ● ● ^Wound ^Stun 3 XP, LOSS",
+            },
+            Object {
+              "bottom_action": "Retaliate 1 ^Self Shield 1 ^Self 2 XP, Round Bonus LOSS",
+              "card_level": 7,
+              "class": "Brute",
+              "image_url": "./images/cards/Brute24.png",
+              "initiative": 26,
+              "name": "Defensive Tactics",
+              "top_action": "Attack 2 ● ^(Range 3) ^(Target 2 ●) ^Immobilize 1XP",
+            },
+            Object {
+              "bottom_action": "Add +3 Attack to all your attacks targeting enemies with Disarm, Immobilize, or Stun this round. 1XP, Round Bonus",
+              "card_level": 8,
+              "class": "Brute",
+              "image_url": "./images/cards/Brute26.png",
+              "initiative": 41,
+              "name": "Frenzied Onslaught",
+              "top_action": "Move 2 Attack 2 ● Move 2 Attack 2 ●",
+            },
+            Object {
+              "bottom_action": "Move 3 ● Retaliate 2 ● ^Self 1XP, Round Bonus",
+              "card_level": 8,
+              "class": "Brute",
+              "image_url": "./images/cards/Brute27.png",
+              "initiative": 12,
+              "name": "Selfish Retribution",
+              "top_action": "Move 1 ● Loot 2 LOSS",
+            },
+            Object {
+              "bottom_action": "Kill one adjacent normal or elite enemy 2XP LOSS",
+              "card_level": 9,
+              "class": "Brute",
+              "image_url": "./images/cards/Brute29.png",
+              "initiative": 67,
+              "name": "Face Your End",
+              "top_action": "Attack 2 ● ^(Range 4) ^(Target 3 ●) ^(Pull 3) 1XP",
+            },
+            Object {
+              "bottom_action": "Heal 5 ● ^Self",
+              "card_level": 9,
+              "class": "Brute",
+              "image_url": "./images/cards/Brute28.png",
+              "initiative": 39,
+              "name": "King of the Hill",
+              "top_action": "Attack 6 ● ● ^(Target all adjacent enemies) ^(Push 1) ^(Gain 1XP for each enemy targeted) LOSS",
+            },
+          ]
+    }
+    currentLevel={1}
+    decreaseCurrentLevel={[Function]}
+    increaseCurrentLevel={[Function]}
+    removeSelectedCards={[Function]}
+    selectedCards={
+        Array [
+            Object {
+              "bottom_action": "Shield 1 ● ● Self Round Bonus",
+              "card_level": 1,
+              "class": "Brute",
+              "image_url": "./images/cards/Brute8.png",
+              "initiative": 15,
+              "name": "Shield Bash",
+              "top_action": "Attack 4 ● ● ^Stun 2 XP, Loss",
+            },
+            Object {
+              "bottom_action": "Move 4 ●",
+              "card_level": 1,
+              "class": "Brute",
+              "image_url": "./images/cards/Brute6.png",
+              "initiative": 87,
+              "name": "Grab and Go",
+              "top_action": "Loot 1",
+            },
+          ]
+    }
+    selectedClass="Brute"
+    selectedDeck={0}
+/>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <img
+          alt="menu"
+          id="menu"
+          onClick={[Function]}
+          src="menu.png"
+/>,
+        <withRouter(Connect(AvailableCards))
+          location={undefined}
+/>,
+        <div
+          id="class-info"
+>
+          <img
+                    alt="Brute"
+                    src="pending.png"
+          />
+          <div
+                    className="hidden"
+                    id="feedback-container"
+                    onClick={[Function]}
+          >
+                    <img
+                              alt="feedback"
+                              src="feedback-bg.png"
+                    />
+                    <div
+                              id="feedback-content"
+                    >
+                              <p />
+                    </div>
+          </div>
+          <h2>
+                    Brute
+          </h2>
+          <h5>
+                    Unnamed Deck
+          </h5>
+          <div
+                    id="stats"
+          >
+                    <h4>
+                              Cards Selected
+                    </h4>
+                    <p
+                              id="number-cards"
+                    >
+                              2
+                                 of   
+                              10
+                    </p>
+                    <h4>
+                              Character Level
+                    </h4>
+                    <div
+                              id="level-container"
+                    >
+                              <button
+                                        className="inline-button"
+                                        id="decrease-level"
+                                        onClick={[Function]}
+                              />
+                              <h3>
+                                        1
+                              </h3>
+                              <button
+                                        className="inline-button"
+                                        id="increase-level"
+                                        onClick={[Function]}
+                              />
+                    </div>
+                    <button
+                              onClick={[Function]}
+                    >
+                              Change Class
+                    </button>
+                    <button
+                              id="save-button"
+                              onClick={[Function]}
+                    >
+                              Save Deck
+                    </button>
+                    <div
+                              className="hidden"
+                              id="deck-save-container"
+                    >
+                              <form>
+                                        <input
+                                                  id="deck-name"
+                                                  placeholder="Enter deck name."
+                                                  type="text"
+                                        />
+                                        <button
+                                                  id="submit-deck"
+                                                  onClick={[Function]}
+                                        >
+                                                  Submit
+                                        </button>
+                              </form>
+                    </div>
+                    <button
+                              onClick={[Function]}
+                    >
+                              Reset Deck
+                    </button>
+                    <div
+                              className="hidden"
+                              id="change-class-container"
+                    >
+                              <button
+                                        id="cancel-class-change"
+                                        onClick={[Function]}
+                              >
+                                        Cancel
+                              </button>
+                              <div
+                                        id="class-select-container"
+                              >
+                                        <ul>
+                                                  <li
+                                                            id="Brute"
+                                                            onClick={[Function]}
+                                                  >
+                                                            <img
+                                                                      alt="Brute icon"
+                                                                      src="Brute-icon.png"
+                                                                      tooltip="Brute"
+                                                            />
+                                                  </li>
+                                                  <li
+                                                            id="Cragheart"
+                                                            onClick={[Function]}
+                                                  >
+                                                            <img
+                                                                      alt="Cragheart icon"
+                                                                      src="Cragheart-icon.png"
+                                                            />
+                                                  </li>
+                                                  <li
+                                                            id="Mindthief"
+                                                            onClick={[Function]}
+                                                  >
+                                                            <img
+                                                                      alt="Mindthief icon"
+                                                                      src="Mindthief-icon.png"
+                                                            />
+                                                  </li>
+                                        </ul>
+                                        <ul>
+                                                  <li
+                                                            id="Spellweaver"
+                                                            onClick={[Function]}
+                                                  >
+                                                            <img
+                                                                      alt="Spellweaver icon"
+                                                                      src="Spellweaver-icon.png"
+                                                            />
+                                                  </li>
+                                                  <li
+                                                            id="Scoundrel"
+                                                            onClick={[Function]}
+                                                  >
+                                                            <img
+                                                                      alt="Scoundrel icon"
+                                                                      src="Scoundrel-icon.png"
+                                                            />
+                                                  </li>
+                                                  <li
+                                                            id="Tinkerer"
+                                                            onClick={[Function]}
+                                                  >
+                                                            <img
+                                                                      alt="Tinkerer icon"
+                                                                      src="Tinkerer-icon.png"
+                                                            />
+                                                  </li>
+                                        </ul>
+                              </div>
+                    </div>
+          </div>
+</div>,
+        <withRouter(Connect(SelectedCards))
+          location={undefined}
+/>,
+      ],
+      "className": "deck-builder",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "alt": "menu",
+          "id": "menu",
+          "onClick": [Function],
+          "src": "menu.png",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "img",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "location": undefined,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <img
+              alt="Brute"
+              src="pending.png"
+/>,
+            <div
+              className="hidden"
+              id="feedback-container"
+              onClick={[Function]}
+>
+              <img
+                            alt="feedback"
+                            src="feedback-bg.png"
+              />
+              <div
+                            id="feedback-content"
+              >
+                            <p />
+              </div>
+</div>,
+            <h2>
+              Brute
+</h2>,
+            <h5>
+              Unnamed Deck
+</h5>,
+            <div
+              id="stats"
+>
+              <h4>
+                            Cards Selected
+              </h4>
+              <p
+                            id="number-cards"
+              >
+                            2
+                               of   
+                            10
+              </p>
+              <h4>
+                            Character Level
+              </h4>
+              <div
+                            id="level-container"
+              >
+                            <button
+                                          className="inline-button"
+                                          id="decrease-level"
+                                          onClick={[Function]}
+                            />
+                            <h3>
+                                          1
+                            </h3>
+                            <button
+                                          className="inline-button"
+                                          id="increase-level"
+                                          onClick={[Function]}
+                            />
+              </div>
+              <button
+                            onClick={[Function]}
+              >
+                            Change Class
+              </button>
+              <button
+                            id="save-button"
+                            onClick={[Function]}
+              >
+                            Save Deck
+              </button>
+              <div
+                            className="hidden"
+                            id="deck-save-container"
+              >
+                            <form>
+                                          <input
+                                                        id="deck-name"
+                                                        placeholder="Enter deck name."
+                                                        type="text"
+                                          />
+                                          <button
+                                                        id="submit-deck"
+                                                        onClick={[Function]}
+                                          >
+                                                        Submit
+                                          </button>
+                            </form>
+              </div>
+              <button
+                            onClick={[Function]}
+              >
+                            Reset Deck
+              </button>
+              <div
+                            className="hidden"
+                            id="change-class-container"
+              >
+                            <button
+                                          id="cancel-class-change"
+                                          onClick={[Function]}
+                            >
+                                          Cancel
+                            </button>
+                            <div
+                                          id="class-select-container"
+                            >
+                                          <ul>
+                                                        <li
+                                                                      id="Brute"
+                                                                      onClick={[Function]}
+                                                        >
+                                                                      <img
+                                                                                    alt="Brute icon"
+                                                                                    src="Brute-icon.png"
+                                                                                    tooltip="Brute"
+                                                                      />
+                                                        </li>
+                                                        <li
+                                                                      id="Cragheart"
+                                                                      onClick={[Function]}
+                                                        >
+                                                                      <img
+                                                                                    alt="Cragheart icon"
+                                                                                    src="Cragheart-icon.png"
+                                                                      />
+                                                        </li>
+                                                        <li
+                                                                      id="Mindthief"
+                                                                      onClick={[Function]}
+                                                        >
+                                                                      <img
+                                                                                    alt="Mindthief icon"
+                                                                                    src="Mindthief-icon.png"
+                                                                      />
+                                                        </li>
+                                          </ul>
+                                          <ul>
+                                                        <li
+                                                                      id="Spellweaver"
+                                                                      onClick={[Function]}
+                                                        >
+                                                                      <img
+                                                                                    alt="Spellweaver icon"
+                                                                                    src="Spellweaver-icon.png"
+                                                                      />
+                                                        </li>
+                                                        <li
+                                                                      id="Scoundrel"
+                                                                      onClick={[Function]}
+                                                        >
+                                                                      <img
+                                                                                    alt="Scoundrel icon"
+                                                                                    src="Scoundrel-icon.png"
+                                                                      />
+                                                        </li>
+                                                        <li
+                                                                      id="Tinkerer"
+                                                                      onClick={[Function]}
+                                                        >
+                                                                      <img
+                                                                                    alt="Tinkerer icon"
+                                                                                    src="Tinkerer-icon.png"
+                                                                      />
+                                                        </li>
+                                          </ul>
+                            </div>
+              </div>
+</div>,
+          ],
+          "id": "class-info",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "alt": "Brute",
+              "src": "pending.png",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "img",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <img
+                  alt="feedback"
+                  src="feedback-bg.png"
+/>,
+                <div
+                  id="feedback-content"
+>
+                  <p />
+</div>,
+              ],
+              "className": "hidden",
+              "id": "feedback-container",
+              "onClick": [Function],
+            },
+            "ref": Object {
+              "current": null,
+            },
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "alt": "feedback",
+                  "src": "feedback-bg.png",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": "img",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <p />,
+                  "id": "feedback-content",
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "",
+                  },
+                  "ref": null,
+                  "rendered": "",
+                  "type": "p",
+                },
+                "type": "div",
+              },
+            ],
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Brute",
+            },
+            "ref": null,
+            "rendered": "Brute",
+            "type": "h2",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Unnamed Deck",
+            },
+            "ref": null,
+            "rendered": "Unnamed Deck",
+            "type": "h5",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <h4>
+                  Cards Selected
+</h4>,
+                <p
+                  id="number-cards"
+>
+                  2
+                     of   
+                  10
+</p>,
+                <h4>
+                  Character Level
+</h4>,
+                <div
+                  id="level-container"
+>
+                  <button
+                                    className="inline-button"
+                                    id="decrease-level"
+                                    onClick={[Function]}
+                  />
+                  <h3>
+                                    1
+                  </h3>
+                  <button
+                                    className="inline-button"
+                                    id="increase-level"
+                                    onClick={[Function]}
+                  />
+</div>,
+                <button
+                  onClick={[Function]}
+>
+                  Change Class
+</button>,
+                <button
+                  id="save-button"
+                  onClick={[Function]}
+>
+                  Save Deck
+</button>,
+                <div
+                  className="hidden"
+                  id="deck-save-container"
+>
+                  <form>
+                                    <input
+                                                      id="deck-name"
+                                                      placeholder="Enter deck name."
+                                                      type="text"
+                                    />
+                                    <button
+                                                      id="submit-deck"
+                                                      onClick={[Function]}
+                                    >
+                                                      Submit
+                                    </button>
+                  </form>
+</div>,
+                <button
+                  onClick={[Function]}
+>
+                  Reset Deck
+</button>,
+                <div
+                  className="hidden"
+                  id="change-class-container"
+>
+                  <button
+                                    id="cancel-class-change"
+                                    onClick={[Function]}
+                  >
+                                    Cancel
+                  </button>
+                  <div
+                                    id="class-select-container"
+                  >
+                                    <ul>
+                                                      <li
+                                                                        id="Brute"
+                                                                        onClick={[Function]}
+                                                      >
+                                                                        <img
+                                                                                          alt="Brute icon"
+                                                                                          src="Brute-icon.png"
+                                                                                          tooltip="Brute"
+                                                                        />
+                                                      </li>
+                                                      <li
+                                                                        id="Cragheart"
+                                                                        onClick={[Function]}
+                                                      >
+                                                                        <img
+                                                                                          alt="Cragheart icon"
+                                                                                          src="Cragheart-icon.png"
+                                                                        />
+                                                      </li>
+                                                      <li
+                                                                        id="Mindthief"
+                                                                        onClick={[Function]}
+                                                      >
+                                                                        <img
+                                                                                          alt="Mindthief icon"
+                                                                                          src="Mindthief-icon.png"
+                                                                        />
+                                                      </li>
+                                    </ul>
+                                    <ul>
+                                                      <li
+                                                                        id="Spellweaver"
+                                                                        onClick={[Function]}
+                                                      >
+                                                                        <img
+                                                                                          alt="Spellweaver icon"
+                                                                                          src="Spellweaver-icon.png"
+                                                                        />
+                                                      </li>
+                                                      <li
+                                                                        id="Scoundrel"
+                                                                        onClick={[Function]}
+                                                      >
+                                                                        <img
+                                                                                          alt="Scoundrel icon"
+                                                                                          src="Scoundrel-icon.png"
+                                                                        />
+                                                      </li>
+                                                      <li
+                                                                        id="Tinkerer"
+                                                                        onClick={[Function]}
+                                                      >
+                                                                        <img
+                                                                                          alt="Tinkerer icon"
+                                                                                          src="Tinkerer-icon.png"
+                                                                        />
+                                                      </li>
+                                    </ul>
+                  </div>
+</div>,
+              ],
+              "id": "stats",
+            },
+            "ref": Object {
+              "current": null,
+            },
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Cards Selected",
+                },
+                "ref": null,
+                "rendered": "Cards Selected",
+                "type": "h4",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    2,
+                    "   of   ",
+                    10,
+                  ],
+                  "id": "number-cards",
+                },
+                "ref": null,
+                "rendered": Array [
+                  2,
+                  "   of   ",
+                  10,
+                ],
+                "type": "p",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Character Level",
+                },
+                "ref": null,
+                "rendered": "Character Level",
+                "type": "h4",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <button
+                      className="inline-button"
+                      id="decrease-level"
+                      onClick={[Function]}
+/>,
+                    <h3>
+                      1
+</h3>,
+                    <button
+                      className="inline-button"
+                      id="increase-level"
+                      onClick={[Function]}
+/>,
+                  ],
+                  "id": "level-container",
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "className": "inline-button",
+                      "id": "decrease-level",
+                      "onClick": [Function],
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": "button",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": 1,
+                    },
+                    "ref": null,
+                    "rendered": 1,
+                    "type": "h3",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "className": "inline-button",
+                      "id": "increase-level",
+                      "onClick": [Function],
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": "button",
+                  },
+                ],
+                "type": "div",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Change Class",
+                  "onClick": [Function],
+                },
+                "ref": Object {
+                  "current": null,
+                },
+                "rendered": "Change Class",
+                "type": "button",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Save Deck",
+                  "id": "save-button",
+                  "onClick": [Function],
+                },
+                "ref": Object {
+                  "current": null,
+                },
+                "rendered": "Save Deck",
+                "type": "button",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <form>
+                    <input
+                                        id="deck-name"
+                                        placeholder="Enter deck name."
+                                        type="text"
+                    />
+                    <button
+                                        id="submit-deck"
+                                        onClick={[Function]}
+                    >
+                                        Submit
+                    </button>
+</form>,
+                  "className": "hidden",
+                  "id": "deck-save-container",
+                },
+                "ref": Object {
+                  "current": null,
+                },
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      <input
+                        id="deck-name"
+                        placeholder="Enter deck name."
+                        type="text"
+/>,
+                      <button
+                        id="submit-deck"
+                        onClick={[Function]}
+>
+                        Submit
+</button>,
+                    ],
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "id": "deck-name",
+                        "placeholder": "Enter deck name.",
+                        "type": "text",
+                      },
+                      "ref": Object {
+                        "current": null,
+                      },
+                      "rendered": null,
+                      "type": "input",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "Submit",
+                        "id": "submit-deck",
+                        "onClick": [Function],
+                      },
+                      "ref": null,
+                      "rendered": "Submit",
+                      "type": "button",
+                    },
+                  ],
+                  "type": "form",
+                },
+                "type": "div",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Reset Deck",
+                  "onClick": [Function],
+                },
+                "ref": Object {
+                  "current": null,
+                },
+                "rendered": "Reset Deck",
+                "type": "button",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <button
+                      id="cancel-class-change"
+                      onClick={[Function]}
+>
+                      Cancel
+</button>,
+                    <div
+                      id="class-select-container"
+>
+                      <ul>
+                                            <li
+                                                                  id="Brute"
+                                                                  onClick={[Function]}
+                                            >
+                                                                  <img
+                                                                                        alt="Brute icon"
+                                                                                        src="Brute-icon.png"
+                                                                                        tooltip="Brute"
+                                                                  />
+                                            </li>
+                                            <li
+                                                                  id="Cragheart"
+                                                                  onClick={[Function]}
+                                            >
+                                                                  <img
+                                                                                        alt="Cragheart icon"
+                                                                                        src="Cragheart-icon.png"
+                                                                  />
+                                            </li>
+                                            <li
+                                                                  id="Mindthief"
+                                                                  onClick={[Function]}
+                                            >
+                                                                  <img
+                                                                                        alt="Mindthief icon"
+                                                                                        src="Mindthief-icon.png"
+                                                                  />
+                                            </li>
+                      </ul>
+                      <ul>
+                                            <li
+                                                                  id="Spellweaver"
+                                                                  onClick={[Function]}
+                                            >
+                                                                  <img
+                                                                                        alt="Spellweaver icon"
+                                                                                        src="Spellweaver-icon.png"
+                                                                  />
+                                            </li>
+                                            <li
+                                                                  id="Scoundrel"
+                                                                  onClick={[Function]}
+                                            >
+                                                                  <img
+                                                                                        alt="Scoundrel icon"
+                                                                                        src="Scoundrel-icon.png"
+                                                                  />
+                                            </li>
+                                            <li
+                                                                  id="Tinkerer"
+                                                                  onClick={[Function]}
+                                            >
+                                                                  <img
+                                                                                        alt="Tinkerer icon"
+                                                                                        src="Tinkerer-icon.png"
+                                                                  />
+                                            </li>
+                      </ul>
+</div>,
+                  ],
+                  "className": "hidden",
+                  "id": "change-class-container",
+                },
+                "ref": Object {
+                  "current": null,
+                },
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "Cancel",
+                      "id": "cancel-class-change",
+                      "onClick": [Function],
+                    },
+                    "ref": null,
+                    "rendered": "Cancel",
+                    "type": "button",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": Array [
+                        <ul>
+                          <li
+                                                    id="Brute"
+                                                    onClick={[Function]}
+                          >
+                                                    <img
+                                                                              alt="Brute icon"
+                                                                              src="Brute-icon.png"
+                                                                              tooltip="Brute"
+                                                    />
+                          </li>
+                          <li
+                                                    id="Cragheart"
+                                                    onClick={[Function]}
+                          >
+                                                    <img
+                                                                              alt="Cragheart icon"
+                                                                              src="Cragheart-icon.png"
+                                                    />
+                          </li>
+                          <li
+                                                    id="Mindthief"
+                                                    onClick={[Function]}
+                          >
+                                                    <img
+                                                                              alt="Mindthief icon"
+                                                                              src="Mindthief-icon.png"
+                                                    />
+                          </li>
+</ul>,
+                        <ul>
+                          <li
+                                                    id="Spellweaver"
+                                                    onClick={[Function]}
+                          >
+                                                    <img
+                                                                              alt="Spellweaver icon"
+                                                                              src="Spellweaver-icon.png"
+                                                    />
+                          </li>
+                          <li
+                                                    id="Scoundrel"
+                                                    onClick={[Function]}
+                          >
+                                                    <img
+                                                                              alt="Scoundrel icon"
+                                                                              src="Scoundrel-icon.png"
+                                                    />
+                          </li>
+                          <li
+                                                    id="Tinkerer"
+                                                    onClick={[Function]}
+                          >
+                                                    <img
+                                                                              alt="Tinkerer icon"
+                                                                              src="Tinkerer-icon.png"
+                                                    />
+                          </li>
+</ul>,
+                      ],
+                      "id": "class-select-container",
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": Array [
+                            <li
+                              id="Brute"
+                              onClick={[Function]}
+>
+                              <img
+                                                            alt="Brute icon"
+                                                            src="Brute-icon.png"
+                                                            tooltip="Brute"
+                              />
+</li>,
+                            <li
+                              id="Cragheart"
+                              onClick={[Function]}
+>
+                              <img
+                                                            alt="Cragheart icon"
+                                                            src="Cragheart-icon.png"
+                              />
+</li>,
+                            <li
+                              id="Mindthief"
+                              onClick={[Function]}
+>
+                              <img
+                                                            alt="Mindthief icon"
+                                                            src="Mindthief-icon.png"
+                              />
+</li>,
+                          ],
+                        },
+                        "ref": null,
+                        "rendered": Array [
+                          Object {
+                            "instance": null,
+                            "key": undefined,
+                            "nodeType": "host",
+                            "props": Object {
+                              "children": <img
+                                alt="Brute icon"
+                                src="Brute-icon.png"
+                                tooltip="Brute"
+/>,
+                              "id": "Brute",
+                              "onClick": [Function],
+                            },
+                            "ref": null,
+                            "rendered": Object {
+                              "instance": null,
+                              "key": undefined,
+                              "nodeType": "host",
+                              "props": Object {
+                                "alt": "Brute icon",
+                                "src": "Brute-icon.png",
+                                "tooltip": "Brute",
+                              },
+                              "ref": null,
+                              "rendered": null,
+                              "type": "img",
+                            },
+                            "type": "li",
+                          },
+                          Object {
+                            "instance": null,
+                            "key": undefined,
+                            "nodeType": "host",
+                            "props": Object {
+                              "children": <img
+                                alt="Cragheart icon"
+                                src="Cragheart-icon.png"
+/>,
+                              "id": "Cragheart",
+                              "onClick": [Function],
+                            },
+                            "ref": null,
+                            "rendered": Object {
+                              "instance": null,
+                              "key": undefined,
+                              "nodeType": "host",
+                              "props": Object {
+                                "alt": "Cragheart icon",
+                                "src": "Cragheart-icon.png",
+                              },
+                              "ref": null,
+                              "rendered": null,
+                              "type": "img",
+                            },
+                            "type": "li",
+                          },
+                          Object {
+                            "instance": null,
+                            "key": undefined,
+                            "nodeType": "host",
+                            "props": Object {
+                              "children": <img
+                                alt="Mindthief icon"
+                                src="Mindthief-icon.png"
+/>,
+                              "id": "Mindthief",
+                              "onClick": [Function],
+                            },
+                            "ref": null,
+                            "rendered": Object {
+                              "instance": null,
+                              "key": undefined,
+                              "nodeType": "host",
+                              "props": Object {
+                                "alt": "Mindthief icon",
+                                "src": "Mindthief-icon.png",
+                              },
+                              "ref": null,
+                              "rendered": null,
+                              "type": "img",
+                            },
+                            "type": "li",
+                          },
+                        ],
+                        "type": "ul",
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": Array [
+                            <li
+                              id="Spellweaver"
+                              onClick={[Function]}
+>
+                              <img
+                                                            alt="Spellweaver icon"
+                                                            src="Spellweaver-icon.png"
+                              />
+</li>,
+                            <li
+                              id="Scoundrel"
+                              onClick={[Function]}
+>
+                              <img
+                                                            alt="Scoundrel icon"
+                                                            src="Scoundrel-icon.png"
+                              />
+</li>,
+                            <li
+                              id="Tinkerer"
+                              onClick={[Function]}
+>
+                              <img
+                                                            alt="Tinkerer icon"
+                                                            src="Tinkerer-icon.png"
+                              />
+</li>,
+                          ],
+                        },
+                        "ref": null,
+                        "rendered": Array [
+                          Object {
+                            "instance": null,
+                            "key": undefined,
+                            "nodeType": "host",
+                            "props": Object {
+                              "children": <img
+                                alt="Spellweaver icon"
+                                src="Spellweaver-icon.png"
+/>,
+                              "id": "Spellweaver",
+                              "onClick": [Function],
+                            },
+                            "ref": null,
+                            "rendered": Object {
+                              "instance": null,
+                              "key": undefined,
+                              "nodeType": "host",
+                              "props": Object {
+                                "alt": "Spellweaver icon",
+                                "src": "Spellweaver-icon.png",
+                              },
+                              "ref": null,
+                              "rendered": null,
+                              "type": "img",
+                            },
+                            "type": "li",
+                          },
+                          Object {
+                            "instance": null,
+                            "key": undefined,
+                            "nodeType": "host",
+                            "props": Object {
+                              "children": <img
+                                alt="Scoundrel icon"
+                                src="Scoundrel-icon.png"
+/>,
+                              "id": "Scoundrel",
+                              "onClick": [Function],
+                            },
+                            "ref": null,
+                            "rendered": Object {
+                              "instance": null,
+                              "key": undefined,
+                              "nodeType": "host",
+                              "props": Object {
+                                "alt": "Scoundrel icon",
+                                "src": "Scoundrel-icon.png",
+                              },
+                              "ref": null,
+                              "rendered": null,
+                              "type": "img",
+                            },
+                            "type": "li",
+                          },
+                          Object {
+                            "instance": null,
+                            "key": undefined,
+                            "nodeType": "host",
+                            "props": Object {
+                              "children": <img
+                                alt="Tinkerer icon"
+                                src="Tinkerer-icon.png"
+/>,
+                              "id": "Tinkerer",
+                              "onClick": [Function],
+                            },
+                            "ref": null,
+                            "rendered": Object {
+                              "instance": null,
+                              "key": undefined,
+                              "nodeType": "host",
+                              "props": Object {
+                                "alt": "Tinkerer icon",
+                                "src": "Tinkerer-icon.png",
+                              },
+                              "ref": null,
+                              "rendered": null,
+                              "type": "img",
+                            },
+                            "type": "li",
+                          },
+                        ],
+                        "type": "ul",
+                      },
+                    ],
+                    "type": "div",
+                  },
+                ],
+                "type": "div",
+              },
+            ],
+            "type": "div",
+          },
+        ],
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "location": undefined,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <img
+            alt="menu"
+            id="menu"
+            onClick={[Function]}
+            src="menu.png"
+/>,
+          <withRouter(Connect(AvailableCards))
+            location={undefined}
+/>,
+          <div
+            id="class-info"
+>
+            <img
+                        alt="Brute"
+                        src="pending.png"
+            />
+            <div
+                        className="hidden"
+                        id="feedback-container"
+                        onClick={[Function]}
+            >
+                        <img
+                                    alt="feedback"
+                                    src="feedback-bg.png"
+                        />
+                        <div
+                                    id="feedback-content"
+                        >
+                                    <p />
+                        </div>
+            </div>
+            <h2>
+                        Brute
+            </h2>
+            <h5>
+                        Unnamed Deck
+            </h5>
+            <div
+                        id="stats"
+            >
+                        <h4>
+                                    Cards Selected
+                        </h4>
+                        <p
+                                    id="number-cards"
+                        >
+                                    2
+                                       of   
+                                    10
+                        </p>
+                        <h4>
+                                    Character Level
+                        </h4>
+                        <div
+                                    id="level-container"
+                        >
+                                    <button
+                                                className="inline-button"
+                                                id="decrease-level"
+                                                onClick={[Function]}
+                                    />
+                                    <h3>
+                                                1
+                                    </h3>
+                                    <button
+                                                className="inline-button"
+                                                id="increase-level"
+                                                onClick={[Function]}
+                                    />
+                        </div>
+                        <button
+                                    onClick={[Function]}
+                        >
+                                    Change Class
+                        </button>
+                        <button
+                                    id="save-button"
+                                    onClick={[Function]}
+                        >
+                                    Save Deck
+                        </button>
+                        <div
+                                    className="hidden"
+                                    id="deck-save-container"
+                        >
+                                    <form>
+                                                <input
+                                                            id="deck-name"
+                                                            placeholder="Enter deck name."
+                                                            type="text"
+                                                />
+                                                <button
+                                                            id="submit-deck"
+                                                            onClick={[Function]}
+                                                >
+                                                            Submit
+                                                </button>
+                                    </form>
+                        </div>
+                        <button
+                                    onClick={[Function]}
+                        >
+                                    Reset Deck
+                        </button>
+                        <div
+                                    className="hidden"
+                                    id="change-class-container"
+                        >
+                                    <button
+                                                id="cancel-class-change"
+                                                onClick={[Function]}
+                                    >
+                                                Cancel
+                                    </button>
+                                    <div
+                                                id="class-select-container"
+                                    >
+                                                <ul>
+                                                            <li
+                                                                        id="Brute"
+                                                                        onClick={[Function]}
+                                                            >
+                                                                        <img
+                                                                                    alt="Brute icon"
+                                                                                    src="Brute-icon.png"
+                                                                                    tooltip="Brute"
+                                                                        />
+                                                            </li>
+                                                            <li
+                                                                        id="Cragheart"
+                                                                        onClick={[Function]}
+                                                            >
+                                                                        <img
+                                                                                    alt="Cragheart icon"
+                                                                                    src="Cragheart-icon.png"
+                                                                        />
+                                                            </li>
+                                                            <li
+                                                                        id="Mindthief"
+                                                                        onClick={[Function]}
+                                                            >
+                                                                        <img
+                                                                                    alt="Mindthief icon"
+                                                                                    src="Mindthief-icon.png"
+                                                                        />
+                                                            </li>
+                                                </ul>
+                                                <ul>
+                                                            <li
+                                                                        id="Spellweaver"
+                                                                        onClick={[Function]}
+                                                            >
+                                                                        <img
+                                                                                    alt="Spellweaver icon"
+                                                                                    src="Spellweaver-icon.png"
+                                                                        />
+                                                            </li>
+                                                            <li
+                                                                        id="Scoundrel"
+                                                                        onClick={[Function]}
+                                                            >
+                                                                        <img
+                                                                                    alt="Scoundrel icon"
+                                                                                    src="Scoundrel-icon.png"
+                                                                        />
+                                                            </li>
+                                                            <li
+                                                                        id="Tinkerer"
+                                                                        onClick={[Function]}
+                                                            >
+                                                                        <img
+                                                                                    alt="Tinkerer icon"
+                                                                                    src="Tinkerer-icon.png"
+                                                                        />
+                                                            </li>
+                                                </ul>
+                                    </div>
+                        </div>
+            </div>
+</div>,
+          <withRouter(Connect(SelectedCards))
+            location={undefined}
+/>,
+        ],
+        "className": "deck-builder",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "alt": "menu",
+            "id": "menu",
+            "onClick": [Function],
+            "src": "menu.png",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "img",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "location": undefined,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <img
+                alt="Brute"
+                src="pending.png"
+/>,
+              <div
+                className="hidden"
+                id="feedback-container"
+                onClick={[Function]}
+>
+                <img
+                                alt="feedback"
+                                src="feedback-bg.png"
+                />
+                <div
+                                id="feedback-content"
+                >
+                                <p />
+                </div>
+</div>,
+              <h2>
+                Brute
+</h2>,
+              <h5>
+                Unnamed Deck
+</h5>,
+              <div
+                id="stats"
+>
+                <h4>
+                                Cards Selected
+                </h4>
+                <p
+                                id="number-cards"
+                >
+                                2
+                                   of   
+                                10
+                </p>
+                <h4>
+                                Character Level
+                </h4>
+                <div
+                                id="level-container"
+                >
+                                <button
+                                                className="inline-button"
+                                                id="decrease-level"
+                                                onClick={[Function]}
+                                />
+                                <h3>
+                                                1
+                                </h3>
+                                <button
+                                                className="inline-button"
+                                                id="increase-level"
+                                                onClick={[Function]}
+                                />
+                </div>
+                <button
+                                onClick={[Function]}
+                >
+                                Change Class
+                </button>
+                <button
+                                id="save-button"
+                                onClick={[Function]}
+                >
+                                Save Deck
+                </button>
+                <div
+                                className="hidden"
+                                id="deck-save-container"
+                >
+                                <form>
+                                                <input
+                                                                id="deck-name"
+                                                                placeholder="Enter deck name."
+                                                                type="text"
+                                                />
+                                                <button
+                                                                id="submit-deck"
+                                                                onClick={[Function]}
+                                                >
+                                                                Submit
+                                                </button>
+                                </form>
+                </div>
+                <button
+                                onClick={[Function]}
+                >
+                                Reset Deck
+                </button>
+                <div
+                                className="hidden"
+                                id="change-class-container"
+                >
+                                <button
+                                                id="cancel-class-change"
+                                                onClick={[Function]}
+                                >
+                                                Cancel
+                                </button>
+                                <div
+                                                id="class-select-container"
+                                >
+                                                <ul>
+                                                                <li
+                                                                                id="Brute"
+                                                                                onClick={[Function]}
+                                                                >
+                                                                                <img
+                                                                                                alt="Brute icon"
+                                                                                                src="Brute-icon.png"
+                                                                                                tooltip="Brute"
+                                                                                />
+                                                                </li>
+                                                                <li
+                                                                                id="Cragheart"
+                                                                                onClick={[Function]}
+                                                                >
+                                                                                <img
+                                                                                                alt="Cragheart icon"
+                                                                                                src="Cragheart-icon.png"
+                                                                                />
+                                                                </li>
+                                                                <li
+                                                                                id="Mindthief"
+                                                                                onClick={[Function]}
+                                                                >
+                                                                                <img
+                                                                                                alt="Mindthief icon"
+                                                                                                src="Mindthief-icon.png"
+                                                                                />
+                                                                </li>
+                                                </ul>
+                                                <ul>
+                                                                <li
+                                                                                id="Spellweaver"
+                                                                                onClick={[Function]}
+                                                                >
+                                                                                <img
+                                                                                                alt="Spellweaver icon"
+                                                                                                src="Spellweaver-icon.png"
+                                                                                />
+                                                                </li>
+                                                                <li
+                                                                                id="Scoundrel"
+                                                                                onClick={[Function]}
+                                                                >
+                                                                                <img
+                                                                                                alt="Scoundrel icon"
+                                                                                                src="Scoundrel-icon.png"
+                                                                                />
+                                                                </li>
+                                                                <li
+                                                                                id="Tinkerer"
+                                                                                onClick={[Function]}
+                                                                >
+                                                                                <img
+                                                                                                alt="Tinkerer icon"
+                                                                                                src="Tinkerer-icon.png"
+                                                                                />
+                                                                </li>
+                                                </ul>
+                                </div>
+                </div>
+</div>,
+            ],
+            "id": "class-info",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "alt": "Brute",
+                "src": "pending.png",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "img",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <img
+                    alt="feedback"
+                    src="feedback-bg.png"
+/>,
+                  <div
+                    id="feedback-content"
+>
+                    <p />
+</div>,
+                ],
+                "className": "hidden",
+                "id": "feedback-container",
+                "onClick": [Function],
+              },
+              "ref": Object {
+                "current": null,
+              },
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "alt": "feedback",
+                    "src": "feedback-bg.png",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "img",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": <p />,
+                    "id": "feedback-content",
+                  },
+                  "ref": null,
+                  "rendered": Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "",
+                    },
+                    "ref": null,
+                    "rendered": "",
+                    "type": "p",
+                  },
+                  "type": "div",
+                },
+              ],
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Brute",
+              },
+              "ref": null,
+              "rendered": "Brute",
+              "type": "h2",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Unnamed Deck",
+              },
+              "ref": null,
+              "rendered": "Unnamed Deck",
+              "type": "h5",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <h4>
+                    Cards Selected
+</h4>,
+                  <p
+                    id="number-cards"
+>
+                    2
+                       of   
+                    10
+</p>,
+                  <h4>
+                    Character Level
+</h4>,
+                  <div
+                    id="level-container"
+>
+                    <button
+                                        className="inline-button"
+                                        id="decrease-level"
+                                        onClick={[Function]}
+                    />
+                    <h3>
+                                        1
+                    </h3>
+                    <button
+                                        className="inline-button"
+                                        id="increase-level"
+                                        onClick={[Function]}
+                    />
+</div>,
+                  <button
+                    onClick={[Function]}
+>
+                    Change Class
+</button>,
+                  <button
+                    id="save-button"
+                    onClick={[Function]}
+>
+                    Save Deck
+</button>,
+                  <div
+                    className="hidden"
+                    id="deck-save-container"
+>
+                    <form>
+                                        <input
+                                                            id="deck-name"
+                                                            placeholder="Enter deck name."
+                                                            type="text"
+                                        />
+                                        <button
+                                                            id="submit-deck"
+                                                            onClick={[Function]}
+                                        >
+                                                            Submit
+                                        </button>
+                    </form>
+</div>,
+                  <button
+                    onClick={[Function]}
+>
+                    Reset Deck
+</button>,
+                  <div
+                    className="hidden"
+                    id="change-class-container"
+>
+                    <button
+                                        id="cancel-class-change"
+                                        onClick={[Function]}
+                    >
+                                        Cancel
+                    </button>
+                    <div
+                                        id="class-select-container"
+                    >
+                                        <ul>
+                                                            <li
+                                                                                id="Brute"
+                                                                                onClick={[Function]}
+                                                            >
+                                                                                <img
+                                                                                                    alt="Brute icon"
+                                                                                                    src="Brute-icon.png"
+                                                                                                    tooltip="Brute"
+                                                                                />
+                                                            </li>
+                                                            <li
+                                                                                id="Cragheart"
+                                                                                onClick={[Function]}
+                                                            >
+                                                                                <img
+                                                                                                    alt="Cragheart icon"
+                                                                                                    src="Cragheart-icon.png"
+                                                                                />
+                                                            </li>
+                                                            <li
+                                                                                id="Mindthief"
+                                                                                onClick={[Function]}
+                                                            >
+                                                                                <img
+                                                                                                    alt="Mindthief icon"
+                                                                                                    src="Mindthief-icon.png"
+                                                                                />
+                                                            </li>
+                                        </ul>
+                                        <ul>
+                                                            <li
+                                                                                id="Spellweaver"
+                                                                                onClick={[Function]}
+                                                            >
+                                                                                <img
+                                                                                                    alt="Spellweaver icon"
+                                                                                                    src="Spellweaver-icon.png"
+                                                                                />
+                                                            </li>
+                                                            <li
+                                                                                id="Scoundrel"
+                                                                                onClick={[Function]}
+                                                            >
+                                                                                <img
+                                                                                                    alt="Scoundrel icon"
+                                                                                                    src="Scoundrel-icon.png"
+                                                                                />
+                                                            </li>
+                                                            <li
+                                                                                id="Tinkerer"
+                                                                                onClick={[Function]}
+                                                            >
+                                                                                <img
+                                                                                                    alt="Tinkerer icon"
+                                                                                                    src="Tinkerer-icon.png"
+                                                                                />
+                                                            </li>
+                                        </ul>
+                    </div>
+</div>,
+                ],
+                "id": "stats",
+              },
+              "ref": Object {
+                "current": null,
+              },
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Cards Selected",
+                  },
+                  "ref": null,
+                  "rendered": "Cards Selected",
+                  "type": "h4",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      2,
+                      "   of   ",
+                      10,
+                    ],
+                    "id": "number-cards",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    2,
+                    "   of   ",
+                    10,
+                  ],
+                  "type": "p",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Character Level",
+                  },
+                  "ref": null,
+                  "rendered": "Character Level",
+                  "type": "h4",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      <button
+                        className="inline-button"
+                        id="decrease-level"
+                        onClick={[Function]}
+/>,
+                      <h3>
+                        1
+</h3>,
+                      <button
+                        className="inline-button"
+                        id="increase-level"
+                        onClick={[Function]}
+/>,
+                    ],
+                    "id": "level-container",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "className": "inline-button",
+                        "id": "decrease-level",
+                        "onClick": [Function],
+                      },
+                      "ref": null,
+                      "rendered": null,
+                      "type": "button",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": 1,
+                      },
+                      "ref": null,
+                      "rendered": 1,
+                      "type": "h3",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "className": "inline-button",
+                        "id": "increase-level",
+                        "onClick": [Function],
+                      },
+                      "ref": null,
+                      "rendered": null,
+                      "type": "button",
+                    },
+                  ],
+                  "type": "div",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Change Class",
+                    "onClick": [Function],
+                  },
+                  "ref": Object {
+                    "current": null,
+                  },
+                  "rendered": "Change Class",
+                  "type": "button",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Save Deck",
+                    "id": "save-button",
+                    "onClick": [Function],
+                  },
+                  "ref": Object {
+                    "current": null,
+                  },
+                  "rendered": "Save Deck",
+                  "type": "button",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": <form>
+                      <input
+                                            id="deck-name"
+                                            placeholder="Enter deck name."
+                                            type="text"
+                      />
+                      <button
+                                            id="submit-deck"
+                                            onClick={[Function]}
+                      >
+                                            Submit
+                      </button>
+</form>,
+                    "className": "hidden",
+                    "id": "deck-save-container",
+                  },
+                  "ref": Object {
+                    "current": null,
+                  },
+                  "rendered": Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": Array [
+                        <input
+                          id="deck-name"
+                          placeholder="Enter deck name."
+                          type="text"
+/>,
+                        <button
+                          id="submit-deck"
+                          onClick={[Function]}
+>
+                          Submit
+</button>,
+                      ],
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "id": "deck-name",
+                          "placeholder": "Enter deck name.",
+                          "type": "text",
+                        },
+                        "ref": Object {
+                          "current": null,
+                        },
+                        "rendered": null,
+                        "type": "input",
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": "Submit",
+                          "id": "submit-deck",
+                          "onClick": [Function],
+                        },
+                        "ref": null,
+                        "rendered": "Submit",
+                        "type": "button",
+                      },
+                    ],
+                    "type": "form",
+                  },
+                  "type": "div",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Reset Deck",
+                    "onClick": [Function],
+                  },
+                  "ref": Object {
+                    "current": null,
+                  },
+                  "rendered": "Reset Deck",
+                  "type": "button",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      <button
+                        id="cancel-class-change"
+                        onClick={[Function]}
+>
+                        Cancel
+</button>,
+                      <div
+                        id="class-select-container"
+>
+                        <ul>
+                                                <li
+                                                                        id="Brute"
+                                                                        onClick={[Function]}
+                                                >
+                                                                        <img
+                                                                                                alt="Brute icon"
+                                                                                                src="Brute-icon.png"
+                                                                                                tooltip="Brute"
+                                                                        />
+                                                </li>
+                                                <li
+                                                                        id="Cragheart"
+                                                                        onClick={[Function]}
+                                                >
+                                                                        <img
+                                                                                                alt="Cragheart icon"
+                                                                                                src="Cragheart-icon.png"
+                                                                        />
+                                                </li>
+                                                <li
+                                                                        id="Mindthief"
+                                                                        onClick={[Function]}
+                                                >
+                                                                        <img
+                                                                                                alt="Mindthief icon"
+                                                                                                src="Mindthief-icon.png"
+                                                                        />
+                                                </li>
+                        </ul>
+                        <ul>
+                                                <li
+                                                                        id="Spellweaver"
+                                                                        onClick={[Function]}
+                                                >
+                                                                        <img
+                                                                                                alt="Spellweaver icon"
+                                                                                                src="Spellweaver-icon.png"
+                                                                        />
+                                                </li>
+                                                <li
+                                                                        id="Scoundrel"
+                                                                        onClick={[Function]}
+                                                >
+                                                                        <img
+                                                                                                alt="Scoundrel icon"
+                                                                                                src="Scoundrel-icon.png"
+                                                                        />
+                                                </li>
+                                                <li
+                                                                        id="Tinkerer"
+                                                                        onClick={[Function]}
+                                                >
+                                                                        <img
+                                                                                                alt="Tinkerer icon"
+                                                                                                src="Tinkerer-icon.png"
+                                                                        />
+                                                </li>
+                        </ul>
+</div>,
+                    ],
+                    "className": "hidden",
+                    "id": "change-class-container",
+                  },
+                  "ref": Object {
+                    "current": null,
+                  },
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "Cancel",
+                        "id": "cancel-class-change",
+                        "onClick": [Function],
+                      },
+                      "ref": null,
+                      "rendered": "Cancel",
+                      "type": "button",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": Array [
+                          <ul>
+                            <li
+                                                        id="Brute"
+                                                        onClick={[Function]}
+                            >
+                                                        <img
+                                                                                    alt="Brute icon"
+                                                                                    src="Brute-icon.png"
+                                                                                    tooltip="Brute"
+                                                        />
+                            </li>
+                            <li
+                                                        id="Cragheart"
+                                                        onClick={[Function]}
+                            >
+                                                        <img
+                                                                                    alt="Cragheart icon"
+                                                                                    src="Cragheart-icon.png"
+                                                        />
+                            </li>
+                            <li
+                                                        id="Mindthief"
+                                                        onClick={[Function]}
+                            >
+                                                        <img
+                                                                                    alt="Mindthief icon"
+                                                                                    src="Mindthief-icon.png"
+                                                        />
+                            </li>
+</ul>,
+                          <ul>
+                            <li
+                                                        id="Spellweaver"
+                                                        onClick={[Function]}
+                            >
+                                                        <img
+                                                                                    alt="Spellweaver icon"
+                                                                                    src="Spellweaver-icon.png"
+                                                        />
+                            </li>
+                            <li
+                                                        id="Scoundrel"
+                                                        onClick={[Function]}
+                            >
+                                                        <img
+                                                                                    alt="Scoundrel icon"
+                                                                                    src="Scoundrel-icon.png"
+                                                        />
+                            </li>
+                            <li
+                                                        id="Tinkerer"
+                                                        onClick={[Function]}
+                            >
+                                                        <img
+                                                                                    alt="Tinkerer icon"
+                                                                                    src="Tinkerer-icon.png"
+                                                        />
+                            </li>
+</ul>,
+                        ],
+                        "id": "class-select-container",
+                      },
+                      "ref": null,
+                      "rendered": Array [
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": Array [
+                              <li
+                                id="Brute"
+                                onClick={[Function]}
+>
+                                <img
+                                                                alt="Brute icon"
+                                                                src="Brute-icon.png"
+                                                                tooltip="Brute"
+                                />
+</li>,
+                              <li
+                                id="Cragheart"
+                                onClick={[Function]}
+>
+                                <img
+                                                                alt="Cragheart icon"
+                                                                src="Cragheart-icon.png"
+                                />
+</li>,
+                              <li
+                                id="Mindthief"
+                                onClick={[Function]}
+>
+                                <img
+                                                                alt="Mindthief icon"
+                                                                src="Mindthief-icon.png"
+                                />
+</li>,
+                            ],
+                          },
+                          "ref": null,
+                          "rendered": Array [
+                            Object {
+                              "instance": null,
+                              "key": undefined,
+                              "nodeType": "host",
+                              "props": Object {
+                                "children": <img
+                                  alt="Brute icon"
+                                  src="Brute-icon.png"
+                                  tooltip="Brute"
+/>,
+                                "id": "Brute",
+                                "onClick": [Function],
+                              },
+                              "ref": null,
+                              "rendered": Object {
+                                "instance": null,
+                                "key": undefined,
+                                "nodeType": "host",
+                                "props": Object {
+                                  "alt": "Brute icon",
+                                  "src": "Brute-icon.png",
+                                  "tooltip": "Brute",
+                                },
+                                "ref": null,
+                                "rendered": null,
+                                "type": "img",
+                              },
+                              "type": "li",
+                            },
+                            Object {
+                              "instance": null,
+                              "key": undefined,
+                              "nodeType": "host",
+                              "props": Object {
+                                "children": <img
+                                  alt="Cragheart icon"
+                                  src="Cragheart-icon.png"
+/>,
+                                "id": "Cragheart",
+                                "onClick": [Function],
+                              },
+                              "ref": null,
+                              "rendered": Object {
+                                "instance": null,
+                                "key": undefined,
+                                "nodeType": "host",
+                                "props": Object {
+                                  "alt": "Cragheart icon",
+                                  "src": "Cragheart-icon.png",
+                                },
+                                "ref": null,
+                                "rendered": null,
+                                "type": "img",
+                              },
+                              "type": "li",
+                            },
+                            Object {
+                              "instance": null,
+                              "key": undefined,
+                              "nodeType": "host",
+                              "props": Object {
+                                "children": <img
+                                  alt="Mindthief icon"
+                                  src="Mindthief-icon.png"
+/>,
+                                "id": "Mindthief",
+                                "onClick": [Function],
+                              },
+                              "ref": null,
+                              "rendered": Object {
+                                "instance": null,
+                                "key": undefined,
+                                "nodeType": "host",
+                                "props": Object {
+                                  "alt": "Mindthief icon",
+                                  "src": "Mindthief-icon.png",
+                                },
+                                "ref": null,
+                                "rendered": null,
+                                "type": "img",
+                              },
+                              "type": "li",
+                            },
+                          ],
+                          "type": "ul",
+                        },
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": Array [
+                              <li
+                                id="Spellweaver"
+                                onClick={[Function]}
+>
+                                <img
+                                                                alt="Spellweaver icon"
+                                                                src="Spellweaver-icon.png"
+                                />
+</li>,
+                              <li
+                                id="Scoundrel"
+                                onClick={[Function]}
+>
+                                <img
+                                                                alt="Scoundrel icon"
+                                                                src="Scoundrel-icon.png"
+                                />
+</li>,
+                              <li
+                                id="Tinkerer"
+                                onClick={[Function]}
+>
+                                <img
+                                                                alt="Tinkerer icon"
+                                                                src="Tinkerer-icon.png"
+                                />
+</li>,
+                            ],
+                          },
+                          "ref": null,
+                          "rendered": Array [
+                            Object {
+                              "instance": null,
+                              "key": undefined,
+                              "nodeType": "host",
+                              "props": Object {
+                                "children": <img
+                                  alt="Spellweaver icon"
+                                  src="Spellweaver-icon.png"
+/>,
+                                "id": "Spellweaver",
+                                "onClick": [Function],
+                              },
+                              "ref": null,
+                              "rendered": Object {
+                                "instance": null,
+                                "key": undefined,
+                                "nodeType": "host",
+                                "props": Object {
+                                  "alt": "Spellweaver icon",
+                                  "src": "Spellweaver-icon.png",
+                                },
+                                "ref": null,
+                                "rendered": null,
+                                "type": "img",
+                              },
+                              "type": "li",
+                            },
+                            Object {
+                              "instance": null,
+                              "key": undefined,
+                              "nodeType": "host",
+                              "props": Object {
+                                "children": <img
+                                  alt="Scoundrel icon"
+                                  src="Scoundrel-icon.png"
+/>,
+                                "id": "Scoundrel",
+                                "onClick": [Function],
+                              },
+                              "ref": null,
+                              "rendered": Object {
+                                "instance": null,
+                                "key": undefined,
+                                "nodeType": "host",
+                                "props": Object {
+                                  "alt": "Scoundrel icon",
+                                  "src": "Scoundrel-icon.png",
+                                },
+                                "ref": null,
+                                "rendered": null,
+                                "type": "img",
+                              },
+                              "type": "li",
+                            },
+                            Object {
+                              "instance": null,
+                              "key": undefined,
+                              "nodeType": "host",
+                              "props": Object {
+                                "children": <img
+                                  alt="Tinkerer icon"
+                                  src="Tinkerer-icon.png"
+/>,
+                                "id": "Tinkerer",
+                                "onClick": [Function],
+                              },
+                              "ref": null,
+                              "rendered": Object {
+                                "instance": null,
+                                "key": undefined,
+                                "nodeType": "host",
+                                "props": Object {
+                                  "alt": "Tinkerer icon",
+                                  "src": "Tinkerer-icon.png",
+                                },
+                                "ref": null,
+                                "rendered": null,
+                                "type": "img",
+                              },
+                              "type": "li",
+                            },
+                          ],
+                          "type": "ul",
+                        },
+                      ],
+                      "type": "div",
+                    },
+                  ],
+                  "type": "div",
+                },
+              ],
+              "type": "div",
+            },
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "location": undefined,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+    "disableLifecycleMethods": true,
+  },
+}
+`;
