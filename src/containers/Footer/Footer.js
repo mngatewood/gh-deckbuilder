@@ -42,10 +42,11 @@ export class Footer extends Component {
     this.signOut()
     this.unregisterAuthObserver = firebase.auth().onAuthStateChanged(
       (user) => this.setState({isSignedIn: !!user})
-  );
+    );
     try {
       const decks = await api.fetchDecks();
-      this.props.addDecks(decks);
+      const filteredDeck = this.filterDecks(decks)
+      this.props.addDecks(filteredDeck);
     } catch (error) {
       this.setState({ error })
     }
@@ -55,7 +56,8 @@ export class Footer extends Component {
     if (prevProps !== this.props) {
       try {
         const decks = await api.fetchDecks();
-        this.props.addDecks(decks);
+        const filteredDeck = this.filterDecks(decks)
+        this.props.addDecks(filteredDeck);
       } catch (error) {
         this.setState({ error })
       }
@@ -66,9 +68,16 @@ export class Footer extends Component {
     this.unregisterAuthObserver();
   }
 
-  mapDecks = (decks) => {
+  filterDecks = (decks) => {
+    const filteredDecks = decks.filter(deck => {
+      return deck.user === this.props.user
+    })
+    return filteredDecks
+  }
+
+  mapDecks = (filteredDecks) => {
     const deleteImg = require('../../images/red-x.png')
-    const mappedDecks = decks.map(deck => {
+    const mappedDecks = filteredDecks.map(deck => {
       const dynamicIcon = require(`../../images/classIcons/${deck.class}Icon.png`)
       const dynamicPath = `/${deck.class}`
     
@@ -109,7 +118,7 @@ export class Footer extends Component {
 
   signOut = () => {
     firebase.auth().signOut();
-    this.props.changeUser("Guest")
+    this.props.changeUser("guest")
   }
 
   render() {
@@ -121,13 +130,14 @@ export class Footer extends Component {
           <h1 className="saved-decks-title">SAVED DECKS</h1>
         </div>
         <div className="saved-decks-container">
-          <div>
-            <p className="sign-in-request">Please sign-in:</p>
+          <div className="sign-in-request">
+            <p >Please sign-in:</p>
             <FirebaseAuth 
               uiCallback={ui => ui.disableAutoSignIn()}
               uiConfig={this.uiConfig} 
               firebaseAuth={firebase.auth()}/>
           </div>
+            {this.mapDecks(this.props.currentDecks)}
         </div>
       </footer>
       );
@@ -139,9 +149,9 @@ export class Footer extends Component {
         <h1 className="saved-decks-title">SAVED DECKS</h1>
       </div>
       <div className="saved-decks-container">
-      {this.mapDecks(this.props.currentDecks)}
       <a className="sign-out"
       onClick={() => this.signOut()}>Sign-out</a>
+      {this.mapDecks(this.props.currentDecks)}
       </div>
     </footer>
     );
