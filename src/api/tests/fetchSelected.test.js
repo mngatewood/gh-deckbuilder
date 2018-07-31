@@ -7,7 +7,7 @@ describe("Fetch Cards", () => {
 
   beforeEach(() => {
     deckId = 1;
-    url = `http://localhost:8080/api/v1/decks/${deckId}`;
+    url = `/api/v1/decks/${deckId}`;
   });
 
   it("should fetch with correct URL", () => {

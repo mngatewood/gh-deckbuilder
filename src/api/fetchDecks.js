@@ -1,5 +1,5 @@
 export const fetchDecks = async () => {
-  const url = `http://localhost:8080/api/v1/decks`;
+  const url = `/api/v1/decks`;
 
   try {
     const response = await fetch(url);
