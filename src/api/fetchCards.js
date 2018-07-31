@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 
 export const fetchCards = async (selectedClass) => {
-  const url = `http://localhost:8080/api/v1/cards/${selectedClass}`;
+  const url = `/api/v1/cards/${selectedClass}`;
 
   try {
     const response = await fetch(url);

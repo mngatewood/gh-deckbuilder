@@ -7,7 +7,7 @@ describe("Fetch Cards", () => {
 
   beforeEach(() => {
     selectedClass = 'Brute';
-    url = `http://localhost:8080/api/v1/cards/${selectedClass}`;
+    url = `/api/v1/cards/${selectedClass}`;
   });
 
   it("should fetch with correct URL", () => {

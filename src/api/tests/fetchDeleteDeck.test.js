@@ -13,7 +13,7 @@ describe("Fetch Cards", () => {
       status: 200
     }));
     const expected = [
-      `http://localhost:8080/api/v1/decks/${deckId}`,
+      `/api/v1/decks/${deckId}`,
       { method: 'DELETE',
         headers: {'Content-Type': 'application/json'}
       }
