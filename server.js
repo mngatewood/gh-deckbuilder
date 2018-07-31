@@ -28,7 +28,7 @@ app.listen(app.get('port'), () => {
   console.log(`${app.locals.title} is running on port ${app.get('port')}`); //eslint-disable-line
 });
 
-app.get('/', function (request, response) {
+app.get('/*', function (request, response) {
   response.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
