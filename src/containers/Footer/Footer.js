@@ -156,7 +156,9 @@ export class Footer extends Component {
         <div className="saved-decks-container">
           <a className="sign-out"
             onClick={() => this.signOut()}>Sign-out</a>
-          {this.mapDecks(this.props.currentDecks)}
+            <div id="decks-container">
+              {this.mapDecks(this.props.currentDecks)}
+            </div>
         </div>
       </footer>
     );
