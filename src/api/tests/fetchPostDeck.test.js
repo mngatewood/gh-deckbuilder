@@ -28,7 +28,7 @@ describe("Fetch Cards", () => {
       cards
     };
     const expected = [
-      'http://localhost:8080/api/v1/decks/',
+      '/api/v1/decks/',
       { method: 'POST',
         body: JSON.stringify(info),
         headers: {'Content-Type': 'application/json'}
