@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 
 export const fetchPostDeck = async (name,
   selectedClass, currentLevel, user, cards) => {
-  const url = 'http://localhost:8080/api/v1/decks/';
+  const url = '/api/v1/decks/';
 
   try {
     const response = await fetch(url, {
