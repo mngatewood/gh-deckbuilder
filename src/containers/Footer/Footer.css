@@ -25,6 +25,7 @@ footer:hover {
 
 .saved-decks-title {
   font-size: 26px;
+  cursor: pointer;
 }
 
 .saved-decks-container {
@@ -89,6 +90,7 @@ footer:hover {
   width: 50px;
   height: 50px;
   display: inline-block;
+  cursor: pointer;
 }
 
 .sign-in-request {
@@ -105,4 +107,5 @@ footer:hover {
 .sign-out {
   cursor: pointer;
   flex-basis: 100%;
+  padding: 10px;
 }
